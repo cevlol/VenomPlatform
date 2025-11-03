@@ -1043,6 +1043,68 @@ document.addEventListener('DOMContentLoaded',revealSloganHighlight);
 			}
 
 }
+			/* Text scaling for responsive typography */
+			html {
+				font-size: clamp(14px, 2vw + 8px, 18px);
+			}
+
+			body {
+				font-size: clamp(16px, 2vw + 10px, 22px);
+			}
+
+			/* Ensure containers and buttons do not scale */
+			.container, .button, .card, .panel {
+				transform: none;  /* Prevent scaling */
+				font-size: initial; /* Keep original font size for containers and buttons */
+			}
+
+			/* Adjust text size for header and subtitle */
+			h2.h2-left {
+				font-size: clamp(32px, 5vw, 48px);  /* Larger for headers */
+				font-weight: 700;
+				text-align: center;
+				color: var(--accent); /* Optional color adjustment */
+			}
+
+			.slogan-support {
+				font-size: clamp(18px, 2vw, 22px);  /* Subtitle slightly smaller */
+				font-weight: 400;
+				text-align: center;
+				color: var(--muted);
+			}
+
+			/* Specific adjustments for buttons */
+			button, .button, .cta {
+				font-size: 16px; /* Fixed font size for buttons */
+				padding: 12px 24px; /* Adjust padding if needed */
+			}
+
+			/* Adjusting testimonials section to scroll horizontally (already done) */
+			.testimonials {
+				display: flex;
+				gap: 20px;
+				overflow-x: hidden;
+				white-space: nowrap;
+				padding: 20px 0;
+				animation: testimonialsScroll 50s linear infinite;
+			}
+
+			.testimonials:hover {
+				animation-play-state: paused;
+			}
+
+			.testimonials .card.panel {
+				flex: 0 0 auto;
+				min-width: 320px;
+				border: 1px solid var(--accent);
+				box-shadow: 0 0 8px rgba(0, 224, 255, 0.4);
+			}
+
+			/* Testimonials scrolling animation */
+			@keyframes testimonialsScroll {
+				0% { transform: translateX(0); }
+				100% { transform: translateX(-50%); }
+			}
 
 }
 			
