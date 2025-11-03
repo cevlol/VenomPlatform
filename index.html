@@ -1087,6 +1087,7 @@ document.addEventListener('DOMContentLoaded',revealSloganHighlight);
 				color: #ffffff; /* Adjust the text color */
 				padding: 20px;
 			}
+			/* Testimonials Scrolling */
 			.testimonials {
 			  display: flex;
 			  gap: 20px; /* 20px gap between testimonials */
@@ -1110,8 +1111,54 @@ document.addEventListener('DOMContentLoaded',revealSloganHighlight);
 
 			@keyframes testimonialsScroll {
 			  0% { transform: translateX(0); }
-			  100% { transform: translateX(-100%); } /* Adjusted to ensure all testimonials are visible */
-}
+			  100% { transform: translateX(-100%); }
+			}
+
+			/* Footer Layout */
+			footer {
+			  display: flex;
+			  flex-wrap: wrap;
+			  justify-content: flex-start; /* Align footer items to the left */
+			  gap: 40px;
+			}
+
+			footer .col {
+			  flex: 1;
+			  min-width: 250px;
+			  margin-bottom: 20px;
+			}
+
+			footer .col h3 {
+			  margin-bottom: 10px;
+			  font-family: 'Poppins', sans-serif;
+			}
+
+			footer .col p, footer .col a {
+			  font-size: 14px;
+			  color: #b0b0b0;
+			  line-height: 1.6;
+			}
+
+			footer .col a {
+			  text-decoration: none;
+			  color: inherit;
+			}
+
+			footer .col a:hover {
+			  color: var(--accent);
+			}
+
+			/* Neon Border and Glow Effect */
+			.testimonials .card.panel {
+			  border: 2px solid var(--accent);
+			  box-shadow: 0 0 15px rgba(0, 255, 255, 0.6); /* Stronger neon effect */
+			  transition: box-shadow 0.3s ease;
+			}
+
+			.testimonials .card.panel:hover {
+			  box-shadow: 0 0 20px rgba(0, 255, 255, 0.8); /* Increased glow on hover */
+			}
+
 
 }
 
