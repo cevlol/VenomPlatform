@@ -1,0 +1,501 @@
+{
+  "version": "5.4",
+  "date_generated": "2025-11-03T07:27:49Z",
+  "files": [
+    {
+      "path": "build.sh",
+      "md5": "c09c633ad62e22ef8b6d029da7d8af1d",
+      "sha256": "dbeadaf4d9eefe16a2f28be14b3af1bd141ba41bef904d8d0a00e9895a7393c6"
+    },
+    {
+      "path": "changelog.txt",
+      "md5": "dec8b1c6b6bd21c7ae15ae6bbe60e5d5",
+      "sha256": "6339f3888d86291a8e2ebb128d9f7d3f59f8fb77e6d6595bc78d06ace948bcf6"
+    },
+    {
+      "path": "ip.html",
+      "md5": "71a1a97b385bfa3fe44e6c69a00d0807",
+      "sha256": "2f6fcbf81e9a607da8ff50cf2e3367f0342bba450d0d304f4c6ba9bdebb237e9"
+    },
+    {
+      "path": "meta.json",
+      "md5": "171ed9c906934bad5c5a54a17c9e9bca",
+      "sha256": "9b53813b4afc8dedd6fc38267e716825897eb8b4ba1cdcb2b0a5690d93be67e8"
+    },
+    {
+      "path": "modified_privacy.html",
+      "md5": "c0265daf463128ed3f13dbf130fa6998",
+      "sha256": "26c03dd014ed6fbc49d6f873d3a6fc9d97abc48ef1e97a6759445fcfcf028d95"
+    },
+    {
+      "path": "modified_solar-homes.html",
+      "md5": "80678e8a692a85ac03b6428eec23b738",
+      "sha256": "edab60d32da0799d9369d119060aca2b66d1ac3d3eb270e6a307cb558ab19d68"
+    },
+    {
+      "path": "modified_stc-rebate.html",
+      "md5": "7b2e79403233c9cfa9c6b61a934ef10c",
+      "sha256": "6355f26885f6ee1e51477e670b76fb3baedf0899ba0aef5ad14f39009edd9986"
+    },
+    {
+      "path": "modified_terms.html",
+      "md5": "c9406ada7fe1f4f92e847c396e170657",
+      "sha256": "bd1b14a4971eac31883389a317426f488860147d947fd992f001786b1dc1f34d"
+    },
+    {
+      "path": "modified_Venom_Platform_v4.7.html",
+      "md5": "850c47cdeac47e769c43cde7e2314173",
+      "sha256": "c3f5a2871cb7ff55a87ebf14c8b801adb7ab6e263f5dce7fb39911c9dfd00792"
+    },
+    {
+      "path": "modified_veu-rebate.html",
+      "md5": "54ecf9701b6a2566dc859cdef7e12adf",
+      "sha256": "39dba0bdd80724a408dbafc4331373cdc8057cd9a566e746a316ce121085f3f5"
+    },
+    {
+      "path": "privacy.html",
+      "md5": "eceeec7ed4f50351501bd9ecae50cf8e",
+      "sha256": "401e0bad663fffc1a0a08525d2f8922d8c779cc83474381462a6806e0090cdbe"
+    },
+    {
+      "path": "self_generate.py",
+      "md5": "0bddf52884c8fcab2843b41fd8480bf4",
+      "sha256": "35031635f491a0c40608721b315f7215861634408a6535864fe41fd462a1dbc1"
+    },
+    {
+      "path": "solar-homes.html",
+      "md5": "eecc5fbdf6f021f24ecc890f224697e0",
+      "sha256": "e781c7a9c36a274d9848ff79824e7245e1b80a6eb1c7f4982cf14bfeea986f78"
+    },
+    {
+      "path": "stc-rebate.html",
+      "md5": "cf6f77c87ba3eab7ffa9ed6d6b406ec9",
+      "sha256": "544e34cd16881b178d52e3c658d8ab84a78639d846ea54e253beba24091f03ca"
+    },
+    {
+      "path": "terms.html",
+      "md5": "47162b755b637af744afae8b56f70251",
+      "sha256": "049a2e2f0aaff67f0a1b71940c2b7c605f8bfeb464904b83406dcd2fa38b6b15"
+    },
+    {
+      "path": "veu-rebate.html",
+      "md5": "e11cacdd4ed9c3cec38c5e51aebb5b75",
+      "sha256": "71f4bcd5d37f8a16913952ed640919fe6f74b2a4cc1b63e1303e0dcc70980b2f"
+    },
+    {
+      "path": "Assets/hero1.jpg",
+      "md5": "5640db20c9282df66d47b81f1130299e",
+      "sha256": "008a21e58ecccee218f1b7baadfed7f208ca974bbd486b436328479e01de9a6a"
+    },
+    {
+      "path": "Assets/hero2.jpg",
+      "md5": "833918f065fe3768764f1a1748221340",
+      "sha256": "08fe157db39e5cb045527fbdd35a66f5a9a06769264012a6864cb94c99c0396c"
+    },
+    {
+      "path": "Assets/hero3.jpg",
+      "md5": "9f8577296ffb36797e4da198c5f2b626",
+      "sha256": "753567f76c9d0d32d8f137f7bcf97cdd6b32dba057c04454de6e4b56cb607f0b"
+    },
+    {
+      "path": "Assets/hero4.jpg",
+      "md5": "a7f3b8d20f8c85c91d0f37508fd1f08b",
+      "sha256": "57ede8bf61b88e08a22e2b07710ce00fcfeacc5232c9d8009cbcc04810379b49"
+    },
+    {
+      "path": "Assets/logo.png",
+      "md5": "f96b2daccdd26d8f8b3ebf53ebf14d39",
+      "sha256": "11bdfbcea9fdf7b47578a06871b312e4ecea67596c002fb02e8ad622ce89c294"
+    },
+    {
+      "path": "Assets/row.png",
+      "md5": "065424d6d36fa30f0328caba5daa94f8",
+      "sha256": "c4a9690d1e8a37a327eb5908d29042d6f8fd420c1a7857805ae55d18ac2d4087"
+    },
+    {
+      "path": "Assets/stock-video-1.mp4",
+      "md5": "81c412b08b404c991f862532a945fa45",
+      "sha256": "eb3803cf20ee1bbd4693b0e5514c2844e2581bd089806ecef001aab66a123c3e"
+    },
+    {
+      "path": "Assets/stock-video-2.mp4",
+      "md5": "564a8f1b176c8a9e394a511cc7838426",
+      "sha256": "f7cd367a1d36ef6f2cf7fb1f183fb6bb8d9ceacf725a3bd71f4cfcc13f064519"
+    },
+    {
+      "path": "Assets/stock-video-3.mp4",
+      "md5": "63f6b495f26086e70bbbfa904fafd55c",
+      "sha256": "03d8b004f77bf8e089e9cbbce2758c2ea1210ceb5ce0c75e7882b2e3db2951db"
+    },
+    {
+      "path": "Assets/stock-video-4.mp4",
+      "md5": "e2a614f0b796a686808cb1d3e9699539",
+      "sha256": "365acfe8beee630e5919fc6651e3efcfb83081ba397b40f09fb2dd20b227d41e"
+    },
+    {
+      "path": "Assets/summer-illust.png",
+      "md5": "9ffb6e6ee38f96143a705bf329e4309a",
+      "sha256": "bd4eeaa869e35f9ed42552a0f777626552543948e7c966e359272a956a732c99"
+    },
+    {
+      "path": "Docs/ip.html",
+      "md5": "f63c00a4b1bccfe52a79f9199498b14e",
+      "sha256": "41ac9b4653fd36d0fd0218cbfa0f76eec9d020631c8d5be6b87b783cb24ce452"
+    },
+    {
+      "path": "Docs/meta.json",
+      "md5": "fd16bff653cc85e3e01eb037f878999d",
+      "sha256": "0ad70f02f1b74f9cc519a1bf7e232c21ba44ec74276a62612c2e6739c4771d34"
+    },
+    {
+      "path": "Docs/privacy.html",
+      "md5": "09df2621237e3ad0c0ce353a047dc932",
+      "sha256": "4848efa7d31b5a04c1d752f1f86655137b33ea5ba36d189b3e224539b7777a39"
+    },
+    {
+      "path": "Docs/README_Docs.txt",
+      "md5": "3d55973e5cba35672d4a50c2c857f23d",
+      "sha256": "22f8d226538996ad1aaa51634432a175f2a7e5dc01eb2edf69c0f9cc006533f0"
+    },
+    {
+      "path": "Docs/solar-homes.html",
+      "md5": "a2ea13ad6db1b1ec7b168034e44d51b3",
+      "sha256": "7944dae953d1d69b79bb5c8b1d6acf1e9b7149071f98ac13342ada8436654e13"
+    },
+    {
+      "path": "Docs/stc-rebate.html",
+      "md5": "51b30133d611b9a2d967ae9db0891614",
+      "sha256": "f1d182bb00283595460f8cb6109b5aa98bfd0946d4b54fd5f41d60d2b4ed626a"
+    },
+    {
+      "path": "Docs/style.css",
+      "md5": "d41d8cd98f00b204e9800998ecf8427e",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Docs/terms.html",
+      "md5": "0576a511460f91f113ef3e5a39a8489f",
+      "sha256": "dba807e7691acb8ce1c1f6c9138bba2ba96d3757cccce50ec17f7621cf4477b3"
+    },
+    {
+      "path": "Docs/Venom_Platform_Deployment_and_Usage_Guide.pdf",
+      "md5": "3d1898b7ffb654e948e68d312acf65c7",
+      "sha256": "3b417d69c12d888f801a0d0adc046c7715f55d5ba7d8abdde3425f22cef9293a"
+    },
+    {
+      "path": "Docs/Venom_Platform_Technical_Whitepaper.pdf",
+      "md5": "d638e0bbe7b389991d618ee268cdeee7",
+      "sha256": "1420d341c5117e7485f55dab867dc5f176a080c548d2f6c4a8fd44e3a3b238af"
+    },
+    {
+      "path": "Docs/veu-rebate.html",
+      "md5": "3dfb32a636d222830753f5e77e7c38b5",
+      "sha256": "1fec32f6c29072798de6206f9d298e761ac45a618220b67a7f692c1eacba1259"
+    },
+    {
+      "path": "VenomTech/Venom_Platform.7z",
+      "md5": "a22c90954ba6c48355348e9cde24b5c6",
+      "sha256": "d0cccbd06006d9038598cf1545e78d681a931498a56b4f44cfe3f80355dd156b"
+    },
+    {
+      "path": "VenomTech/Venom_Platform/self_generate.py",
+      "md5": "ae050fb7a52dee94adee6bbf8133e057",
+      "sha256": "298999b44323bd9b88a09cf1b513dfe04104dddf84489f4786d30c16cb75a83d"
+    },
+    {
+      "path": "VenomTech/Venom_Platform/Venom_Platform_v4.7.html",
+      "md5": "f9bd4ab8abf925fdd8f6991654065e40",
+      "sha256": "2d7d820391f46fde619d7790b6f09a3cdac7c6c1edc19de30bb6b4a27ae704b8"
+    },
+    {
+      "path": "VenomTech/Venom_Platform/Assets/hero1.jpg",
+      "md5": "5640db20c9282df66d47b81f1130299e",
+      "sha256": "008a21e58ecccee218f1b7baadfed7f208ca974bbd486b436328479e01de9a6a"
+    },
+    {
+      "path": "VenomTech/Venom_Platform/Assets/hero2.jpg",
+      "md5": "833918f065fe3768764f1a1748221340",
+      "sha256": "08fe157db39e5cb045527fbdd35a66f5a9a06769264012a6864cb94c99c0396c"
+    },
+    {
+      "path": "VenomTech/Venom_Platform/Assets/hero3.jpg",
+      "md5": "9f8577296ffb36797e4da198c5f2b626",
+      "sha256": "753567f76c9d0d32d8f137f7bcf97cdd6b32dba057c04454de6e4b56cb607f0b"
+    },
+    {
+      "path": "VenomTech/Venom_Platform/Assets/hero4.jpg",
+      "md5": "a7f3b8d20f8c85c91d0f37508fd1f08b",
+      "sha256": "57ede8bf61b88e08a22e2b07710ce00fcfeacc5232c9d8009cbcc04810379b49"
+    },
+    {
+      "path": "VenomTech/Venom_Platform/Assets/logo.png",
+      "md5": "f96b2daccdd26d8f8b3ebf53ebf14d39",
+      "sha256": "11bdfbcea9fdf7b47578a06871b312e4ecea67596c002fb02e8ad622ce89c294"
+    },
+    {
+      "path": "VenomTech/Venom_Platform/Assets/row.png",
+      "md5": "065424d6d36fa30f0328caba5daa94f8",
+      "sha256": "c4a9690d1e8a37a327eb5908d29042d6f8fd420c1a7857805ae55d18ac2d4087"
+    },
+    {
+      "path": "VenomTech/Venom_Platform/Assets/stock-video-1.mp4",
+      "md5": "81c412b08b404c991f862532a945fa45",
+      "sha256": "eb3803cf20ee1bbd4693b0e5514c2844e2581bd089806ecef001aab66a123c3e"
+    },
+    {
+      "path": "VenomTech/Venom_Platform/Assets/stock-video-2.mp4",
+      "md5": "564a8f1b176c8a9e394a511cc7838426",
+      "sha256": "f7cd367a1d36ef6f2cf7fb1f183fb6bb8d9ceacf725a3bd71f4cfcc13f064519"
+    },
+    {
+      "path": "VenomTech/Venom_Platform/Assets/stock-video-3.mp4",
+      "md5": "63f6b495f26086e70bbbfa904fafd55c",
+      "sha256": "03d8b004f77bf8e089e9cbbce2758c2ea1210ceb5ce0c75e7882b2e3db2951db"
+    },
+    {
+      "path": "VenomTech/Venom_Platform/Assets/stock-video-4.mp4",
+      "md5": "e2a614f0b796a686808cb1d3e9699539",
+      "sha256": "365acfe8beee630e5919fc6651e3efcfb83081ba397b40f09fb2dd20b227d41e"
+    },
+    {
+      "path": "VenomTech/Venom_Platform/Assets/summer-illust.png",
+      "md5": "9ffb6e6ee38f96143a705bf329e4309a",
+      "sha256": "bd4eeaa869e35f9ed42552a0f777626552543948e7c966e359272a956a732c99"
+    },
+    {
+      "path": "VenomTech/Venom_Platform/Docs/ip.html",
+      "md5": "e4aa7ce422ef172fcbff1d190d4384f2",
+      "sha256": "f708d24b904e954968eb0d55391917ee006156334650d055a5580805d7dca65e"
+    },
+    {
+      "path": "VenomTech/Venom_Platform/Docs/meta.json",
+      "md5": "fd16bff653cc85e3e01eb037f878999d",
+      "sha256": "0ad70f02f1b74f9cc519a1bf7e232c21ba44ec74276a62612c2e6739c4771d34"
+    },
+    {
+      "path": "VenomTech/Venom_Platform/Docs/privacy.html",
+      "md5": "7d7c148160ce8539a75fae17242107e6",
+      "sha256": "8234bcaa3dd05daaed6a6b25cc8cec35a177a8c3d506e9f8d1501a8b683a9670"
+    },
+    {
+      "path": "VenomTech/Venom_Platform/Docs/README_Docs.txt",
+      "md5": "3d55973e5cba35672d4a50c2c857f23d",
+      "sha256": "22f8d226538996ad1aaa51634432a175f2a7e5dc01eb2edf69c0f9cc006533f0"
+    },
+    {
+      "path": "VenomTech/Venom_Platform/Docs/solar-homes.html",
+      "md5": "b3bd27c2a5efd2e63a21e88c2d8c55bf",
+      "sha256": "4812b0d303a13fb9d7c2b08966e530c07587d0439327f0d2f6b5f82c14f771f5"
+    },
+    {
+      "path": "VenomTech/Venom_Platform/Docs/stc-rebate.html",
+      "md5": "95fda65960eb69c5a8239ee76168a6a1",
+      "sha256": "c1218a619f2737d6f1009f62aa38458c25c8c2bcaf7f21e514b2f0b0848fac38"
+    },
+    {
+      "path": "VenomTech/Venom_Platform/Docs/terms.html",
+      "md5": "09c0be7d67d31e36563c38cdb0c1f7f5",
+      "sha256": "eab1d152b6a19d465df1a1ddca86273fe242ad92a6eb0d0e360694f7aa481bf1"
+    },
+    {
+      "path": "VenomTech/Venom_Platform/Docs/Venom_Platform_Deployment_and_Usage_Guide.pdf",
+      "md5": "3d1898b7ffb654e948e68d312acf65c7",
+      "sha256": "3b417d69c12d888f801a0d0adc046c7715f55d5ba7d8abdde3425f22cef9293a"
+    },
+    {
+      "path": "VenomTech/Venom_Platform/Docs/Venom_Platform_Technical_Whitepaper.pdf",
+      "md5": "d638e0bbe7b389991d618ee268cdeee7",
+      "sha256": "1420d341c5117e7485f55dab867dc5f176a080c548d2f6c4a8fd44e3a3b238af"
+    },
+    {
+      "path": "VenomTech/Venom_Platform/Docs/veu-rebate.html",
+      "md5": "a457f0440c8954fc8047bd053ecac85a",
+      "sha256": "a065d79711091485a541c8cea8d6215433bd30e95e2245a2e080404e09faf70a"
+    },
+    {
+      "path": "Venom_Platform_v5.3/changelog.txt",
+      "md5": "dec8b1c6b6bd21c7ae15ae6bbe60e5d5",
+      "sha256": "6339f3888d86291a8e2ebb128d9f7d3f59f8fb77e6d6595bc78d06ace948bcf6"
+    },
+    {
+      "path": "Venom_Platform_v5.3/ip.html",
+      "md5": "71a1a97b385bfa3fe44e6c69a00d0807",
+      "sha256": "2f6fcbf81e9a607da8ff50cf2e3367f0342bba450d0d304f4c6ba9bdebb237e9"
+    },
+    {
+      "path": "Venom_Platform_v5.3/meta.json",
+      "md5": "171ed9c906934bad5c5a54a17c9e9bca",
+      "sha256": "9b53813b4afc8dedd6fc38267e716825897eb8b4ba1cdcb2b0a5690d93be67e8"
+    },
+    {
+      "path": "Venom_Platform_v5.3/modified_privacy.html",
+      "md5": "c0265daf463128ed3f13dbf130fa6998",
+      "sha256": "26c03dd014ed6fbc49d6f873d3a6fc9d97abc48ef1e97a6759445fcfcf028d95"
+    },
+    {
+      "path": "Venom_Platform_v5.3/modified_solar-homes.html",
+      "md5": "80678e8a692a85ac03b6428eec23b738",
+      "sha256": "edab60d32da0799d9369d119060aca2b66d1ac3d3eb270e6a307cb558ab19d68"
+    },
+    {
+      "path": "Venom_Platform_v5.3/modified_stc-rebate.html",
+      "md5": "7b2e79403233c9cfa9c6b61a934ef10c",
+      "sha256": "6355f26885f6ee1e51477e670b76fb3baedf0899ba0aef5ad14f39009edd9986"
+    },
+    {
+      "path": "Venom_Platform_v5.3/modified_terms.html",
+      "md5": "c9406ada7fe1f4f92e847c396e170657",
+      "sha256": "bd1b14a4971eac31883389a317426f488860147d947fd992f001786b1dc1f34d"
+    },
+    {
+      "path": "Venom_Platform_v5.3/modified_Venom_Platform_v4.7.html",
+      "md5": "850c47cdeac47e769c43cde7e2314173",
+      "sha256": "c3f5a2871cb7ff55a87ebf14c8b801adb7ab6e263f5dce7fb39911c9dfd00792"
+    },
+    {
+      "path": "Venom_Platform_v5.3/modified_veu-rebate.html",
+      "md5": "54ecf9701b6a2566dc859cdef7e12adf",
+      "sha256": "39dba0bdd80724a408dbafc4331373cdc8057cd9a566e746a316ce121085f3f5"
+    },
+    {
+      "path": "Venom_Platform_v5.3/privacy.html",
+      "md5": "eceeec7ed4f50351501bd9ecae50cf8e",
+      "sha256": "401e0bad663fffc1a0a08525d2f8922d8c779cc83474381462a6806e0090cdbe"
+    },
+    {
+      "path": "Venom_Platform_v5.3/self_generate.py",
+      "md5": "0bddf52884c8fcab2843b41fd8480bf4",
+      "sha256": "35031635f491a0c40608721b315f7215861634408a6535864fe41fd462a1dbc1"
+    },
+    {
+      "path": "Venom_Platform_v5.3/solar-homes.html",
+      "md5": "eecc5fbdf6f021f24ecc890f224697e0",
+      "sha256": "e781c7a9c36a274d9848ff79824e7245e1b80a6eb1c7f4982cf14bfeea986f78"
+    },
+    {
+      "path": "Venom_Platform_v5.3/stc-rebate.html",
+      "md5": "cf6f77c87ba3eab7ffa9ed6d6b406ec9",
+      "sha256": "544e34cd16881b178d52e3c658d8ab84a78639d846ea54e253beba24091f03ca"
+    },
+    {
+      "path": "Venom_Platform_v5.3/terms.html",
+      "md5": "47162b755b637af744afae8b56f70251",
+      "sha256": "049a2e2f0aaff67f0a1b71940c2b7c605f8bfeb464904b83406dcd2fa38b6b15"
+    },
+    {
+      "path": "Venom_Platform_v5.3/veu-rebate.html",
+      "md5": "e11cacdd4ed9c3cec38c5e51aebb5b75",
+      "sha256": "71f4bcd5d37f8a16913952ed640919fe6f74b2a4cc1b63e1303e0dcc70980b2f"
+    },
+    {
+      "path": "Venom_Platform_v5.3/Assets/hero1.jpg",
+      "md5": "5640db20c9282df66d47b81f1130299e",
+      "sha256": "008a21e58ecccee218f1b7baadfed7f208ca974bbd486b436328479e01de9a6a"
+    },
+    {
+      "path": "Venom_Platform_v5.3/Assets/hero2.jpg",
+      "md5": "833918f065fe3768764f1a1748221340",
+      "sha256": "08fe157db39e5cb045527fbdd35a66f5a9a06769264012a6864cb94c99c0396c"
+    },
+    {
+      "path": "Venom_Platform_v5.3/Assets/hero3.jpg",
+      "md5": "9f8577296ffb36797e4da198c5f2b626",
+      "sha256": "753567f76c9d0d32d8f137f7bcf97cdd6b32dba057c04454de6e4b56cb607f0b"
+    },
+    {
+      "path": "Venom_Platform_v5.3/Assets/hero4.jpg",
+      "md5": "a7f3b8d20f8c85c91d0f37508fd1f08b",
+      "sha256": "57ede8bf61b88e08a22e2b07710ce00fcfeacc5232c9d8009cbcc04810379b49"
+    },
+    {
+      "path": "Venom_Platform_v5.3/Assets/logo.png",
+      "md5": "f96b2daccdd26d8f8b3ebf53ebf14d39",
+      "sha256": "11bdfbcea9fdf7b47578a06871b312e4ecea67596c002fb02e8ad622ce89c294"
+    },
+    {
+      "path": "Venom_Platform_v5.3/Assets/row.png",
+      "md5": "065424d6d36fa30f0328caba5daa94f8",
+      "sha256": "c4a9690d1e8a37a327eb5908d29042d6f8fd420c1a7857805ae55d18ac2d4087"
+    },
+    {
+      "path": "Venom_Platform_v5.3/Assets/stock-video-1.mp4",
+      "md5": "81c412b08b404c991f862532a945fa45",
+      "sha256": "eb3803cf20ee1bbd4693b0e5514c2844e2581bd089806ecef001aab66a123c3e"
+    },
+    {
+      "path": "Venom_Platform_v5.3/Assets/stock-video-2.mp4",
+      "md5": "564a8f1b176c8a9e394a511cc7838426",
+      "sha256": "f7cd367a1d36ef6f2cf7fb1f183fb6bb8d9ceacf725a3bd71f4cfcc13f064519"
+    },
+    {
+      "path": "Venom_Platform_v5.3/Assets/stock-video-3.mp4",
+      "md5": "63f6b495f26086e70bbbfa904fafd55c",
+      "sha256": "03d8b004f77bf8e089e9cbbce2758c2ea1210ceb5ce0c75e7882b2e3db2951db"
+    },
+    {
+      "path": "Venom_Platform_v5.3/Assets/stock-video-4.mp4",
+      "md5": "e2a614f0b796a686808cb1d3e9699539",
+      "sha256": "365acfe8beee630e5919fc6651e3efcfb83081ba397b40f09fb2dd20b227d41e"
+    },
+    {
+      "path": "Venom_Platform_v5.3/Assets/summer-illust.png",
+      "md5": "9ffb6e6ee38f96143a705bf329e4309a",
+      "sha256": "bd4eeaa869e35f9ed42552a0f777626552543948e7c966e359272a956a732c99"
+    },
+    {
+      "path": "Venom_Platform_v5.3/Docs/ip.html",
+      "md5": "f63c00a4b1bccfe52a79f9199498b14e",
+      "sha256": "41ac9b4653fd36d0fd0218cbfa0f76eec9d020631c8d5be6b87b783cb24ce452"
+    },
+    {
+      "path": "Venom_Platform_v5.3/Docs/meta.json",
+      "md5": "fd16bff653cc85e3e01eb037f878999d",
+      "sha256": "0ad70f02f1b74f9cc519a1bf7e232c21ba44ec74276a62612c2e6739c4771d34"
+    },
+    {
+      "path": "Venom_Platform_v5.3/Docs/privacy.html",
+      "md5": "09df2621237e3ad0c0ce353a047dc932",
+      "sha256": "4848efa7d31b5a04c1d752f1f86655137b33ea5ba36d189b3e224539b7777a39"
+    },
+    {
+      "path": "Venom_Platform_v5.3/Docs/README_Docs.txt",
+      "md5": "3d55973e5cba35672d4a50c2c857f23d",
+      "sha256": "22f8d226538996ad1aaa51634432a175f2a7e5dc01eb2edf69c0f9cc006533f0"
+    },
+    {
+      "path": "Venom_Platform_v5.3/Docs/solar-homes.html",
+      "md5": "a2ea13ad6db1b1ec7b168034e44d51b3",
+      "sha256": "7944dae953d1d69b79bb5c8b1d6acf1e9b7149071f98ac13342ada8436654e13"
+    },
+    {
+      "path": "Venom_Platform_v5.3/Docs/stc-rebate.html",
+      "md5": "51b30133d611b9a2d967ae9db0891614",
+      "sha256": "f1d182bb00283595460f8cb6109b5aa98bfd0946d4b54fd5f41d60d2b4ed626a"
+    },
+    {
+      "path": "Venom_Platform_v5.3/Docs/style.css",
+      "md5": "d41d8cd98f00b204e9800998ecf8427e",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Venom_Platform_v5.3/Docs/terms.html",
+      "md5": "0576a511460f91f113ef3e5a39a8489f",
+      "sha256": "dba807e7691acb8ce1c1f6c9138bba2ba96d3757cccce50ec17f7621cf4477b3"
+    },
+    {
+      "path": "Venom_Platform_v5.3/Docs/Venom_Platform_Deployment_and_Usage_Guide.pdf",
+      "md5": "3d1898b7ffb654e948e68d312acf65c7",
+      "sha256": "3b417d69c12d888f801a0d0adc046c7715f55d5ba7d8abdde3425f22cef9293a"
+    },
+    {
+      "path": "Venom_Platform_v5.3/Docs/Venom_Platform_Technical_Whitepaper.pdf",
+      "md5": "d638e0bbe7b389991d618ee268cdeee7",
+      "sha256": "1420d341c5117e7485f55dab867dc5f176a080c548d2f6c4a8fd44e3a3b238af"
+    },
+    {
+      "path": "Venom_Platform_v5.3/Docs/veu-rebate.html",
+      "md5": "3dfb32a636d222830753f5e77e7c38b5",
+      "sha256": "1fec32f6c29072798de6206f9d298e761ac45a618220b67a7f692c1eacba1259"
+    }
+  ]
+}

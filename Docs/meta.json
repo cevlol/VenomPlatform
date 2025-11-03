@@ -1,0 +1,32 @@
+﻿{
+    "ip.html":  {
+                    "Title":  "Intellectual Property Notice | Suntech Solar Systems",
+                    "SHA256":  "46C69DA2ABCBE6E2A34DEE9ACF96CE5A5C427F31E1647982FDAC901A2E9BDC4F",
+                    "MD5":  "B79874F91EBFCF7F3A429C55663DD741"
+                },
+    "privacy.html":  {
+                         "Title":  "Privacy Policy | Suntech Solar Systems",
+                         "SHA256":  "8F6EFC9A6C13D9FD1535EB123BAACD87CC848BF20B0982D1DB1354D496F25945",
+                         "MD5":  "40ADBC0F59943EAD64F07361F00ED38C"
+                     },
+    "stc-rebate.html":  {
+                            "Title":  "Small-scale Technology Certificates (STCs) | Suntech Solar Systems",
+                            "SHA256":  "C00FEDD454522343A06F92349962ACE0EB6A6BB5E2A52C4E889F70ADAF900338",
+                            "MD5":  "087CD4D819752E1F5113027B7B5BD3B6"
+                        },
+    "solar-homes.html":  {
+                             "Title":  "Solar Homes Victoria Program | Suntech Solar Systems",
+                             "SHA256":  "A7D95C938A3D2CA245F1548656EFA76E8575BC61B967F38E8B6C5BA1E93FE1C2",
+                             "MD5":  "9651258E23FFD24AB253A54C681909ED"
+                         },
+    "terms.html":  {
+                       "Title":  "Terms of Use | Suntech Solar Systems",
+                       "SHA256":  "B199685F34254C37849025B231D1D58067C50BA3C2FAAFF1BA4EB32CFED8B1C2",
+                       "MD5":  "37525230C1D7DAED006111898AC99AB2"
+                   },
+    "veu-rebate.html":  {
+                            "Title":  "Victorian Energy Upgrades (VEU) | Suntech Solar Systems",
+                            "SHA256":  "1960D2A4C5071292C0707B897E43863BE93F5E8B60C1C5BB669409C763016262",
+                            "MD5":  "B65B328BBC1EC338C2DA555BCEC8C040"
+                        }
+}

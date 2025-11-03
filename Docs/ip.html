@@ -1,0 +1,236 @@
+﻿<!DOCTYPE html>
+<html lang='en'>
+<head>
+<style id="venom-adaptive">
+
+/* VENOM ADAPTIVE & TESTIMONIALS STYLES */
+:root{ --venom-font-base:16px; }
+html{ font-size:clamp(14px,0.9vw + 8px,20px); }
+body{ transition:transform .3s ease-in-out; transform-origin:top center; }
+
+/* Fade-in helper */
+.fade-in{ opacity:0; animation:fadeIn .9s ease-in forwards; }
+@keyframes fadeIn{ from{opacity:0} to{opacity:1} }
+
+/* Tooltips placeholder styling (venom-tooltip created by JS) */
+.venom-tooltip{ position:fixed; pointer-events:none; z-index:99999; padding:8px 10px; border-radius:6px; font-size:.95rem; background:rgba(6,8,12,0.92); color:#fff; box-shadow:0 8px 20px rgba(0,0,0,0.5); transform:translate(-50%,-120%); opacity:0; transition:opacity .12s ease, transform .12s ease; }
+
+/* Testimonials carousel - seamless infinite scroll */
+.testimonials-wrapper{ overflow:hidden; }
+.testimonials{
+  display:flex;
+  gap:16px;
+  white-space:nowrap;
+  align-items:stretch;
+  animation:testimonialsScroll 40s linear infinite;
+  will-change:transform;
+}
+.testimonials:hover{ animation-play-state:paused; }
+
+/* Each testimonial card */
+.testimonials .card.panel{
+  flex:0 0 auto;
+  min-width:300px;
+  max-width:420px;
+  padding:18px;
+  border-radius:10px;
+  border:1px solid var(--accent);
+  box-shadow:0 0 10px rgba(0,224,255,0.06);
+  background:transparent;
+  transition:transform .18s ease, box-shadow .18s ease;
+}
+.testimonials .card.panel:hover{ transform:translateY(-6px); box-shadow:0 12px 28px rgba(0,224,255,0.12); }
+
+/* duplicate set sits inline for smoothness */
+@keyframes testimonialsScroll{
+  0%{ transform: translateX(0); }
+  100%{ transform: translateX(-50%); }
+}
+
+/* responsive adjustments */
+@media(max-width:1200px){
+  .testimonials .card.panel{ min-width:260px; }
+}
+
+</style>
+<link rel="stylesheet" href="style.css">
+<meta charset='UTF-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+<title>Intellectual Property Notice | Suntech Solar Systems</title>
+<meta name='description' content='Intellectual property ownership statement regarding Suntech Solar Systems brand, content, and materials.'>
+<style>
+:root {
+  --bg:#0f1824;
+  --accent:#00e0ff;
+  --highlight:#ffa500;
+  --muted:#bfc7d5;
+  --card:#101b2a;
+}
+body {
+  font-family:'Inter',sans-serif;
+  background:var(--bg);
+  color:var(--muted);
+  margin:0;
+  padding:0;
+  text-align:center;
+}
+header img {
+  max-width:200px;
+  margin:40px auto 20px;
+  display:block;
+}
+.container {
+  max-width:900px;
+  margin:0 auto;
+  background:rgba(10,20,30,0.6);
+  border-radius:14px;
+  padding:30px 40px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.35);
+  text-align:left;
+}
+h1,h2,h3 { color:#fff; }
+a,button { color:var(--accent); cursor:pointer; }
+.btn {
+  background:var(--accent);
+  color:#000;
+  padding:10px 22px;
+  border:none;
+  border-radius:8px;
+  font-weight:600;
+  margin-top:20px;
+  transition:all .25s ease;
+}
+.btn:hover { background:var(--highlight); }
+footer {
+  margin-top:40px;
+  font-size:13px;
+  color:#667;
+}
+</style>
+<script>
+function backToMain() {
+  window.location.href="../Updated_Site/Venom_Platform_v4.7.html";
+}
+</script>
+<script>
+(function(){
+  const prefixes = ["", "../", "../../"];
+  function setLogo(id){
+    const img=document.getElementById(id);if(!img)return;
+    let i=0;const tryNext=()=>{if(i>=prefixes.length)return;
+    img.onerror=()=>{i++;tryNext();};
+    img.src=prefixes[i]+"assets/logo.png";};tryNext();
+  }
+  function backToMain(){
+    const paths=["Venom_Platform_v4.7.html","../Venom_Platform_v4.7.html","../../Venom_Platform_v4.7.html"];
+    for(let p of paths){try{window.location.href=p;break;}catch(e){}}
+  }
+  document.addEventListener('DOMContentLoaded',()=>{
+    setLogo('mainLogo');
+    const btn=document.getElementById('backToMain');
+    if(btn)btn.addEventListener('click',e=>{e.preventDefault();backToMain();});
+  });
+  window.VenomResolve={setLogo,backToMain};
+})();
+</script>
+</head>
+<body>
+
+<footer>
+
+<div class="footer-grid">
+  <div class="col">
+    <h3>Contact Us</h3>
+    <p>📞 1300 786 429</p>
+    <p>✉️ <a href="mailto:sales@suntechsolarsystems.com.au">sales@suntechsolarsystems.com.au</a></p>
+  </div>
+  <div class="col">
+    <h3>Quick Links</h3>
+    <div>Savings Calculator</div>
+    <div>Customer Reviews</div>
+    <hr style="margin:10px 0;border:0;border-top:1px solid rgba(255,255,255,0.08)">
+    <h3 style="margin-top:10px;">Legal</h3>
+    <div><a href="Docs/ip.html">Intellectual Property</a></div>
+    <div><a href="Docs/terms.html">Terms</a></div>
+    <div><a href="Docs/privacy.html">Privacy</a></div>
+  </div>
+  <div class="col">
+    <h3>Service Areas</h3>
+    <div>Bass Coast, Mornington Peninsula, La Trobe Valley, Greater Melbourne</div>
+  </div>
+  <div class="col">
+    <h3>Why Choose Us</h3>
+    <div>Local team • NETCC certified • Owner-installed systems</div>
+  </div>
+</div>
+
+  <div class="col">
+    <h3>Quick Links</h3>
+    <div>Savings Calculator</div>
+    <div>Customer Reviews</div>
+    <hr style="margin:10px 0;border:0;border-top:1px solid rgba(255,255,255,0.08)">
+    <h3 style="margin-top:10px;">Legal</h3>
+    <div><a href="Docs/ip.html">Intellectual Property</a></div>
+    <div><a href="Docs/terms.html">Terms</a></div>
+    <div><a href="Docs/privacy.html">Privacy</a></div>
+  </div>
+  <div class="col">
+    <h3>Service Areas</h3>
+    <div>Bass Coast, Mornington Peninsula, La Trobe Valley, Greater Melbourne</div>
+  </div>
+  <div class="col">
+    <h3>Why Choose Us</h3>
+    <div>Local team • NETCC certified • Owner-installed systems</div>
+  </div>
+</div>
+<div class="col"><h3 style="margin:0 0 8px 0;font-family:Poppins, sans-serif">Quick Links</h3><div style="color:var(--muted)">Savings Calculator</div><div style="color:var(--muted)">Customer Reviews</div><hr style="margin:10px 0;border:0;border-top:1px solid rgba(255,255,255,0.08)"><div style="margin-top:6px"><a href="ip.html">Intellectual Property</a><br><a href="terms.html">Terms</a><br><a href="privacy.html">Privacy</a></div></div><div class="col"><h3 style="margin:0 0 8px 0;font-family:Poppins, sans-serif">Service Areas</h3><div style="color:var(--muted)">Bass Coast, Mornington Peninsula, La Trobe Valley, Greater Melbourne</div></div><div class="col"><h3 style="margin:0 0 8px 0;font-family:Poppins, sans-serif">Why Choose Us</h3><div style="color:var(--muted)">Local team • NETCC certified • Owner-installed systems</div></div></div><div class="col"><h3 style="margin:0 0 8px 0;font-family:Poppins, sans-serif">Quick Links</h3><div style="color:var(--muted)">Savings Calculator</div><div style="color:var(--muted)">Customer Reviews</div></div><div class="col"><h3 style="margin:0 0 8px 0;font-family:Poppins, sans-serif">Service Areas</h3><div style="color:var(--muted)">Bass Coast, Mornington Peninsula, La Trobe Valley, Greater Melbourne</div></div><div class="col"><h3 style="margin:0 0 8px 0;font-family:Poppins, sans-serif">Why Choose Us</h3><div style="color:var(--muted)">Local team • NETCC certified • Owner-installed systems</div></div></div>
+
+<div class="venom-legal" style="text-align:center;margin:12px 0">
+  <a href="ip.html">Intellectual Property</a> &nbsp;|&nbsp;
+  <a href="terms.html">Terms</a> &nbsp;|&nbsp;
+  <a href="privacy.html">Privacy</a>
+</div>
+
+<p>Â© 2025 Suntech Solar Systems | Legal & Rebate Documents</p>
+</footer>
+
+<style id="venom-tooltips">
+/* tooltip element will be created dynamically */
+</style>
+<script id="venom-tooltip-js">
+(function () {
+  let tt;
+  function ensure() {
+    if (!tt) {
+      tt = document.createElement('div');
+      tt.className = 'venom-tooltip';
+      document.body.appendChild(tt);
+    }
+    return tt;
+  }
+  document.addEventListener('mouseover', function (e) {
+    const el = e.target.closest && e.target.closest('[data-venom-tooltip]');
+    if (!el) return;
+    const text = el.getAttribute('data-venom-tooltip') || '';
+    const t = ensure();
+    t.textContent = text;
+    t.style.opacity = '1';
+    function mv(ev) {
+      // small offset above cursor
+      t.style.left = ev.pageX + 'px';
+      t.style.top = (ev.pageY - 14) + 'px';
+      t.style.transform = 'translate(-50%, -120%)';
+    }
+    mv(e);
+    document.addEventListener('mousemove', mv);
+    el.addEventListener('mouseout', function out() {
+      if (t) t.style.opacity = '0';
+      document.removeEventListener('mousemove', mv);
+      el.removeEventListener('mouseout', out);
+    });
+  });
+})();
+</script>
+</body>
+</html>
+

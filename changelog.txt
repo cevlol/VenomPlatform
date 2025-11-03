@@ -1,0 +1,9 @@
+Version 5.2 - 2025-11-03 05:56:18 UTC
+- Automated build: testimonials carousel, slogan centring, footer/legal updates, adaptive CSS & tooltips
+
+Venom Platform Changelog
+
+Version 5.1 - 2025-11-03 05:11:40 UTC
+- Automated build: adaptive scaling, tooltips, footer/legal links, logo path fixes
+- See meta.json for file checksums
+
