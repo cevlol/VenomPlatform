@@ -10,7 +10,7 @@
 
 /* Headings, banners, and hero slogans */
 h1, h2, h3, .slogan, .hero-text, .section-title {
-  font-family: var(--font-display);
+  font-family: 'Roboto', 'Montserrat', 'Bebas Neue', sans-serif;: var(--font-display);
   letter-spacing: 0.5px;
   text-transform: uppercase;
   font-weight: 600;
@@ -18,20 +18,20 @@ h1, h2, h3, .slogan, .hero-text, .section-title {
 
 /* Subheadings and callouts */
 h4, h5, h6, .subheading, .card-title {
-  font-family: var(--font-body);
+  font-family: 'Roboto', 'Montserrat', 'Bebas Neue', sans-serif;: var(--font-body);
   font-weight: 500;
 }
 
 /* Paragraphs, lists, general text */
 body, p, li, span, div, .content-text {
-  font-family: var(--font-body);
+  font-family: 'Roboto', 'Montserrat', 'Bebas Neue', sans-serif;: var(--font-body);
   font-weight: 400;
   line-height: 1.6;
 }
 
 /* Buttons, navigation links, labels */
 button, .btn, nav a, .cta, label, input, textarea {
-  font-family: var(--font-ui);
+  font-family: 'Roboto', 'Montserrat', 'Bebas Neue', sans-serif;: var(--font-ui);
   font-weight: 500;
   text-transform: none;
   letter-spacing: 0.25px;
@@ -52,8 +52,15 @@ h3 {
 p {
   font-size: clamp(1rem, 1.2vw, 1.2rem);
 }
+
+h1 { font-size: clamp(2rem, 3vw, 3.5rem); }
+h2 { font-size: clamp(1.6rem, 2.5vw, 2.8rem); }
+h3 { font-size: clamp(1.4rem, 2vw, 2.2rem); }
+h4 { font-size: clamp(1.2rem, 1.8vw, 1.6rem); }
+p, li, a, span { font-size: clamp(1rem, 1vw + 0.5rem, 1.2rem); }
+
 .slogan-support {
-  font-family: var(--font-display);
+  font-family: 'Roboto', 'Montserrat', 'Bebas Neue', sans-serif;: var(--font-display);
   text-align: center;
   font-size: clamp(1.4rem, 2vw, 2rem);
   color: var(--accent);
@@ -61,7 +68,7 @@ p {
 }
 
 footer {
-  font-family: var(--font-body);
+  font-family: 'Roboto', 'Montserrat', 'Bebas Neue', sans-serif;: var(--font-body);
   font-size: clamp(0.9rem, 1vw, 1rem);
   letter-spacing: 0.3px;
   color: #d0d8e0;
