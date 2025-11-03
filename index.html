@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <link rel="preload" href="/Assets//stock-video-1.mp4" as="video">
 <title>Venom Platform — V6.3</title>
-<!-- Modern font trio for Venom Platform / Suntech Solar -->
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@500;600;700&family=Roboto+Condensed:wght@300;400;700&display=swap" rel="stylesheet">
 <link rel="preload" href="https://fonts.gstatic.com/s/bebasneue/v13/JTUSjIg69CK48gW7PXoo9Wlhzg.woff2" as="font" type="font/woff2" crossorigin>
 
 
@@ -28,46 +28,64 @@
   --panel-bg:#0b1623; --muted:#c7d2db; --orange:#f59b35; --cyan:#18e0ff;
   --fomo-top:#ff8a00; --fomo-bottom:#ffd200;
 
-  --btn-radius:8px; --avatar-size:72px;2px;
-}
-		:root {
-		  --font-heading: "BebasNeue", sans-serif;
-		  --font-sub: "Roboto", serif;
-		  --font-body: "Montserrat", sans-serif;
-}
+   /* Responsive base sizes (adaptive text scaling without scaling containers) */
+	  html{
+		font-family: 'Roboto Condensed', sans-serif;
+		font-size: clamp(14px, 1.1vw + 10px, 18px);
+		-webkit-font-smoothing:antialiased;
+		-moz-osx-font-smoothing:grayscale;
+		line-height:1.55;
+		background:linear-gradient(180deg,var(--bg),var(--bg-alt));
+		color:var(--text);
+	  }
+	  body{margin:0;min-height:100vh;display:flex;flex-direction:column;align-items:center}
 
-		/* Global text defaults */
-		body, p, li, span, input, button {
-		  font-family: 'Roboto', 'Montserrat', 'Bebas Neue', sans-serif;: var(--font-body);
-		  font-weight: 400;
-		  letter-spacing: 0.02em;
-}
+	  /* Headings (Bebas Neue) */
+	  h1,h2,h3,h4,h5,h6{
+		font-family:'Bebas Neue',sans-serif;
+		letter-spacing:0.5px;
+		text-transform:uppercase;
+		margin:0 0 0.35em 0;
+		line-height:1.05;
+		color:var(--text);
+	  }
+	  h1{font-size:clamp(2.6rem,4vw,4rem)}
+	  h2{font-size:clamp(1.8rem,2.6vw,2.6rem)}
+	  h3{font-size:clamp(1.4rem,1.9vw,2rem)}
 
-		/* Headings */
-		h1, h2 {
-		  font-family: 'Bebas Neue', sans-serif;: var(--font-heading);
-		  font-weight: 700;
-		  text-transform: none;
-		  letter-spacing: 0.5px;
-}
+	  /* Sub-headings (Montserrat) */
+	  .subheading, .section-title, .card-title {
+		font-family:'Montserrat',sans-serif;
+		font-weight:600;
+		letter-spacing:0.25px;
+		color:var(--accent);
+	  }
 
-		/* Subheadings or section labels */
-		.section h3,
-		.h2-left,
-		.footer-box h3 {
-		  font-family: 'Bebas Neue', sans-serif;: var(--font-sub);;
-		  font-weight: 400;
-		  letter-spacing: 0.5px;	 
-}
+	  /* Paragraphs & body */
+	  p,li,span,input,button,select{
+		font-family:'Roboto Condensed',sans-serif;
+		color:var(--text);
+		font-weight:400;
+		font-size:1rem;
+	  }
 
-		/* Buttons */
-		button, .btn {
-		  font-family: 'Roboto', sans-serif;: var(--font-body);
-		  font-weight: 600;
-		  text-transform: uppercase;
-		  letter-spacing: 0.04em;
-}
+	  /* Buttons */
+	  .btn, button {
+		font-family:'Montserrat',sans-serif;
+		font-weight:600;
+		text-transform:uppercase;
+		letter-spacing:0.2px;
+		font-size:clamp(0.8rem,0.5vw + 0.8rem,0.95rem);
+		border:0;
+		cursor:pointer;
+		border-radius:var(--btn-radius);
+	  }
 
+	  /* small helper */
+	  .muted{color:var(--muted)}
+	  a{color:var(--accent);text-decoration:none}
+	  a:hover{color:var(--highlight)}
+}
 		/* Fine-tune slogan */
 		#sloganHeadline {
 		  font-family: 'Montserrat', sans-serif;: var(--font-heading);
