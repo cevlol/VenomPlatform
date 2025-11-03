@@ -1,46 +1,68 @@
-/* Base font size for scalable text */
+/* ---------------------------
+   FONT FAMILY CONFIGURATION
+   --------------------------- */
+
+:root {
+  --font-display: 'Bebas Neue', sans-serif;
+  --font-body: 'Montserrat', 'Roboto', Arial, sans-serif;
+  --font-ui: 'Roboto', 'Montserrat', Arial, sans-serif;
+}
+
+/* Headings, banners, and hero slogans */
+h1, h2, h3, .slogan, .hero-text, .section-title {
+  font-family: var(--font-display);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+/* Subheadings and callouts */
+h4, h5, h6, .subheading, .card-title {
+  font-family: var(--font-body);
+  font-weight: 500;
+}
+
+/* Paragraphs, lists, general text */
+body, p, li, span, div, .content-text {
+  font-family: var(--font-body);
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+/* Buttons, navigation links, labels */
+button, .btn, nav a, .cta, label, input, textarea {
+  font-family: var(--font-ui);
+  font-weight: 500;
+  text-transform: none;
+  letter-spacing: 0.25px;
+}
 html {
-    font-size: clamp(14px, 2vw + 2px, 20px); /* Scales from 14px to 20px */
+  font-size: clamp(14px, 1.6vw, 18px);
 }
 
-body {
-    font-family: 'Inter', sans-serif;
-    background: var(--bg);
-    color: var(--muted);
-    margin: 0;
-    padding: 0;
-    text-align: center;
-    font-size: clamp(16px, 2vw + 1rem, 18px); /* Adjust text size based on viewport */
+h1 {
+  font-size: clamp(2.4rem, 4vw, 3.6rem);
+}
+h2 {
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+}
+h3 {
+  font-size: clamp(1.4rem, 2vw, 2rem);
+}
+p {
+  font-size: clamp(1rem, 1.2vw, 1.2rem);
+}
+.slogan-support {
+  font-family: var(--font-display);
+  text-align: center;
+  font-size: clamp(1.4rem, 2vw, 2rem);
+  color: var(--accent);
+  letter-spacing: 0.05em;
 }
 
-h1, h2, h3 {
-    color: #fff;
-}
-
-img {
-    width: 100%;
-    height: auto;
-    max-width: 100%; /* Responsive image scaling */
-}
-
-/* Responsive layout for larger screens (e.g., ultra-wides like 3440px) */
-@media (min-width: 1440px) {
-    body {
-        transform: scale(1.05); /* Slightly scale up content for larger screens */
-        transform-origin: top center;
-    }
-}
-
-/* Tablet or smaller devices (max-width: 1024px) */
-@media (max-width: 1024px) {
-    body {
-        font-size: 16px;
-    }
-}
-
-/* Mobile devices (max-width: 600px) */
-@media (max-width: 600px) {
-    body {
-        font-size: 14px; /* Adjust font size for small screens */
-    }
+footer {
+  font-family: var(--font-body);
+  font-size: clamp(0.9rem, 1vw, 1rem);
+  letter-spacing: 0.3px;
+  color: #d0d8e0;
 }
