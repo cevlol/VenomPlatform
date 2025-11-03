@@ -4,8 +4,10 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <link rel="preload" href="/Assets//stock-video-1.mp4" as="video">
-<title>Venom Platform — Aurora v4.7</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;800&display=swap" rel="stylesheet">
+<title>Venom Platform — V6.3</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Cabin+Condensed:wght@400;500;600;700&family=DM+Serif+Text:ital,wght@0,400;1,400&family=Momo+Trust+Display:wght@400;700&display=swap" rel="stylesheet">
+
 <meta name="description" content="Suntech Solar Systems — local Victorian solar installations, battery backup, rebates and tailored quotes.">
 
 <style>
@@ -26,6 +28,61 @@
 
   --btn-radius:8px; --avatar-size:72px;2px;
 }
+		:root {
+		  --font-heading: "Momo Trust Display", sans-serif;
+		  --font-sub: "DM Serif Text", serif;
+		  --font-body: "Cabin Condensed", sans-serif;
+}
+
+		/* Global text defaults */
+		body, p, li, span, input, button {
+		  font-family: var(--font-body);
+		  font-weight: 400;
+		  letter-spacing: 0.02em;
+}
+
+		/* Headings */
+		h1, h2, h3, h4, h5 {
+		  font-family: var(--font-heading);
+		  font-weight: 700;
+		  text-transform: none;
+		  letter-spacing: 0.01em;
+}
+
+		/* Subheadings or section labels */
+		.section h3,
+		.h2-left,
+		.footer-box h3 {
+		  font-family: var(--font-sub);
+		  font-weight: 400;
+		  letter-spacing: 0.02em;
+		  font-style: italic;
+}
+
+		/* Buttons */
+		button, .btn {
+		  font-family: var(--font-body);
+		  font-weight: 600;
+		  text-transform: uppercase;
+		  letter-spacing: 0.04em;
+}
+
+		/* Fine-tune slogan */
+		#sloganHeadline {
+		  font-family: var(--font-heading);
+		  font-size: clamp(2.5rem, 3vw, 4rem);
+		  line-height: 1.05;
+}
+
+		#sloganSupport {
+		  font-family: var(--font-sub);
+		  font-size: clamp(1rem, 1.2vw, 1.5rem);
+		  font-style: italic;
+}
+		h1, h2, h3 {
+		  text-shadow: 0 0 8px rgba(0, 224, 255, 0.4);
+}
+
 
 /* Reset & base */
 *{box-sizing:border-box}
