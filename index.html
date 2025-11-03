@@ -511,7 +511,7 @@ window.switchTheme = function(k){
             <span id="sloganPre">Our Promise —</span>
             <span class="splash"><span id="sloganMain" class="slogan-highlight">100% Money-Back Guarantee</span></span>
         </div>
-        <div class="slogan-support" id="sloganSupport" style="text-align:center;">
+        <div class="slogan-support" id="sloganSupport">
     Confidence-first protections — our promise to local Victorians.
 </div>
 
@@ -1025,5 +1025,44 @@ document.addEventListener('DOMContentLoaded',revealSloganHighlight);
                 visibility: visible;
                 opacity: 1;
             }
+			
+			#sloganSupport {
+				text-align: center;
+				display: block;
+				margin: 0 auto;
+				font-size: 2rem; /* Adjust the font size as needed */
+				color: #ffffff; /* Adjust the text color */
+				padding: 20px;
+			}
+			.testimonials {
+			display: flex;
+			gap: 16px;
+			overflow-x: hidden;
+			white-space: nowrap;
+			padding: 20px 0;
+			animation: testimonialsScroll 50s linear infinite;
+			}
+
+			.testimonials:hover {
+			animation-play-state: paused;
+			}
+
+			.testimonials .card.panel {
+			  flex: 0 0 auto;
+			  min-width: 320px;
+			  border: 1px solid var(--accent);
+			  box-shadow: 0 0 8px rgba(0, 224, 255, 0.4);
+			}
+
+			@keyframes testimonialsScroll {
+			0% {
+				transform: translateX(0);
+			}
+			100% {
+				transform: translateX(-50%);
+  }
+}
+
+
         </style>
         
