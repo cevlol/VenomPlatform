@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<link rel="preload" href="assets/assets/stock-video-1.mp4" as="video">
+<link rel="preload" href="Assets/assets/stock-video-1.mp4" as="video">
 <title>Venom Platform — Aurora v4.7</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;800&display=swap" rel="stylesheet">
 <meta name="description" content="Suntech Solar Systems — local Victorian solar installations, battery backup, rebates and tailored quotes.">
@@ -116,9 +116,10 @@ header{display:flex;justify-content:center;align-items:center;padding-top:18px}
 }
 
 .slogan-support {
-  color:var(--muted);
-  margin-top:10px;
-  font-size:16px;
+    text-align: center;  /* Ensure the text is centered */
+    color: var(--muted); 
+    margin-top: 10px;
+    font-size: 16px;
 }
 
 .slogan-highlight {
@@ -274,7 +275,7 @@ h2,h3{font-family:Poppins,sans-serif;color:var(--orange);text-shadow:0 0 8px rgb
 <body>
 
 <header role="banner" aria-label="Suntech header">
-  <img src="assets/logo.png" alt="Suntech logo" class="header-logo">
+  <img src="Assets/logo.png" alt="Suntech logo" class="header-logo">
 </header>
 
 <!-- Sidebars -->
@@ -454,7 +455,7 @@ h2,h3{font-family:Poppins,sans-serif;color:var(--orange);text-shadow:0 0 8px rgb
       </div>
 
       <div class="fomo-illus">
-        <img src="assets/summer-illust.png" alt="Summer sale"
+        <img src="Assets/summer-illust.png" alt="Summer sale"
              style="max-width:100%;border-radius:8px;box-shadow:0 8px 20px rgba(0,0,0,0.28)">
       </div>
     </div>
@@ -504,30 +505,32 @@ window.switchTheme = function(k){
 
   
 
-  <!-- SLOGAN (now in FOMO's old spot directly under Fun Facts) -->
-  <div class="slogan-strip section" id="sloganStrip" role="region" aria-label="Theme Slogan">
+<div class="slogan-strip section" id="sloganStrip" role="region" aria-label="Theme Slogan">
     <div>
-      <div class="slogan-headline" id="sloganHeadline">
-        <span id="sloganPre">Our Promise —</span>
-        <span class="splash"><span id="sloganMain" class="slogan-highlight">100% Money-Back Guarantee</span></span>
-      </div>
-      <div class="slogan-support" id="sloganSupport">Confidence-first protections — our promise to local Victorians.</div>
+        <div class="slogan-headline" id="sloganHeadline">
+            <span id="sloganPre">Our Promise —</span>
+            <span class="splash"><span id="sloganMain" class="slogan-highlight">100% Money-Back Guarantee</span></span>
+        </div>
+        <div class="slogan-support" id="sloganSupport">
+            Confidence-first protections — our promise to local Victorians.
+        </div>
     </div>
-  </div>
+</div>
+
 
   <!-- HERO (video + carousel) - ensure 60px spacing between FOMO and video -->
   <section class="hero section" aria-label="Hero section" style="margin-top:60px;">
     <div class="video-wrap panel" id="videoWrap">
       <video id="heroVideo" autoplay muted loop playsinline preload="metadata" style="transition:opacity .6s ease;opacity:1;">
-        <source src="assets/assets/stock-video-1.mp4" type="video/mp4">
+        <source src="Assets/assets/stock-video-1.mp4" type="video/mp4">
       </video>
     </div>
 
     <div class="carousel panel" id="imageCarousel" aria-label="Image carousel" role="region">
-      <img src="assets/hero1.jpg" class="active" alt="Solar image 1" loading="lazy">
-      <img src="assets/hero2.jpg" alt="Solar image 2" loading="lazy">
-      <img src="assets/hero3.jpg" alt="Solar image 3" loading="lazy">
-      <img src="assets/hero4.jpg" alt="Solar image 4" loading="lazy">
+      <img src="Assets/hero1.jpg" class="active" alt="Solar image 1" loading="lazy">
+      <img src="Assets/hero2.jpg" alt="Solar image 2" loading="lazy">
+      <img src="Assets/hero3.jpg" alt="Solar image 3" loading="lazy">
+      <img src="Assets/hero4.jpg" alt="Solar image 4" loading="lazy">
     </div>
   </section>
 
@@ -636,31 +639,15 @@ window.switchTheme = function(k){
     </div>
   </section>
 
-  <!-- TESTIMONIALS (auto-scrolling horizontal) -->
-<section class="section" aria-label="Testimonials" style="margin-top:60px;">
-  <h2 class="h2-left"><span class="h-icon">📝</span>Testimonials</h2>
-  <div class="testimonials-wrapper">
-    <div class="testimonials">
+  <!-- TESTIMONIALS (60px spacing) -->
+  <section class="section" aria-label="Testimonials" style="margin-top:60px;">
+    <h2 class="h2-left"><span class="h-icon">📝</span>Testimonials</h2>
+    <div class="testimonials" style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:12px">
       <div class="card panel"><strong style="color:var(--orange)">⭐⭐⭐⭐⭐</strong><p style="color:var(--muted);font-style:italic">"Jess and his team were fantastic... bills dropped from $680 to $95 per quarter!"</p><div style="font-weight:700">Sarah — Geelong</div></div>
       <div class="card panel"><strong style="color:var(--orange)">⭐⭐⭐⭐⭐</strong><p style="color:var(--muted);font-style:italic">"Battery kept our fridge running during the last blackout."</p><div style="font-weight:700">Mark — Ballarat</div></div>
       <div class="card panel"><strong style="color:var(--orange)">⭐⭐⭐⭐⭐</strong><p style="color:var(--muted);font-style:italic">"No high-pressure sales, just honest advice."</p><div style="font-weight:700">Elise — Werribee</div></div>
-      <div class="card panel"><strong style="color:var(--orange)">⭐⭐⭐⭐⭐</strong><p style="color:var(--muted);font-style:italic">"Installers were polite and on time — would 100% recommend!"</p><div style="font-weight:700">Tim — Frankston</div></div>
-      <div class="card panel"><strong style="color:var(--orange)">⭐⭐⭐⭐⭐</strong><p style="color:var(--muted);font-style:italic">"Monitoring app is simple to use and very accurate."</p><div style="font-weight:700">Olivia — Dandenong</div></div>
-      <div class="card panel"><strong style="color:var(--orange)">⭐⭐⭐⭐⭐</strong><p style="color:var(--muted);font-style:italic">"Saved nearly $1,200 in the first year already."</p><div style="font-weight:700">Raj — Mornington</div></div>
-      <div class="card panel"><strong style="color:var(--orange)">⭐⭐⭐⭐⭐</strong><p style="color:var(--muted);font-style:italic">"Love that it’s all Aussie-made gear. Excellent value!"</p><div style="font-weight:700">Claire — Bairnsdale</div></div>
-
-      <!-- duplicate set for infinite looping -->
-      <div class="card panel"><strong style="color:var(--orange)">⭐⭐⭐⭐⭐</strong><p style="color:var(--muted);font-style:italic">"Jess and his team were fantastic... bills dropped from $680 to $95 per quarter!"</p><div style="font-weight:700">Sarah — Geelong</div></div>
-      <div class="card panel"><strong style="color:var(--orange)">⭐⭐⭐⭐⭐</strong><p style="color:var(--muted);font-style:italic">"Battery kept our fridge running during the last blackout."</p><div style="font-weight:700">Mark — Ballarat</div></div>
-      <div class="card panel"><strong style="color:var(--orange)">⭐⭐⭐⭐⭐</strong><p style="color:var(--muted);font-style:italic">"No high-pressure sales, just honest advice."</p><div style="font-weight:700">Elise — Werribee</div></div>
-      <div class="card panel"><strong style="color:var(--orange)">⭐⭐⭐⭐⭐</strong><p style="color:var(--muted);font-style:italic">"Installers were polite and on time — would 100% recommend!"</p><div style="font-weight:700">Tim — Frankston</div></div>
-      <div class="card panel"><strong style="color:var(--orange)">⭐⭐⭐⭐⭐</strong><p style="color:var(--muted);font-style:italic">"Monitoring app is simple to use and very accurate."</p><div style="font-weight:700">Olivia — Dandenong</div></div>
-      <div class="card panel"><strong style="color:var(--orange)">⭐⭐⭐⭐⭐</strong><p style="color:var(--muted);font-style:italic">"Saved nearly $1,200 in the first year already."</p><div style="font-weight:700">Raj — Mornington</div></div>
-      <div class="card panel"><strong style="color:var(--orange)">⭐⭐⭐⭐⭐</strong><p style="color:var(--muted);font-style:italic">"Love that it’s all Aussie-made gear. Excellent value!"</p><div style="font-weight:700">Claire — Bairnsdale</div></div>
     </div>
-  </div>
-</section>
-
+  </section>
 
   <!-- footer spacing after testimonials -->
   <div style="height:60px"></div>
@@ -675,7 +662,7 @@ window.switchTheme = function(k){
     </div>
 
     <div style="display:flex;justify-content:center;margin-top:18px">
-      <img src="assets/row.png" alt="Suntech accreditation row" style="max-width:90%;border-radius:12px">
+      <img src="Assets/row.png" alt="Suntech accreditation row" style="max-width:90%;border-radius:12px">
     </div>
 
     <div style="text-align:center;color:rgba(255,255,255,0.45);margin-top:12px;font-size:13px">&copy; 2025 Suntech Solar Systems. All rights reserved.</div>
@@ -992,3 +979,33 @@ document.addEventListener('DOMContentLoaded',revealSloganHighlight);
         });
     </script>
     
+        <style>
+            /* Tooltip styles */
+            .tooltip {
+                position: relative;
+                display: inline-block;
+                cursor: pointer;
+                border-bottom: 1px dotted black;
+            }
+            .tooltip .tooltiptext {
+                visibility: hidden;
+                width: 120px;
+                background-color: black;
+                color: #fff;
+                text-align: center;
+                border-radius: 5px;
+                padding: 5px;
+                position: absolute;
+                z-index: 1;
+                bottom: 100%; 
+                left: 50%;
+                margin-left: -60px;
+                opacity: 0;
+                transition: opacity 0.3s;
+            }
+            .tooltip:hover .tooltiptext {
+                visibility: visible;
+                opacity: 1;
+            }
+        </style>
+        
