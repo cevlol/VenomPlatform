@@ -1,0 +1,552 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Venom Platform — v5.0</title>
+  <meta name="description" content="Venom Platform demo — multiple landing themes, calculator, uploads, testimonials and marketing-ready UI." />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@500;600;700&family=Roboto+Condensed:wght@300;400;700&display=swap" rel="stylesheet">
+
+  <!-- TYPOGRAPHY + CORE STYLES -->
+  <style>
+  /* ===== Typography Overhaul ===== */
+  :root{
+    --accent: #00b37a;
+    --highlight: #00784d;
+    --text: #0b1a12;
+    --muted: #3b5a49;
+    --card: #ffffff;
+    --bg: #eaf8ee;
+    --bg-alt: #e1f6e6;
+    --testimonial-border: rgba(0,179,122,0.95);
+    --glow: rgba(0,179,122,0.22);
+    --max-width: 1200px;
+    --radius: 12px;
+    --btn-radius: 8px;
+  }
+
+  /* Responsive base sizes (adaptive text scaling without scaling containers) */
+  html{
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: clamp(14px, 1.1vw + 10px, 18px);
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    line-height:1.55;
+    background:linear-gradient(180deg,var(--bg),var(--bg-alt));
+    color:var(--text);
+  }
+  body{margin:0;min-height:100vh;display:flex;flex-direction:column;align-items:center}
+
+  /* Headings (Bebas Neue) */
+  h1,h2,h3,h4,h5,h6{
+    font-family:'Bebas Neue',sans-serif;
+    letter-spacing:0.5px;
+    text-transform:uppercase;
+    margin:0 0 0.35em 0;
+    line-height:1.05;
+    color:var(--text);
+  }
+  h1{font-size:clamp(2.6rem,4vw,4rem)}
+  h2{font-size:clamp(1.8rem,2.6vw,2.6rem)}
+  h3{font-size:clamp(1.4rem,1.9vw,2rem)}
+
+  /* Sub-headings (Montserrat) */
+  .subheading, .section-title, .card-title {
+    font-family:'Montserrat',sans-serif;
+    font-weight:600;
+    letter-spacing:0.25px;
+    color:var(--accent);
+  }
+
+  /* Paragraphs & body */
+  p,li,span,input,button,select{
+    font-family:'Roboto Condensed',sans-serif;
+    color:var(--text);
+    font-weight:400;
+    font-size:1rem;
+  }
+
+  /* Buttons */
+  .btn, button {
+    font-family:'Montserrat',sans-serif;
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:0.2px;
+    font-size:clamp(0.8rem,0.5vw + 0.8rem,0.95rem);
+    border:0;
+    cursor:pointer;
+    border-radius:var(--btn-radius);
+  }
+
+  /* small helper */
+  .muted{color:var(--muted)}
+  a{color:var(--accent);text-decoration:none}
+  a:hover{color:var(--highlight)}
+
+  /* ===== Layout / components (kept consistent with prior build) ===== */
+  .container{width:100%;max-width:var(--max-width);padding:18px;margin:100px auto 40px;position:relative}
+  header{display:flex;justify-content:center;align-items:center;padding-top:18px;position:relative}
+  .header-logo{height:82px;object-fit:contain;filter:drop-shadow(0 8px 20px rgba(0,0,0,0.12))}
+  .theme-toggle{position:absolute;right:22px;top:18px;background:transparent;border:0;padding:8px;border-radius:8px;cursor:pointer;font-size:18px}
+
+  .sidebar{position:fixed;top:calc(82px + 28px);padding:18px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(0,0,0,0.04);color:var(--muted);box-shadow:0 12px 30px rgba(0,0,0,0.08);font-size:15px;z-index:1200}
+  .demo-sidebar{left:18px;width:220px}
+  .rebates-sidebar{right:18px;width:380px}
+  .sidebar h3{font-family:'Montserrat',sans-serif;color:var(--accent);margin:0 0 10px}
+
+  .fun-facts-banner{height:50px;border-radius:10px;display:flex;align-items:center;overflow:hidden;padding:0 12px;border:1px solid rgba(0,0,0,0.03);background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(0,0,0,0.01))}
+  .fun-facts-track{display:flex;gap:36px;white-space:nowrap;animation:scrollFacts 28s linear infinite}
+  .fun-facts-track:hover{animation-play-state:paused}
+  @keyframes scrollFacts{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+  .slogan-strip{width:100%;max-width:var(--max-width);margin:18px auto;border-radius:10px;padding:18px;text-align:center}
+  .slogan-headline{font-size:clamp(28px,3.4vw,48px);color:var(--text);margin:0}
+  .slogan-support{margin-top:10px;color:var(--muted);font-size:clamp(14px,1.6vw,18px);text-align:center}
+  .slogan-highlight{color:var(--accent);position:relative;display:inline-block}
+  .slogan-highlight::after{content:"";position:absolute;left:0;right:0;bottom:-10px;height:4px;background:linear-gradient(90deg,var(--accent),var(--highlight));border-radius:4px;transform:scaleX(0);transform-origin:left;transition:transform .6s ease}
+  .slogan-highlight.visible::after{transform:scaleX(1)}
+
+  .hero{display:flex;gap:24px;align-items:center;justify-content:center;flex-wrap:wrap;margin-top:18px}
+  .video-wrap,.carousel{border-radius:14px;overflow:hidden;background:var(--card);border:1px solid rgba(0,0,0,0.04);box-shadow:0 12px 36px rgba(0,0,0,0.06)}
+  .video-wrap{width:820px;height:440px}
+  .video-wrap video{width:100%;height:100%;object-fit:cover}
+  .carousel{width:640px;height:360px;position:relative;display:flex;align-items:center;justify-content:center}
+  .carousel img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .8s ease}
+  .carousel img.active{opacity:1}
+
+  .panel{background:var(--card);padding:16px;border-radius:10px;color:var(--muted)}
+  .btn{display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border-radius:var(--btn-radius);background:linear-gradient(90deg,var(--accent),var(--highlight));color:#081018;font-weight:700;cursor:pointer}
+  .btn.ghost{background:transparent;border:1px solid rgba(0,0,0,0.06);color:var(--text)}
+
+  /* Manual calc / team */
+  .manual-calc-wrap{overflow:hidden;max-height:0;transition:max-height .45s ease}
+  .manual-calc-wrap.open{max-height:520px}
+  .team-block{display:flex;gap:18px;align-items:flex-start;flex-wrap:wrap;padding:18px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005));border:1px solid rgba(255,255,255,0.02)}
+  .team-card{display:flex;gap:12px;align-items:flex-start;background:transparent;padding:12px;border-radius:10px;min-width:240px;flex:1}
+  .team-avatar{width:72px;height:72px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-weight:700;color:var(--card);background:linear-gradient(180deg,var(--accent),var(--highlight));box-shadow:0 8px 20px rgba(0,0,0,0.12)}
+  .team-meta .name{font-weight:700;color:var(--text)}
+  .team-meta .role{color:var(--muted);font-size:13px;margin-top:6px}
+
+  /* ===== Testimonials - updated per your request ===== */
+  .testimonials-wrap{margin-top:18px;overflow:hidden}
+  .testimonials{
+    display:flex;
+    gap:20px; /* requested gap */
+    align-items:stretch;
+    white-space:nowrap;
+    padding:20px 8px;
+    animation:testimonialsScroll 40s linear infinite;
+    will-change:transform;
+  }
+  .testimonials:hover{animation-play-state:paused}
+  .testimonials .card.panel{
+    flex:0 0 auto;
+    min-width:320px;
+    padding:18px;
+    border-radius:12px;
+    background:var(--card);
+    border:1.5px solid var(--testimonial-border);
+    box-shadow:0 0 22px var(--glow);
+    color:var(--text);
+    transition:transform .22s ease,box-shadow .22s ease;
+  }
+  .testimonials .card.panel:hover{transform:translateY(-6px);box-shadow:0 0 36px var(--glow)}
+  @keyframes testimonialsScroll{
+    0%{transform:translateX(0)}
+    100%{transform:translateX(-50%)}
+  }
+
+  /* Footer */
+  footer{margin-top:40px;padding:20px 18px;background:transparent;width:100%;display:flex;flex-direction:column;align-items:center}
+  .footer-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;max-width:1100px;width:100%;padding:10px}
+  .footer-grid .col h3{font-family:'Montserrat',sans-serif;color:var(--accent);margin-bottom:6px}
+  .footer-divider{height:1px;width:100%;max-width:1200px;background:linear-gradient(90deg, rgba(0,0,0,0.03), rgba(255,255,255,0.02));margin:18px 0}
+  .row-badges{max-width:90%;margin-top:12px}
+  .copyright{margin-top:20px;color:var(--muted);font-size:13px;text-align:center}
+
+  /* Responsive tweaks */
+  @media(max-width:1200px){
+    .video-wrap{width:720px;height:380px}
+    .carousel{width:520px;height:320px}
+    .demo-sidebar,.rebates-sidebar{display:none}
+    .container{padding:12px}
+  }
+  @media(max-width:900px){
+    .hero{flex-direction:column}
+    .footer-grid{grid-template-columns:1fr}
+    .slogan-headline{font-size:28px}
+    .team-block{flex-direction:column}
+  }
+  </style>
+</head>
+<body>
+  <header role="banner" aria-label="Suntech header">
+    <img src="Assets/logo.png" alt="Suntech logo" class="header-logo">
+    <button id="themeToggle" class="theme-toggle" aria-pressed="false" title="Toggle theme">🌿</button>
+  </header>
+
+  <!-- Left Demo Themes Sidebar -->
+  <aside class="sidebar demo-sidebar" aria-label="Demo Themes" role="navigation">
+    <h3>Demo Themes</h3>
+    <ul style="list-style:none;padding:0;margin:8px 0 0 0">
+      <li style="margin:8px 0"><button class="btn" onclick="switchTheme('green')">Green Future</button></li>
+      <li style="margin:8px 0"><button class="btn" onclick="switchTheme('homeowner')">Homeowner Confidence</button></li>
+      <li style="margin:8px 0"><button class="btn" onclick="switchTheme('investment')">Smart Investment</button></li>
+      <li style="margin:8px 0"><button class="btn" onclick="switchTheme('offgrid')">Off-Grid Freedom</button></li>
+      <li style="margin:8px 0"><button class="btn" onclick="switchTheme('business')">Business & Commercial</button></li>
+    </ul>
+  </aside>
+
+  <!-- Right Rebates / Quick Quote Sidebar -->
+  <aside class="sidebar rebates-sidebar" aria-label="Rebates & Quick Quote" role="complementary">
+    <h3>Rebates & Info</h3>
+    <ul style="list-style:none;padding:0;margin:0">
+      <li style="margin:6px 0"><a href="Docs/veu-rebate.html">VEU Program</a></li>
+      <li style="margin:6px 0"><a href="Docs/stc-rebate.html">STCs Federal</a></li>
+      <li style="margin:6px 0"><a href="Docs/solar-homes.html">VIC Solar Homes</a></li>
+    </ul>
+    <div style="height:12px"></div>
+    <div style="display:flex;gap:12px;align-items:center">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.8 19.8 0 0 1 3 5.18 2 2 0 0 1 5 3h3a2 2 0 0 1 2 1.72c.06.66.18 1.31.36 1.94a2 2 0 0 1-.45 2.11L9.91 9.91a16 16 0 0 0 6.17 6.17l1.08-1.08a2 2 0 0 1 2.11-.45c.63.18 1.28.3 1.94.36A2 2 0 0 1 22 16.92z" fill="currentColor"/></svg>
+      <div>
+        <div style="font-weight:800;color:var(--accent)">1300 786 429</div>
+        <div style="color:var(--muted);font-size:13px">Free quote</div>
+      </div>
+    </div>
+
+    <div style="height:12px"></div>
+    <div class="panel" aria-hidden="false" style="margin-top:8px">
+      <div style="font-weight:700;color:var(--accent)">Quick Quote</div>
+      <div style="color:var(--muted);font-size:13px">Choose an option</div>
+      <div style="display:flex;gap:8px;margin-top:10px;flex-wrap:wrap">
+        <button class="btn" onclick="qqSelect('solar')">Solar Only</button>
+        <button class="btn" onclick="qqSelect('solarbattery')">Solar + Battery</button>
+        <button class="btn btn-ghost" onclick="qqSelect('help')">Not sure — Help me</button>
+      </div>
+
+      <div id="qqEstimate" class="panel" style="display:none;margin-top:10px">
+        <div style="font-size:13px;color:var(--muted)">Selected package</div>
+        <div id="qqPrice" style="font-weight:800;color:var(--accent)">$0</div>
+        <div id="qqResult" style="color:var(--muted)">—</div>
+      </div>
+
+      <div id="packageList" style="display:none;margin-top:10px;color:var(--muted)"></div>
+
+      <div id="helpForm" style="display:none;margin-top:12px">
+        <div style="font-weight:700;color:var(--accent)">Let's help you</div>
+        <input id="helpName" placeholder="Full name" style="width:100%;padding:8px;margin-top:8px;border-radius:8px;border:1px solid rgba(0,0,0,0.06)">
+        <input id="helpAddress" placeholder="Full address" style="width:100%;padding:8px;margin-top:8px;border-radius:8px;border:1px solid rgba(0,0,0,0.06)">
+        <input id="helpPhone" placeholder="Mobile number" style="width:100%;padding:8px;margin-top:8px;border-radius:8px;border:1px solid rgba(0,0,0,0.06)">
+        <input id="helpEmail" placeholder="Email address" style="width:100%;padding:8px;margin-top:8px;border-radius:8px;border:1px solid rgba(0,0,0,0.06)">
+        <div style="margin-top:8px"><label style="font-size:13px;color:var(--muted)">Upload energy bill (optional)</label><input id="helpUpload" type="file" accept=".pdf,.png,.jpg" style="width:100%"></div>
+        <div style="margin-top:10px"><button class="btn" id="helpSubmit">Request Guided Quote</button></div>
+      </div>
+    </div>
+  </aside>
+
+  <main class="container" role="main" aria-label="Main content">
+    <div class="fun-facts-banner" role="region" aria-label="Fun facts">
+      <div class="fun-facts-track" aria-hidden="false" id="funFacts">
+        <div class="fact-item"><span class="num">#1</span><strong>Do batteries explode?</strong> <span style="margin-left:6px" class="muted">Only cheap ones do — choose certified brands.</span></div>
+        <div class="fact-item"><span class="num">#2</span><strong>I hear solar always plays up?</strong> <span style="margin-left:6px" class="muted">Choose local installers & genuine parts — one-shot installs.</span></div>
+        <div class="fact-item"><span class="num">#3</span><strong>Will it work on cloudy days?</strong> <span style="margin-left:6px" class="muted">Yes — panels capture diffuse light.</span></div>
+        <div class="fact-item"><span class="num">#4</span><strong>How long do panels last?</strong> <span style="margin-left:6px" class="muted">25+ years with quality gear.</span></div>
+        <div class="fact-item"><span class="num">#5</span><strong>Is solar worth it if I'm at work?</strong> <span style="margin-left:6px" class="muted">Feed excess energy back & slash bills.</span></div>
+        <div class="fact-item"><span class="num">#1</span><strong>Do batteries explode?</strong> <span style="margin-left:6px" class="muted">Only cheap ones do — choose certified brands.</span></div>
+        <div class="fact-item"><span class="num">#2</span><strong>I hear solar always plays up?</strong> <span style="margin-left:6px" class="muted">Choose local installers & genuine parts — one-shot installs.</span></div>
+      </div>
+    </div>
+
+    <div class="panel" id="fomo" style="margin-top:18px;border-radius:14px;padding:18px;display:flex;align-items:center;gap:12px;justify-content:space-between;box-shadow:0 20px 60px var(--glow);transform:perspective(1000px) rotateY(-2deg)">
+      <div style="flex:1;min-width:240px">
+        <h3 style="margin:0 0 8px 0;font-family:'Montserrat',sans-serif;color:var(--text)">🔔 Summer Solar Flash — Hot seasonal packages</h3>
+        <p style="margin:0;color:var(--muted)">Priority installs, discounted bundles and fast ROI — limited availability.</p>
+        <div style="margin-top:12px"><button class="btn" id="fomoUploadBtn2">Upload Energy Bill</button><button class="btn btn-ghost" style="margin-left:8px" onclick="switchTheme('homeowner')">Talk to Expert</button></div>
+      </div>
+      <div style="width:220px;display:flex;align-items:center;justify-content:center">
+        <img src="Assets/summer-illust.png" alt="Summer sale" style="max-width:100%;border-radius:8px;box-shadow:0 8px 20px rgba(0,0,0,0.12)">
+      </div>
+    </div>
+
+    <div class="slogan-strip" role="region" aria-label="Theme Slogan">
+      <div>
+        <div class="slogan-headline" id="sloganHeadline">
+          <span id="sloganPre">Power your home —</span>
+          <span class="slogan-highlight visible" id="sloganMain">protect your planet.</span>
+        </div>
+        <div class="slogan-support" id="sloganSupport">Confidence-first protections — our promise to local Victorians.</div>
+      </div>
+    </div>
+
+    <section class="hero" aria-label="Hero" style="margin-top:24px">
+      <div class="video-wrap panel" id="videoWrap">
+        <video id="heroVideo" autoplay muted loop playsinline preload="metadata">
+          <source src="Assets/stock-video-1.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+
+      <div class="carousel panel" id="imageCarousel" role="region" aria-label="Image carousel">
+        <img src="Assets/hero1.jpg" class="active" alt="Solar image 1" loading="lazy">
+        <img src="Assets/hero2.jpg" alt="Solar image 2" loading="lazy">
+        <img src="Assets/hero3.jpg" alt="Solar image 3" loading="lazy">
+        <img src="Assets/hero4.jpg" alt="Solar image 4" loading="lazy">
+      </div>
+    </section>
+
+    <section style="margin-top:60px" aria-label="Calculator">
+      <div class="panel" id="calculatorPanel">
+        <h2 style="display:flex;align-items:center;gap:10px"><span style="font-size:22px">🧮</span> Calculate Your Solar Savings</h2>
+        <p class="muted">Upload your energy bill or manually calculate below.</p>
+        <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+          <button class="btn" id="uploadBtn" onclick="document.getElementById('billUpload').click()">Upload Energy Bill</button>
+          <button class="btn btn-ghost" id="manualCalcBtn">Manually Calculate Usage</button>
+          <input id="billUpload" type="file" accept=".pdf,.png,.jpg" style="display:none" onchange="processBill(this)">
+          <div id="uploadResults" style="color:var(--muted); display:none;margin-left:8px">Daily: <strong id="dailyUsage">—</strong> | Quarterly: <strong id="quarterlyAmt">—</strong></div>
+        </div>
+
+        <div class="manual-calc-wrap" id="manualCalcWrap" aria-hidden="true" style="margin-top:14px">
+          <div class="panel" style="padding:12px">
+            <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center">
+              <label>Select system size:
+                <select id="sysSize" style="margin-left:8px;padding:8px;border-radius:6px">
+                  <option value="6.6">6.6 kW</option>
+                  <option value="10">10 kW</option>
+                  <option value="13.2">13.2 kW</option>
+                </select>
+              </label>
+              <label>Battery:
+                <select id="batteryOpt" style="margin-left:8px;padding:8px;border-radius:6px">
+                  <option value="none">No Battery</option>
+                  <option value="small">Small Battery</option>
+                  <option value="large">Large Battery</option>
+                </select>
+              </label>
+              <label>Average daily usage (kWh):
+                <input id="dailyKwh" type="number" value="25" min="1" style="margin-left:8px;padding:8px;border-radius:6px;width:90px">
+              </label>
+              <div style="margin-left:auto;display:flex;gap:8px">
+                <button class="btn" id="calcGo">Calculate</button>
+                <button class="btn btn-ghost" id="calcReset">Reset</button>
+              </div>
+            </div>
+
+            <div id="calcOutput" class="panel" style="display:none;margin-top:12px">
+              <div><strong id="outTitle">Estimate</strong></div>
+              <div style="margin-top:8px"><span id="outPrice"></span></div>
+              <div style="margin-top:6px;color:var(--muted)"><span id="outSavings"></span></div>
+              <div style="margin-top:6px;color:var(--muted)"><span id="outROI"></span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section style="margin-top:60px">
+      <h2 style="margin-bottom:10px">🤝 Meet Your Local Solar Team</h2>
+      <div class="team-block">
+        <div class="team-card">
+          <div class="team-avatar">J</div>
+          <div class="team-meta"><div class="name">Jess — Co-Director & Operations</div><div class="role">NETCC Certified Installer</div><div class="note muted">20+ years managing installs and QA.</div></div>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar">Ja</div>
+          <div class="team-meta"><div class="name">Jackson — Lead Installer</div><div class="role">PV System Architect</div><div class="note muted">Designs efficient rooftop systems.</div></div>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar">Jo</div>
+          <div class="team-meta"><div class="name">Joe — Sales Director</div><div class="role">Customer Experience</div><div class="note muted">Handles finance & tailored quotes.</div></div>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar">AT</div>
+          <div class="team-meta"><div class="name">Apprentice Team</div><div class="role">Installation Crew</div><div class="note muted">Locally trained crew ensuring quality.</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section style="margin-top:60px" aria-label="Testimonials">
+      <h2 style="margin-bottom:12px">📝 Testimonials</h2>
+      <div class="testimonials-wrap" aria-hidden="false">
+        <div class="testimonials" id="testimonialsTrack" aria-live="polite">
+          <div class="card panel"><strong style="color:var(--accent)">⭐⭐⭐⭐⭐</strong><p style="color:var(--muted);font-style:italic">"Jess and his team were fantastic — bills dropped from $680 to $95 per quarter!"</p><div style="font-weight:700">Sarah — Geelong</div></div>
+          <div class="card panel"><strong style="color:var(--accent)">⭐⭐⭐⭐⭐</strong><p style="color:var(--muted);font-style:italic">"Battery kept our fridge running during the blackout."</p><div style="font-weight:700">Mark — Ballarat</div></div>
+          <div class="card panel"><strong style="color:var(--accent)">⭐⭐⭐⭐⭐</strong><p style="color:var(--muted);font-style:italic">"Transparent quoting and fast install."</p><div style="font-weight:700">Emily — Mornington</div></div>
+          <div class="card panel"><strong style="color:var(--accent)">⭐⭐⭐⭐⭐</strong><p style="color:var(--muted);font-style:italic">"Professional team — no surprises."</p><div style="font-weight:700">Alex — Geelong</div></div>
+          <div class="card panel"><strong style="color:var(--accent)">⭐⭐⭐⭐⭐</strong><p style="color:var(--muted);font-style:italic">"Installer did a tidy job. Very happy."</p><div style="font-weight:700">Priya — Werribee</div></div>
+          <div class="card panel"><strong style="color:var(--accent)">⭐⭐⭐⭐⭐</strong><p style="color:var(--muted);font-style:italic">"Saved us heaps on bills and admin was simple."</p><div style="font-weight:700">Tom — Ballarat</div></div>
+          <div class="card panel"><strong style="color:var(--accent)">⭐⭐⭐⭐⭐</strong><p style="color:var(--muted);font-style:italic">"Great follow up, great product."</p><div style="font-weight:700">Nadia — Melbourne</div></div>
+
+          <!-- duplicate for seamless loop -->
+          <div class="card panel"><strong style="color:var(--accent)">⭐⭐⭐⭐⭐</strong><p style="color:var(--muted);font-style:italic">"Jess and his team were fantastic — bills dropped from $680 to $95 per quarter!"</p><div style="font-weight:700">Sarah — Geelong</div></div>
+          <div class="card panel"><strong style="color:var(--accent)">⭐⭐⭐⭐⭐</strong><p style="color:var(--muted);font-style:italic">"Battery kept our fridge running during the blackout."</p><div style="font-weight:700">Mark — Ballarat</div></div>
+          <div class="card panel"><strong style="color:var(--accent)">⭐⭐⭐⭐⭐</strong><p style="color:var(--muted);font-style:italic">"Transparent quoting and fast install."</p><div style="font-weight:700">Emily — Mornington</div></div>
+        </div>
+      </div>
+    </section>
+
+    <div style="height:60px"></div>
+  </main>
+
+  <footer role="contentinfo" aria-label="Site footer">
+    <div class="footer-divider"></div>
+    <div class="footer-grid" role="navigation" aria-label="Footer links">
+      <div class="col">
+        <h3>Contact Us</h3>
+        <p>📞 <strong style="color:var(--accent)">1300 786 429</strong></p>
+        <p>✉️ <a href="mailto:sales@suntechsolarsystems.com.au">sales@suntechsolarsystems.com.au</a></p>
+      </div>
+      <div class="col">
+        <h3>Quick Links</h3>
+        <p><a href="index.html">Home</a></p>
+        <p><a href="Docs/veu-rebate.html">VEU Program</a></p>
+        <p><a href="Docs/stc-rebate.html">STC Rebate</a></p>
+        <p style="margin-top:12px;border-top:1px solid rgba(0,0,0,0.06);padding-top:10px"><a href="Docs/terms.html">Terms</a> &nbsp;|&nbsp; <a href="Docs/privacy.html">Privacy</a> &nbsp;|&nbsp; <a href="Docs/ip.html">Intellectual Property</a></p>
+      </div>
+      <div class="col">
+        <h3>Service Areas</h3>
+        <p>VIC-wide</p>
+      </div>
+      <div class="col">
+        <h3>Why Suntech?</h3>
+        <p>No bullshit. Our owners are installers. Born & bred locals. NETCC certified.</p>
+      </div>
+    </div>
+
+    <img src="Assets/row.png" alt="Accreditations" class="row-badges" aria-hidden="true">
+    <div class="copyright">&copy; 2025 Suntech Solar Systems. All rights reserved.</div>
+  </footer>
+
+  <!-- JS: theme switching, carousel, calc, testimonials are CSS-driven -->
+  <script>
+  (function(){
+    const root = document.documentElement;
+    const toggle = document.getElementById('themeToggle');
+
+    // Theme presets
+    const themeSlogans = {
+      green: {pre:'Power your home —', main:'protect your planet.', support:'Confidence-first protections — our promise to local Victorians.'},
+      homeowner: {pre:'Our Promise —', main:'100% Money-Back Guarantee', support:'Confidence-first protections — our promise to local Victorians.'},
+      investment: {pre:'Smart Investment —', main:'Solar pays you back', support:'Cut energy bills and protect long-term ROI.'},
+      offgrid: {pre:'Go Off-Grid —', main:'Power your independence', support:'Store power and live off the grid.'},
+      business: {pre:'Business Energy —', main:'Slash OpEx 40%', support:'VEU incentives + tax-advantaged solutions.'}
+    };
+
+    // default to green
+    const defaultTheme = localStorage.getItem('venomTheme') || 'green';
+    switchTheme(defaultTheme, false);
+
+    toggle.addEventListener('click', ()=>{
+      const keys = ['green','homeowner','investment','offgrid','business'];
+      const cur = root.getAttribute('data-theme') || defaultTheme;
+      const idx = keys.indexOf(cur);
+      const nxt = keys[(idx+1) % keys.length];
+      switchTheme(nxt, true);
+    });
+
+    function switchTheme(key, save=true){
+      root.setAttribute('data-theme', key);
+      const s = themeSlogans[key] || themeSlogans.green;
+      document.getElementById('sloganPre').textContent = s.pre;
+      document.getElementById('sloganMain').textContent = s.main;
+      document.getElementById('sloganSupport').textContent = s.support;
+      toggle.textContent = key === 'green' ? '🌿' : (key==='homeowner'?'🏠':(key==='investment'?'💰':(key==='offgrid'?'🔋':'🏢')));
+      if(save) localStorage.setItem('venomTheme', key);
+    }
+
+    // Carousel
+    (function(){
+      const imgs = document.querySelectorAll('#imageCarousel img');
+      let idx = 0;
+      if(imgs && imgs.length){
+        setInterval(()=>{ imgs[idx].classList.remove('active'); idx=(idx+1)%imgs.length; imgs[idx].classList.add('active'); },6000);
+      }
+    })();
+
+    // Calculator, quick-quote, help form (kept minimal)
+    window.qqSelect = function(type){
+      const qqEstimate = document.getElementById('qqEstimate'), qqPrice = document.getElementById('qqPrice'), qqResult = document.getElementById('qqResult'), packageList = document.getElementById('packageList'), helpForm = document.getElementById('helpForm');
+      if(type==='solar'){
+        qqPrice.textContent = '$6,500'; qqResult.textContent = 'Offset Energy Usage'; qqEstimate.style.display='block'; packageList.style.display='none'; helpForm.style.display='none';
+      } else if(type==='solarbattery'){
+        qqPrice.textContent = '$11,500'; qqResult.textContent = 'Store Power for Later'; qqEstimate.style.display='block'; packageList.style.display='none'; helpForm.style.display='none';
+      } else if(type==='help'){
+        qqEstimate.style.display='none'; packageList.style.display='none'; helpForm.style.display='block';
+        setTimeout(()=>{ const nm=document.getElementById('helpName'); if(nm) nm.focus(); },100);
+      }
+      const sidebar = document.querySelector('.rebates-sidebar');
+      if(sidebar) sidebar.scrollIntoView({behavior:'smooth', block:'center'});
+    };
+
+    // Manual calc toggle & mock
+    (function(){
+      const manualBtn = document.getElementById('manualCalcBtn');
+      const manualWrap = document.getElementById('manualCalcWrap');
+      if(manualBtn && manualWrap){
+        manualBtn.addEventListener('click', ()=>{
+          const open = manualWrap.classList.toggle('open');
+          manualWrap.setAttribute('aria-hidden', !open);
+          if(open) manualWrap.scrollIntoView({behavior:'smooth', block:'center'});
+        });
+      }
+
+      const calcGo = document.getElementById('calcGo'), calcReset = document.getElementById('calcReset');
+      const pricing = {
+        '6.6': { base:6500, batterySmall:5000, batteryLarge:8000, roi:3.5, savingsPct:70 },
+        '10':  { base:9800, batterySmall:7000, batteryLarge:11000, roi:4.0, savingsPct:80 },
+        '13.2':{ base:12900, batterySmall:8500, batteryLarge:13000, roi:4.5, savingsPct:85 }
+      };
+      if(calcGo){
+        calcGo.addEventListener('click', ()=>{
+          const sys = document.getElementById('sysSize').value;
+          const bat = document.getElementById('batteryOpt').value;
+          const kwh = parseFloat(document.getElementById('dailyKwh').value) || 25;
+          const pkg = pricing[sys];
+          if(!pkg) return;
+          let price = pkg.base;
+          if(bat==='small') price += pkg.batterySmall;
+          if(bat==='large') price += pkg.batteryLarge;
+          const usageFactor = Math.max(0.8, Math.min(1.3, kwh/25));
+          const adjPrice = Math.round(price * usageFactor);
+          const adjSavings = Math.round(pkg.savingsPct * usageFactor);
+          const adjRoi = (pkg.roi * (1/usageFactor)).toFixed(1);
+          const title = `${sys} kW ${bat==='none' ? '— No Battery' : ('— ' + (bat==='small' ? 'Small Battery' : 'Large Battery'))}`;
+          document.getElementById('outPrice').textContent = `Estimated package price: $${adjPrice.toLocaleString()}`;
+          document.getElementById('outSavings').textContent = `Estimated bill reduction: ${adjSavings}%`;
+          document.getElementById('outROI').textContent = `Estimated ROI: ${adjRoi} years`;
+          document.getElementById('outTitle').textContent = title;
+          document.getElementById('calcOutput').style.display = 'block';
+        });
+      }
+      if(calcReset){ calcReset.addEventListener('click', ()=>{ document.getElementById('sysSize').value='6.6'; document.getElementById('batteryOpt').value='none'; document.getElementById('dailyKwh').value=25; document.getElementById('calcOutput').style.display='none'; }); }
+    })();
+
+    // File upload mock
+    window.processBill = function(input){
+      if(!input || !input.files || input.files.length===0) return;
+      document.getElementById('uploadResults').style.display='inline-block';
+      setTimeout(()=>{ document.getElementById('dailyUsage').textContent='27kWh'; document.getElementById('quarterlyAmt').textContent='$520'; },900);
+    };
+
+    // FOMO CTA -> smooth scroll
+    const fomoBtn2 = document.getElementById('fomoUploadBtn2');
+    function smoothToCalculatorAndOpen(){
+      const tgt = document.getElementById('calculatorPanel');
+      if(!tgt) return;
+      tgt.scrollIntoView({behavior:'smooth', block:'center'});
+      setTimeout(()=>{ const b = document.getElementById('billUpload'); if(b) b.click(); },700);
+    }
+    if(fomoBtn2) fomoBtn2.addEventListener('click', smoothToCalculatorAndOpen);
+
+    // keyboard activation
+    document.addEventListener('keydown', function(e){
+      if(e.key === 'Enter' || e.key === ' '){
+        const active = document.activeElement;
+        if(active && active.tagName === 'BUTTON'){ active.click(); }
+      }
+    });
+
+  })();
+  </script>
+</body>
+</html>
