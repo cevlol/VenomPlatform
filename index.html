@@ -1047,44 +1047,35 @@ document.addEventListener('DOMContentLoaded',revealSloganHighlight);
 
 	
 
-			/* Tablet or smaller devices (max-width: 1024px) */
-			@media (max-width: 1024px) {
-				body {
-					font-size: 16px;
-				}
+			/* Base font scaling for html and body */
+			html {
+				font-size: clamp(12px, 2vw, 18px);
 			}
 
-			/* Mobile devices (max-width: 600px) */
-			@media (max-width: 600px) {
-				body {
-					font-size: 14px; /* Adjust font size for small screens */
-    }
-}
-			.container {
-				width: 80vw; /* 80% of viewport width */
-				height: 60vh; /* 60% of viewport height */
-}
-
-
-			/* Tablet Landscape and smaller devices (max-width: 1024px) */
-			@media (max-width: 1024px) {
-				body {
-					font-size: 16px; /* Slightly smaller font for tablets */
-				}
-				.some-element {
-					width: 90%; /* Adjust width for smaller screens */
-				}
+			body {
+				font-size: clamp(14px, 2vw + 1rem, 20px);
 			}
 
-			/* Mobile devices (max-width: 600px) */
-			@media (max-width: 600px) {
-				body {
-					font-size: 14px; /* Smaller font size for mobile */
-				}
-				.some-element {
-					width: 100%; /* Full width on small screens */
-    }
+			/* Scaling for headings */
+			h1, h2, h3, h4, h5, h6 {
+				font-size: clamp(20px, 4vw, 36px);
+			}
+
+			/* Scaling for paragraphs and general text */
+			p, span, a, div, li {
+				font-size: clamp(14px, 2vw + 1rem, 18px);
+			}
+
+			/* Add scaling to specific elements like buttons, inputs, etc. */
+			button, input, select, textarea {
+				font-size: clamp(14px, 2vw + 1rem, 18px);
+			}
+
+			/* Optional: Titles and labels */
+			label, .label, .title {
+				font-size: clamp(16px, 2vw + 1.5rem, 22px);
 }
+
 
 
 
