@@ -250,9 +250,39 @@ h2,h3{font-family:Poppins,sans-serif;color:var(--orange);text-shadow:0 0 8px rgb
 .team-meta .role{color:var(--muted);font-size:13px;margin-top:6px}
 .team-meta .note{color:var(--muted);font-size:13px;margin-top:6px;max-width:360px}
 
-/* Footer clean */
-.footer-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-.footer-grid .col{padding-top:8px}
+footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start; /* Align footer items to the left */
+  gap: 40px;
+}
+
+footer .col {
+  flex: 1;
+  min-width: 250px;
+  margin-bottom: 20px;
+}
+
+footer .col h3 {
+  margin-bottom: 10px;
+  font-family: 'Poppins', sans-serif;
+}
+
+footer .col p, footer .col a {
+  font-size: 14px;
+  color: #b0b0b0;
+  line-height: 1.6;
+}
+
+footer .col a {
+  text-decoration: none;
+  color: inherit;
+}
+
+footer .col a:hover {
+  color: var(--accent);
+}
+
 
 /* Responsive */
 @media(max-width:1200px){
@@ -1091,32 +1121,31 @@ document.addEventListener('DOMContentLoaded',revealSloganHighlight);
 				padding: 20px;
 			}
 			.testimonials {
-			display: flex;
-			gap: 16px;
-			overflow-x: hidden;
-			white-space: nowrap;
-			padding: 20px 0;
-			animation: testimonialsScroll 50s linear infinite;
-			}
-
-			.testimonials:hover {
-			animation-play-state: paused;
+			  display: flex;
+			  gap: 20px; /* 20px gap between testimonials */
+			  overflow-x: hidden;
+			  white-space: nowrap;
+			  padding: 20px 0;
+			  animation: testimonialsScroll 40s linear infinite; /* Increased scroll speed */
 			}
 
 			.testimonials .card.panel {
 			  flex: 0 0 auto;
 			  min-width: 320px;
-			  border: 1px solid var(--accent);
-			  box-shadow: 0 0 8px rgba(0, 224, 255, 0.4);
+			  border: 2px solid var(--accent);
+			  box-shadow: 0 0 10px rgba(0, 255, 255, 0.6); /* Neon cyberpunk glow effect */
+			  background-color: #0b0b0b; /* Dark background to make the glow pop */
+			}
+
+			.testimonials:hover {
+			  animation-play-state: paused;
 			}
 
 			@keyframes testimonialsScroll {
-			0% {
-				transform: translateX(0);
-			}
-			100% {
-				transform: translateX(-50%);
-  }
+			  0% { transform: translateX(0); }
+			  100% { transform: translateX(-100%); } /* Adjusted to ensure all testimonials are visible */
+}
+
 }
 
 
