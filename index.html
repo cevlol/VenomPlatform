@@ -1026,6 +1026,95 @@ document.addEventListener('DOMContentLoaded',revealSloganHighlight);
                 opacity: 1;
             }
 			
+			/* Base font size for scalable text */
+			html {
+				font-size: clamp(14px, 2vw + 2px, 20px); /* Scales from 14px to 20px */
+			}
+
+			body {
+				font-family: 'Inter', sans-serif;
+				background: var(--bg);
+				color: var(--muted);
+				margin: 0;
+				padding: 0;
+				text-align: center;
+				font-size: clamp(16px, 2vw + 1rem, 18px); /* Adjust text size based on viewport */
+			}
+
+			h1, h2, h3 {
+				color: #fff;
+			}
+
+			img {
+				width: 100%;
+				height: auto;
+				max-width: 100%; /* Responsive image scaling */
+			}
+
+			/* Responsive layout for larger screens (e.g., ultra-wides like 3440px) */
+			@media (min-width: 1440px) {
+				body {
+					transform: scale(1.05); /* Slightly scale up content for larger screens */
+					transform-origin: top center;
+				}
+			}
+
+			/* Tablet or smaller devices (max-width: 1024px) */
+			@media (max-width: 1024px) {
+				body {
+					font-size: 16px;
+				}
+			}
+
+			/* Mobile devices (max-width: 600px) */
+			@media (max-width: 600px) {
+				body {
+					font-size: 14px; /* Adjust font size for small screens */
+    }
+}
+			.container {
+				width: 80vw; /* 80% of viewport width */
+				height: 60vh; /* 60% of viewport height */
+}
+			@media (min-width: 1440px) {
+				body {
+					transform: scale(1.05); /* Slightly scale content on large screens */
+					transform-origin: top center;
+	}
+
+}
+
+			img {
+				width: 100%;
+				height: auto;
+				max-width: 100%; /* Ensures images are responsive */
+}
+
+			/* Tablet Landscape and smaller devices (max-width: 1024px) */
+			@media (max-width: 1024px) {
+				body {
+					font-size: 16px; /* Slightly smaller font for tablets */
+				}
+				.some-element {
+					width: 90%; /* Adjust width for smaller screens */
+				}
+			}
+
+			/* Mobile devices (max-width: 600px) */
+			@media (max-width: 600px) {
+				body {
+					font-size: 14px; /* Smaller font size for mobile */
+				}
+				.some-element {
+					width: 100%; /* Full width on small screens */
+    }
+}
+
+
+
+
+
+			
 			#sloganSupport {
 				text-align: center;
 				display: block;
