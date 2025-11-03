@@ -1,908 +1,482 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<link rel="preload" href="/Assets//stock-video-1.mp4" as="video">
-<title>Venom Platform — V6.3</title>
-<!-- Modern font trio for Venom Platform / Suntech Solar -->
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-<link rel="preload" href="https://fonts.gstatic.com/s/bebasneue/v13/JTUSjIg69CK48gW7PXoo9Wlhzg.woff2" as="font" type="font/woff2" crossorigin>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Venom Platform — Venom v5.0 (Green Future default)</title>
+  <meta name="description" content="Venom Platform demo — Suntech Solar Systems. Multiple landing themes, calculator, uploads, demos and marketing-ready UI." />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500;600;700&family=Roboto+Condensed:wght@300;400;700&display=swap" rel="stylesheet">
 
+  <style>
+  /* --------------------------
+     Root variables & theme maps
+     -------------------------- */
+  :root{
+    /* design tokens (used across themes) */
+    --font-heading: 'Bebas Neue', sans-serif;
+    --font-sub: 'Montserrat', sans-serif;
+    --font-body: 'Roboto Condensed', 'Montserrat', sans-serif;
+    --radius: 12px;
+    --btn-radius: 8px;
+    --max-width: 1200px;
+    --content-gap: 60px;
 
-<meta name="description" content="Suntech Solar Systems — local Victorian solar installers; battery backup, rebates and tailored quotes.">
+    /* Demo theme palette vars (default = Green Future) */
+    --bg: #eaf8ee;
+    --bg-alt: #e1f6e6;
+    --text: #081a0f;
+    --muted: #3b5a49;
+    --card: #ffffff;
+    --accent: #00b37a;
+    --highlight: #00784d;
+    --glow: rgba(0,179,122,0.28);
+    --testimonial-border: rgba(0,179,122,0.9);
+  }
 
-<style>
-:root{
-  /* Layout */
-  --content-width:1600px;
-  --logo-h:156px;
-  --space-under-logo:110px;
-  --section-gap:60px; /* 60px vertical spacing as requested */
-  --video-w:820px; --video-h:440px;
-  --carousel-w:640px; --carousel-h:360px;
-  --left-sidebar-w:220px; --right-sidebar-w:440px; --side-offset:18px;
+  /* Theme "presets" applied by JS: data-theme attribute on <html> */
+  html[data-theme="homeowner"]{
+    --bg:#0b131d; --bg-alt:#0f1824; --text:#eaf8ee; --muted:#aebcc7; --card:#0e1723;
+    --accent:#00e0ff; --highlight:#ffa500; --glow:rgba(0,224,255,0.28); --testimonial-border:rgba(0,224,255,0.9);
+  }
+  html[data-theme="green"]{
+    /* defaults already reflect Green Future */
+  }
+  html[data-theme="investment"]{
+    --bg:#f4f6f9; --bg-alt:#eef1f7; --text:#101214; --muted:#3b4550; --card:#ffffff;
+    --accent:#0066ff; --highlight:#002a80; --glow:rgba(0,102,255,0.22); --testimonial-border:rgba(0,102,255,0.9);
+  }
+  html[data-theme="offgrid"]{
+    --bg:#0f1113; --bg-alt:#0b0c0e; --text:#e9eef2; --muted:#9aa6b1; --card:#111214;
+    --accent:#ff0040; --highlight:#ff7a00; --glow:rgba(255,0,64,0.28); --testimonial-border:rgba(255,0,64,0.95);
+  }
+  html[data-theme="business"]{
+    --bg:#e6ebf5; --bg-alt:#e9eef8; --text:#0b1420; --muted:#5b6a7b; --card:#ffffff;
+    --accent:#0044cc; --highlight:#00bfff; --glow:rgba(0,68,204,0.18); --testimonial-border:rgba(0,68,204,0.9);
+  }
 
-  /* base (main) palette */
-  --bg:#07101a; --bg-alt:#020712;
-  --panel-bg:#0b1623; --muted:#c7d2db; --orange:#f59b35; --cyan:#18e0ff;
-  --fomo-top:#ff8a00; --fomo-bottom:#ffd200;
+  /* --------------------------
+     Reset / base
+     -------------------------- */
+  *{box-sizing:border-box}
+  html{font-family:var(--font-body);height:100%;background:linear-gradient(180deg,var(--bg),var(--bg-alt));color:var(--text);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
+  body{margin:0;min-height:100vh;display:flex;flex-direction:column;align-items:center}
+  a{color:var(--accent);text-decoration:none}
+  img{max-width:100%;display:block}
 
-  --btn-radius:8px; --avatar-size:72px;2px;
-}
-		:root {
-		  --font-heading: "BebasNeue", sans-serif;
-		  --font-sub: "Roboto", serif;
-		  --font-body: "Montserrat", sans-serif;
-}
+  /* typography */
+  :root{ /* responsive base sizes */
+    --base-font-clamp: clamp(14px, 1.2vw + 10px, 18px);
+  }
+  html{font-size:var(--base-font-clamp)}
+  h1,h2,h3,h4{font-family:var(--font-heading);margin:0;color:var(--text)}
+  p,li,button,input,select{font-family:var(--font-body);color:var(--text);line-height:1.5}
 
-		/* Global text defaults */
-		body, p, li, span, input, button {
-		  font-family: 'Roboto', 'Montserrat', 'Bebas Neue', sans-serif;: var(--font-body);
-		  font-weight: 400;
-		  letter-spacing: 0.02em;
-}
+  /* container */
+  .container{width:100%;max-width:var(--max-width);padding:18px;margin:calc(var(--content-gap)) auto 40px;position:relative}
 
-		/* Headings */
-		h1, h2 {
-		  font-family: 'Bebas Neue', sans-serif;: var(--font-heading);
-		  font-weight: 700;
-		  text-transform: none;
-		  letter-spacing: 0.5px;
-}
+  /* header */
+  header{display:flex;align-items:center;justify-content:center;padding-top:18px;position:relative}
+  .header-logo{height:82px;object-fit:contain;filter:drop-shadow(0 8px 20px rgba(0,0,0,0.18));}
+  /* theme toggle */
+  .theme-toggle{position:absolute;right:22px;top:18px;background:transparent;border:1px solid rgba(255,255,255,0.06);padding:8px;border-radius:8px;cursor:pointer;color:var(--text);backdrop-filter:blur(4px)}
 
-		/* Subheadings or section labels */
-		.section h3,
-		.h2-left,
-		.footer-box h3 {
-		  font-family: 'Bebas Neue', sans-serif;: var(--font-sub);;
-		  font-weight: 400;
-		  letter-spacing: 0.5px;	 
-}
+  /* sidebars */
+  .sidebar{position:fixed;top:calc(82px + 28px);padding:18px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.03);color:var(--muted);box-shadow:0 14px 40px rgba(0,0,0,0.18);font-size:15px;z-index:1200}
+  .demo-sidebar{left:18px;width:220px}
+  .rebates-sidebar{right:18px;width:380px}
+  .sidebar h3{font-family:var(--font-sub);color:var(--accent);margin:0 0 10px}
 
-		/* Buttons */
-		button, .btn {
-		  font-family: 'Roboto', sans-serif;: var(--font-body);
-		  font-weight: 600;
-		  text-transform: uppercase;
-		  letter-spacing: 0.04em;
-}
+  /* fun facts / slogan */
+  .fun-facts-banner{margin:0 auto;display:flex;align-items:center;justify-content:center;height:50px;border-radius:10px;background:linear-gradient(90deg, rgba(0,0,0,0.02), rgba(255,255,255,0.02));border:1px solid rgba(0,0,0,0.03);overflow:hidden;padding-left:12px;padding-right:12px}
+  .fun-facts-track{display:flex;gap:40px;white-space:nowrap;animation:scrollFacts 28s linear infinite}
+  .fun-facts-banner:hover .fun-facts-track{animation-play-state:paused}
+  .fact-item{display:inline-flex;gap:8px;align-items:center;color:var(--muted);font-family:var(--font-sub)}
+  .fact-item .num{font-weight:700;color:var(--highlight);margin-right:6px}
 
-		/* Fine-tune slogan */
-		#sloganHeadline {
-		  font-family: 'Montserrat', sans-serif;: var(--font-heading);
-		  font-size: clamp(2.5rem, 3vw, 4rem);
-		  line-height: 1.05;
-}
+  @keyframes scrollFacts {0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
 
-		#sloganSupport {
-		  font-family: 'Roboto', 'Montserrat', 'Bebas Neue', sans-serif;: var(--font-sub);
-		  font-size: clamp(1rem, 1.2vw, 1.5rem);
-		  font-style: italic;
-}
-		h1, h2, h3 {
-		  text-shadow: 0 0 8px rgba(0, 224, 255, 0.4);
-}
+  /* Slogan strip */
+  .slogan-strip{width:100%;max-width:var(--max-width);margin:18px auto;border-radius:10px;padding:18px;background:transparent;text-align:center}
+  .slogan-headline{font-size:clamp(28px,3.4vw,48px);line-height:1.02;margin:0;color:var(--text)}
+  .slogan-support{margin-top:10px;color:var(--muted);font-size:clamp(14px,1.6vw,18px);text-align:center}
 
+  .slogan-highlight{color:var(--accent);position:relative;display:inline-block}
+  .slogan-highlight::after{content:"";position:absolute;left:0;right:0;bottom:-10px;height:4px;background:linear-gradient(90deg,var(--accent),var(--highlight));border-radius:4px;transform:scaleX(0);transform-origin:left;transition:transform .6s ease}
+  .slogan-highlight.visible::after{transform:scaleX(1)}
 
-/* Reset & base */
-*{box-sizing:border-box}
-html,body{height:100%;margin:0;background:linear-gradient(180deg,var(--bg) 0%, var(--bg-alt) 100%); color:#fff; font-family: 'Roboto', 'Montserrat', 'Bebas Neue', sans-serif;:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial;}
-a{color:inherit;text-decoration:none}
-img{display:block;max-width:100%}
-header{display:flex;justify-content:center;align-items:center;padding-top:18px}
-.header-logo{height:var(--logo-h);filter:drop-shadow(0 10px 28px rgba(0,0,0,0.5));}
+  /* hero */
+  .hero{display:flex;gap:24px;align-items:center;justify-content:center;flex-wrap:wrap;margin-top:18px}
+  .video-wrap,.carousel{border-radius:14px;overflow:hidden;background:var(--card);border:2px solid rgba(0,0,0,0.04);box-shadow:0 12px 36px rgba(0,0,0,0.08)}
+  .video-wrap{width:820px;height:440px}
+  .video-wrap video{width:100%;height:100%;object-fit:cover;display:block}
+  .carousel{width:640px;height:360px;position:relative;display:flex;align-items:center;justify-content:center}
+  .carousel img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .8s ease}
+  .carousel img.active{opacity:1}
 
-/* Container */
-.container{width:100%;max-width:var(--content-width);margin:calc(var(--space-under-logo)) auto 40px;padding:0 18px;position:relative}
-.section{margin-top:var(--section-gap)}
+  /* panel */
+  .panel{background:var(--card);padding:16px;border-radius:10px;border:1px solid rgba(0,0,0,0.04);color:var(--muted)}
+  .btn{display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border-radius:var(--btn-radius);background:linear-gradient(90deg,var(--accent),var(--highlight));color:#081018;font-weight:700;border:none;cursor:pointer}
+  .btn.ghost{background:transparent;border:1px solid rgba(0,0,0,0.06);color:var(--text)}
 
-/* Sidebars */
-.demo-sidebar,.rebates-sidebar{
-  position:fixed; top: calc(var(--logo-h) + 28px); padding:18px; border-radius:12px;
-  background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-  border:1px solid rgba(255,255,255,0.03); color:var(--muted); box-shadow:0 14px 40px rgba(0,0,0,0.6);
-  font-size:16px; line-height:1.6; z-index:1800;
-}
-.demo-sidebar{left:var(--side-offset);width:var(--left-sidebar-w)}
-.rebates-sidebar{right:var(--side-offset);width:var(--right-sidebar-w)}
-.demo-sidebar h3,.rebates-sidebar h3{margin:0 0 10px 0;font-family: 'Roboto', 'Montserrat', 'Bebas Neue', sans-serif;:Poppins,sans-serif;color:var(--orange);font-size:15px}
-.demo-sidebar a,.rebates-sidebar a{color:var(--muted);transition:color .18s, text-shadow .18s;display:inline-block;cursor:pointer}
-.demo-sidebar a:hover,.rebates-sidebar a:hover{color:#fff;text-shadow:0 0 12px rgba(245,155,53,0.55)}
+  /* calculator */
+  .manual-calc-wrap{overflow:hidden;max-height:0;transition:max-height .45s ease}
+  .manual-calc-wrap.open{max-height:520px}
 
-/* Quick Quote area in rebates sidebar */
-.rebates-sidebar .qq-estimate{margin-top:12px;padding:12px;border-radius:8px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005));border:1px solid rgba(255,255,255,0.02);color:var(--muted)}
-.rebates-sidebar .qq-estimate .price{font-weight:800;color:var(--orange);font-size:18px}
-.rebates-sidebar .help-form{margin-top:12px;display:none;gap:8px}
-.rebates-sidebar .help-form input{width:100%;padding:8px;border-radius:6px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--muted);margin-top:8px}
+  /* team */
+  .team-block{display:flex;gap:18px;align-items:flex-start;flex-wrap:wrap;padding:18px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005));border:1px solid rgba(255,255,255,0.02)}
+  .team-card{display:flex;gap:12px;align-items:flex-start;background:transparent;padding:12px;border-radius:10px;min-width:240px;flex:1}
+  .team-avatar{width:72px;height:72px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-family:var(--font-heading);font-weight:700;color:var(--card);background:linear-gradient(180deg,var(--accent),var(--highlight));box-shadow:0 8px 20px rgba(0,0,0,0.18)}
+  .team-meta .name{font-weight:700;color:var(--text)}
+  .team-meta .role{color:var(--muted);font-size:13px;margin-top:6px}
 
-/* Fun Facts banner */
-.fun-facts-banner{margin:0 auto;width:calc(var(--video-w) + var(--carousel-w) + 22px);height:50px;overflow:hidden;border-radius:10px;background:linear-gradient(180deg, rgba(24,224,255,0.06), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.05);display:flex;align-items:center;font-family: 'Roboto', 'Montserrat', 'Bebas Neue', sans-serif;:Poppins, sans-serif}
-.fun-facts-track{display:flex;gap:60px;white-space:nowrap;animation:scrollFacts 28s linear infinite;align-items:center;padding-left:18px}
-.fun-facts-banner:hover .fun-facts-track{animation-play-state:paused}
-@keyframes scrollFacts{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+  /* Testimonials - horizontal cyberpunk glow */
+  .testimonials-wrap{margin-top:18px;overflow:hidden}
+  .testimonials{display:flex;gap:20px;align-items:stretch;white-space:nowrap;padding:20px 8px;animation:testimonialsScroll 40s linear infinite;will-change:transform}
+  .testimonials:hover{animation-play-state:paused}
+  .testimonials .card.panel{flex:0 0 auto;min-width:320px;padding:18px;border-radius:12px;background:var(--card);border:1px solid var(--testimonial-border);box-shadow:0 0 18px var(--glow);color:var(--text);transition:transform .22s ease,box-shadow .22s ease}
+  .testimonials .card.panel:hover{transform:translateY(-6px);box-shadow:0 0 28px var(--glow)}
+  @keyframes testimonialsScroll{0%{transform:translateX(0)} 100%{transform:translateX(-50%)}}
 
-/* --- Fun Facts Styling --- */
-.fact-item {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 15px;
-  white-space: nowrap;
-}
-.fact-num {
-  color: var(--highlight);
-  font-weight: 700;
-  margin-right: 6px;
-  text-shadow: 0 0 6px var(--highlight);
-}
-.fact-q {
-  color: var(--cyan);
-  font-weight: 600;
-  margin-right: 4px;
-}
-.fact-a {
-  color: var(--muted);
-}
+  /* footer */
+  footer{margin-top:40px;padding:20px 18px;background:transparent;width:100%;display:flex;flex-direction:column;align-items:center}
+  .footer-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;max-width:1100px;width:100%;padding:10px}
+  .footer-grid .col h3{font-family:var(--font-sub);color:var(--accent);margin-bottom:6px}
+  .footer-divider{height:1px;width:100%;max-width:1200px;background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));margin:18px 0}
+  .row-badges{max-width:90%;margin-top:12px}
+  .copyright{margin-top:20px;color:var(--muted);font-size:13px;text-align:center}
 
-
-/* Slogan strip - centered above hero/video */
-.slogan-strip {
-  width:100%;
-  max-width:1200px;
-  margin:40px auto 0;
-  background:rgba(6,10,14,0.55);
-  border-radius:12px;
-  padding:24px 28px;
-  text-align:center;
-  color:var(--muted);
-  font-family: 'Roboto', 'Montserrat', 'Bebas Neue', sans-serif;:Bebas Neue, sans-serif;
-  box-shadow:0 10px 30px rgba(0,0,0,0.4);
-}
-
-.slogan-headline {
-  color:#fff;
-  font-weight:800;
-  line-height:1.1;
-  font-size:44px;
-  margin:0;
-}
-
-.slogan-headline .splash {
-  display:inline-block;
-  color:var(--cyan);
-}
-
-.slogan-support {
-    text-align: center;  /* Ensure the text is centered */
-    color: var(--muted); 
-    margin-top: 10px;
-    font-size: 16px;
-}
-
-.slogan-highlight {
-  color:var(--cyan);
-  font-weight:900;
-  position:relative;
-  display:inline-block;
-  opacity:0;
-  transition:opacity .6s ease;
-}
-
-/* underline animation */
-.slogan-highlight::after {
-  content:"";
-  position:absolute;
-  left:0; right:0; bottom:-5px;
-  height:3px;
-  border-radius:2px;
-  background:linear-gradient(90deg,var(--cyan),var(--orange));
-  transform-origin:left center;
-  transform:scaleX(0);
-  transition:transform .6s ease;
-}
-
-.slogan-highlight.visible {
-  opacity:1;
-}
-
-.slogan-highlight.visible::after {
-  transform:scaleX(1);
-}
-
-/* Responsive scaling */
-@media(max-width:900px){
-  .slogan-headline{font-size:32px;line-height:1.2;}
-}
-
-.slogan-headline{color:#fff;font-weight:800;line-height:1.02;font-size:44px;margin:0}
-.slogan-headline .splash{display:block;color:var(--cyan)}
-.slogan-support{color:var(--muted);margin-top:10px;font-size:15px;max-width:780px}
-.slogan-highlight{color:var(--cyan);font-weight:900;opacity:0;transition:opacity .5s ease-in-out}
-.slogan-highlight{position:relative}
-.slogan-highlight::after{content:'';position:absolute;left:0;right:0;bottom:-6px;height:3px;background:linear-gradient(90deg,var(--cyan),var(--orange));transform:scaleX(0);transform-origin:left;transition:transform .5s ease;}
-.slogan-highlight.visible::after{transform:scaleX(1);} 
-
-.slogan-highlight.visible{opacity:1}
-
-/* FOMO: floating, 3D-tilted promo */
-@keyframes fomoPulse {
-  0%   { box-shadow:0 30px 60px rgba(0,0,0,0.45), 0 0 20px rgba(24,224,255,0.04); }
-  50%  { box-shadow:0 32px 70px rgba(0,0,0,0.5), 0 0 48px rgba(24,224,255,0.12); }
-  100% { box-shadow:0 30px 60px rgba(0,0,0,0.45), 0 0 20px rgba(24,224,255,0.04); }
-}
-
-.fomo-tilt{
-  width:520px; max-width:86%;
-  position:relative;
-  margin:0 auto;
-  transform-origin:center left;
-  transform: perspective(1200px) rotateY(-6deg);
-  border-radius:14px;
-  padding:22px;
-  background:linear-gradient(180deg,var(--fomo-top) 0%, var(--fomo-bottom) 100%);
-  color:#08101a;
-  box-shadow:
-    0 30px 60px rgba(0,0,0,0.45),
-    0 0 40px rgba(24,224,255,0.06),
-    0 0 18px rgba(245,155,53,0.06);
-  transition:transform .28s ease, box-shadow .28s ease;
-  margin-bottom:18px;
-  /* place slightly left to visually sit between sidebar and slogan */
-  margin-left:-60px;
-  z-index:1700;
-}
-/* soften tilt on hover */
-.fomo-tilt:hover{ transform: perspective(1200px) rotateY(-3deg) translateY(-6px); box-shadow:0 40px 80px rgba(0,0,0,0.5), 0 0 48px rgba(24,224,255,0.09), 0 0 24px rgba(245,155,53,0.08); } .fomo-tilt{animation:fomoPulse 4.8s ease-in-out infinite;}
-
-/* Remove tilt on small screens for clarity */
-@media(max-width:1200px){
-  .fomo-tilt{ transform:none; margin-left:0; width:100%; }
-}
-
-/* Hero: unified border and vertical centering */
-.hero{display:flex;gap:22px;align-items:center;justify-content:center}
-.video-wrap,.carousel{border-radius:12px;overflow:hidden;background:var(--panel-bg);border:2px solid rgba(255,255,255,0.04);box-shadow:0 12px 36px rgba(0,0,0,0.45)}
-.video-wrap{width:var(--video-w);height:var(--video-h)}
-.video-wrap video{width:100%;height:100%;object-fit:cover;display:block}
-.carousel{width:var(--carousel-w);height:var(--carousel-h);display:flex;align-items:center;justify-content:center;position:relative}
-.carousel img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 700ms ease-in-out}
-.carousel img.active{opacity:1}
-.carousel img[loading="lazy"] {
-  filter:blur(8px);
-  transition:filter .8s ease, opacity 700ms ease-in-out;
-}
-.carousel img.active[loading="lazy"] {
-  filter:blur(0);
-}
-
-
-/* Panel style + headings */
-.panel{background:var(--panel-bg);padding:18px;border-radius:10px;border:1px solid rgba(255,255,255,0.02);color:var(--muted);box-shadow:0 10px 30px rgba(0,0,0,0.5)}
-.h2-left{text-align:left}
-h2,h3{font-family: 'Roboto', 'Montserrat', 'Bebas Neue', sans-serif;:Poppins,sans-serif;color:var(--orange);text-shadow:0 0 8px rgba(245,155,53,0.6);margin:0 0 12px 0;display:flex;align-items:center;gap:10px;font-weight:700}
-.h-icon{font-size:20px;margin-right:6px}
-
-/* Buttons */
-.btn-modern{display:inline-flex;align-items:center;gap:10px;padding:10px 16px;border-radius:var(--btn-radius);background:linear-gradient(90deg, rgba(245,155,53,0.95), rgba(255,184,77,0.95));color:#08101a;font-weight:800;border:none;cursor:pointer;box-shadow:0 8px 26px rgba(245,155,53,0.12);transition:transform .18s,box-shadow .18s}
-.btn-modern:hover{transform:translateY(-3px);box-shadow:0 20px 48px rgba(245,155,53,0.18)}
-.btn-ghost{padding:10px 16px;border-radius:var(--btn-radius);background:transparent;border:1px solid rgba(255,255,255,0.08);color:var(--muted);cursor:pointer}
-
-/* Manual calc */
-.manual-calc-wrap{overflow:hidden;max-height:0;transition:max-height .45s ease}
-.manual-calc-wrap.open{max-height:520px}
-.calc-result{margin-top:12px;padding:12px;border-radius:8px;background:linear-gradient(180deg, rgba(255,255,255,0.012), rgba(255,255,255,0.006));border:1px solid rgba(255,255,255,0.02);color:var(--muted)}
-
-/* Consolidated team block (one professional card) */
-.team-block{
-  display:flex;gap:18px;align-items:flex-start;flex-wrap:wrap;padding:18px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005));border:1px solid rgba(255,255,255,0.02)
-}
-.team-card{
-  display:flex;gap:12px;align-items:flex-start;background:transparent;padding:12px;border-radius:10px;min-width:260px;flex:1;
-  transition:transform .18s,box-shadow .18s;
-}
-.team-card:hover{transform:translateY(-6px);box-shadow:0 18px 48px rgba(0,0,0,0.45)}
-.team-avatar{width:var(--avatar-size);height:var(--avatar-size);border-radius:12px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family: 'Roboto', 'Montserrat', 'Bebas Neue', sans-serif;:Poppins;font-weight:800;color:#08101a;background:linear-gradient(180deg, #fff 0%, rgba(255,255,255,0.85) 100%);box-shadow:0 8px 20px rgba(0,0,0,0.35)}
-.team-meta{display:flex;flex-direction:column}
-.team-meta .name{font-weight:800;color:#fff}
-.team-meta .role{color:var(--muted);font-size:13px;margin-top:6px}
-.team-meta .note{color:var(--muted);font-size:13px;margin-top:6px;max-width:360px}
-
-
-/* Responsive */
-@media(max-width:1200px){
-  :root{--video-w:720px;--video-h:380px;--carousel-w:520px;--carousel-h:320px;--content-width:calc(100% - 40px)}
-  .demo-sidebar,.rebates-sidebar{display:none}
-  .fun-facts-banner,.slogan-strip{width:90%}
-  .hero{flex-direction:column;gap:18px}
-  .carousel{width:90%;height:auto}
-  .fomo-tilt{transform:none;margin-left:0}
-  .slogan-headline{font-size:36px}
-}
-@media(max-width:900px){
-  .team-block{flex-direction:column}
-  .footer-grid{grid-template-columns:1fr}
-}
-</style>
-
-<noscript><style> :root{--bg:#07122a;--panel-bg:#071828;--accent:#18e0ff} body{opacity:1;}</style></noscript>
+  /* responsive */
+  @media(max-width:1200px){
+    .video-wrap{width:720px;height:380px}
+    .carousel{width:520px;height:320px}
+    .demo-sidebar,.rebates-sidebar{display:none}
+    .container{padding:12px}
+  }
+  @media(max-width:900px){
+    .hero{flex-direction:column}
+    .footer-grid{grid-template-columns:1fr}
+    .slogan-headline{font-size:28px}
+    .team-block{flex-direction:column}
+  }
+  </style>
 </head>
 <body>
+  <!-- Header + logo + theme toggle -->
+  <header role="banner" aria-label="Suntech header">
+    <img src="Assets/logo.png" alt="Suntech logo" class="header-logo">
+    <button id="themeToggle" class="theme-toggle" aria-pressed="false" title="Toggle theme">🌿</button>
+  </header>
 
-<header role="banner" aria-label="Suntech header">
-  <img src="Assets/logo.png" alt="Suntech logo" class="header-logo">
-</header>
+  <!-- Left Demo Themes Sidebar -->
+  <aside class="sidebar demo-sidebar" aria-label="Demo Themes" role="navigation">
+    <h3>Demo Themes</h3>
+    <ul style="list-style:none;padding:0;margin:8px 0 0 0">
+      <li style="margin:8px 0"><button class="btn" onclick="switchTheme('green')">Green Future</button></li>
+      <li style="margin:8px 0"><button class="btn" onclick="switchTheme('homeowner')">Homeowner Confidence</button></li>
+      <li style="margin:8px 0"><button class="btn" onclick="switchTheme('investment')">Smart Investment</button></li>
+      <li style="margin:8px 0"><button class="btn" onclick="switchTheme('offgrid')">Off-Grid Freedom</button></li>
+      <li style="margin:8px 0"><button class="btn" onclick="switchTheme('business')">Business & Commercial</button></li>
+    </ul>
+  </aside>
 
-<!-- Sidebars -->
-<aside class="demo-sidebar" aria-label="Demo Themes">
-  <h3>Demo Themes</h3>
-  <ul style="list-style:none;padding:0;margin:0">
-    <li style="margin:8px 0"><a onclick="switchTheme('trust')">Default</a></li>
-    <li style="margin:8px 0"><a onclick="switchTheme('young')">Young</a></li>
-    <li style="margin:8px 0"><a onclick="switchTheme('family')">Family</a></li>
-    <li style="margin:8px 0"><a onclick="switchTheme('mature')">Mature</a></li>
-    <li style="margin:8px 0"><a onclick="switchTheme('trust')">Trust</a></li>
-    <li style="margin:8px 0"><a onclick="switchTheme('business')">Business</a></li>
-  </ul>
-</aside>
-
-<aside class="rebates-sidebar" aria-label="Rebates Info">
-  <div class="stack">
-    <h3>Rebates Info</h3>
-    <ul class="links" style="list-style:none;padding:0;margin:0">
-      <li style="margin:8px 0"><a href="veu-rebate.html">VEU Program</a></li>
-      <li style="margin:8px 0"><a href="stc-rebate.html">STCs Federal</a></li>
-      <li style="margin:8px 0"><a href="solar-homes.html">VIC Solar Homes</a></li>
+  <!-- Right Rebates / Quick Quote Sidebar -->
+  <aside class="sidebar rebates-sidebar" aria-label="Rebates & Quick Quote" role="complementary">
+    <h3>Rebates & Info</h3>
+    <ul style="list-style:none;padding:0;margin:0">
+      <li style="margin:6px 0"><a href="Docs/veu-rebate.html">VEU Program</a></li>
+      <li style="margin:6px 0"><a href="Docs/stc-rebate.html">STCs Federal</a></li>
+      <li style="margin:6px 0"><a href="Docs/solar-homes.html">VIC Solar Homes</a></li>
     </ul>
 
     <div style="height:12px"></div>
-    <div class="cta-box" role="region" aria-label="Call us">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="flex-shrink:0" xmlns="http://www.w3.org/2000/svg"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.8 19.8 0 0 1 3 5.18 2 2 0 0 1 5 3h3a2 2 0 0 1 2 1.72c.06.66.18 1.31.36 1.94a2 2 0 0 1-.45 2.11L9.91 9.91a16 16 0 0 0 6.17 6.17l1.08-1.08a2 2 0 0 1 2.11-.45c.63.18 1.28.3 1.94.36A2 2 0 0 1 22 16.92z" fill="#f59b35"/></svg>
+    <div style="display:flex;gap:12px;align-items:center">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.8 19.8 0 0 1 3 5.18 2 2 0 0 1 5 3h3a2 2 0 0 1 2 1.72c.06.66.18 1.31.36 1.94a2 2 0 0 1-.45 2.11L9.91 9.91a16 16 0 0 0 6.17 6.17l1.08-1.08a2 2 0 0 1 2.11-.45c.63.18 1.28.3 1.94.36A2 2 0 0 1 22 16.92z" fill="currentColor"/></svg>
       <div>
-        <div class="phone" style="font-weight:800;color:var(--orange);">1300 786 429</div>
-        <div class="phone-desc" style="color:var(--muted);font-size:13px;">Call for a free quote</div>
+        <div style="font-weight:800;color:var(--accent)">1300 786 429</div>
+        <div style="color:var(--muted);font-size:13px">Free quote</div>
       </div>
     </div>
 
-    <!-- Quick Quote area -->
-    <div class="quick-quote" aria-label="Quick Quote">
-      <div style="font-weight:700;color:var(--orange);margin-bottom:6px">Quick Quote</div>
-      <div style="color:var(--muted);font-size:13px">Choose an option to see package types</div>
-
-      <div class="qq-buttons" style="margin-top:10px">
-        <button onclick="qqSelect('solar')">Solar Only</button>
-        <button onclick="qqSelect('solarbattery')">Solar + Battery</button>
-        <button onclick="qqSelect('help')">Not Sure — Help Me Decide</button>
+    <div style="height:12px"></div>
+    <div class="panel" aria-hidden="false" style="margin-top:8px">
+      <div style="font-weight:700;color:var(--accent)">Quick Quote</div>
+      <div style="color:var(--muted);font-size:13px">Choose an option</div>
+      <div style="display:flex;gap:8px;margin-top:10px;flex-wrap:wrap">
+        <button class="btn" onclick="qqSelect('solar')">Solar Only</button>
+        <button class="btn" onclick="qqSelect('solarbattery')">Solar + Battery</button>
+        <button class="btn btn-ghost" onclick="qqSelect('help')">Not sure — Help me</button>
       </div>
 
-      <div class="qq-estimate" id="qqEstimate" aria-hidden="true" style="display:none">
+      <div id="qqEstimate" class="panel" style="display:none;margin-top:10px">
         <div style="font-size:13px;color:var(--muted)">Selected package</div>
-        <div class="price" id="qqPrice">$0</div>
-        <div class="result" id="qqResult">—</div>
+        <div id="qqPrice" style="font-weight:800;color:var(--accent)">$0</div>
+        <div id="qqResult" style="color:var(--muted)">—</div>
       </div>
 
-      <div class="package-list" id="packageList" aria-hidden="true" style="display:none;gap:8px;margin-top:10px">
-        <div class="package-item">Offset Energy Usage</div>
-        <div class="package-item">Store Power for Later</div>
-        <div class="package-item">Complete Grid Disconnect</div>
-      </div>
+      <div id="packageList" style="display:none;margin-top:10px;color:var(--muted)"></div>
 
-      <!-- help form -->
-      <div class="help-form" id="helpForm" aria-hidden="true">
-        <div style="margin-top:10px;font-weight:700;color:var(--orange)">Let's help you</div>
-        <input id="helpName" placeholder="Full name" />
-        <input id="helpAddress" placeholder="Full address" />
-        <input id="helpPhone" placeholder="Mobile number" />
-        <input id="helpEmail" placeholder="Email address" />
-        <div style="margin-top:8px">
-          <label style="font-size:13px;color:var(--muted)">Upload energy bill (optional)</label>
-          <input id="helpUpload" type="file" accept=".pdf,.png,.jpg" />
-        </div>
-        <div style="margin-top:10px">
-          <button class="btn-modern" id="helpSubmit">Request Guided Quote</button>
-        </div>
-      </div>
-
-    </div>
-  </div>
-    <!-- CENTERED FOMO (subtle accent-tinted frosted background, always black text) -->
-<style>
-  .rebates-sidebar .fomo-wrap {
-    width:100%;
-    display:flex;
-    justify-content:center;
-    padding:18px 0 8px 0;
-    box-sizing:border-box;
-  }
-
-  .rebates-sidebar .fomo-tilt {
-    margin-left:0!important;
-    width:100%;
-    max-width:520px;
-    transform-origin:center;
-    transform:perspective(1200px) rotateY(-3deg);
-    padding:18px;
-    border-radius:14px;
-    background:linear-gradient(
-      180deg,
-      rgba(255,255,255,0.92) 0%,
-      rgba(255,255,255,0.88) 100%
-    );
-    /* accent tint overlay (updated dynamically by JS) */
-    box-shadow:
-      0 30px 60px rgba(0,0,0,0.55),
-      0 0 30px rgba(24,224,255,0.12),
-      0 0 14px rgba(245,155,53,0.08);
-    transition:transform .28s ease, box-shadow .28s ease, background .4s ease;
-    animation:fomoPulse 4.8s ease-in-out infinite;
-  }
-
-  .rebates-sidebar .fomo-tilt:hover {
-    transform:perspective(1200px) rotateY(-2deg) translateY(-4px);
-    box-shadow:
-      0 40px 80px rgba(0,0,0,0.6),
-      0 0 48px rgba(24,224,255,0.18),
-      0 0 24px rgba(245,155,53,0.14);
-  }
-
-  @keyframes fomoPulse {
-    0% { box-shadow:0 30px 60px rgba(0,0,0,0.45),0 0 20px rgba(24,224,255,0.08);}
-    50% { box-shadow:0 32px 70px rgba(0,0,0,0.5),0 0 48px rgba(24,224,255,0.16);}
-    100% { box-shadow:0 30px 60px rgba(0,0,0,0.45),0 0 20px rgba(24,224,255,0.08);}
-  }
-
-  .rebates-sidebar .fomo-inner {
-    display:flex;
-    gap:14px;
-    align-items:center;
-    justify-content:center;
-    flex-wrap:wrap;
-  }
-
-  .rebates-sidebar .fomo-text {
-    flex:1 1 260px;
-    max-width:360px;
-    text-align:center;
-    color:#000;
-  }
-
-  .rebates-sidebar .fomo-text h2 {
-    color:#000;
-  }
-
-  .rebates-sidebar .fomo-text p {
-    color:#000;
-    opacity:0.9;
-  }
-
-  .rebates-sidebar .fomo-illus {
-    width:160px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-  }
-
-  .rebates-sidebar .fomo-tilt .btn-modern,
-  .rebates-sidebar .fomo-tilt .btn-ghost {
-    color:#000 !important;
-  }
-
-  @media(max-width:1200px){
-    .rebates-sidebar .fomo-tilt{transform:none;max-width:100%;}
-    .rebates-sidebar .fomo-wrap{padding:12px 0;}
-  }
-</style>
-
-<div class="fomo-wrap" aria-hidden="false">
-  <div class="fomo-tilt" role="region" aria-label="Limited time solar offer" id="fomoCard">
-    <div class="fomo-inner">
-      <div class="fomo-text">
-        <h2 style="margin:0;font-size:20px;font-family: 'Roboto', 'Montserrat', 'Bebas Neue', sans-serif;:Poppins;font-weight:800;">
-          🔥 Summer Solar Flash — Limited Time
-        </h2>
-        <p style="margin:8px 0 12px 0;">
-          Exclusive summer packages with priority installs and fast ROI. Ends soon — secure your slot.
-        </p>
-        <div style="display:flex;gap:10px;align-items:center;justify-content:center;">
-          <button class="btn-modern" id="fomoUploadBtn2">Upload Energy Bill</button>
-          <button class="btn-ghost" onclick="switchTheme('trust')">Talk to Expert</button>
-        </div>
-      </div>
-
-      <div class="fomo-illus">
-        <img src="Assets/summer-illust.png" alt="Summer sale"
-             style="max-width:100%;border-radius:8px;box-shadow:0 8px 20px rgba(0,0,0,0.28)">
+      <div id="helpForm" style="display:none;margin-top:12px">
+        <div style="font-weight:700;color:var(--accent)">Let's help you</div>
+        <input id="helpName" placeholder="Full name" style="width:100%;padding:8px;margin-top:8px;border-radius:8px;border:1px solid rgba(0,0,0,0.06)">
+        <input id="helpAddress" placeholder="Full address" style="width:100%;padding:8px;margin-top:8px;border-radius:8px;border:1px solid rgba(0,0,0,0.06)">
+        <input id="helpPhone" placeholder="Mobile number" style="width:100%;padding:8px;margin-top:8px;border-radius:8px;border:1px solid rgba(0,0,0,0.06)">
+        <input id="helpEmail" placeholder="Email address" style="width:100%;padding:8px;margin-top:8px;border-radius:8px;border:1px solid rgba(0,0,0,0.06)">
+        <div style="margin-top:8px"><label style="font-size:13px;color:var(--muted)">Upload energy bill (optional)</label><input id="helpUpload" type="file" accept=".pdf,.png,.jpg" style="width:100%"></div>
+        <div style="margin-top:10px"><button class="btn" id="helpSubmit">Request Guided Quote</button></div>
       </div>
     </div>
-  </div>
-</div>
+  </aside>
 
-<script>
-/* dynamic accent tint for FOMO background */
-function updateFomoTint(){
-  try{
-    const accent = getComputedStyle(document.documentElement).getPropertyValue('--cyan').trim() || '#18e0ff';
-    const fomo = document.getElementById('fomoCard');
-    if(!fomo) return;
-    fomo.style.background = `linear-gradient(180deg,
-      rgba(255,255,255,0.94) 0%,
-      ${accent ? accent.replace(')', ',0.15)').replace('rgb', 'rgba') : 'rgba(24,224,255,0.15)'} 100%)`;
-  }catch(e){}
-}
-document.addEventListener('DOMContentLoaded', updateFomoTint);
-const oldSwitchTheme = window.switchTheme;
-window.switchTheme = function(k){
-  if(typeof oldSwitchTheme === 'function') oldSwitchTheme(k);
-  setTimeout(updateFomoTint, 250);
-};
-</script>
-</aside>
-
-<!-- Main -->
-<main class="container" role="main" aria-label="Main content">
-
-  <!-- FUN FACTS -->
-  <div class="fun-facts-banner section" aria-label="Fun Facts scrolling banner" role="region">
-    <div class="fun-facts-track" id="funFactsTrack" aria-hidden="false">
-      <div class="fact-item"><span class="fact-num">#1</span> <span class="fact-q">Do batteries explode?</span><span class="fact-a">Only cheap ones do — we use certified brands built to last.</span></div>
-      <div class="fact-item"><span class="fact-num">#2</span> <span class="fact-q">I hear solar always plays up?</span><span class="fact-a">Choose local installers & genuine parts — we 1-shot every install.</span></div>
-      <div class="fact-item"><span class="fact-num">#3</span> <span class="fact-q">Will solar work on cloudy days?</span><span class="fact-a">Yes — panels still capture diffuse light!</span></div>
-      <div class="fact-item"><span class="fact-num">#4</span> <span class="fact-q">Do batteries drain overnight?</span><span class="fact-a">They’re designed to power your home until sunrise.</span></div>
-      <div class="fact-item"><span class="fact-num">#5</span> <span class="fact-q">Is solar worth it if I’m at work all day?</span><span class="fact-a">Absolutely — feed excess energy back to the grid & slash your bills.</span></div>
-      <!-- duplicate for seamless loop -->
-      <div class="fact-item"><span class="fact-num">#1</span> <span class="fact-q">Do batteries explode?</span><span class="fact-a">Only cheap ones do — we use certified brands built to last.</span></div>
-      <div class="fact-item"><span class="fact-num">#2</span> <span class="fact-q">I hear solar always plays up?</span><span class="fact-a">Choose local installers & genuine parts — we 1-shot every install.</span></div>
-      <div class="fact-item"><span class="fact-num">#3</span> <span class="fact-q">Will solar work on cloudy days?</span><span class="fact-a">Yes — panels still capture diffuse light!</span></div>
-      <div class="fact-item"><span class="fact-num">#4</span> <span class="fact-q">Do batteries drain overnight?</span><span class="fact-a">They’re designed to power your home until sunrise.</span></div>
-      <div class="fact-item"><span class="fact-num">#5</span> <span class="fact-q">Is solar worth it if I’m at work all day?</span><span class="fact-a">Absolutely — feed excess energy back to the grid & slash your bills.</span></div>
+  <!-- MAIN -->
+  <main class="container" role="main" aria-label="Main content">
+    <!-- Fun Facts -->
+    <div class="fun-facts-banner" role="region" aria-label="Fun facts">
+      <div class="fun-facts-track" aria-hidden="false" id="funFacts">
+        <div class="fact-item"><span class="num">#1</span><strong>Do batteries explode?</strong> <span style="margin-left:6px;color:var(--muted)">Only cheap ones do — choose certified brands.</span></div>
+        <div class="fact-item"><span class="num">#2</span><strong>I hear solar always plays up?</strong> <span style="margin-left:6px;color:var(--muted)">Choose local installers & genuine parts — one-shot installs.</span></div>
+        <div class="fact-item"><span class="num">#3</span><strong>Will it work on cloudy days?</strong> <span style="margin-left:6px;color:var(--muted)">Yes — panels capture diffuse light.</span></div>
+        <div class="fact-item"><span class="num">#4</span><strong>How long do panels last?</strong> <span style="margin-left:6px;color:var(--muted)">25+ years with quality gear.</span></div>
+        <div class="fact-item"><span class="num">#5</span><strong>Is solar worth it if I'm at work?</strong> <span style="margin-left:6px;color:var(--muted)">Feed excess energy back & slash bills.</span></div>
+        <!-- duplicated for loop -->
+        <div class="fact-item"><span class="num">#1</span><strong>Do batteries explode?</strong> <span style="margin-left:6px;color:var(--muted)">Only cheap ones do — choose certified brands.</span></div>
+        <div class="fact-item"><span class="num">#2</span><strong>I hear solar always plays up?</strong> <span style="margin-left:6px;color:var(--muted)">Choose local installers & genuine parts — one-shot installs.</span></div>
+      </div>
     </div>
-  </div>
 
-  
+    <!-- FOMO (tilted/pulsing) -->
+    <div class="panel" id="fomo" style="margin-top:18px;border-radius:14px;padding:18px;display:flex;align-items:center;gap:12px;justify-content:space-between;box-shadow:0 20px 60px var(--glow);transform:perspective(1000px) rotateY(-2deg)">
+      <div style="flex:1;min-width:240px">
+        <h3 style="margin:0 0 8px 0;font-family:var(--font-sub);color:var(--text)">🔔 Summer Solar Flash — Hot seasonal packages</h3>
+        <p style="margin:0;color:var(--muted)">Priority installs, discounted bundles and fast ROI — limited availability.</p>
+        <div style="margin-top:12px"><button class="btn" id="fomoUploadBtn2">Upload Energy Bill</button><button class="btn btn-ghost" style="margin-left:8px" onclick="switchTheme('homeowner')">Talk to Expert</button></div>
+      </div>
+      <div style="width:220px;display:flex;align-items:center;justify-content:center">
+        <img src="Assets/summer-illust.png" alt="Summer sale" style="max-width:100%;border-radius:8px;box-shadow:0 8px 20px rgba(0,0,0,0.12)">
+      </div>
+    </div>
 
-<div class="slogan-strip section" id="sloganStrip" role="region" aria-label="Theme Slogan">
-    <div>
+    <!-- Slogan -->
+    <div class="slogan-strip" role="region" aria-label="Theme Slogan">
+      <div>
         <div class="slogan-headline" id="sloganHeadline">
-            <span id="sloganPre">Our Promise —</span>
-            <span class="splash"><span id="sloganMain" class="slogan-highlight">100% Money-Back Guarantee</span></span>
+          <span id="sloganPre">Power your home —</span>
+          <span class="slogan-highlight visible" id="sloganMain">protect your planet.</span>
         </div>
-        <div class="slogan-support" id="sloganSupport">
-    Confidence-first protections — our promise to local Victorians.
-</div>
-
-    </div>
-</div>
-
-
-  <!-- HERO (video + carousel) - ensure 60px spacing between FOMO and video -->
-  <section class="hero section" aria-label="Hero section" style="margin-top:60px;">
-    <div class="video-wrap panel" id="videoWrap">
-      <video id="heroVideo" autoplay muted loop playsinline preload="metadata" style="transition:opacity .6s ease;opacity:1;">
-    <source src="Assets/stock-video-1.mp4" type="video/mp4">
-</video>
-
+        <div class="slogan-support" id="sloganSupport">Confidence-first protections — our promise to local Victorians.</div>
+      </div>
     </div>
 
-    <div class="carousel panel" id="imageCarousel" aria-label="Image carousel" role="region">
-      <img src="Assets/hero1.jpg" class="active" alt="Solar image 1" loading="lazy">
-      <img src="Assets/hero2.jpg" alt="Solar image 2" loading="lazy">
-      <img src="Assets/hero3.jpg" alt="Solar image 3" loading="lazy">
-      <img src="Assets/hero4.jpg" alt="Solar image 4" loading="lazy">
-    </div>
-  </section>
-
-  <!-- CALCULATOR (60px below video as requested) -->
-  <section class="section" aria-label="Calculator" style="margin-top:60px;">
-    <div class="panel" id="calculatorPanel">
-      <h2 class="h2-left"><span class="h-icon">🧮</span>Calculate Your Solar Savings</h2>
-      <p style="color:var(--muted);margin:8px 0 14px 0">Get an accurate estimate based on your usage.</p>
-
-      <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
-        <button class="btn-modern" id="uploadBtn" onclick="document.getElementById('billUpload').click()">Upload Energy Bill</button>
-        <button class="btn-ghost" id="manualCalcBtn">Manually Calculate Usage</button>
-
-        <input id="billUpload" type="file" accept=".pdf,.png,.jpg" style="display:none" onchange="processBill(this)">
-        <div id="uploadResults" style="color:var(--muted); margin-left:8px; display:none">
-          <div id="usageSummary">Daily: <strong id="dailyUsage">25kWh</strong> | Quarterly: <strong id="quarterlyAmt">$480</strong></div>
-        </div>
+    <!-- HERO -->
+    <section class="hero" aria-label="Hero" style="margin-top:24px">
+      <div class="video-wrap panel" id="videoWrap" aria-hidden="false">
+        <video id="heroVideo" autoplay muted loop playsinline preload="metadata">
+          <source src="Assets/stock-video-1.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
       </div>
 
-      <div class="manual-calc-wrap" id="manualCalcWrap" aria-hidden="true" style="margin-top:14px;">
-        <div class="panel" style="padding:16px;">
-          <div style="display:flex;gap:18px;flex-wrap:wrap;align-items:center">
-            <label style="min-width:160px">Select system size:
-              <select id="sysSize" style="margin-left:8px;padding:8px;border-radius:6px">
-                <option value="6.6">6.6 kW</option>
-                <option value="10">10 kW</option>
-                <option value="13.2">13.2 kW</option>
-              </select>
-            </label>
+      <div class="carousel panel" id="imageCarousel" role="region" aria-label="Image carousel">
+        <img src="Assets/hero1.jpg" class="active" alt="Solar image 1" loading="lazy">
+        <img src="Assets/hero2.jpg" alt="Solar image 2" loading="lazy">
+        <img src="Assets/hero3.jpg" alt="Solar image 3" loading="lazy">
+        <img src="Assets/hero4.jpg" alt="Solar image 4" loading="lazy">
+      </div>
+    </section>
 
-            <label style="min-width:220px">Battery:
-              <select id="batteryOpt" style="margin-left:8px;padding:8px;border-radius:6px">
-                <option value="none">No Battery</option>
-                <option value="small">Small Battery</option>
-                <option value="large">Large Battery</option>
-              </select>
-            </label>
+    <!-- Calculator -->
+    <section style="margin-top:60px" aria-label="Calculator">
+      <div class="panel" id="calculatorPanel">
+        <h2 style="display:flex;align-items:center;gap:10px"><span style="font-size:22px">🧮</span> Calculate Your Solar Savings</h2>
+        <p style="color:var(--muted)">Upload your energy bill or manually calculate below.</p>
+        <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+          <button class="btn" id="uploadBtn" onclick="document.getElementById('billUpload').click()">Upload Energy Bill</button>
+          <button class="btn btn-ghost" id="manualCalcBtn">Manually Calculate Usage</button>
+          <input id="billUpload" type="file" accept=".pdf,.png,.jpg" style="display:none" onchange="processBill(this)">
+          <div id="uploadResults" style="color:var(--muted); display:none;margin-left:8px">Daily: <strong id="dailyUsage">—</strong> | Quarterly: <strong id="quarterlyAmt">—</strong></div>
+        </div>
 
-            <label style="min-width:200px">Average daily usage (kWh):
-              <input id="dailyKwh" type="number" value="25" min="1" style="margin-left:8px;padding:8px;border-radius:6px;width:90px">
-            </label>
+        <div class="manual-calc-wrap" id="manualCalcWrap" aria-hidden="true" style="margin-top:14px">
+          <div class="panel" style="padding:12px">
+            <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center">
+              <label>Select system size:
+                <select id="sysSize" style="margin-left:8px;padding:8px;border-radius:6px">
+                  <option value="6.6">6.6 kW</option>
+                  <option value="10">10 kW</option>
+                  <option value="13.2">13.2 kW</option>
+                </select>
+              </label>
+              <label>Battery:
+                <select id="batteryOpt" style="margin-left:8px;padding:8px;border-radius:6px">
+                  <option value="none">No Battery</option>
+                  <option value="small">Small Battery</option>
+                  <option value="large">Large Battery</option>
+                </select>
+              </label>
+              <label>Average daily usage (kWh):
+                <input id="dailyKwh" type="number" value="25" min="1" style="margin-left:8px;padding:8px;border-radius:6px;width:90px">
+              </label>
+              <div style="margin-left:auto;display:flex;gap:8px">
+                <button class="btn" id="calcGo">Calculate</button>
+                <button class="btn btn-ghost" id="calcReset">Reset</button>
+              </div>
+            </div>
 
-            <div style="margin-left:auto;display:flex;gap:8px">
-              <button class="btn-modern" id="calcGo">Calculate</button>
-              <button class="btn-ghost" id="calcReset">Reset</button>
+            <div id="calcOutput" class="panel" style="display:none;margin-top:12px">
+              <div><strong id="outTitle">Estimate</strong></div>
+              <div style="margin-top:8px"><span id="outPrice"></span></div>
+              <div style="margin-top:6px;color:var(--muted)"><span id="outSavings"></span></div>
+              <div style="margin-top:6px;color:var(--muted)"><span id="outROI"></span></div>
             </div>
           </div>
-
-          <div id="calcOutput" class="calc-result" style="display:none;margin-top:12px;">
-            <div><strong id="outTitle">Estimate</strong></div>
-            <div style="margin-top:8px"><span id="outPrice"></span></div>
-            <div style="margin-top:6px;color:var(--muted)"><span id="outSavings"></span></div>
-            <div style="margin-top:6px;color:var(--muted)"><span id="outROI"></span></div>
-          </div>
         </div>
       </div>
+    </section>
 
-    </div>
-  </section>
-
-  <!-- TEAM (consolidated & professional) - 60px spacing above -->
-  <section class="section" aria-label="Team" style="margin-top:60px;">
-    <h2 class="h2-left"><span class="h-icon">🤝</span>Meet Your Local Solar Team</h2>
-
-    <div class="team-block" style="margin-top:12px;">
-      <!-- Jess -->
-      <div class="team-card">
-        <div class="team-avatar">J</div>
-        <div class="team-meta">
-          <div class="name">Jess — Co-Director & Operations</div>
-          <div class="role">NETCC Certified Installer</div>
-          <div class="note">20+ years managing installs, QA lead, warranty liaison. Ensures owner-installed standards on every job.</div>
+    <!-- Team -->
+    <section style="margin-top:60px">
+      <h2 style="margin-bottom:10px">🤝 Meet Your Local Solar Team</h2>
+      <div class="team-block">
+        <div class="team-card">
+          <div class="team-avatar">J</div>
+          <div class="team-meta"><div class="name">Jess — Co-Director & Operations</div><div class="role">NETCC Certified Installer</div><div class="note" style="color:var(--muted)">20+ years managing installs and QA.</div></div>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar">Ja</div>
+          <div class="team-meta"><div class="name">Jackson — Lead Installer</div><div class="role">PV System Architect</div><div class="note" style="color:var(--muted)">Designs efficient rooftop systems.</div></div>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar">Jo</div>
+          <div class="team-meta"><div class="name">Joe — Sales Director</div><div class="role">Customer Experience</div><div class="note" style="color:var(--muted)">Handles finance & tailored quotes.</div></div>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar">AT</div>
+          <div class="team-meta"><div class="name">Apprentice Team</div><div class="role">Installation Crew</div><div class="note" style="color:var(--muted)">Locally trained crew ensuring quality.</div></div>
         </div>
       </div>
+    </section>
 
-      <!-- Jackson -->
-      <div class="team-card">
-        <div class="team-avatar">Ja</div>
-        <div class="team-meta">
-          <div class="name">Jackson — Co-Director & Lead Installer</div>
-          <div class="role">PV System Architect</div>
-          <div class="note">Specialises in residential system design and rooftop safety. Oversees field teams and complex setups.</div>
+    <!-- Testimonials horizontal -->
+    <section style="margin-top:60px" aria-label="Testimonials">
+      <h2 style="margin-bottom:12px">📝 Testimonials</h2>
+      <div class="testimonials-wrap" aria-hidden="false">
+        <div class="testimonials" id="testimonialsTrack" aria-live="polite">
+          <!-- 7 unique testimonials -->
+          <div class="card panel"><strong style="color:var(--accent)">⭐⭐⭐⭐⭐</strong><p style="color:var(--muted);font-style:italic">"Jess and team were fantastic — bills dropped from $680 to $95 per quarter!"</p><div style="font-weight:700">Sarah — Geelong</div></div>
+          <div class="card panel"><strong style="color:var(--accent)">⭐⭐⭐⭐⭐</strong><p style="color:var(--muted);font-style:italic">"Battery kept our fridge running during the blackout."</p><div style="font-weight:700">Mark — Ballarat</div></div>
+          <div class="card panel"><strong style="color:var(--accent)">⭐⭐⭐⭐⭐</strong><p style="color:var(--muted);font-style:italic">"Transparent quoting and fast install."</p><div style="font-weight:700">Emily — Mornington</div></div>
+          <div class="card panel"><strong style="color:var(--accent)">⭐⭐⭐⭐⭐</strong><p style="color:var(--muted);font-style:italic">"Professional team — no surprises."</p><div style="font-weight:700">Alex — Geelong</div></div>
+          <div class="card panel"><strong style="color:var(--accent)">⭐⭐⭐⭐⭐</strong><p style="color:var(--muted);font-style:italic">"Installer did a tidy job. Very happy."</p><div style="font-weight:700">Priya — Werribee</div></div>
+          <div class="card panel"><strong style="color:var(--accent)">⭐⭐⭐⭐⭐</strong><p style="color:var(--muted);font-style:italic">"Saved us heaps on bills and admin was simple."</p><div style="font-weight:700">Tom — Ballarat</div></div>
+          <div class="card panel"><strong style="color:var(--accent)">⭐⭐⭐⭐⭐</strong><p style="color:var(--muted);font-style:italic">"Great follow up, great product."</p><div style="font-weight:700">Nadia — Melbourne</div></div>
+
+          <!-- duplicated to allow seamless infinite scroll -->
+          <div class="card panel"><strong style="color:var(--accent)">⭐⭐⭐⭐⭐</strong><p style="color:var(--muted);font-style:italic">"Jess and team were fantastic — bills dropped from $680 to $95 per quarter!"</p><div style="font-weight:700">Sarah — Geelong</div></div>
+          <div class="card panel"><strong style="color:var(--accent)">⭐⭐⭐⭐⭐</strong><p style="color:var(--muted);font-style:italic">"Battery kept our fridge running during the blackout."</p><div style="font-weight:700">Mark — Ballarat</div></div>
+          <div class="card panel"><strong style="color:var(--accent)">⭐⭐⭐⭐⭐</strong><p style="color:var(--muted);font-style:italic">"Transparent quoting and fast install."</p><div style="font-weight:700">Emily — Mornington</div></div>
         </div>
       </div>
+    </section>
 
-      <!-- Joe -->
-      <div class="team-card">
-        <div class="team-avatar">Jo</div>
-        <div class="team-meta">
-          <div class="name">Joe — General Manager of Sales</div>
-          <div class="role">Customer Experience & Quotes</div>
-          <div class="note">Handles tailored quotes, finance options and ensures smooth handovers for every customer.</div>
-        </div>
+    <!-- spacing before footer -->
+    <div style="height:60px"></div>
+  </main>
+
+  <!-- footer -->
+  <footer role="contentinfo" aria-label="Site footer">
+    <div class="footer-divider"></div>
+    <div class="footer-grid" role="navigation" aria-label="Footer links">
+      <div class="col">
+        <h3>Contact Us</h3>
+        <p>📞 <strong style="color:var(--accent)">1300 786 429</strong></p>
+        <p>✉️ <a href="mailto:sales@suntechsolarsystems.com.au">sales@suntechsolarsystems.com.au</a></p>
       </div>
-
-      <!-- Apprentice Team -->
-      <div class="team-card">
-        <div class="team-avatar">AT</div>
-        <div class="team-meta">
-          <div class="name">Apprentice Team</div>
-          <div class="role">Supervised Installation Crew</div>
-          <div class="note">Trained on-site by directors; focused on quality installs and fast, tidy completions.</div>
-        </div>
+      <div class="col">
+        <h3>Quick Links</h3>
+        <p><a href="index.html">Home</a></p>
+        <p><a href="Docs/veu-rebate.html">VEU Program</a></p>
+        <p><a href="Docs/stc-rebate.html">STC Rebate</a></p>
+        <p style="margin-top:12px;border-top:1px solid rgba(0,0,0,0.06);padding-top:10px"><a href="Docs/terms.html">Terms</a> &nbsp;|&nbsp; <a href="Docs/privacy.html">Privacy</a> &nbsp;|&nbsp; <a href="Docs/ip.html">Intellectual Property</a></p>
       </div>
-
-    </div>
-  </section>
-
-  <!-- TESTIMONIALS (auto-scrolling horizontal) -->
-<section class="section" aria-label="Testimonials" style="margin-top:60px;">
-  <h2 class="h2-left"><span class="h-icon">📝</span>Are These Guys Any Good?</h2>
-  <div class="testimonials-wrapper">
-    <div class="testimonials">
-      <div class="card panel"><strong style="color:var(--orange)">⭐⭐⭐⭐⭐</strong><p style="color:var(--muted);font-style:italic">"Jackson and his team were fantastic... bills dropped from $680 to $95 per quarter!"</p><div style="font-weight:700">Sarah — Geelong</div></div>
-      <div class="card panel"><strong style="color:var(--orange)">⭐⭐⭐⭐⭐</strong><p style="color:var(--muted);font-style:italic">"Battery kept our fridge & AC running during the last blackout."</p><div style="font-weight:700">Mark — Ballarat</div></div>
-      <div class="card panel"><strong style="color:var(--orange)">⭐⭐⭐⭐⭐</strong><p style="color:var(--muted);font-style:italic">"No high-pressure sales, just honest advice. Joseph is on FIRE!"</p><div style="font-weight:700">Elise — Werribee</div></div>
-      <div class="card panel"><strong style="color:var(--orange)">⭐⭐⭐⭐⭐</strong><p style="color:var(--muted);font-style:italic">"Installers were polite and on time — would 100% recommend!"</p><div style="font-weight:700">Tim — Frankston</div></div>
-      <div class="card panel"><strong style="color:var(--orange)">⭐⭐⭐⭐⭐</strong><p style="color:var(--muted);font-style:italic">"Monitoring app is simple to use and very accurate."</p><div style="font-weight:700">Olivia — Dandenong</div></div>
-      <div class="card panel"><strong style="color:var(--orange)">⭐⭐⭐⭐⭐</strong><p style="color:var(--muted);font-style:italic">"Saved nearly $1,200 in the first year already."</p><div style="font-weight:700">Gagandeep — Mornington</div></div>
-      <div class="card panel"><strong style="color:var(--orange)">⭐⭐⭐⭐⭐</strong><p style="color:var(--muted);font-style:italic">"Last mob quoted me $27k, Suntech got it done for 17k... INSANE Fronius pricing!"</p><div style="font-weight:700">Claire — Bairnsdale</div></div>
-
-      <!-- duplicate set for infinite looping -->
-      <div class="card panel"><strong style="color:var(--orange)">⭐⭐⭐⭐⭐</strong><p style="color:var(--muted);font-style:italic">"Jackson and his team were fantastic... bills dropped from $680 to $95 per quarter!"</p><div style="font-weight:700">Sarah — Geelong</div></div>
-      <div class="card panel"><strong style="color:var(--orange)">⭐⭐⭐⭐⭐</strong><p style="color:var(--muted);font-style:italic">"Battery kept our fridge & AC running during the last blackout."</p><div style="font-weight:700">Mark — Ballarat</div></div>
-      <div class="card panel"><strong style="color:var(--orange)">⭐⭐⭐⭐⭐</strong><p style="color:var(--muted);font-style:italic">"No high-pressure sales, just honest advice. Joseph is on FIRE!"</p><div style="font-weight:700">Elise — Werribee</div></div>
-      <div class="card panel"><strong style="color:var(--orange)">⭐⭐⭐⭐⭐</strong><p style="color:var(--muted);font-style:italic">"Installers were polite and on time — would 100% recommend!"</p><div style="font-weight:700">Tim — Frankston</div></div>
-      <div class="card panel"><strong style="color:var(--orange)">⭐⭐⭐⭐⭐</strong><p style="color:var(--muted);font-style:italic">"Monitoring app is simple to use and very accurate."</p><div style="font-weight:700">Olivia — Dandenong</div></div>
-      <div class="card panel"><strong style="color:var(--orange)">⭐⭐⭐⭐⭐</strong><p style="color:var(--muted);font-style:italic">"Saved over $1,200 in the first year already."</p><div style="font-weight:700">Gagandeep — Mornington</div></div>
-      <div class="card panel"><strong style="color:var(--orange)">⭐⭐⭐⭐⭐</strong><p style="color:var(--muted);font-style:italic">"Last mob quoted me $27k, Suntech got it done for 17k... INSANE Fronius pricing!"</p><div style="font-weight:700">Claire — Bairnsdale</div></div>
-    </div>
-  </div>
-</section>
-
-
-  <!-- footer spacing after testimonials -->
-  <div style="height:60px"></div>
-
-  <footer class="footer">
-  <!-- Legal links bar -->
-  <div class="footer-top">
-    <a href="Docs/terms.html" class="footer-link">Terms</a>
-    <a href="Docs/privacy.html" class="footer-link">Privacy</a>
-    <a href="Docs/ip.html" class="footer-link">Intellectual Property</a>
-  </div>
-
-  <hr class="footer-divider">
-
-  <!-- Modern Footer Grid -->
-  <div class="footer-main">
-    <div class="footer-box contact">
-      <h3>📞 Call Our Team</h3>
-      <p class="highlight">1300 786 429</p>
-      <p><a href="mailto:sales@suntechsolarsystems.com.au">sales@suntechsolarsystems.com.au</a></p>
-      <p class="cta">Let’s talk solar — no pushy sales, just straight answers.</p>
+      <div class="col">
+        <h3>Service Areas</h3>
+        <p>VIC-wide</p>
+      </div>
+      <div class="col">
+        <h3>Why Suntech?</h3>
+        <p>No bullshit. Our owners are installers. Born & bred locals. NETCC certified.</p>
+      </div>
     </div>
 
-    <div class="footer-box why">
-      <h3>☀️ Why Suntech?</h3>
-      <p>No bullshit.<br>Our owners are installers.<br>Born & bred locals.<br><strong>NETCC certified.</strong></p>
-    </div>
-
-    <div class="footer-box service">
-      <h3>📍 Service Areas</h3>
-      <p class="highlight">VIC-wide</p>
-      <p>From metro to the coast — we’ve got you covered.</p>
-    </div>
-  </div>
-
-  <div class="footer-logos">
-    <img src="Assets/row.png" alt="Certifications and accreditations">
-  </div>
-
-  <div class="footer-bottom">
-    <p>© 2025 Suntech Solar Systems. All rights reserved.</p>
-  </div>
-</footer>
-</main>
+    <img src="Assets/row.png" alt="Accreditations" class="row-badges" aria-hidden="true">
+    <div class="copyright">&copy; 2025 Suntech Solar Systems. All rights reserved.</div>
+  </footer>
 
 <script>
 /* ---------------------------
-   Theme map (same as v4.4/v4.5 but preserved)
+   Theme switching + persistence
    --------------------------- */
-const themeMap = {
-  main: {
-    video: 'Assets/stock-video-1.mp4',
-    palette: {'--bg':'#07101a','--bg-alt':'#020712','--panel-bg':'#0b1623','--orange':'#f59b35','--cyan':'#18e0ff','--muted':'#c7d2db','--fomo-top':'#ff8a00','--fomo-bottom':'#ffd200'},
-    slogan: { pre: 'Your Local Solar Experts —', highlight: 'Install It Once, Install It Right', colorVar: '--orange' }
-  },
-  young: {
-    video: 'Assets/stock-video-2.mp4',
-    palette: {'--bg':'#021726','--bg-alt':'#002634','--panel-bg':'#082733','--orange':'#ff7a59','--cyan':'#7ef0ff','--muted':'#d8f3f8','--fomo-top':'#ffb84d','--fomo-bottom':'#ffd9a6'},
-    slogan: { pre: 'Future-Proof Your First Home —', highlight: 'Solar Pays Your Bills', colorVar: '--cyan' }
-  },
-  family: {
-    video: 'Assets/stock-video-3.mp4',
-    palette: {'--bg':'#1a2b1e','--bg-alt':'#0d1b12','--panel-bg':'#102b20','--orange':'#ff6b6b','--cyan':'#ffb3d1','--muted':'#f0e6e4','--fomo-top':'#ffd6d6','--fomo-bottom':'#fff2e0'},
-    slogan: { pre: "Power Your Family's Future —", highlight: 'Cut Bills 85%', colorVar: '--orange' }
-  },
-  mature: {
-    video: 'Assets/stock-video-4.mp4',
-    palette: {'--bg':'#081827','--bg-alt':'#03101a','--panel-bg':'#0b1b20','--orange':'#e8b25a','--cyan':'#bfeafc','--muted':'#e9e6dc','--fomo-top':'#f6e2b3','--fomo-bottom':'#fff8e6'},
-    slogan: { pre: 'Retirement Boost —', highlight: 'Solar = Extra Pension', colorVar: '--orange' }
-  },
-  trust: {
-    video: 'Assets/stock-video-1.mp4',
-    palette: {'--bg':'#07122a','--bg-alt':'#031025','--panel-bg':'#071828','--orange':'#f0b064','--cyan':'#9fe7ff','--muted':'#cfdfe8','--fomo-top':'#dbeeff','--fomo-bottom':'#f0fbff'},
-    slogan: { pre: 'Our Promise —', highlight: '100% Money-Back Guarantee', colorVar: '--cyan' }
-  },
-  business: {
-    video: 'Assets/stock-video-1.mp4',
-    palette: {'--bg':'#0b1116','--bg-alt':'#03060a','--panel-bg':'#0b1418','--orange':'#ffb97a','--cyan':'#6ad1ff','--muted':'#d3e6ef','--fomo-top':'#e6f8ff','--fomo-bottom':'#dff5ff'},
-    slogan: { pre: 'Slash OpEx 40% —', highlight: 'VEU + Tax Deductions', colorVar: '--orange' }
+(function(){
+  const root = document.documentElement;
+  const toggle = document.getElementById('themeToggle');
+  // default theme: Green Future
+  const defaultThemeKey = 'green';
+  const saved = localStorage.getItem('venomTheme');
+  const initial = saved || defaultThemeKey;
+  // apply initial theme
+  switchTheme(initial, false);
+
+  // wire toggle to rotate themes (for quick test)
+  toggle.addEventListener('click', () => {
+    const current = root.getAttribute('data-theme') || initial;
+    // rotate order: green -> homeowner -> investment -> offgrid -> business -> green
+    const order = ['green','homeowner','investment','offgrid','business'];
+    const idx = order.indexOf(current);
+    const next = order[(idx+1) % order.length];
+    switchTheme(next, true);
+  });
+
+  function switchTheme(key, save=true){
+    // apply attribute
+    root.setAttribute('data-theme', key);
+    // dynamic slogan mapping
+    const slogans = {
+      green: {pre:'Power your home —', main:'protect your planet.', support:'Confidence-first protections — our promise to local Victorians.'},
+      homeowner: {pre:'Our Promise —', main:'100% Money-Back Guarantee', support:'Confidence-first protections — our promise to local Victorians.'},
+      investment: {pre:'Smart Investment —', main:'Solar pays you back', support:'Cut energy bills and protect long-term ROI.'},
+      offgrid: {pre:'Go Off-Grid —', main:'Power your independence', support:'Store power and live off the grid.'},
+      business: {pre:'Business Energy —', main:'Slash OpEx 40%', support:'VEU incentives + tax-advantaged solutions.'}
+    };
+    const s = slogans[key] || slogans['green'];
+    document.getElementById('sloganPre').textContent = s.pre;
+    document.getElementById('sloganMain').textContent = s.main;
+    document.getElementById('sloganSupport').textContent = s.support;
+    // update themeToggle icon/text
+    toggle.textContent = key === 'green' ? '🌿' : (key==='homeowner'?'🏠':(key==='investment'?'💰':(key==='offgrid'?'🔋':'🏢')));
+    if(save) localStorage.setItem('venomTheme', key);
   }
-};
+})();
 
-function applyPalette(palette){
-  Object.keys(palette).forEach(k => document.documentElement.style.setProperty(k, palette[k]));
-  document.documentElement.style.background = `linear-gradient(180deg, var(--bg) 0%, var(--bg-alt) 100%)`;
-  const f = document.querySelector('.fomo-tilt');
-  if(f) f.style.background = `linear-gradient(180deg, var(--fomo-top) 0%, var(--fomo-bottom) 100%)`;
-}
-
-function updateSlogan(s){
-  const pre = document.getElementById('sloganPre');
-  const main = document.getElementById('sloganMain');
-  const support = document.getElementById('sloganSupport');
-  if(!pre || !main) return;
-  pre.textContent = s.pre;
-  main.textContent = s.highlight;
-  // color
-  if(s.colorVar && s.colorVar.startsWith('--')){
-    const val = getComputedStyle(document.documentElement).getPropertyValue(s.colorVar);
-    if(val) main.style.color = val.trim();
-  }
-  main.classList.remove('visible');
-  setTimeout(()=> main.classList.add('visible'), 40);
-  revealSloganHighlight();
-  
-}
-
-
-function debounce(fn, wait){ let t; return (...args)=>{ clearTimeout(t); t=setTimeout(()=>fn(...args), wait); }; }
-
-function updateFomoForTheme(k, map){
-  // simple A/B variant
-  const variants = [
-    '{emoji} {title} — Limited-Time Offers!',
-    '{emoji} {title} — Hot Seasonal Packages!'
-  ];
-  const choice = Math.random() < 0.5 ? 0 : 1;
-  const titleMap = {
-    young: 'Smart Savings Solar Event',
-    family: 'Home Energy Boost Sale',
-    mature: 'Lifetime Value Solar Offer',
-    trust: 'Reliability & Assurance Sale',
-    business: 'Energy Efficiency Upgrade Event'
-  };
-  const emojiMap = { young:'⚡', family:'🏠', mature:'🌅', trust:'🛡️', business:'🏭' };
-  const title = titleMap[k] || titleMap['trust'];
-  const emoji = emojiMap[k] || '🔥';
-  const text = variants[choice].replace('{title}', title).replace('{emoji}', emoji);
-  const fomo = document.querySelector('.fomo-tilt, .fomo, #fomo');
-  if(fomo){
-    const heading = fomo.querySelector('h2') || fomo;
-    heading.textContent = text;
-  }
-}
-
-function switchTheme(k){
-  const key = k||'trust';
-  const map = themeMap[key] || themeMap.main;
-  const vid = document.getElementById('heroVideo');
-  // palette update (debounced to avoid thrash)
-  debouncedApply(map.palette);
-  // slogan + fomo update
-  updateSlogan(map.slogan);
-  updateFomoForTheme(key, map);
-  // video crossfade
-  if(vid && map.video){
-    try{
-      vid.style.opacity = 0;
-      setTimeout(()=>{
-        const s = vid.querySelector('source');
-        if(s){ s.src = map.video; vid.load(); vid.play().catch(()=>{}); }
-        vid.style.opacity = 1;
-      }, 450);
-    }catch(e){}
-  }
-  try{ localStorage.setItem('suntechTheme', key); }catch(e){}
-}
-var debouncedApply = debounce(function(pal){ applyPalette(pal); }, 80);
-/* Initialization */
-document.addEventListener('DOMContentLoaded', ()=>{
-  const saved = (function(){ try{return localStorage.getItem('suntechTheme'); }catch(e){return null;} })();
-  const defaultTheme = saved && themeMap[saved] ? saved : 'trust';
-  switchTheme(defaultTheme);
-
-  // carousel
-  const imgs = document.querySelectorAll("#imageCarousel img");
+/* ---------------------------
+   Carousel (image + video crossfade)
+   --------------------------- */
+(function(){
+  const imgs = document.querySelectorAll('#imageCarousel img');
   let idx = 0;
-  if(imgs && imgs.length){ setInterval(()=>{ imgs[idx].classList.remove("active"); idx=(idx+1)%imgs.length; imgs[idx].classList.add("active"); },6000); }
-
-  // FOMO CTA wiring
-  const fomoUploadBtn2 = document.getElementById('fomoUploadBtn2');
-  function smoothToCalculatorAndOpen(){
-    const target = document.getElementById('calculatorPanel');
-    if(!target) return;
-    target.scrollIntoView({behavior:'smooth', block:'center'});
-    setTimeout(()=>{ const b = document.getElementById('billUpload'); if(b) b.click(); },700);
+  if(imgs.length){
+    setInterval(()=>{ imgs[idx].classList.remove('active'); idx=(idx+1)%imgs.length; imgs[idx].classList.add('active'); }, 6000);
   }
-  if(fomoUploadBtn2) fomoUploadBtn2.addEventListener('click', smoothToCalculatorAndOpen);
-  const fomoUploadBtn = document.getElementById('fomoUploadBtn');
-  if(fomoUploadBtn) fomoUploadBtn.addEventListener('click', smoothToCalculatorAndOpen);
+  // preload first image/video handled by browser via loading=lazy/preload attributes
+})();
 
-  // Manual calc toggle
+/* ---------------------------
+   Testimonials - pause on hover handled by CSS animation-play-state
+   --------------------------- */
+
+/* ---------------------------
+   Calculator & Upload actions
+   --------------------------- */
+(function(){
   const manualBtn = document.getElementById('manualCalcBtn');
   const manualWrap = document.getElementById('manualCalcWrap');
   if(manualBtn && manualWrap){
@@ -913,21 +487,12 @@ document.addEventListener('DOMContentLoaded', ()=>{
     });
   }
 
-  // manual calc logic (test packages)
+  const calcGo = document.getElementById('calcGo'), calcReset = document.getElementById('calcReset');
   const pricing = {
     '6.6': { base:6500, batterySmall:5000, batteryLarge:8000, roi:3.5, savingsPct:70 },
     '10':  { base:9800, batterySmall:7000, batteryLarge:11000, roi:4.0, savingsPct:80 },
     '13.2':{ base:12900, batterySmall:8500, batteryLarge:13000, roi:4.5, savingsPct:85 }
   };
-  const calcGo = document.getElementById('calcGo'), calcReset = document.getElementById('calcReset');
-  function showCalcOutput(price,savings,roi,title){
-    const out = document.getElementById('calcOutput');
-    document.getElementById('outPrice').textContent = `Estimated package price: $${price.toLocaleString()}`;
-    document.getElementById('outSavings').textContent = `Estimated bill reduction: ${savings}%`;
-    document.getElementById('outROI').textContent = `Estimated ROI: ${roi} years`;
-    document.getElementById('outTitle').textContent = title;
-    out.style.display='block';
-  }
   if(calcGo){
     calcGo.addEventListener('click', ()=>{
       const sys = document.getElementById('sysSize').value;
@@ -943,36 +508,33 @@ document.addEventListener('DOMContentLoaded', ()=>{
       const adjSavings = Math.round(pkg.savingsPct * usageFactor);
       const adjRoi = (pkg.roi * (1/usageFactor)).toFixed(1);
       const title = `${sys} kW ${bat==='none' ? '— No Battery' : ('— ' + (bat==='small' ? 'Small Battery' : 'Large Battery'))}`;
-      showCalcOutput(adjPrice, adjSavings, adjRoi, title);
+      document.getElementById('outPrice').textContent = `Estimated package price: $${adjPrice.toLocaleString()}`;
+      document.getElementById('outSavings').textContent = `Estimated bill reduction: ${adjSavings}%`;
+      document.getElementById('outROI').textContent = `Estimated ROI: ${adjRoi} years`;
+      document.getElementById('outTitle').textContent = title;
+      document.getElementById('calcOutput').style.display = 'block';
     });
   }
   if(calcReset){ calcReset.addEventListener('click', ()=>{ document.getElementById('sysSize').value='6.6'; document.getElementById('batteryOpt').value='none'; document.getElementById('dailyKwh').value=25; document.getElementById('calcOutput').style.display='none'; }); }
 
-  // Quick Quote (sidebar) logic
-  const qqEstimate = document.getElementById('qqEstimate'), qqPrice = document.getElementById('qqPrice'), qqResult = document.getElementById('qqResult'), packageList = document.getElementById('packageList'), helpForm = document.getElementById('helpForm');
-  function setQuickEstimate(price, resultLabel){
-    if(qqEstimate){ qqEstimate.style.display='block'; qqPrice.textContent = `$${price.toLocaleString()}`; qqResult.textContent = resultLabel; }
-    if(packageList) packageList.style.display='flex';
-    if(helpForm) helpForm.style.display='none';
-  }
+  // Quick quote sidebar
   window.qqSelect = function(type){
+    const qqEstimate = document.getElementById('qqEstimate'), qqPrice = document.getElementById('qqPrice'), qqResult = document.getElementById('qqResult'), packageList = document.getElementById('packageList'), helpForm = document.getElementById('helpForm');
     if(type==='solar'){
       const p = pricing['6.6'].base;
-      setQuickEstimate(p, 'Offset Energy Usage');
+      qqPrice.textContent = `$${p.toLocaleString()}`; qqResult.textContent = 'Offset Energy Usage'; qqEstimate.style.display='block'; packageList.style.display='none'; helpForm.style.display='none';
     } else if(type==='solarbattery'){
       const p = pricing['6.6'].base + pricing['6.6'].batterySmall;
-      setQuickEstimate(p, 'Store Power for Later');
+      qqPrice.textContent = `$${p.toLocaleString()}`; qqResult.textContent = 'Store Power for Later'; qqEstimate.style.display='block'; packageList.style.display='none'; helpForm.style.display='none';
     } else if(type==='help'){
-      if(qqEstimate) qqEstimate.style.display='none';
-      if(packageList) packageList.style.display='none';
-      if(helpForm) helpForm.style.display='block';
-      const nm = document.getElementById('helpName'); if(nm) nm.focus();
+      qqEstimate.style.display='none'; packageList.style.display='none'; helpForm.style.display='block';
+      setTimeout(()=>{ const nm=document.getElementById('helpName'); if(nm) nm.focus(); },100);
     }
     const sidebar = document.querySelector('.rebates-sidebar');
     if(sidebar) sidebar.scrollIntoView({behavior:'smooth', block:'center'});
   };
 
-  // help form submit demo
+  // help form
   const helpSubmit = document.getElementById('helpSubmit');
   if(helpSubmit){
     helpSubmit.addEventListener('click', ()=>{
@@ -982,370 +544,46 @@ document.addEventListener('DOMContentLoaded', ()=>{
       const email = document.getElementById('helpEmail').value.trim();
       if(!name || !addr || !phone || !email){ alert('Please complete all fields so we can guide you.'); return; }
       alert('Thanks — we have received your request. Our team will contact you for a comprehensive quote.');
-      helpForm.style.display='none';
+      document.getElementById('helpForm').style.display='none';
     });
   }
 
-});
+  // fomo upload -> smooth scroll and click upload
+  const fomoBtn2 = document.getElementById('fomoUploadBtn2');
+  function smoothToCalculatorAndOpen(){
+    const target = document.getElementById('calculatorPanel');
+    if(!target) return;
+    target.scrollIntoView({behavior:'smooth', block:'center'});
+    setTimeout(()=>{ const b = document.getElementById('billUpload'); if(b) b.click(); },700);
+  }
+  if(fomoBtn2) fomoBtn2.addEventListener('click', smoothToCalculatorAndOpen);
 
-/* anti-scrape */
-document.addEventListener('contextmenu', e=>e.preventDefault());
-document.addEventListener('selectstart', e=>e.preventDefault());
+  // upload buttons
+  document.addEventListener('click', function(e){
+    const t = e.target;
+    if(!t) return;
+    if(t.id==='uploadBtn' || t.id==='fomoUploadBtn2' || t.id==='fomoUploadBtn') { e.preventDefault(); smoothToCalculatorAndOpen(); }
+  });
 
-/* File upload mock (calculator) */
-function processBill(input){
-  if(!input || !input.files || input.files.length===0) return;
-  document.getElementById('uploadResults').style.display='block';
-  setTimeout(()=>{ document.getElementById('dailyUsage').textContent='27kWh'; document.getElementById('quarterlyAmt').textContent='$520'; },900);
-}
+  // file upload mock for calculator
+  window.processBill = function(input){
+    if(!input || !input.files || input.files.length===0) return;
+    document.getElementById('uploadResults').style.display='inline-block';
+    setTimeout(()=>{ document.getElementById('dailyUsage').textContent='27kWh'; document.getElementById('quarterlyAmt').textContent='$520'; },900);
+  };
 
-// smooth scroll fallback for older browsers
-(function(){
-  try{
-    var supports = 'scrollBehavior' in document.documentElement.style;
-    if(!supports){
-      window.__smoothScrollPolyfill = true;
+  // Accessibility: keyboard activation for buttons
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Enter' || e.key === ' '){
+      const active = document.activeElement;
+      if(active && active.tagName === 'BUTTON'){ active.click(); }
     }
-  }catch(e){}
+  });
+
+  // minor anti-scrape (optional)
+  //document.addEventListener('contextmenu', e => e.preventDefault());
+
 })();
-
-function smoothScrollToElement(el){
-  if(!el) return;
-  try{
-    el.scrollIntoView({behavior:'smooth', block:'center'});
-  }catch(e){
-    // fallback
-    var top = el.getBoundingClientRect().top + window.pageYOffset - (window.innerHeight/2);
-    window.scrollTo(0, top);
-  }
-}
-
-function scrollToCalculatorAndOpen(){
-  var target = document.getElementById('calculatorPanel') || document.getElementById('calculator');
-  if(!target) return;
-  smoothScrollToElement(target);
-  // open manual calc if exists
-  var b = document.getElementById('billUpload');
-  if(b){ setTimeout(()=> b.click(), 700); }
-}
-
-// ensure upload buttons trigger the input
-document.addEventListener('click', function(e){
-  var t = e.target;
-  if(t && t.matches && (t.matches('#fomoUploadBtn') || t.matches('#fomoUploadBtn2') || t.matches('#uploadBtn'))){
-    e.preventDefault();
-    scrollToCalculatorAndOpen();
-  }
-});
-
-// keyboard access: ensure CTAs focusable
-document.addEventListener('keydown', function(e){
-  if(e.key === 'Enter' || e.key === ' '){
-    var active = document.activeElement;
-    if(active && active.tagName === 'BUTTON'){ active.click(); }
-  }
-});
-</script>
-<script>
-function revealSloganHighlight(){
-  const el=document.getElementById('sloganMain');
-  if(!el)return;
-  el.classList.remove('visible');
-  void el.offsetWidth; // restart animation
-  el.classList.add('visible');
-}
-document.addEventListener('DOMContentLoaded',revealSloganHighlight);
 </script>
 </body>
 </html>
-
-    <script>
-        document.querySelectorAll('img, .icon').forEach(item => {
-            item.addEventListener('mouseover', function(e) {
-                var tooltip = document.createElement('div');
-                tooltip.innerText = 'Hovering over ' + item.alt;
-                tooltip.classList.add('tooltip');
-                document.body.appendChild(tooltip);
-                tooltip.style.left = e.pageX + 'px';
-                tooltip.style.top = e.pageY + 'px';
-            });
-            item.addEventListener('mouseout', function() {
-                document.querySelectorAll('.tooltip').forEach(t => t.remove());
-            });
-        });
-    </script>
-    
-        <style>
-            /* Tooltip styles */
-            .tooltip {
-                position: relative;
-                display: inline-block;
-                cursor: pointer;
-                border-bottom: 1px dotted black;
-            }
-            .tooltip .tooltiptext {
-                visibility: hidden;
-                width: 120px;
-                background-color: black;
-                color: #fff;
-                text-align: center;
-                border-radius: 5px;
-                padding: 5px;
-                position: absolute;
-                z-index: 1;
-                bottom: 100%; 
-                left: 50%;
-                margin-left: -60px;
-                opacity: 0;
-                transition: opacity 0.3s;
-            }
-            .tooltip:hover .tooltiptext {
-                visibility: visible;
-                opacity: 1;
-            }
-			
-			/* Base font size for scalable text */
-			html {
-				font-size: clamp(14px, 2vw + 2px, 20px); /* Scales from 14px to 20px */
-			}
-
-			body {
-				font-family: 'Roboto', 'Montserrat', 'Bebas Neue', sans-serif;: 'Inter', sans-serif;
-				background: var(--bg);
-				color: var(--muted);
-				margin: 0;
-				padding: 0;
-				text-align: center;
-				font-size: clamp(16px, 2vw + 1rem, 18px); /* Adjust text size based on viewport */
-			}
-
-			h1, h2, h3 {
-				color: #fff;
-			}
-
-}			
-
-			/* Adjusting testimonials section to scroll horizontally (already done) */
-			.testimonials {
-				display: flex;
-				gap: 35px;
-				overflow-x: hidden;
-				white-space: nowrap;
-				padding: 10px 0;
-				animation: testimonialsScroll 25s linear infinite;
-			}
-
-			.testimonials:hover {
-				animation-play-state: paused;
-			}
-
-			.testimonials .card.panel {
-				flex: 0 0 auto;
-				min-width: 320px;
-				border: 1px solid var(--accent);
-				box-shadow: 0 0 8px rgba(0, 224, 255, 0.4);
-			}
-
-			/* Testimonials scrolling animation */
-			@keyframes testimonialsScroll {
-				0% { transform: translateX(0); }
-				100% { transform: translateX(-50%); }
-			}
-
-}
-			
-
-			}
-			/* Testimonials Scrolling */
-			.testimonials {
-			  display: flex;
-			  gap: 20px; /* 20px gap between testimonials */
-			  overflow-x: hidden;
-			  white-space: nowrap;
-			  padding: 20px 0;
-			  animation: testimonialsScroll 40s linear infinite; /* Increased scroll speed */
-			}
-
-			.testimonials .card.panel {
-			  flex: 0 0 auto;
-			  min-width: 320px;
-			  border: 2px solid var(--accent);
-			  box-shadow: 0 0 10px rgba(0, 255, 255, 0.6); /* Neon cyberpunk glow effect */
-			  background-color: #0b0b0b; /* Dark background to make the glow pop */
-			}
-
-			.testimonials:hover {
-			  animation-play-state: paused;
-			}
-
-			@keyframes testimonialsScroll {
-			  0% { transform: translateX(0); }
-			  100% { transform: translateX(-100%); }
-			}
-
-			.footer {
-			  background: linear-gradient(180deg, #061018 0%, #040b11 100%);
-			  padding: 60px 20px 40px;
-			  text-align: center;
-			  color: #f4f4f4;
-			  font-family: 'Roboto', 'Montserrat', 'Bebas Neue', sans-serif;: 'Poppins', sans-serif;
-			  display: flex;
-			  flex-direction: column;
-			  align-items: center;
-			}
-
-			/* --- Top Legal Links --- */
-			.footer-top {
-			  display: flex;
-			  justify-content: center;
-			  gap: 80px;
-			  flex-wrap: wrap;
-			  font-size: 1.1rem;
-			  font-weight: 600;
-			  letter-spacing: 0.6px;
-			  text-transform: uppercase;
-			  margin-bottom: 16px;
-			}
-
-			.footer-link {
-			  color: #a8b3c2;
-			  text-decoration: none;
-			  position: relative;
-			  transition: color 0.25s ease;
-			}
-
-			.footer-link:hover {
-			  color: #00e0ff;
-			}
-
-			.footer-link::after {
-			  content: '';
-			  display: block;
-			  width: 100%;
-			  height: 2px;
-			  background: linear-gradient(90deg, #00e0ff, #ff7b00);
-			  margin-top: 4px;
-			  border-radius: 1px;
-			  opacity: 0.7;
-			}
-
-			/* Divider */
-			.footer-divider {
-			  width: 70%;
-			  height: 2px;
-			  border: none;
-			  background: linear-gradient(90deg, rgba(0,224,255,0.5), rgba(255,123,0,0.5));
-			  margin: 24px auto 36px;
-			  border-radius: 2px;
-			}
-
-			/* --- Footer Main Section --- */
-			.footer-main {
-			  display: flex;
-			  justify-content: center;
-			  gap: 100px;
-			  flex-wrap: wrap;
-			  text-align: left;
-			  width: 100%;
-			  max-width: 1200px;
-			}
-
-			.footer-box {
-			  flex: 1 1 280px;
-			  padding: 10px 20px;
-			  border-left: 2px solid rgba(0,224,255,0.1);
-			  border-right: 2px solid rgba(255,123,0,0.1);
-			  border-radius: 12px;
-			  background: rgba(255,255,255,0.02);
-			  box-shadow: 0 0 20px rgba(0,0,0,0.4);
-			  backdrop-filter: blur(6px);
-			  transition: transform 0.3s ease, box-shadow 0.3s ease;
-			}
-
-			.footer-box:hover {
-			  transform: translateY(-6px);
-			  box-shadow: 0 0 25px rgba(0,224,255,0.4);
-			}
-
-			.footer-box h3 {
-			  color: #00e0ff;
-			  font-weight: 700;
-			  font-size: 1.4rem;
-			  margin-bottom: 10px;
-			  text-shadow: 0 0 8px rgba(0,224,255,0.6);
-			}
-
-			.footer-box p {
-			  color: #cfcfcf;
-			  font-size: 0.95rem;
-			  line-height: 1.5;
-			}
-
-			.footer-box a {
-			  color: #ffb366;
-			  text-decoration: none;
-			  font-weight: 600;
-			}
-
-			.footer-box a:hover {
-			  color: #00e0ff;
-			}
-
-			.footer-box .highlight {
-			  color: #ff7b00;
-			  font-size: 1.2rem;
-			  font-weight: 700;
-			}
-
-			.footer-box .cta {
-			  margin-top: 8px;
-			  font-style: italic;
-			  color: #a8b3c2;
-			}
-
-			/* --- Logos and Bottom --- */
-			.footer-logos {
-			  margin-top: 50px;
-			  margin-bottom: 20px;
-			  display: flex;
-			  justify-content: center;
-			}
-
-			.footer-logos img {
-			  width: 70%;
-			  max-width: 900px;
-			  height: auto;
-			  filter: brightness(1.15);
-			  border-radius: 8px;
-			}
-
-			.footer-bottom {
-			  text-align: center;
-			  font-size: 0.9rem;
-			  color: #888;
-			  margin-top: 10px;
-			}
-
-			/* Responsive Tuning */
-			@media (max-width: 768px) {
-			  .footer-main {
-				flex-direction: column;
-				align-items: center;
-				gap: 40px;
-			  }
-			  .footer-box {
-				text-align: center;
-				max-width: 400px;
-			  }
-}
-
-
-			.testimonials .card.panel:hover {
-			  box-shadow: 0 0 20px rgba(0, 255, 255, 0.8); /* Increased glow on hover */
-			}
-			
-}
-
-
-        </style>
-        
