@@ -1165,71 +1165,36 @@ document.addEventListener('DOMContentLoaded',revealSloganHighlight);
 			  100% { transform: translateX(-100%); }
 			}
 
-			/* Footer Layout */
-			footer {
-			  display: flex;
-			  flex-wrap: wrap;
-			  justify-content: flex-start; /* Align footer items to the left */
-			  gap: 40px;
-			}
-
-			footer .col {
-			  flex: 1;
-			  min-width: 250px;
-			  margin-bottom: 20px;
-			}
-
-			footer .col h3 {
-			  margin-bottom: 10px;
-			  font-family: 'Poppins', sans-serif;
-			}
-
-			footer .col p, footer .col a {
-			  font-size: 14px;
-			  color: #b0b0b0;
-			  line-height: 1.6;
-			}
-
-			footer .col a {
-			  text-decoration: none;
-			  color: inherit;
-			}
-
-			footer .col a:hover {
-			  color: var(--accent);
-			}
-
-			/* Neon Border and Glow Effect */
-			.testimonials .card.panel {
-			  border: 2px solid var(--accent);
-			  box-shadow: 0 0 15px rgba(0, 255, 255, 0.6); /* Stronger neon effect */
-			  transition: box-shadow 0.3s ease;
-			}
-
-			.testimonials .card.panel:hover {
-			  box-shadow: 0 0 20px rgba(0, 255, 255, 0.8); /* Increased glow on hover */
-			}
 			.footer {
 			  background: #061018;
-			  padding: 40px 60px;
+			  padding: 60px 20px 40px;
 			  text-align: center;
 			  color: #f4f4f4;
 			  font-family: 'Poppins', sans-serif;
+			  display: flex;
+			  flex-direction: column;
+			  align-items: center;
 			}
 
 			.footer-top {
 			  display: flex;
 			  justify-content: center;
-			  gap: 80px;
+			  gap: 100px;
+			  flex-wrap: wrap;
+			  margin-bottom: 12px;
 			  font-size: 1.2rem;
 			  font-weight: 700;
-			  margin-bottom: 12px;
 			}
 
 			.footer-link {
 			  color: #fff;
 			  text-decoration: none;
 			  position: relative;
+			  transition: color 0.25s ease;
+			}
+
+			.footer-link:hover {
+			  color: #00e0ff;
 			}
 
 			.footer-link::after {
@@ -1246,18 +1211,18 @@ document.addEventListener('DOMContentLoaded',revealSloganHighlight);
 			  border: none;
 			  height: 2px;
 			  background: linear-gradient(to right, #00e0ff, #ff7b00);
-			  margin: 20px auto;
-			  width: 80%;
-			  opacity: 0.4;
+			  margin: 24px auto;
+			  width: 70%;
+			  opacity: 0.5;
 			}
 
 			.footer-columns {
 			  display: flex;
-			  justify-content: space-around;
-			  align-items: flex-start;
-			  text-align: left;
+			  justify-content: center;
+			  text-align: center;
 			  flex-wrap: wrap;
-			  gap: 40px;
+			  gap: 80px;
+			  max-width: 1000px;
 			  margin-top: 30px;
 			}
 
@@ -1268,27 +1233,54 @@ document.addEventListener('DOMContentLoaded',revealSloganHighlight);
 			  margin-bottom: 8px;
 			}
 
-			.footer-col p, .footer-col a {
+			.footer-col p,
+			.footer-col a {
 			  color: #cfcfcf;
 			  font-size: 0.95rem;
 			  margin: 2px 0;
 			  text-decoration: none;
 			}
 
+			.footer-col a:hover {
+			  color: #00e0ff;
+			}
+
+			/* --- Centered Logos and Bottom Copyright --- */
+			.footer-logos {
+			  margin-top: 40px;
+			  margin-bottom: 20px;
+			  display: flex;
+			  justify-content: center;
+			  width: 100%;
+			}
+
 			.footer-logos img {
-			  margin-top: 25px;
-			  width: auto;
-			  max-height: 80px;
-			  filter: brightness(1.05);
+			  width: 70%;
+			  max-width: 900px;
+			  height: auto;
+			  filter: brightness(1.1);
+			  border-radius: 8px;
 			}
 
 			.footer-bottom {
-			  font-size: 0.85rem;
+			  text-align: center;
+			  font-size: 0.9rem;
 			  color: #888;
-			  margin-top: 25px;
+			  margin-top: 0; /* ensures no big gap under row.png */
 			}
 
 
+			/* Neon Border and Glow Effect */
+			.testimonials .card.panel {
+			  border: 2px solid var(--accent);
+			  box-shadow: 0 0 15px rgba(0, 255, 255, 0.6); /* Stronger neon effect */
+			  transition: box-shadow 0.3s ease;
+			}
+
+			.testimonials .card.panel:hover {
+			  box-shadow: 0 0 20px rgba(0, 255, 255, 0.8); /* Increased glow on hover */
+			}
+			
 }
 
 
