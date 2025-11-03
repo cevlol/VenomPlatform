@@ -667,21 +667,43 @@ window.switchTheme = function(k){
   <!-- footer spacing after testimonials -->
   <div style="height:60px"></div>
 
-  <!-- FOOTER -->
-  <footer aria-label="Site footer" style="margin-top:0px">
-    <div class="footer-grid">
-      <div class="col"><h3 style="margin:0 0 8px 0;font-family:Poppins, sans-serif">Contact Us</h3><p style="margin:6px 0">📞 1300 786 429</p><p style="margin:6px 0">✉️ <a href="mailto:sales@suntechsolarsystems.com.au">sales@suntechsolarsystems.com.au</a></p></div>
-      <div class="col"><h3 style="margin:0 0 8px 0;font-family:Poppins, sans-serif">Quick Links</h3><div style="color:var(--muted)">Savings Calculator</div><div style="color:var(--muted)">Customer Reviews</div></div>
-      <div class="col"><h3 style="margin:0 0 8px 0;font-family:Poppins, sans-serif">Service Areas</h3><div style="color:var(--muted)">Bass Coast, Mornington Peninsula, La Trobe Valley, Greater Melbourne</div></div>
-      <div class="col"><h3 style="margin:0 0 8px 0;font-family:Poppins, sans-serif">Why Choose Us</h3><div style="color:var(--muted)">Local team • NETCC certified • Owner-installed systems</div></div>
+  <footer class="footer">
+  <div class="footer-top">
+    <a href="Docs/terms.html" class="footer-link">Terms</a>
+    <a href="Docs/privacy.html" class="footer-link">Privacy</a>
+    <a href="Docs/ip.html" class="footer-link">IP</a>
+  </div>
+
+  <hr class="footer-divider">
+
+  <div class="footer-columns">
+    <div class="footer-col">
+      <h3>Contact Us</h3>
+      <p>📞 1300 786 429</p>
+      <p>✉️ <a href="mailto:sales@suntechsolarsystems.com.au">sales@suntechsolarsystems.com.au</a></p>
     </div>
 
-    <div style="display:flex;justify-content:center;margin-top:18px">
-      <img src="Assets/row.png" alt="Suntech accreditation row" style="max-width:90%;border-radius:12px">
+    <div class="footer-col">
+      <h3>Why Choose Us</h3>
+      <p>Owner-installed systems</p>
+      <p>Local team • NETCC certified</p>
     </div>
 
-    <div style="text-align:center;color:rgba(255,255,255,0.45);margin-top:12px;font-size:13px">&copy; 2025 Suntech Solar Systems. All rights reserved.</div>
-  </footer>
+    <div class="footer-col">
+      <h3>Service Areas</h3>
+      <p>Bass Coast, Mornington Peninsula,<br>La Trobe Valley, Greater Melbourne</p>
+    </div>
+  </div>
+
+  <div class="footer-logos">
+    <img src="Assets/footer-badges.png" alt="Certifications">
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2025 Suntech Solar Systems. All rights reserved.</p>
+  </div>
+</footer>
+
 
 </main>
 
@@ -1188,6 +1210,84 @@ document.addEventListener('DOMContentLoaded',revealSloganHighlight);
 
 			.testimonials .card.panel:hover {
 			  box-shadow: 0 0 20px rgba(0, 255, 255, 0.8); /* Increased glow on hover */
+			}
+			.footer {
+			  background: #061018;
+			  padding: 40px 60px;
+			  text-align: center;
+			  color: #f4f4f4;
+			  font-family: 'Poppins', sans-serif;
+			}
+
+			.footer-top {
+			  display: flex;
+			  justify-content: center;
+			  gap: 80px;
+			  font-size: 1.2rem;
+			  font-weight: 700;
+			  margin-bottom: 12px;
+			}
+
+			.footer-link {
+			  color: #fff;
+			  text-decoration: none;
+			  position: relative;
+			}
+
+			.footer-link::after {
+			  content: '';
+			  display: block;
+			  width: 100%;
+			  height: 2px;
+			  background: linear-gradient(to right, #00e0ff, #ff7b00);
+			  margin-top: 4px;
+			  border-radius: 2px;
+			}
+
+			.footer-divider {
+			  border: none;
+			  height: 2px;
+			  background: linear-gradient(to right, #00e0ff, #ff7b00);
+			  margin: 20px auto;
+			  width: 80%;
+			  opacity: 0.4;
+			}
+
+			.footer-columns {
+			  display: flex;
+			  justify-content: space-around;
+			  align-items: flex-start;
+			  text-align: left;
+			  flex-wrap: wrap;
+			  gap: 40px;
+			  margin-top: 30px;
+			}
+
+			.footer-col h3 {
+			  color: #fff;
+			  font-weight: 700;
+			  font-size: 1.3rem;
+			  margin-bottom: 8px;
+			}
+
+			.footer-col p, .footer-col a {
+			  color: #cfcfcf;
+			  font-size: 0.95rem;
+			  margin: 2px 0;
+			  text-decoration: none;
+			}
+
+			.footer-logos img {
+			  margin-top: 25px;
+			  width: auto;
+			  max-height: 80px;
+			  filter: brightness(1.05);
+			}
+
+			.footer-bottom {
+			  font-size: 0.85rem;
+			  color: #888;
+			  margin-top: 25px;
 			}
 
 
