@@ -1,0 +1,763 @@
+<!doctype html>
+<html lang="en">
+<head>
+<base href="../">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="preload" href="Assets/stock-video-1.mp4" as="video">
+<title>Venom Platform — V6.3</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@500;600;700&family=Roboto+Condensed:wght@300;400;700&display=swap" rel="stylesheet">
+<link rel="preload" href="https://fonts.gstatic.com/s/bebasneue/v13/JTUSjIg69CK48gW7PXoo9Wlhzg.woff2" as="font" type="font/woff2" crossorigin>
+
+
+<meta name="description" content="Suntech Solar Systems — local Victorian solar installers; battery backup, rebates and tailored quotes.">
+
+<link rel="stylesheet" href="Assets/css/main.css">
+
+<noscript><style>body{opacity:1;}</style></noscript>
+</head>
+<body>
+
+<header role="banner" aria-label="Suntech header">
+  <img src="Assets/logo.png" alt="Suntech logo" class="header-logo">
+</header>
+
+<!-- Sidebars -->
+<aside class="demo-sidebar" aria-label="Demo Themes">
+  <h3>Demo Themes</h3>
+  <ul class="list-unstyled">
+    <li class="sidebar-item"><a onclick="switchTheme('trust')">Default</a></li>
+    <li class="sidebar-item"><a onclick="switchTheme('young')">Young</a></li>
+    <li class="sidebar-item"><a onclick="switchTheme('family')">Family</a></li>
+    <li class="sidebar-item"><a onclick="switchTheme('mature')">Mature</a></li>
+    <li class="sidebar-item"><a onclick="switchTheme('trust')">Trust</a></li>
+    <li class="sidebar-item"><a onclick="switchTheme('business')">Business</a></li>
+  </ul>
+</aside>
+
+<aside class="rebates-sidebar" aria-label="Rebates Info">
+  <div class="stack">
+    <h3>Rebates Info</h3>
+    <ul class="links list-unstyled">
+      <li class="sidebar-item"><a href="veu-rebate.html">VEU Program</a></li>
+      <li class="sidebar-item"><a href="stc-rebate.html">STCs Federal</a></li>
+      <li class="sidebar-item"><a href="solar-homes.html">VIC Solar Homes</a></li>
+    </ul>
+
+    <div class="sidebar-spacer"></div>
+    <div class="cta-box" role="region" aria-label="Call us">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.8 19.8 0 0 1 3 5.18 2 2 0 0 1 5 3h3a2 2 0 0 1 2 1.72c.06.66.18 1.31.36 1.94a2 2 0 0 1-.45 2.11L9.91 9.91a16 16 0 0 0 6.17 6.17l1.08-1.08a2 2 0 0 1 2.11-.45c.63.18 1.28.3 1.94.36A2 2 0 0 1 22 16.92z" fill="#f59b35"/></svg>
+      <div>
+        <div class="phone sidebar-phone">1300 786 429</div>
+        <div class="phone-desc sidebar-phone-desc">Call for a free quote</div>
+      </div>
+    </div>
+
+    <!-- Quick Quote area -->
+    <div class="quick-quote" aria-label="Quick Quote">
+      <div class="quick-quote-title">Quick Quote</div>
+      <div class="quick-quote-subtitle">Choose an option to see package types</div>
+
+      <div class="qq-buttons">
+        <button onclick="qqSelect('solar')">Solar Only</button>
+        <button onclick="qqSelect('solarbattery')">Solar + Battery</button>
+        <button onclick="qqSelect('help')">Not Sure — Help Me Decide</button>
+      </div>
+
+      <div class="qq-estimate is-hidden" id="qqEstimate" aria-hidden="true">
+        <div class="quick-quote-subtitle">Selected package</div>
+        <div class="price" id="qqPrice">$0</div>
+        <div class="result" id="qqResult">—</div>
+      </div>
+
+      <div class="package-list is-hidden" id="packageList" aria-hidden="true">
+        <div class="package-item">Offset Energy Usage</div>
+        <div class="package-item">Store Power for Later</div>
+        <div class="package-item">Complete Grid Disconnect</div>
+      </div>
+
+      <!-- help form -->
+      <div class="help-form is-hidden" id="helpForm" aria-hidden="true">
+        <div class="quick-quote-title quick-quote-title--spaced">Let's help you</div>
+        <input id="helpName" placeholder="Full name" />
+        <input id="helpAddress" placeholder="Full address" />
+        <input id="helpPhone" placeholder="Mobile number" />
+        <input id="helpEmail" placeholder="Email address" />
+        <div class="help-form-group">
+          <label>Upload energy bill (optional)</label>
+          <input id="helpUpload" type="file" accept=".pdf,.png,.jpg" />
+        </div>
+        <div class="help-form-actions">
+          <button class="btn-modern" id="helpSubmit">Request Guided Quote</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+    <!-- CENTERED FOMO (subtle accent-tinted frosted background, always black text) -->
+<div class="fomo-wrap" aria-hidden="false">
+  <div class="fomo-tilt" role="region" aria-label="Limited time solar offer" id="fomoCard">
+    <div class="fomo-inner">
+      <div class="fomo-text">
+        <h2 class="fomo-title">🔥 Summer Solar Flash — Limited Time</h2>
+        <p class="fomo-description">
+          Exclusive summer packages with priority installs and fast ROI. Ends soon — secure your slot.
+        </p>
+        <div class="fomo-actions">
+          <button class="btn-modern" id="fomoUploadBtn2">Upload Energy Bill</button>
+          <button class="btn-ghost" onclick="switchTheme('trust')">Talk to Expert</button>
+        </div>
+      </div>
+
+      <div class="fomo-illus">
+        <img src="Assets/summer-illust.png" alt="Summer sale">
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+/* dynamic accent tint for FOMO background */
+function updateFomoTint(){
+  try{
+    const accent = getComputedStyle(document.documentElement).getPropertyValue('--cyan').trim() || '#18e0ff';
+    const fomo = document.getElementById('fomoCard');
+    if(!fomo) return;
+    fomo.style.background = `linear-gradient(180deg,
+      rgba(255,255,255,0.94) 0%,
+      ${accent ? accent.replace(')', ',0.15)').replace('rgb', 'rgba') : 'rgba(24,224,255,0.15)'} 100%)`;
+  }catch(e){}
+}
+document.addEventListener('DOMContentLoaded', updateFomoTint);
+const oldSwitchTheme = window.switchTheme;
+window.switchTheme = function(k){
+  if(typeof oldSwitchTheme === 'function') oldSwitchTheme(k);
+  setTimeout(updateFomoTint, 250);
+};
+
+function setVisibility(el, show){
+  if(!el) return;
+  if(show){
+    el.classList.remove('is-hidden');
+    el.setAttribute('aria-hidden', 'false');
+  } else {
+    el.classList.add('is-hidden');
+    el.setAttribute('aria-hidden', 'true');
+  }
+}
+</script>
+</aside>
+
+<!-- Main -->
+<main class="container" role="main" aria-label="Main content">
+
+  <!-- FUN FACTS -->
+  <div class="fun-facts-banner section" aria-label="Fun Facts scrolling banner" role="region">
+    <div class="fun-facts-track" id="funFactsTrack" aria-hidden="false">
+      <div class="fact-item"><span class="fact-num">#1</span> <span class="fact-q">Do batteries explode?</span><span class="fact-a">Only cheap ones do — we use certified brands built to last.</span></div>
+      <div class="fact-item"><span class="fact-num">#2</span> <span class="fact-q">I hear solar always plays up?</span><span class="fact-a">Choose local installers & genuine parts — we 1-shot every install.</span></div>
+      <div class="fact-item"><span class="fact-num">#3</span> <span class="fact-q">Will solar work on cloudy days?</span><span class="fact-a">Yes — panels still capture diffuse light!</span></div>
+      <div class="fact-item"><span class="fact-num">#4</span> <span class="fact-q">Do batteries drain overnight?</span><span class="fact-a">They’re designed to power your home until sunrise.</span></div>
+      <div class="fact-item"><span class="fact-num">#5</span> <span class="fact-q">Is solar worth it if I’m at work all day?</span><span class="fact-a">Absolutely — feed excess energy back to the grid & slash your bills.</span></div>
+      <!-- duplicate for seamless loop -->
+      <div class="fact-item"><span class="fact-num">#1</span> <span class="fact-q">Do batteries explode?</span><span class="fact-a">Only cheap ones do — we use certified brands built to last.</span></div>
+      <div class="fact-item"><span class="fact-num">#2</span> <span class="fact-q">I hear solar always plays up?</span><span class="fact-a">Choose local installers & genuine parts — we 1-shot every install.</span></div>
+      <div class="fact-item"><span class="fact-num">#3</span> <span class="fact-q">Will solar work on cloudy days?</span><span class="fact-a">Yes — panels still capture diffuse light!</span></div>
+      <div class="fact-item"><span class="fact-num">#4</span> <span class="fact-q">Do batteries drain overnight?</span><span class="fact-a">They’re designed to power your home until sunrise.</span></div>
+      <div class="fact-item"><span class="fact-num">#5</span> <span class="fact-q">Is solar worth it if I’m at work all day?</span><span class="fact-a">Absolutely — feed excess energy back to the grid & slash your bills.</span></div>
+    </div>
+  </div>
+
+  
+
+<div class="slogan-strip section" id="sloganStrip" role="region" aria-label="Theme Slogan">
+    <div>
+        <div class="slogan-headline" id="sloganHeadline">
+            <span id="sloganPre">Our Promise —</span>
+            <span class="splash"><span id="sloganMain" class="slogan-highlight">100% Money-Back Guarantee</span></span>
+        </div>
+        <div class="slogan-support" id="sloganSupport">
+    Confidence-first protections — our promise to local Victorians.
+</div>
+
+    </div>
+</div>
+
+
+  <!-- HERO (video + carousel) - ensure 60px spacing between FOMO and video -->
+  <section class="hero section" aria-label="Hero section">
+    <div class="video-wrap panel" id="videoWrap">
+      <video id="heroVideo" autoplay muted loop playsinline preload="metadata">
+    <source src="Assets/stock-video-1.mp4" type="video/mp4">
+</video>
+
+    </div>
+
+    <div class="carousel panel" id="imageCarousel" aria-label="Image carousel" role="region">
+      <img src="Assets/hero1.jpg" class="active" alt="Solar image 1" loading="lazy">
+      <img src="Assets/hero2.jpg" alt="Solar image 2" loading="lazy">
+      <img src="Assets/hero3.jpg" alt="Solar image 3" loading="lazy">
+      <img src="Assets/hero4.jpg" alt="Solar image 4" loading="lazy">
+    </div>
+  </section>
+
+  <!-- CALCULATOR (60px below video as requested) -->
+  <section class="section" aria-label="Calculator">
+    <div class="panel" id="calculatorPanel">
+      <h2 class="h2-left"><span class="h-icon">🧮</span>Calculate Your Solar Savings</h2>
+      <p class="section-intro">Get an accurate estimate based on your usage.</p>
+
+        <div class="upload-actions">
+          <button class="btn-modern" id="uploadBtn" onclick="document.getElementById('billUpload').click()">Upload Energy Bill</button>
+          <button class="btn-ghost" id="manualCalcBtn">Manually Calculate Usage</button>
+
+          <input id="billUpload" class="hidden-input" type="file" accept=".pdf,.png,.jpg" onchange="processBill(this)">
+          <div id="uploadResults" class="upload-results is-hidden" aria-hidden="true">
+            <div id="usageSummary">Daily: <strong id="dailyUsage">25kWh</strong> | Quarterly: <strong id="quarterlyAmt">$480</strong></div>
+          </div>
+        </div>
+
+        <div class="manual-calc-wrap" id="manualCalcWrap" aria-hidden="true">
+          <div class="panel panel--compact">
+            <div class="calc-form-row">
+              <label class="calc-label">Select system size:
+                <select id="sysSize">
+                  <option value="6.6">6.6 kW</option>
+                  <option value="10">10 kW</option>
+                  <option value="13.2">13.2 kW</option>
+                </select>
+              </label>
+
+              <label class="calc-label calc-label--wide">Battery:
+                <select id="batteryOpt">
+                  <option value="none">No Battery</option>
+                  <option value="small">Small Battery</option>
+                  <option value="large">Large Battery</option>
+                </select>
+              </label>
+
+              <label class="calc-label calc-label--medium">Average daily usage (kWh):
+                <input id="dailyKwh" type="number" value="25" min="1">
+              </label>
+
+              <div class="calc-actions">
+                <button class="btn-modern" id="calcGo">Calculate</button>
+                <button class="btn-ghost" id="calcReset">Reset</button>
+              </div>
+            </div>
+
+            <div id="calcOutput" class="calc-result is-hidden" aria-hidden="true">
+              <div class="text-strong" id="outTitle">Estimate</div>
+              <div class="mt-8"><span id="outPrice"></span></div>
+              <div class="mt-6 text-muted"><span id="outSavings"></span></div>
+              <div class="mt-6 text-muted"><span id="outROI"></span></div>
+              <div class="mt-6 text-muted" id="outSummary">Selected package: —</div>
+            </div>
+          </div>
+        </div>
+
+    </div>
+  </section>
+
+  <!-- TEAM (consolidated & professional) - 60px spacing above -->
+  <section class="section" aria-label="Team">
+    <h2 class="h2-left"><span class="h-icon">🤝</span>Meet Your Local Solar Team</h2>
+
+    <div class="team-block">
+      <!-- Jess -->
+      <div class="team-card">
+        <div class="team-avatar">J</div>
+        <div class="team-meta">
+          <div class="name">Jess — Co-Director & Operations</div>
+          <div class="role">NETCC Certified Installer</div>
+          <div class="note">20+ years managing installs, QA lead, warranty liaison. Ensures owner-installed standards on every job.</div>
+        </div>
+      </div>
+
+      <!-- Jackson -->
+      <div class="team-card">
+        <div class="team-avatar">Ja</div>
+        <div class="team-meta">
+          <div class="name">Jackson — Co-Director & Lead Installer</div>
+          <div class="role">PV System Architect</div>
+          <div class="note">Specialises in residential system design and rooftop safety. Oversees field teams and complex setups.</div>
+        </div>
+      </div>
+
+      <!-- Joe -->
+      <div class="team-card">
+        <div class="team-avatar">Jo</div>
+        <div class="team-meta">
+          <div class="name">Joe — General Manager of Sales</div>
+          <div class="role">Customer Experience & Quotes</div>
+          <div class="note">Handles tailored quotes, finance options and ensures smooth handovers for every customer.</div>
+        </div>
+      </div>
+
+      <!-- Apprentice Team -->
+      <div class="team-card">
+        <div class="team-avatar">AT</div>
+        <div class="team-meta">
+          <div class="name">Apprentice Team</div>
+          <div class="role">Supervised Installation Crew</div>
+          <div class="note">Trained on-site by directors; focused on quality installs and fast, tidy completions.</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS (auto-scrolling horizontal) -->
+<section class="section" aria-label="Testimonials">
+  <h2 class="h2-left"><span class="h-icon">📝</span>Are These Guys Any Good?</h2>
+  <div class="testimonials-wrapper">
+      <div class="testimonials">
+        <div class="card panel">
+          <strong class="testimonial-rating">⭐⭐⭐⭐⭐</strong>
+          <p class="testimonial-quote">"Jackson and his team were fantastic... bills dropped from $680 to $95 per quarter!"</p>
+          <div class="testimonial-name">Sarah — Geelong</div>
+        </div>
+        <div class="card panel">
+          <strong class="testimonial-rating">⭐⭐⭐⭐⭐</strong>
+          <p class="testimonial-quote">"Battery kept our fridge & AC running during the last blackout."</p>
+          <div class="testimonial-name">Mark — Ballarat</div>
+        </div>
+        <div class="card panel">
+          <strong class="testimonial-rating">⭐⭐⭐⭐⭐</strong>
+          <p class="testimonial-quote">"No high-pressure sales, just honest advice. Joseph is on FIRE!"</p>
+          <div class="testimonial-name">Elise — Werribee</div>
+        </div>
+        <div class="card panel">
+          <strong class="testimonial-rating">⭐⭐⭐⭐⭐</strong>
+          <p class="testimonial-quote">"Installers were polite and on time — would 100% recommend!"</p>
+          <div class="testimonial-name">Tim — Frankston</div>
+        </div>
+        <div class="card panel">
+          <strong class="testimonial-rating">⭐⭐⭐⭐⭐</strong>
+          <p class="testimonial-quote">"Monitoring app is simple to use and very accurate."</p>
+          <div class="testimonial-name">Olivia — Dandenong</div>
+        </div>
+        <div class="card panel">
+          <strong class="testimonial-rating">⭐⭐⭐⭐⭐</strong>
+          <p class="testimonial-quote">"Saved nearly $1,200 in the first year already."</p>
+          <div class="testimonial-name">Gagandeep — Mornington</div>
+        </div>
+        <div class="card panel">
+          <strong class="testimonial-rating">⭐⭐⭐⭐⭐</strong>
+          <p class="testimonial-quote">"Last mob quoted me $27k, Suntech got it done for 17k... INSANE Fronius pricing!"</p>
+          <div class="testimonial-name">Claire — Bairnsdale</div>
+        </div>
+
+        <!-- duplicate set for infinite looping -->
+        <div class="card panel">
+          <strong class="testimonial-rating">⭐⭐⭐⭐⭐</strong>
+          <p class="testimonial-quote">"Jackson and his team were fantastic... bills dropped from $680 to $95 per quarter!"</p>
+          <div class="testimonial-name">Sarah — Geelong</div>
+        </div>
+        <div class="card panel">
+          <strong class="testimonial-rating">⭐⭐⭐⭐⭐</strong>
+          <p class="testimonial-quote">"Battery kept our fridge & AC running during the last blackout."</p>
+          <div class="testimonial-name">Mark — Ballarat</div>
+        </div>
+        <div class="card panel">
+          <strong class="testimonial-rating">⭐⭐⭐⭐⭐</strong>
+          <p class="testimonial-quote">"No high-pressure sales, just honest advice. Joseph is on FIRE!"</p>
+          <div class="testimonial-name">Elise — Werribee</div>
+        </div>
+        <div class="card panel">
+          <strong class="testimonial-rating">⭐⭐⭐⭐⭐</strong>
+          <p class="testimonial-quote">"Installers were polite and on time — would 100% recommend!"</p>
+          <div class="testimonial-name">Tim — Frankston</div>
+        </div>
+        <div class="card panel">
+          <strong class="testimonial-rating">⭐⭐⭐⭐⭐</strong>
+          <p class="testimonial-quote">"Monitoring app is simple to use and very accurate."</p>
+          <div class="testimonial-name">Olivia — Dandenong</div>
+        </div>
+        <div class="card panel">
+          <strong class="testimonial-rating">⭐⭐⭐⭐⭐</strong>
+          <p class="testimonial-quote">"Saved over $1,200 in the first year already."</p>
+          <div class="testimonial-name">Gagandeep — Mornington</div>
+        </div>
+        <div class="card panel">
+          <strong class="testimonial-rating">⭐⭐⭐⭐⭐</strong>
+          <p class="testimonial-quote">"Last mob quoted me $27k, Suntech got it done for 17k... INSANE Fronius pricing!"</p>
+          <div class="testimonial-name">Claire — Bairnsdale</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- footer spacing after testimonials -->
+  <div class="spacer-lg"></div>
+
+  <footer class="footer">
+  <!-- Legal links bar -->
+  <div class="footer-top">
+    <a href="Docs/terms.html" class="footer-link">Terms</a>
+    <a href="Docs/privacy.html" class="footer-link">Privacy</a>
+    <a href="Docs/ip.html" class="footer-link">Intellectual Property</a>
+  </div>
+
+  <hr class="footer-divider">
+
+  <!-- Modern Footer Grid -->
+  <div class="footer-main">
+    <div class="footer-box contact">
+      <h3>📞 Call Our Team</h3>
+      <p class="highlight">1300 786 429</p>
+      <p><a href="mailto:sales@suntechsolarsystems.com.au">sales@suntechsolarsystems.com.au</a></p>
+      <p class="cta">Let’s talk solar — no pushy sales, just straight answers.</p>
+    </div>
+
+    <div class="footer-box why">
+      <h3>☀️ Why Suntech?</h3>
+      <p>No bullshit.<br>Our owners are installers.<br>Born & bred locals.<br><strong>NETCC certified.</strong></p>
+    </div>
+
+    <div class="footer-box service">
+      <h3>📍 Service Areas</h3>
+      <p class="highlight">VIC-wide</p>
+      <p>From metro to the coast — we’ve got you covered.</p>
+    </div>
+  </div>
+
+  <div class="footer-logos">
+    <img src="Assets/row.png" alt="Certifications and accreditations">
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2025 Suntech Solar Systems. All rights reserved.</p>
+  </div>
+</footer>
+</main>
+
+<script>
+/* ---------------------------
+   Theme map (same as v4.4/v4.5 but preserved)
+   --------------------------- */
+const themeMap = {
+  main: {
+    video: 'Assets/stock-video-1.mp4',
+    palette: {'--bg':'#07101a','--bg-alt':'#020712','--panel-bg':'#0b1623','--orange':'#f59b35','--cyan':'#18e0ff','--muted':'#c7d2db','--fomo-top':'#ff8a00','--fomo-bottom':'#ffd200'},
+    slogan: { pre: 'Your Local Solar Experts —', highlight: 'Install It Once, Install It Right', colorVar: '--orange' }
+  },
+  young: {
+    video: 'Assets/stock-video-2.mp4',
+    palette: {'--bg':'#021726','--bg-alt':'#002634','--panel-bg':'#082733','--orange':'#ff7a59','--cyan':'#7ef0ff','--muted':'#d8f3f8','--fomo-top':'#ffb84d','--fomo-bottom':'#ffd9a6'},
+    slogan: { pre: 'Future-Proof Your First Home —', highlight: 'Solar Pays Your Bills', colorVar: '--cyan' }
+  },
+  family: {
+    video: 'Assets/stock-video-3.mp4',
+    palette: {'--bg':'#1a2b1e','--bg-alt':'#0d1b12','--panel-bg':'#102b20','--orange':'#ff6b6b','--cyan':'#ffb3d1','--muted':'#f0e6e4','--fomo-top':'#ffd6d6','--fomo-bottom':'#fff2e0'},
+    slogan: { pre: "Power Your Family's Future —", highlight: 'Cut Bills 85%', colorVar: '--orange' }
+  },
+  mature: {
+    video: 'Assets/stock-video-4.mp4',
+    palette: {'--bg':'#081827','--bg-alt':'#03101a','--panel-bg':'#0b1b20','--orange':'#e8b25a','--cyan':'#bfeafc','--muted':'#e9e6dc','--fomo-top':'#f6e2b3','--fomo-bottom':'#fff8e6'},
+    slogan: { pre: 'Retirement Boost —', highlight: 'Solar = Extra Pension', colorVar: '--orange' }
+  },
+  trust: {
+    video: 'Assets/stock-video-1.mp4',
+    palette: {'--bg':'#07122a','--bg-alt':'#031025','--panel-bg':'#071828','--orange':'#f0b064','--cyan':'#9fe7ff','--muted':'#cfdfe8','--fomo-top':'#dbeeff','--fomo-bottom':'#f0fbff'},
+    slogan: { pre: 'Our Promise —', highlight: '100% Money-Back Guarantee', colorVar: '--cyan' }
+  },
+  business: {
+    video: 'Assets/stock-video-1.mp4',
+    palette: {'--bg':'#0b1116','--bg-alt':'#03060a','--panel-bg':'#0b1418','--orange':'#ffb97a','--cyan':'#6ad1ff','--muted':'#d3e6ef','--fomo-top':'#e6f8ff','--fomo-bottom':'#dff5ff'},
+    slogan: { pre: 'Slash OpEx 40% —', highlight: 'VEU + Tax Deductions', colorVar: '--orange' }
+  }
+};
+
+function applyPalette(palette){
+  Object.keys(palette).forEach(k => document.documentElement.style.setProperty(k, palette[k]));
+  document.documentElement.style.background = `linear-gradient(180deg, var(--bg) 0%, var(--bg-alt) 100%)`;
+  const f = document.querySelector('.fomo-tilt');
+  if(f) f.style.background = `linear-gradient(180deg, var(--fomo-top) 0%, var(--fomo-bottom) 100%)`;
+}
+
+function updateSlogan(s){
+  const pre = document.getElementById('sloganPre');
+  const main = document.getElementById('sloganMain');
+  const support = document.getElementById('sloganSupport');
+  if(!pre || !main) return;
+  pre.textContent = s.pre;
+  main.textContent = s.highlight;
+  // color
+  if(s.colorVar && s.colorVar.startsWith('--')){
+    const val = getComputedStyle(document.documentElement).getPropertyValue(s.colorVar);
+    if(val) main.style.color = val.trim();
+  }
+  main.classList.remove('visible');
+  setTimeout(()=> main.classList.add('visible'), 40);
+  revealSloganHighlight();
+  
+}
+
+
+function debounce(fn, wait){ let t; return (...args)=>{ clearTimeout(t); t=setTimeout(()=>fn(...args), wait); }; }
+
+function updateFomoForTheme(k, map){
+  // simple A/B variant
+  const variants = [
+    '{emoji} {title} — Limited-Time Offers!',
+    '{emoji} {title} — Hot Seasonal Packages!'
+  ];
+  const choice = Math.random() < 0.5 ? 0 : 1;
+  const titleMap = {
+    young: 'Smart Savings Solar Event',
+    family: 'Home Energy Boost Sale',
+    mature: 'Lifetime Value Solar Offer',
+    trust: 'Reliability & Assurance Sale',
+    business: 'Energy Efficiency Upgrade Event'
+  };
+  const emojiMap = { young:'⚡', family:'🏠', mature:'🌅', trust:'🛡️', business:'🏭' };
+  const title = titleMap[k] || titleMap['trust'];
+  const emoji = emojiMap[k] || '🔥';
+  const text = variants[choice].replace('{title}', title).replace('{emoji}', emoji);
+  const fomo = document.querySelector('.fomo-tilt, .fomo, #fomo');
+  if(fomo){
+    const heading = fomo.querySelector('h2') || fomo;
+    heading.textContent = text;
+  }
+}
+
+function switchTheme(k){
+  const key = k||'trust';
+  const map = themeMap[key] || themeMap.main;
+  const vid = document.getElementById('heroVideo');
+  // palette update (debounced to avoid thrash)
+  debouncedApply(map.palette);
+  // slogan + fomo update
+  updateSlogan(map.slogan);
+  updateFomoForTheme(key, map);
+  // video crossfade
+  if(vid && map.video){
+    try{
+      vid.style.opacity = 0;
+      setTimeout(()=>{
+        const s = vid.querySelector('source');
+        if(s){ s.src = map.video; vid.load(); vid.play().catch(()=>{}); }
+        vid.style.opacity = 1;
+      }, 450);
+    }catch(e){}
+  }
+  try{ localStorage.setItem('suntechTheme', key); }catch(e){}
+}
+var debouncedApply = debounce(function(pal){ applyPalette(pal); }, 80);
+/* Initialization */
+document.addEventListener('DOMContentLoaded', ()=>{
+  const saved = (function(){ try{return localStorage.getItem('suntechTheme'); }catch(e){return null;} })();
+  const defaultTheme = saved && themeMap[saved] ? saved : 'trust';
+  switchTheme(defaultTheme);
+
+  // carousel
+  const imgs = document.querySelectorAll("#imageCarousel img");
+  let idx = 0;
+  if(imgs && imgs.length){ setInterval(()=>{ imgs[idx].classList.remove("active"); idx=(idx+1)%imgs.length; imgs[idx].classList.add("active"); },6000); }
+
+  // FOMO CTA wiring
+  const fomoUploadBtn2 = document.getElementById('fomoUploadBtn2');
+  function smoothToCalculatorAndOpen(){
+    const target = document.getElementById('calculatorPanel');
+    if(!target) return;
+    target.scrollIntoView({behavior:'smooth', block:'center'});
+    setTimeout(()=>{ const b = document.getElementById('billUpload'); if(b) b.click(); },700);
+  }
+  if(fomoUploadBtn2) fomoUploadBtn2.addEventListener('click', smoothToCalculatorAndOpen);
+  const fomoUploadBtn = document.getElementById('fomoUploadBtn');
+  if(fomoUploadBtn) fomoUploadBtn.addEventListener('click', smoothToCalculatorAndOpen);
+
+  // Manual calc toggle
+  const manualBtn = document.getElementById('manualCalcBtn');
+  const manualWrap = document.getElementById('manualCalcWrap');
+  if(manualBtn && manualWrap){
+    manualBtn.addEventListener('click', ()=>{
+      const open = manualWrap.classList.toggle('open');
+      manualWrap.setAttribute('aria-hidden', !open);
+      if(open) manualWrap.scrollIntoView({behavior:'smooth', block:'center'});
+    });
+  }
+
+  // manual calc logic (test packages)
+  const pricing = {
+    '6.6': { base:6500, batterySmall:5000, batteryLarge:8000, roi:3.5, savingsPct:70 },
+    '10':  { base:9800, batterySmall:7000, batteryLarge:11000, roi:4.0, savingsPct:80 },
+    '13.2':{ base:12900, batterySmall:8500, batteryLarge:13000, roi:4.5, savingsPct:85 }
+  };
+  const calcGo = document.getElementById('calcGo'), calcReset = document.getElementById('calcReset');
+  function showCalcOutput(price,savings,roi,title){
+    const out = document.getElementById('calcOutput');
+    document.getElementById('outPrice').textContent = `Estimated package price: $${price.toLocaleString()}`;
+    document.getElementById('outSavings').textContent = `Estimated bill reduction: ${savings}%`;
+    document.getElementById('outROI').textContent = `Estimated ROI: ${roi} years`;
+    document.getElementById('outTitle').textContent = title;
+    const summary = document.getElementById('outSummary');
+    if(summary) summary.textContent = `Selected package: ${title}`;
+    setVisibility(out, true);
+  }
+  if(calcGo){
+    calcGo.addEventListener('click', ()=>{
+      const sys = document.getElementById('sysSize').value;
+      const bat = document.getElementById('batteryOpt').value;
+      const kwh = parseFloat(document.getElementById('dailyKwh').value) || 25;
+      const pkg = pricing[sys];
+      if(!pkg) return;
+      let price = pkg.base;
+      if(bat==='small') price += pkg.batterySmall;
+      if(bat==='large') price += pkg.batteryLarge;
+      const usageFactor = Math.max(0.8, Math.min(1.3, kwh/25));
+      const adjPrice = Math.round(price * usageFactor);
+      const adjSavings = Math.round(pkg.savingsPct * usageFactor);
+      const adjRoi = (pkg.roi * (1/usageFactor)).toFixed(1);
+      const title = `${sys} kW ${bat==='none' ? '— No Battery' : ('— ' + (bat==='small' ? 'Small Battery' : 'Large Battery'))}`;
+      showCalcOutput(adjPrice, adjSavings, adjRoi, title);
+    });
+  }
+  if(calcReset){
+    calcReset.addEventListener('click', ()=>{
+      document.getElementById('sysSize').value='6.6';
+      document.getElementById('batteryOpt').value='none';
+      document.getElementById('dailyKwh').value=25;
+      setVisibility(document.getElementById('calcOutput'), false);
+      const summary = document.getElementById('outSummary');
+      if(summary) summary.textContent = 'Selected package: —';
+    });
+  }
+
+  // Quick Quote (sidebar) logic
+  const qqEstimate = document.getElementById('qqEstimate'), qqPrice = document.getElementById('qqPrice'), qqResult = document.getElementById('qqResult'), packageList = document.getElementById('packageList'), helpForm = document.getElementById('helpForm');
+  function setQuickEstimate(price, resultLabel){
+    if(qqEstimate){
+      setVisibility(qqEstimate, true);
+      qqPrice.textContent = `$${price.toLocaleString()}`;
+      qqResult.textContent = resultLabel;
+    }
+    if(packageList) setVisibility(packageList, true);
+    if(helpForm) setVisibility(helpForm, false);
+  }
+  window.qqSelect = function(type){
+    if(type==='solar'){
+      const p = pricing['6.6'].base;
+      setQuickEstimate(p, 'Offset Energy Usage');
+    } else if(type==='solarbattery'){
+      const p = pricing['6.6'].base + pricing['6.6'].batterySmall;
+      setQuickEstimate(p, 'Store Power for Later');
+    } else if(type==='help'){
+      if(qqEstimate) setVisibility(qqEstimate, false);
+      if(packageList) setVisibility(packageList, false);
+      if(helpForm){
+        setVisibility(helpForm, true);
+        const nm = document.getElementById('helpName'); if(nm) nm.focus();
+      }
+    }
+    if(type!=='help' && helpForm) setVisibility(helpForm, false);
+    const sidebar = document.querySelector('.rebates-sidebar');
+    if(sidebar) sidebar.scrollIntoView({behavior:'smooth', block:'center'});
+  };
+
+  // help form submit demo
+  const helpSubmit = document.getElementById('helpSubmit');
+  if(helpSubmit){
+    helpSubmit.addEventListener('click', ()=>{
+      const name = document.getElementById('helpName').value.trim();
+      const addr = document.getElementById('helpAddress').value.trim();
+      const phone = document.getElementById('helpPhone').value.trim();
+      const email = document.getElementById('helpEmail').value.trim();
+      if(!name || !addr || !phone || !email){ alert('Please complete all fields so we can guide you.'); return; }
+      alert('Thanks — we have received your request. Our team will contact you for a comprehensive quote.');
+      setVisibility(helpForm, false);
+    });
+  }
+
+});
+
+/* anti-scrape */
+document.addEventListener('contextmenu', e=>e.preventDefault());
+document.addEventListener('selectstart', e=>e.preventDefault());
+
+/* File upload mock (calculator) */
+function processBill(input){
+  if(!input || !input.files || input.files.length===0) return;
+  setVisibility(document.getElementById('uploadResults'), true);
+  setTimeout(()=>{ document.getElementById('dailyUsage').textContent='27kWh'; document.getElementById('quarterlyAmt').textContent='$520'; },900);
+}
+
+// smooth scroll fallback for older browsers
+(function(){
+  try{
+    var supports = 'scrollBehavior' in document.documentElement.style;
+    if(!supports){
+      window.__smoothScrollPolyfill = true;
+    }
+  }catch(e){}
+})();
+
+function smoothScrollToElement(el){
+  if(!el) return;
+  try{
+    el.scrollIntoView({behavior:'smooth', block:'center'});
+  }catch(e){
+    // fallback
+    var top = el.getBoundingClientRect().top + window.pageYOffset - (window.innerHeight/2);
+    window.scrollTo(0, top);
+  }
+}
+
+function scrollToCalculatorAndOpen(){
+  var target = document.getElementById('calculatorPanel') || document.getElementById('calculator');
+  if(!target) return;
+  smoothScrollToElement(target);
+  // open manual calc if exists
+  var b = document.getElementById('billUpload');
+  if(b){ setTimeout(()=> b.click(), 700); }
+}
+
+// ensure upload buttons trigger the input
+document.addEventListener('click', function(e){
+  var t = e.target;
+  if(t && t.matches && (t.matches('#fomoUploadBtn') || t.matches('#fomoUploadBtn2') || t.matches('#uploadBtn'))){
+    e.preventDefault();
+    scrollToCalculatorAndOpen();
+  }
+});
+
+// keyboard access: ensure CTAs focusable
+document.addEventListener('keydown', function(e){
+  if(e.key === 'Enter' || e.key === ' '){
+    var active = document.activeElement;
+    if(active && active.tagName === 'BUTTON'){ active.click(); }
+  }
+});
+</script>
+<script>
+function revealSloganHighlight(){
+  const el=document.getElementById('sloganMain');
+  if(!el)return;
+  el.classList.remove('visible');
+  void el.offsetWidth; // restart animation
+  el.classList.add('visible');
+}
+document.addEventListener('DOMContentLoaded',revealSloganHighlight);
+</script>
+<script>
+document.querySelectorAll('img, .icon').forEach(item => {
+  item.addEventListener('mouseover', function(e) {
+    var tooltip = document.createElement('div');
+    tooltip.innerText = 'Hovering over ' + item.alt;
+    tooltip.classList.add('tooltip');
+    document.body.appendChild(tooltip);
+    tooltip.style.left = e.pageX + 'px';
+    tooltip.style.top = e.pageY + 'px';
+  });
+  item.addEventListener('mouseout', function() {
+    document.querySelectorAll('.tooltip').forEach(t => t.remove());
+  });
+});
+</script>
+</body>
+</html>
+    
+        
