@@ -1,1 +1,0 @@
-See README_Update.txt in previous message. This is v3 with hero, themes, sidebar, schema, and testimonials fixes as agreed.

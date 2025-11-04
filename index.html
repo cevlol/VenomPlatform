@@ -1,219 +1,170 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Suntech Solar Systems</title>
-  <link rel="stylesheet" href="assets/main.css" />
-  <script type="application/ld+json" id="schema-org">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Suntech Solar Systems",
-    "url": "https://www.suntechsolarsystems.com.au",
-    "logo": "https://www.suntechsolarsystems.com.au/assets/logo.png",
-    "email": "sales@suntechsolarsystems.com.au",
-    "telephone": "+61 1300 786 429",
-    "address": { "@type": "PostalAddress", "addressRegion": "VIC", "addressCountry": "AU" }
-  }
-  </script>
-  <script type="application/ld+json" id="schema-local">
-  {
-    "@context": "https://schema.org",
-    "@type": "Electrician",
-    "name": "Suntech Solar Systems",
-    "description": "Solar panel installation and energy storage specialists serving Victoria.",
-    "areaServed": "Victoria",
-    "telephone": "+61 1300 786 429",
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "Solar & Battery Packages",
-      "itemListElement": [
-        {"@type": "Offer", "name": "6.6kW Solar Package", "price": "3700.00", "priceCurrency": "AUD"},
-        {"@type": "Offer", "name": "10kWh Battery Package", "price": "9000.00", "priceCurrency": "AUD"},
-        {"@type": "Offer", "name": "6.6kW + 10kWh Combo", "price": "12000.00", "priceCurrency": "AUD"}
-      ]
-    }
-  }
-  </script>
-  <script type="application/ld+json" id="theme-schema">{}</script>
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Suntech Solar Systems — Local Victorian Solar Experts</title>
+<meta name="description" content="Suntech Solar Systems — Victoria’s trusted solar & battery installers. NETCC-certified, genuine parts, lifetime support."/>
+<link rel="canonical" href="https://www.suntechsolarsystems.com.au/"/>
+
+<link rel="preload" href="assets/stock-video-1.mp4" as="video">
+<link rel="preload" href="assets/hero1.jpg" as="image">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@600;700&family=Roboto+Condensed:wght@300;400;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="assets/css/main-v4.1.css"/>
+
+<meta property="og:title" content="Suntech Solar Systems — Local Victorian Solar Experts">
+<meta property="og:description" content="Certified installers. Local support. Real savings.">
+<meta property="og:image" content="https://www.suntechsolarsystems.com.au/assets/hero1.jpg">
+<meta property="og:url" content="https://www.suntechsolarsystems.com.au">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Suntech Solar Systems">
+<meta name="twitter:description" content="Solar that actually works — installed by locals.">
+<meta name="twitter:image" content="https://www.suntechsolarsystems.com.au/assets/hero1.jpg">
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"Organization","name":"Suntech Solar Systems","url":"https://www.suntechsolarsystems.com.au","logo":"https://www.suntechsolarsystems.com.au/assets/logo.png","email":"sales@suntechsolarsystems.com.au","telephone":"+61 1300 786 429","address":{"@type":"PostalAddress","addressRegion":"VIC","addressCountry":"AU"}},
+{"@type":"LocalBusiness","name":"Suntech Solar Systems","image":"https://www.suntechsolarsystems.com.au/assets/logo.png","priceRange":"$$","description":"Solar & battery specialists installing across Victoria.","address":{"@type":"PostalAddress","addressRegion":"VIC","addressCountry":"AU"},"areaServed":"Victoria"},
+{"@type":"Product","name":"6.6kW Solar + 10kWh Battery Package","category":"Solar Energy","brand":{"@type":"Brand","name":"Suntech"},"offers":{"@type":"Offer","price":"12000","priceCurrency":"AUD","availability":"https://schema.org/InStock"}}
+]}
+</script>
 </head>
 <body>
-  <header class="site-header">
-    <div class="brand">
-      <img src="assets/logo.png" alt="Suntech Solar Systems" class="logo" />
+<header class="site-header"><img src="assets/logo.png" alt="Suntech Solar Systems" class="logo"/></header>
+
+<!-- Left demo themes -->
+<aside class="demo-sidebar" aria-label="Demo Themes">
+  <h3>Demo Themes</h3>
+  <ul class="theme-list">
+    <li><button data-theme="trust">Default</button></li>
+    <li><button data-theme="young">Young</button></li>
+    <li><button data-theme="family">Family</button></li>
+    <li><button data-theme="mature">Mature</button></li>
+    <li><button data-theme="business">Business</button></li>
+    <li><button data-theme="ev">EV Owners</button></li>
+    <li><button data-theme="battery">Battery Upgrade</button></li>
+    <li><button data-theme="newbuilds">New Builds</button></li>
+    <li><button data-theme="summer">Summer Sale</button></li>
+    <li><button data-theme="rural">Rural & Regional</button></li>
+  </ul>
+</aside>
+
+<!-- Right stack -->
+<aside class="right-stack">
+  <section class="panel rebates">
+    <h3>Rebates Info</h3>
+    <ul>
+      <li><a href="veu-rebate.html">VEU Program</a></li>
+      <li><a href="stc-rebate.html">STCs Federal</a></li>
+      <li><a href="solar-homes.html">VIC Solar Homes</a></li>
+    </ul>
+  </section>
+
+  <section class="panel fomo" id="fomoCard">
+    <div class="fomo-head">🔥 <span id="fomoTitle">Summer Solar Flash — Limited Time</span></div>
+    <p>Exclusive summer packages with priority installs and fast ROI. Ends soon — secure your slot.</p>
+    <div class="row">
+      <button class="btn btn-primary" id="fomoUploadBtn">Upload Energy Bill</button>
     </div>
-  </header>
+  </section>
 
-  <div class="page">
-    <aside class="left-sidebar">
-      <h3 class="sidebar-title">Demo Themes</h3>
-      <ul id="demoThemes" class="theme-list">
-        <li><button data-theme="default">Default</button></li>
-        <li><button data-theme="young">Young</button></li>
-        <li><button data-theme="family">Family</button></li>
-        <li><button data-theme="mature">Mature</button></li>
-        <li><button data-theme="business">Business</button></li>
-        <li><button data-theme="trust">Trust</button></li>
-        <li><button data-theme="ev">EV Owners</button></li>
-        <li><button data-theme="battery-upgrade">Battery Upgrade</button></li>
-        <li><button data-theme="new-builds">New Builds</button></li>
-        <li><button data-theme="summer-sale">Summer Sale</button></li>
-        <li><button data-theme="rural">Rural & Regional</button></li>
-      </ul>
-    </aside>
+  <section class="panel qq" id="qqSidebar">
+    <header class="qq-head"><h3>Smart Quick Quote</h3></header>
+    <div class="qq-choices">
+      <button class="chip" data-type="panels">New Panels (6.6kW)</button>
+      <button class="chip" data-type="battery">Battery Only (10kWh)</button>
+      <button class="chip" data-type="combo">Panels + Battery</button>
+    </div>
+    <div class="qq-terminal is-hidden" id="qqTermWrap"><pre id="qqTerm"></pre></div>
+    <form class="qq-assumptions">
+      <label>Avg daily usage (kWh)<input id="qqUsage" type="number" step="0.1" value="18" min="1"/></label>
+      <label>Grid rate ($/kWh)<input id="qqRate" type="number" step="0.01" value="0.28" min="0.01"/></label>
+      <label>Feed-in ($/kWh)<input id="qqFiT" type="number" step="0.01" value="0.05" min="0"/></label>
+      <input id="qqBillFile" type="file" accept=".pdf,.png,.jpg,.jpeg" class="file">
+      <button type="button" class="btn btn-secondary" id="qqCalc">⌘ Calculate Performance</button>
+    </form>
+    <div class="qq-summary is-hidden" id="qqOut">
+      <div><strong>Daily solar</strong> <span id="oDaily">—</span></div>
+      <div><strong>Annual solar</strong> <span id="oAnnual">—</span></div>
+      <div><strong>Self-consumed</strong> <span id="oSelf">—</span></div>
+      <div><strong>Bill reduction</strong> <span id="oSave">—</span></div>
+      <div class="muted tiny">Estimates only — Melbourne ~4.0 PSH with typical losses.</div>
+    </div>
+  </section>
+</aside>
 
-    <main class="content">
-      <section id="suntech-hero" class="hero glass-card">
-        <h1 id="heroHeadline" class="hero-headline">
-          Confidence-first protections — our promise to local Victorians.
-        </h1>
-        <p id="heroSub" class="hero-sub">
-          NETCC-certified installers. Genuine parts. Lifetime support.
-        </p>
-        <div class="hero-ctas">
-          <button class="btn btn-primary" data-open-modal="qqModal">Calculate My Savings →</button>
-          <button class="btn btn-outline" data-open-modal="contactModal">Talk to Expert</button>
-        </div>
-      </section>
-
-      <section class="hero-media">
-        <video id="heroVideo" class="hero-video" autoplay muted loop playsinline>
-          <source src="assets/stock-video-1.mp4" type="video/mp4" />
-        </video>
-        <img id="heroImage" class="hero-image" src="assets/hero1.jpg" alt="" />
-      </section>
-
-      <section class="team">
-        <h2>Meet Your Local Solar Team</h2>
-      </section>
-
-      <section class="testimonials-wrap">
-        <div class="testimonials-mask">
-          <div class="testimonials" id="testimonials">
-            <article class="t-card">“Slash our bill by 80%.” — Lina, Dandenong</article>
-            <article class="t-card">“Fast install, tidy work.” — Owais, Cranbourne</article>
-            <article class="t-card">“Battery was a game-changer.” — Kim, Pakenham</article>
-            <article class="t-card">“Top team. Highly recommend.” — Elise, Berwick</article>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <aside class="rebates-sidebar">
-      <section class="glass-card rebates-info">
-        <h3>Rebates Info</h3>
-        <ul class="rebates-links">
-          <li><a href="#" rel="noopener">VEU Program</a></li>
-          <li><a href="#" rel="noopener">STCs Federal</a></li>
-          <li><a href="#" rel="noopener">VIC Solar Homes</a></li>
-        </ul>
-      </section>
-
-      <section class="glass-card fomo">
-        <h4>Exclusive summer packages with priority installs and fast ROI. Ends soon — secure your slot.</h4>
-        <div class="fomo-actions">
-          <button class="btn btn-upload" data-open-modal="billModal">Upload Energy Bill</button>
-          <button class="btn btn-primary" data-open-modal="contactModal">Talk to Expert</button>
-        </div>
-      </section>
-
-      <section class="glass-card quick-quote" id="quickQuoteSidebar">
-        <header class="qq-head">
-          <h3>Quick Quote</h3>
-          <p class="muted">Pick a package, we’ll run the numbers, then request a detailed quote.</p>
-        </header>
-
-        <div class="qq-choices">
-          <button class="qq-btn" data-type="panels">New Panels (6.6kW)</button>
-          <button class="qq-btn" data-type="battery">Battery Only (10kWh)</button>
-          <button class="qq-btn" data-type="combo">Panels + Battery</button>
-        </div>
-
-        <div class="qq-result" id="qqResult">
-          <div class="qq-placeholder">Select an option above to begin.</div>
-        </div>
-
-        <form class="qq-assumptions" id="qqAssumptions">
-          <div class="qq-grid">
-            <label>Avg daily usage (kWh)<input id="qqUsage" type="number" step="0.1" value="18" min="1" /></label>
-            <label>Grid rate ($/kWh)<input id="qqRate" type="number" step="0.01" value="0.28" min="0.01" /></label>
-            <label>Feed-in tariff ($/kWh)<input id="qqFiT" type="number" step="0.01" value="0.05" min="0" /></label>
-          </div>
-          <button type="button" class="btn btn-calc" id="qqCalcBtn">⌘ Calculate Performance</button>
-        </form>
-
-        <div class="qq-calculating is-hidden" id="qqCalculating" aria-hidden="true">
-          <div class="qq-terminal"><pre id="qqTerminalText"></pre></div>
-        </div>
-
-        <div class="qq-summary is-hidden" id="qqSummary">
-          <div class="qq-rows">
-            <div><strong>Est. daily solar</strong> <span id="qqOutDaily">—</span></div>
-            <div><strong>Est. annual solar</strong> <span id="qqOutAnnual">—</span></div>
-            <div><strong>Self-consumed</strong> <span id="qqOutSelf">—</span></div>
-            <div><strong>Est. bill reduction</strong> <span id="qqOutSavings">—</span></div>
-            <div class="qq-disclaimer">Estimates only — Melbourne ~4.0 PSH with typical losses. Results vary.</div>
-          </div>
-        </div>
-
-        <div class="qq-cta is-hidden" id="qqCtaWrap">
-          <button type="button" class="btn btn-outline" id="qqRequestBtn">Request Detailed Quote</button>
-        </div>
-
-        <form class="qq-form is-hidden" id="qqForm">
-          <div class="qq-form-grid">
-            <label>Full name<input name="name" id="qqName" required placeholder="Jane Citizen" /></label>
-            <label>Address<input name="address" id="qqAddress" required placeholder="123 Example St, Suburb VIC" /></label>
-            <label>Mobile<input name="phone" id="qqPhone" required placeholder="04xx xxx xxx" /></label>
-            <label>Email<input type="email" name="email" id="qqEmail" required placeholder="you@example.com" /></label>
-            <label class="qq-file"><span>Upload energy bill (required)</span><input type="file" name="bill" id="qqBill" accept=".pdf,.png,.jpg,.jpeg" required /></label>
-          </div>
-          <input type="hidden" name="selection" id="qqSelectionMeta" />
-          <input type="hidden" name="calc_daily_kwh" id="qqMetaDaily" />
-          <input type="hidden" name="calc_annual_kwh" id="qqMetaAnnual" />
-          <input type="hidden" name="calc_self_kwh" id="qqMetaSelf" />
-          <input type="hidden" name="calc_savings" id="qqMetaSavings" />
-          <div class="qq-actions">
-            <button type="submit" id="qqSubmitBtn" class="btn btn-primary" disabled>Send to Suntech</button>
-            <div class="qq-note">Email goes to <strong>sales@suntechsolarsystems.com.au</strong> (enable later via EmailJS keys).</div>
-          </div>
-        </form>
-      </section>
-    </aside>
-  </div>
-
-  <div class="modal" id="qqModal" aria-hidden="true">
-    <div class="modal-backdrop" data-close-modal></div>
-    <div class="modal-body glass-card">
-      <button class="modal-close" data-close-modal>✕</button>
-      <h3>Quick Quote</h3>
-      <div id="qqModalMount"></div>
+<main class="container">
+  <!-- fun facts -->
+  <div class="funfacts" aria-label="Fun facts">
+    <div class="track" id="facts">
+      <span>#1 Do batteries explode? <em>Only cheap ones do — we use certified brands.</em></span>
+      <span>#2 Solar always plays up? <em>Choose local installers & genuine parts.</em></span>
+      <span>#3 Cloudy days? <em>Yes — panels still capture diffuse light.</em></span>
+      <span>#4 Do batteries drain overnight? <em>Designed to power until sunrise.</em></span>
+      <span>#5 Not home in daytime? <em>Export to grid & slash bills.</em></span>
+      <span>#1 Do batteries explode? <em>Only cheap ones do — we use certified brands.</em></span>
+      <span>#2 Solar always plays up? <em>Choose local installers & genuine parts.</em></span>
     </div>
   </div>
 
-  <div class="modal" id="contactModal" aria-hidden="true">
-    <div class="modal-backdrop" data-close-modal></div>
-    <div class="modal-body glass-card">
-      <button class="modal-close" data-close-modal>✕</button>
-      <h3>Talk to an Expert</h3>
-      <p>Call <a href="tel:+611300786429">1300 786 429</a> or email <a href="mailto:sales@suntechsolarsystems.com.au">sales@suntechsolarsystems.com.au</a>.</p>
-    </div>
-  </div>
+  <!-- slogan -->
+  <section class="slogan">
+    <h1 id="sloganHeadline"><span id="sloganPre">Our Promise — </span><span class="hl" id="sloganMain">100% Money-Back Guarantee</span></h1>
+    <p id="sloganSub">Confidence-first protections — our promise to local Victorians.</p>
+  </section>
 
-  <div class="modal" id="billModal" aria-hidden="true">
-    <div class="modal-backdrop" data-close-modal></div>
-    <div class="modal-body glass-card">
-      <button class="modal-close" data-close-modal>✕</button>
-      <h3>Upload Your Energy Bill</h3>
-      <input type="file" accept=".pdf,.png,.jpg,.jpeg" />
+  <!-- hero -->
+  <section class="hero">
+    <div class="video-wrap panel">
+      <video id="heroVideo" autoplay muted loop playsinline>
+        <source id="heroSrc" src="assets/stock-video-1.mp4" type="video/mp4"/>
+      </video>
     </div>
-  </div>
+    <div class="carousel panel" id="carousel">
+      <img src="assets/hero1.jpg" class="active" alt="Solar install 1">
+      <img src="assets/hero2.jpg" alt="Solar install 2">
+      <img src="assets/hero3.jpg" alt="Solar install 3">
+      <img src="assets/hero4.jpg" alt="Solar install 4">
+    </div>
+  </section>
 
-  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-  <script>/* emailjs.init("YOUR_PUBLIC_KEY"); */</script>
-  <script src="assets/static/qq.js"></script>
-	<script src="assets/static/modal.js"></script>
-	<script src="assets/static/hero.js"></script>
-</body>
-</html>
+  <!-- team -->
+  <section class="section">
+    <h2 class="section-title">Meet Your Local Solar Team</h2>
+    <div class="team">
+      <article class="card"><div class="avatar">J</div><div><h3>Jess — Co-Director & Operations</h3><p>NETCC Certified Installer. 20+ years managing installs, QA lead, warranty liaison.</p></div></article>
+      <article class="card"><div class="avatar">Ja</div><div><h3>Jackson — Co-Director & Lead Installer</h3><p>PV System Architect. Specialises in design & rooftop safety.</p></div></article>
+      <article class="card"><div class="avatar">Jo</div><div><h3>Joe — GM of Sales</h3><p>Customer experience & quotes. Finance options and smooth handover.</p></div></article>
+      <article class="card"><div class="avatar">AT</div><div><h3>Apprentice Team</h3><p>Supervised installation crew focused on tidy, quality installs.</p></div></article>
+    </div>
+  </section>
+
+  <!-- testimonials -->
+  <section class="section">
+    <h2 class="section-title">Are These Guys Any Good?</h2>
+    <div class="t-wrap"><div class="t-mask">
+      <div class="t-row" id="tRow">
+        <div class="t-card panel">⭐⭐⭐⭐⭐ “Jackson and his team were fantastic... bills dropped from $680 to $95 per quarter!” — <strong>Sarah, Geelong</strong></div>
+        <div class="t-card panel">⭐⭐⭐⭐⭐ “Battery kept our fridge & AC running during the last blackout.” — <strong>Mark, Ballarat</strong></div>
+        <div class="t-card panel">⭐⭐⭐⭐⭐ “No high-pressure sales, just honest advice. Joseph is on FIRE!” — <strong>Elise, Werribee</strong></div>
+        <div class="t-card panel">⭐⭐⭐⭐⭐ “Installers were polite and on time — 100% recommend!” — <strong>Tim, Frankston</strong></div>
+        <div class="t-card panel">⭐⭐⭐⭐⭐ “Monitoring app is simple to use and very accurate.” — <strong>Olivia, Dandenong</strong></div>
+        <div class="t-card panel">⭐⭐⭐⭐⭐ “Saved nearly $1,200 in the first year already.” — <strong>Gagandeep, Mornington</strong></div>
+        <div class="t-card panel">⭐⭐⭐⭐⭐ “Last mob quoted me $27k, Suntech did it for 17k — INSANE Fronius pricing!” — <strong>Claire, Bairnsdale</strong></div>
+      </div>
+    </div></div>
+  </section>
+
+  <div style="height:40px"></div>
+</main>
+
+<footer class="footer">
+  <div class="footer-links">
+    <a href="Docs/terms.html">Terms</a><a href="Docs/privacy.html">Privacy</a><a href="Docs/ip.html">Intellectual Property</a>
+  </div>
+  <div class="footer-logos"><img src="assets/row.png" alt="Certifications and accreditations"></div>
+  <div class="copyright">© 2025 Suntech Solar Systems. All rights reserved.</div>
+</footer>
+
+<script src="assets/static/themes-v4.1.js" defer></script>
+<script src="assets/static/logic-v4.1.js" defer></script>
+</body></html>
