@@ -1,1 +1,1 @@
-Place index.html at root, add static/qq.js, configure EmailJS later.
+See README_Update.txt in previous message. This is v3 with hero, themes, sidebar, schema, and testimonials fixes as agreed.
