@@ -3,10 +3,14 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<link rel="preload" href="assets/assets/stock-video-1.mp4" as="video">
-<title>Venom Platform — Aurora v4.7</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;800&display=swap" rel="stylesheet">
-<meta name="description" content="Suntech Solar Systems — local Victorian solar installations, battery backup, rebates and tailored quotes.">
+<link rel="preload" href="/Assets//stock-video-1.mp4" as="video">
+<title>Venom Platform — V6.3</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@500;600;700&family=Roboto+Condensed:wght@300;400;700&display=swap" rel="stylesheet">
+<link rel="preload" href="https://fonts.gstatic.com/s/bebasneue/v13/JTUSjIg69CK48gW7PXoo9Wlhzg.woff2" as="font" type="font/woff2" crossorigin>
+
+
+<meta name="description" content="Suntech Solar Systems — local Victorian solar installers; battery backup, rebates and tailored quotes.">
 
 <style>
 :root{
@@ -24,12 +28,84 @@
   --panel-bg:#0b1623; --muted:#c7d2db; --orange:#f59b35; --cyan:#18e0ff;
   --fomo-top:#ff8a00; --fomo-bottom:#ffd200;
 
-  --btn-radius:8px; --avatar-size:72px;2px;
+   /* Responsive base sizes (adaptive text scaling without scaling containers) */
+	  html{
+		font-family: 'Roboto Condensed', sans-serif;
+		font-size: clamp(14px, 1.1vw + 10px, 18px);
+		-webkit-font-smoothing:antialiased;
+		-moz-osx-font-smoothing:grayscale;
+		line-height:1.55;
+		background:linear-gradient(180deg,var(--bg),var(--bg-alt));
+		color:var(--text);
+	  }
+	  body{margin:0;min-height:100vh;display:flex;flex-direction:column;align-items:center}
+
+	  /* Headings (Bebas Neue) */
+	  h1,h2,h3,h4,h5,h6{
+		font-family:'Bebas Neue',sans-serif;
+		letter-spacing:0.5px;
+		text-transform:uppercase;
+		margin:0 0 0.35em 0;
+		line-height:1.05;
+		color:var(--text);
+	  }
+	  h1{font-size:clamp(2.6rem,4vw,4rem)}
+	  h2{font-size:clamp(1.8rem,2.6vw,2.6rem)}
+	  h3{font-size:clamp(1.4rem,1.9vw,2rem)}
+
+	  /* Sub-headings (Montserrat) */
+	  .subheading, .section-title, .card-title {
+		font-family:'Montserrat',sans-serif;
+		font-weight:600;
+		letter-spacing:0.25px;
+		color:var(--accent);
+	  }
+
+	  /* Paragraphs & body */
+	  p,li,span,input,button,select{
+		font-family:'Roboto Condensed',sans-serif;
+		color:var(--text);
+		font-weight:400;
+		font-size:1rem;
+	  }
+
+	  /* Buttons */
+	  .btn, button {
+		font-family:'Montserrat',sans-serif;
+		font-weight:600;
+		text-transform:uppercase;
+		letter-spacing:0.2px;
+		font-size:clamp(0.8rem,0.5vw + 0.8rem,0.95rem);
+		border:0;
+		cursor:pointer;
+		border-radius:var(--btn-radius);
+	  }
+
+	  /* small helper */
+	  .muted{color:var(--muted)}
+	  a{color:var(--accent);text-decoration:none}
+	  a:hover{color:var(--highlight)}
 }
+		/* Fine-tune slogan */
+		#sloganHeadline {
+		  font-family: 'Montserrat', sans-serif;: var(--font-heading);
+		  font-size: clamp(2.5rem, 3vw, 4rem);
+		  line-height: 1.05;
+}
+
+		#sloganSupport {
+		  font-family: 'Roboto', 'Montserrat', 'Bebas Neue', sans-serif;: var(--font-sub);
+		  font-size: clamp(1rem, 1.2vw, 1.5rem);
+		  font-style: italic;
+}
+		h1, h2, h3 {
+		  text-shadow: 0 0 8px rgba(0, 224, 255, 0.4);
+}
+
 
 /* Reset & base */
 *{box-sizing:border-box}
-html,body{height:100%;margin:0;background:linear-gradient(180deg,var(--bg) 0%, var(--bg-alt) 100%); color:#fff; font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial;}
+html,body{height:100%;margin:0;background:linear-gradient(180deg,var(--bg) 0%, var(--bg-alt) 100%); color:#fff; font-family: 'Roboto', 'Montserrat', 'Bebas Neue', sans-serif;:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial;}
 a{color:inherit;text-decoration:none}
 img{display:block;max-width:100%}
 header{display:flex;justify-content:center;align-items:center;padding-top:18px}
@@ -48,7 +124,7 @@ header{display:flex;justify-content:center;align-items:center;padding-top:18px}
 }
 .demo-sidebar{left:var(--side-offset);width:var(--left-sidebar-w)}
 .rebates-sidebar{right:var(--side-offset);width:var(--right-sidebar-w)}
-.demo-sidebar h3,.rebates-sidebar h3{margin:0 0 10px 0;font-family:Poppins,sans-serif;color:var(--orange);font-size:15px}
+.demo-sidebar h3,.rebates-sidebar h3{margin:0 0 10px 0;font-family: 'Roboto', 'Montserrat', 'Bebas Neue', sans-serif;:Poppins,sans-serif;color:var(--orange);font-size:15px}
 .demo-sidebar a,.rebates-sidebar a{color:var(--muted);transition:color .18s, text-shadow .18s;display:inline-block;cursor:pointer}
 .demo-sidebar a:hover,.rebates-sidebar a:hover{color:#fff;text-shadow:0 0 12px rgba(245,155,53,0.55)}
 
@@ -59,7 +135,7 @@ header{display:flex;justify-content:center;align-items:center;padding-top:18px}
 .rebates-sidebar .help-form input{width:100%;padding:8px;border-radius:6px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--muted);margin-top:8px}
 
 /* Fun Facts banner */
-.fun-facts-banner{margin:0 auto;width:calc(var(--video-w) + var(--carousel-w) + 22px);height:50px;overflow:hidden;border-radius:10px;background:linear-gradient(180deg, rgba(24,224,255,0.06), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.05);display:flex;align-items:center;font-family:Poppins, sans-serif}
+.fun-facts-banner{margin:0 auto;width:calc(var(--video-w) + var(--carousel-w) + 22px);height:50px;overflow:hidden;border-radius:10px;background:linear-gradient(180deg, rgba(24,224,255,0.06), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.05);display:flex;align-items:center;font-family: 'Roboto', 'Montserrat', 'Bebas Neue', sans-serif;:Poppins, sans-serif}
 .fun-facts-track{display:flex;gap:60px;white-space:nowrap;animation:scrollFacts 28s linear infinite;align-items:center;padding-left:18px}
 .fun-facts-banner:hover .fun-facts-track{animation-play-state:paused}
 @keyframes scrollFacts{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
@@ -98,7 +174,7 @@ header{display:flex;justify-content:center;align-items:center;padding-top:18px}
   padding:24px 28px;
   text-align:center;
   color:var(--muted);
-  font-family:Poppins, sans-serif;
+  font-family: 'Roboto', 'Montserrat', 'Bebas Neue', sans-serif;:Bebas Neue, sans-serif;
   box-shadow:0 10px 30px rgba(0,0,0,0.4);
 }
 
@@ -116,9 +192,10 @@ header{display:flex;justify-content:center;align-items:center;padding-top:18px}
 }
 
 .slogan-support {
-  color:var(--muted);
-  margin-top:10px;
-  font-size:16px;
+    text-align: center;  /* Ensure the text is centered */
+    color: var(--muted); 
+    margin-top: 10px;
+    font-size: 16px;
 }
 
 .slogan-highlight {
@@ -178,7 +255,7 @@ header{display:flex;justify-content:center;align-items:center;padding-top:18px}
   position:relative;
   margin:0 auto;
   transform-origin:center left;
-  transform: perspective(1200px) rotateY(-4deg);
+  transform: perspective(1200px) rotateY(-6deg);
   border-radius:14px;
   padding:22px;
   background:linear-gradient(180deg,var(--fomo-top) 0%, var(--fomo-bottom) 100%);
@@ -221,7 +298,7 @@ header{display:flex;justify-content:center;align-items:center;padding-top:18px}
 /* Panel style + headings */
 .panel{background:var(--panel-bg);padding:18px;border-radius:10px;border:1px solid rgba(255,255,255,0.02);color:var(--muted);box-shadow:0 10px 30px rgba(0,0,0,0.5)}
 .h2-left{text-align:left}
-h2,h3{font-family:Poppins,sans-serif;color:var(--orange);text-shadow:0 0 8px rgba(245,155,53,0.6);margin:0 0 12px 0;display:flex;align-items:center;gap:10px;font-weight:700}
+h2,h3{font-family: 'Roboto', 'Montserrat', 'Bebas Neue', sans-serif;:Poppins,sans-serif;color:var(--orange);text-shadow:0 0 8px rgba(245,155,53,0.6);margin:0 0 12px 0;display:flex;align-items:center;gap:10px;font-weight:700}
 .h-icon{font-size:20px;margin-right:6px}
 
 /* Buttons */
@@ -243,15 +320,12 @@ h2,h3{font-family:Poppins,sans-serif;color:var(--orange);text-shadow:0 0 8px rgb
   transition:transform .18s,box-shadow .18s;
 }
 .team-card:hover{transform:translateY(-6px);box-shadow:0 18px 48px rgba(0,0,0,0.45)}
-.team-avatar{width:var(--avatar-size);height:var(--avatar-size);border-radius:12px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:Poppins;font-weight:800;color:#08101a;background:linear-gradient(180deg, #fff 0%, rgba(255,255,255,0.85) 100%);box-shadow:0 8px 20px rgba(0,0,0,0.35)}
+.team-avatar{width:var(--avatar-size);height:var(--avatar-size);border-radius:12px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family: 'Roboto', 'Montserrat', 'Bebas Neue', sans-serif;:Poppins;font-weight:800;color:#08101a;background:linear-gradient(180deg, #fff 0%, rgba(255,255,255,0.85) 100%);box-shadow:0 8px 20px rgba(0,0,0,0.35)}
 .team-meta{display:flex;flex-direction:column}
 .team-meta .name{font-weight:800;color:#fff}
 .team-meta .role{color:var(--muted);font-size:13px;margin-top:6px}
 .team-meta .note{color:var(--muted);font-size:13px;margin-top:6px;max-width:360px}
 
-/* Footer clean */
-.footer-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-.footer-grid .col{padding-top:8px}
 
 /* Responsive */
 @media(max-width:1200px){
@@ -274,7 +348,7 @@ h2,h3{font-family:Poppins,sans-serif;color:var(--orange);text-shadow:0 0 8px rgb
 <body>
 
 <header role="banner" aria-label="Suntech header">
-  <img src="assets/logo.png" alt="Suntech logo" class="header-logo">
+  <img src="Assets/logo.png" alt="Suntech logo" class="header-logo">
 </header>
 
 <!-- Sidebars -->
@@ -441,7 +515,7 @@ h2,h3{font-family:Poppins,sans-serif;color:var(--orange);text-shadow:0 0 8px rgb
   <div class="fomo-tilt" role="region" aria-label="Limited time solar offer" id="fomoCard">
     <div class="fomo-inner">
       <div class="fomo-text">
-        <h2 style="margin:0;font-size:20px;font-family:Poppins;font-weight:800;">
+        <h2 style="margin:0;font-size:20px;font-family: 'Roboto', 'Montserrat', 'Bebas Neue', sans-serif;:Poppins;font-weight:800;">
           🔥 Summer Solar Flash — Limited Time
         </h2>
         <p style="margin:8px 0 12px 0;">
@@ -454,7 +528,7 @@ h2,h3{font-family:Poppins,sans-serif;color:var(--orange);text-shadow:0 0 8px rgb
       </div>
 
       <div class="fomo-illus">
-        <img src="assets/summer-illust.png" alt="Summer sale"
+        <img src="Assets/summer-illust.png" alt="Summer sale"
              style="max-width:100%;border-radius:8px;box-shadow:0 8px 20px rgba(0,0,0,0.28)">
       </div>
     </div>
@@ -504,30 +578,34 @@ window.switchTheme = function(k){
 
   
 
-  <!-- SLOGAN (now in FOMO's old spot directly under Fun Facts) -->
-  <div class="slogan-strip section" id="sloganStrip" role="region" aria-label="Theme Slogan">
+<div class="slogan-strip section" id="sloganStrip" role="region" aria-label="Theme Slogan">
     <div>
-      <div class="slogan-headline" id="sloganHeadline">
-        <span id="sloganPre">Our Promise —</span>
-        <span class="splash"><span id="sloganMain" class="slogan-highlight">100% Money-Back Guarantee</span></span>
-      </div>
-      <div class="slogan-support" id="sloganSupport">Confidence-first protections — our promise to local Victorians.</div>
+        <div class="slogan-headline" id="sloganHeadline">
+            <span id="sloganPre">Our Promise —</span>
+            <span class="splash"><span id="sloganMain" class="slogan-highlight">100% Money-Back Guarantee</span></span>
+        </div>
+        <div class="slogan-support" id="sloganSupport">
+    Confidence-first protections — our promise to local Victorians.
+</div>
+
     </div>
-  </div>
+</div>
+
 
   <!-- HERO (video + carousel) - ensure 60px spacing between FOMO and video -->
   <section class="hero section" aria-label="Hero section" style="margin-top:60px;">
     <div class="video-wrap panel" id="videoWrap">
       <video id="heroVideo" autoplay muted loop playsinline preload="metadata" style="transition:opacity .6s ease;opacity:1;">
-        <source src="assets/assets/stock-video-1.mp4" type="video/mp4">
-      </video>
+    <source src="Assets/stock-video-1.mp4" type="video/mp4">
+</video>
+
     </div>
 
     <div class="carousel panel" id="imageCarousel" aria-label="Image carousel" role="region">
-      <img src="assets/hero1.jpg" class="active" alt="Solar image 1" loading="lazy">
-      <img src="assets/hero2.jpg" alt="Solar image 2" loading="lazy">
-      <img src="assets/hero3.jpg" alt="Solar image 3" loading="lazy">
-      <img src="assets/hero4.jpg" alt="Solar image 4" loading="lazy">
+      <img src="Assets/hero1.jpg" class="active" alt="Solar image 1" loading="lazy">
+      <img src="Assets/hero2.jpg" alt="Solar image 2" loading="lazy">
+      <img src="Assets/hero3.jpg" alt="Solar image 3" loading="lazy">
+      <img src="Assets/hero4.jpg" alt="Solar image 4" loading="lazy">
     </div>
   </section>
 
@@ -638,25 +716,25 @@ window.switchTheme = function(k){
 
   <!-- TESTIMONIALS (auto-scrolling horizontal) -->
 <section class="section" aria-label="Testimonials" style="margin-top:60px;">
-  <h2 class="h2-left"><span class="h-icon">📝</span>Testimonials</h2>
+  <h2 class="h2-left"><span class="h-icon">📝</span>Are These Guys Any Good?</h2>
   <div class="testimonials-wrapper">
     <div class="testimonials">
-      <div class="card panel"><strong style="color:var(--orange)">⭐⭐⭐⭐⭐</strong><p style="color:var(--muted);font-style:italic">"Jess and his team were fantastic... bills dropped from $680 to $95 per quarter!"</p><div style="font-weight:700">Sarah — Geelong</div></div>
-      <div class="card panel"><strong style="color:var(--orange)">⭐⭐⭐⭐⭐</strong><p style="color:var(--muted);font-style:italic">"Battery kept our fridge running during the last blackout."</p><div style="font-weight:700">Mark — Ballarat</div></div>
-      <div class="card panel"><strong style="color:var(--orange)">⭐⭐⭐⭐⭐</strong><p style="color:var(--muted);font-style:italic">"No high-pressure sales, just honest advice."</p><div style="font-weight:700">Elise — Werribee</div></div>
+      <div class="card panel"><strong style="color:var(--orange)">⭐⭐⭐⭐⭐</strong><p style="color:var(--muted);font-style:italic">"Jackson and his team were fantastic... bills dropped from $680 to $95 per quarter!"</p><div style="font-weight:700">Sarah — Geelong</div></div>
+      <div class="card panel"><strong style="color:var(--orange)">⭐⭐⭐⭐⭐</strong><p style="color:var(--muted);font-style:italic">"Battery kept our fridge & AC running during the last blackout."</p><div style="font-weight:700">Mark — Ballarat</div></div>
+      <div class="card panel"><strong style="color:var(--orange)">⭐⭐⭐⭐⭐</strong><p style="color:var(--muted);font-style:italic">"No high-pressure sales, just honest advice. Joseph is on FIRE!"</p><div style="font-weight:700">Elise — Werribee</div></div>
       <div class="card panel"><strong style="color:var(--orange)">⭐⭐⭐⭐⭐</strong><p style="color:var(--muted);font-style:italic">"Installers were polite and on time — would 100% recommend!"</p><div style="font-weight:700">Tim — Frankston</div></div>
       <div class="card panel"><strong style="color:var(--orange)">⭐⭐⭐⭐⭐</strong><p style="color:var(--muted);font-style:italic">"Monitoring app is simple to use and very accurate."</p><div style="font-weight:700">Olivia — Dandenong</div></div>
-      <div class="card panel"><strong style="color:var(--orange)">⭐⭐⭐⭐⭐</strong><p style="color:var(--muted);font-style:italic">"Saved nearly $1,200 in the first year already."</p><div style="font-weight:700">Raj — Mornington</div></div>
-      <div class="card panel"><strong style="color:var(--orange)">⭐⭐⭐⭐⭐</strong><p style="color:var(--muted);font-style:italic">"Love that it’s all Aussie-made gear. Excellent value!"</p><div style="font-weight:700">Claire — Bairnsdale</div></div>
+      <div class="card panel"><strong style="color:var(--orange)">⭐⭐⭐⭐⭐</strong><p style="color:var(--muted);font-style:italic">"Saved nearly $1,200 in the first year already."</p><div style="font-weight:700">Gagandeep — Mornington</div></div>
+      <div class="card panel"><strong style="color:var(--orange)">⭐⭐⭐⭐⭐</strong><p style="color:var(--muted);font-style:italic">"Last mob quoted me $27k, Suntech got it done for 17k... INSANE Fronius pricing!"</p><div style="font-weight:700">Claire — Bairnsdale</div></div>
 
       <!-- duplicate set for infinite looping -->
-      <div class="card panel"><strong style="color:var(--orange)">⭐⭐⭐⭐⭐</strong><p style="color:var(--muted);font-style:italic">"Jess and his team were fantastic... bills dropped from $680 to $95 per quarter!"</p><div style="font-weight:700">Sarah — Geelong</div></div>
-      <div class="card panel"><strong style="color:var(--orange)">⭐⭐⭐⭐⭐</strong><p style="color:var(--muted);font-style:italic">"Battery kept our fridge running during the last blackout."</p><div style="font-weight:700">Mark — Ballarat</div></div>
-      <div class="card panel"><strong style="color:var(--orange)">⭐⭐⭐⭐⭐</strong><p style="color:var(--muted);font-style:italic">"No high-pressure sales, just honest advice."</p><div style="font-weight:700">Elise — Werribee</div></div>
+      <div class="card panel"><strong style="color:var(--orange)">⭐⭐⭐⭐⭐</strong><p style="color:var(--muted);font-style:italic">"Jackson and his team were fantastic... bills dropped from $680 to $95 per quarter!"</p><div style="font-weight:700">Sarah — Geelong</div></div>
+      <div class="card panel"><strong style="color:var(--orange)">⭐⭐⭐⭐⭐</strong><p style="color:var(--muted);font-style:italic">"Battery kept our fridge & AC running during the last blackout."</p><div style="font-weight:700">Mark — Ballarat</div></div>
+      <div class="card panel"><strong style="color:var(--orange)">⭐⭐⭐⭐⭐</strong><p style="color:var(--muted);font-style:italic">"No high-pressure sales, just honest advice. Joseph is on FIRE!"</p><div style="font-weight:700">Elise — Werribee</div></div>
       <div class="card panel"><strong style="color:var(--orange)">⭐⭐⭐⭐⭐</strong><p style="color:var(--muted);font-style:italic">"Installers were polite and on time — would 100% recommend!"</p><div style="font-weight:700">Tim — Frankston</div></div>
       <div class="card panel"><strong style="color:var(--orange)">⭐⭐⭐⭐⭐</strong><p style="color:var(--muted);font-style:italic">"Monitoring app is simple to use and very accurate."</p><div style="font-weight:700">Olivia — Dandenong</div></div>
-      <div class="card panel"><strong style="color:var(--orange)">⭐⭐⭐⭐⭐</strong><p style="color:var(--muted);font-style:italic">"Saved nearly $1,200 in the first year already."</p><div style="font-weight:700">Raj — Mornington</div></div>
-      <div class="card panel"><strong style="color:var(--orange)">⭐⭐⭐⭐⭐</strong><p style="color:var(--muted);font-style:italic">"Love that it’s all Aussie-made gear. Excellent value!"</p><div style="font-weight:700">Claire — Bairnsdale</div></div>
+      <div class="card panel"><strong style="color:var(--orange)">⭐⭐⭐⭐⭐</strong><p style="color:var(--muted);font-style:italic">"Saved over $1,200 in the first year already."</p><div style="font-weight:700">Gagandeep — Mornington</div></div>
+      <div class="card panel"><strong style="color:var(--orange)">⭐⭐⭐⭐⭐</strong><p style="color:var(--muted);font-style:italic">"Last mob quoted me $27k, Suntech got it done for 17k... INSANE Fronius pricing!"</p><div style="font-weight:700">Claire — Bairnsdale</div></div>
     </div>
   </div>
 </section>
@@ -665,22 +743,45 @@ window.switchTheme = function(k){
   <!-- footer spacing after testimonials -->
   <div style="height:60px"></div>
 
-  <!-- FOOTER -->
-  <footer aria-label="Site footer" style="margin-top:0px">
-    <div class="footer-grid">
-      <div class="col"><h3 style="margin:0 0 8px 0;font-family:Poppins, sans-serif">Contact Us</h3><p style="margin:6px 0">📞 1300 786 429</p><p style="margin:6px 0">✉️ <a href="mailto:sales@suntechsolarsystems.com.au">sales@suntechsolarsystems.com.au</a></p></div>
-      <div class="col"><h3 style="margin:0 0 8px 0;font-family:Poppins, sans-serif">Quick Links</h3><div style="color:var(--muted)">Savings Calculator</div><div style="color:var(--muted)">Customer Reviews</div></div>
-      <div class="col"><h3 style="margin:0 0 8px 0;font-family:Poppins, sans-serif">Service Areas</h3><div style="color:var(--muted)">Bass Coast, Mornington Peninsula, La Trobe Valley, Greater Melbourne</div></div>
-      <div class="col"><h3 style="margin:0 0 8px 0;font-family:Poppins, sans-serif">Why Choose Us</h3><div style="color:var(--muted)">Local team • NETCC certified • Owner-installed systems</div></div>
+  <footer class="footer">
+  <!-- Legal links bar -->
+  <div class="footer-top">
+    <a href="Docs/terms.html" class="footer-link">Terms</a>
+    <a href="Docs/privacy.html" class="footer-link">Privacy</a>
+    <a href="Docs/ip.html" class="footer-link">Intellectual Property</a>
+  </div>
+
+  <hr class="footer-divider">
+
+  <!-- Modern Footer Grid -->
+  <div class="footer-main">
+    <div class="footer-box contact">
+      <h3>📞 Call Our Team</h3>
+      <p class="highlight">1300 786 429</p>
+      <p><a href="mailto:sales@suntechsolarsystems.com.au">sales@suntechsolarsystems.com.au</a></p>
+      <p class="cta">Let’s talk solar — no pushy sales, just straight answers.</p>
     </div>
 
-    <div style="display:flex;justify-content:center;margin-top:18px">
-      <img src="assets/row.png" alt="Suntech accreditation row" style="max-width:90%;border-radius:12px">
+    <div class="footer-box why">
+      <h3>☀️ Why Suntech?</h3>
+      <p>No bullshit.<br>Our owners are installers.<br>Born & bred locals.<br><strong>NETCC certified.</strong></p>
     </div>
 
-    <div style="text-align:center;color:rgba(255,255,255,0.45);margin-top:12px;font-size:13px">&copy; 2025 Suntech Solar Systems. All rights reserved.</div>
-  </footer>
+    <div class="footer-box service">
+      <h3>📍 Service Areas</h3>
+      <p class="highlight">VIC-wide</p>
+      <p>From metro to the coast — we’ve got you covered.</p>
+    </div>
+  </div>
 
+  <div class="footer-logos">
+    <img src="Assets/row.png" alt="Certifications and accreditations">
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2025 Suntech Solar Systems. All rights reserved.</p>
+  </div>
+</footer>
 </main>
 
 <script>
@@ -689,32 +790,32 @@ window.switchTheme = function(k){
    --------------------------- */
 const themeMap = {
   main: {
-    video: 'assets/stock-video-1.mp4',
+    video: 'Assets/stock-video-1.mp4',
     palette: {'--bg':'#07101a','--bg-alt':'#020712','--panel-bg':'#0b1623','--orange':'#f59b35','--cyan':'#18e0ff','--muted':'#c7d2db','--fomo-top':'#ff8a00','--fomo-bottom':'#ffd200'},
     slogan: { pre: 'Your Local Solar Experts —', highlight: 'Install It Once, Install It Right', colorVar: '--orange' }
   },
   young: {
-    video: 'assets/stock-video-2.mp4',
+    video: 'Assets/stock-video-2.mp4',
     palette: {'--bg':'#021726','--bg-alt':'#002634','--panel-bg':'#082733','--orange':'#ff7a59','--cyan':'#7ef0ff','--muted':'#d8f3f8','--fomo-top':'#ffb84d','--fomo-bottom':'#ffd9a6'},
     slogan: { pre: 'Future-Proof Your First Home —', highlight: 'Solar Pays Your Bills', colorVar: '--cyan' }
   },
   family: {
-    video: 'assets/stock-video-3.mp4',
+    video: 'Assets/stock-video-3.mp4',
     palette: {'--bg':'#1a2b1e','--bg-alt':'#0d1b12','--panel-bg':'#102b20','--orange':'#ff6b6b','--cyan':'#ffb3d1','--muted':'#f0e6e4','--fomo-top':'#ffd6d6','--fomo-bottom':'#fff2e0'},
     slogan: { pre: "Power Your Family's Future —", highlight: 'Cut Bills 85%', colorVar: '--orange' }
   },
   mature: {
-    video: 'assets/stock-video-4.mp4',
+    video: 'Assets/stock-video-4.mp4',
     palette: {'--bg':'#081827','--bg-alt':'#03101a','--panel-bg':'#0b1b20','--orange':'#e8b25a','--cyan':'#bfeafc','--muted':'#e9e6dc','--fomo-top':'#f6e2b3','--fomo-bottom':'#fff8e6'},
     slogan: { pre: 'Retirement Boost —', highlight: 'Solar = Extra Pension', colorVar: '--orange' }
   },
   trust: {
-    video: 'assets/stock-video-1.mp4',
+    video: 'Assets/stock-video-1.mp4',
     palette: {'--bg':'#07122a','--bg-alt':'#031025','--panel-bg':'#071828','--orange':'#f0b064','--cyan':'#9fe7ff','--muted':'#cfdfe8','--fomo-top':'#dbeeff','--fomo-bottom':'#f0fbff'},
     slogan: { pre: 'Our Promise —', highlight: '100% Money-Back Guarantee', colorVar: '--cyan' }
   },
   business: {
-    video: 'assets/stock-video-1.mp4',
+    video: 'Assets/stock-video-1.mp4',
     palette: {'--bg':'#0b1116','--bg-alt':'#03060a','--panel-bg':'#0b1418','--orange':'#ffb97a','--cyan':'#6ad1ff','--muted':'#d3e6ef','--fomo-top':'#e6f8ff','--fomo-bottom':'#dff5ff'},
     slogan: { pre: 'Slash OpEx 40% —', highlight: 'VEU + Tax Deductions', colorVar: '--orange' }
   }
@@ -992,3 +1093,248 @@ document.addEventListener('DOMContentLoaded',revealSloganHighlight);
         });
     </script>
     
+        <style>
+            /* Tooltip styles */
+            .tooltip {
+                position: relative;
+                display: inline-block;
+                cursor: pointer;
+                border-bottom: 1px dotted black;
+            }
+            .tooltip .tooltiptext {
+                visibility: hidden;
+                width: 120px;
+                background-color: black;
+                color: #fff;
+                text-align: center;
+                border-radius: 5px;
+                padding: 5px;
+                position: absolute;
+                z-index: 1;
+                bottom: 100%; 
+                left: 50%;
+                margin-left: -60px;
+                opacity: 0;
+                transition: opacity 0.3s;
+            }
+            .tooltip:hover .tooltiptext {
+                visibility: visible;
+                opacity: 1;
+            }
+			
+			/* Base font size for scalable text */
+			html {
+				font-size: clamp(14px, 2vw + 2px, 20px); /* Scales from 14px to 20px */
+			}
+
+			body {
+				font-family: 'Roboto', 'Montserrat', 'Bebas Neue', sans-serif;: 'Inter', sans-serif;
+				background: var(--bg);
+				color: var(--muted);
+				margin: 0;
+				padding: 0;
+				text-align: center;
+				font-size: clamp(16px, 2vw + 1rem, 18px); /* Adjust text size based on viewport */
+			}
+
+			h1, h2, h3 {
+				color: #fff;
+			}
+
+}			
+
+			/* ===== Testimonials - updated per your request ===== */
+		  .testimonials-wrap{margin-top:18px;overflow:hidden}
+		  .testimonials{
+			display:flex;
+			gap:20px; /* requested gap */
+			align-items:stretch;
+			white-space:nowrap;
+			padding:20px 8px;
+			animation:testimonialsScroll 40s linear infinite;
+			will-change:transform;
+		  }
+		  .testimonials:hover{animation-play-state:paused}
+		  .testimonials .card.panel{
+			flex:0 0 auto;
+			min-width:320px;
+			padding:18px;
+			border-radius:12px;
+			background:var(--card);
+			border:1.5px solid var(--testimonial-border);
+			box-shadow:0 0 22px var(--glow);
+			color:var(--text);
+			transition:transform .22s ease,box-shadow .22s ease;
+		  }
+		  .testimonials .card.panel:hover{transform:translateY(-6px);box-shadow:0 0 36px var(--glow)}
+		  @keyframes testimonialsScroll{
+			0%{transform:translateX(0)}
+			100%{transform:translateX(-50%)}
+  }
+
+			.footer {
+			  background: linear-gradient(180deg, #061018 0%, #040b11 100%);
+			  padding: 60px 20px 40px;
+			  text-align: center;
+			  color: #f4f4f4;
+			  font-family: 'Roboto', 'Montserrat', 'Bebas Neue', sans-serif;: 'Poppins', sans-serif;
+			  display: flex;
+			  flex-direction: column;
+			  align-items: center;
+			}
+
+			/* --- Top Legal Links --- */
+			.footer-top {
+			  display: flex;
+			  justify-content: center;
+			  gap: 80px;
+			  flex-wrap: wrap;
+			  font-size: 1.1rem;
+			  font-weight: 600;
+			  letter-spacing: 0.6px;
+			  text-transform: uppercase;
+			  margin-bottom: 16px;
+			}
+
+			.footer-link {
+			  color: #a8b3c2;
+			  text-decoration: none;
+			  position: relative;
+			  transition: color 0.25s ease;
+			}
+
+			.footer-link:hover {
+			  color: #00e0ff;
+			}
+
+			.footer-link::after {
+			  content: '';
+			  display: block;
+			  width: 100%;
+			  height: 2px;
+			  background: linear-gradient(90deg, #00e0ff, #ff7b00);
+			  margin-top: 4px;
+			  border-radius: 1px;
+			  opacity: 0.7;
+			}
+
+			/* Divider */
+			.footer-divider {
+			  width: 70%;
+			  height: 2px;
+			  border: none;
+			  background: linear-gradient(90deg, rgba(0,224,255,0.5), rgba(255,123,0,0.5));
+			  margin: 24px auto 36px;
+			  border-radius: 2px;
+			}
+
+			/* --- Footer Main Section --- */
+			.footer-main {
+			  display: flex;
+			  justify-content: center;
+			  gap: 100px;
+			  flex-wrap: wrap;
+			  text-align: left;
+			  width: 100%;
+			  max-width: 1200px;
+			}
+
+			.footer-box {
+			  flex: 1 1 280px;
+			  padding: 10px 20px;
+			  border-left: 2px solid rgba(0,224,255,0.1);
+			  border-right: 2px solid rgba(255,123,0,0.1);
+			  border-radius: 12px;
+			  background: rgba(255,255,255,0.02);
+			  box-shadow: 0 0 20px rgba(0,0,0,0.4);
+			  backdrop-filter: blur(6px);
+			  transition: transform 0.3s ease, box-shadow 0.3s ease;
+			}
+
+			.footer-box:hover {
+			  transform: translateY(-6px);
+			  box-shadow: 0 0 25px rgba(0,224,255,0.4);
+			}
+
+			.footer-box h3 {
+			  color: #00e0ff;
+			  font-weight: 700;
+			  font-size: 1.4rem;
+			  margin-bottom: 10px;
+			  text-shadow: 0 0 8px rgba(0,224,255,0.6);
+			}
+
+			.footer-box p {
+			  color: #cfcfcf;
+			  font-size: 0.95rem;
+			  line-height: 1.5;
+			}
+
+			.footer-box a {
+			  color: #ffb366;
+			  text-decoration: none;
+			  font-weight: 600;
+			}
+
+			.footer-box a:hover {
+			  color: #00e0ff;
+			}
+
+			.footer-box .highlight {
+			  color: #ff7b00;
+			  font-size: 1.2rem;
+			  font-weight: 700;
+			}
+
+			.footer-box .cta {
+			  margin-top: 8px;
+			  font-style: italic;
+			  color: #a8b3c2;
+			}
+
+			/* --- Logos and Bottom --- */
+			.footer-logos {
+			  margin-top: 50px;
+			  margin-bottom: 20px;
+			  display: flex;
+			  justify-content: center;
+			}
+
+			.footer-logos img {
+			  width: 125%;
+			  max-width: 900px;
+			  height: auto;
+			  filter: brightness(1.15);
+			  border-radius: 8px;
+			}
+
+			.footer-bottom {
+			  text-align: center;
+			  font-size: 0.9rem;
+			  color: #888;
+			  margin-top: 10px;
+			}
+
+			/* Responsive Tuning */
+			@media (max-width: 768px) {
+			  .footer-main {
+				flex-direction: column;
+				align-items: center;
+				gap: 40px;
+			  }
+			  .footer-box {
+				text-align: center;
+				max-width: 400px;
+			  }
+}
+
+
+			.testimonials .card.panel:hover {
+			  box-shadow: 0 0 20px rgba(0, 255, 255, 0.8); /* Increased glow on hover */
+			}
+			
+}
+
+
+        </style>
+        
