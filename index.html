@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Premium Solar Systems | Suntech - Bass Coast's Trusted Experts - v6.2.0</title>
+    <title>Premium Solar Systems | Suntech - Bass Coast's Trusted Experts - v6.3.0</title>
     <meta name="description" content="Professional solar landing page. Jess, Jackson, Joseph & supervised apprentice team. 300+ Victorian homes. Premium installations.">
     
     <!-- Google Fonts -->
@@ -177,14 +177,17 @@ button {
    =================================== */
 
 .phone-bar {
-    background: transparent;
-    backdrop-filter: none;
-    border-bottom: none;
+    background: rgba(7, 16, 26, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(24, 224, 255, 0.1);
     padding: 14px 20px;
     text-align: center;
-    position: sticky;
+    position: fixed;
     top: 0;
+    left: 0;
+    right: 0;
     z-index: 2000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 .phone-bar a {
@@ -199,6 +202,11 @@ button {
 .phone-bar a:hover {
     color: var(--cyan);
     text-shadow: var(--glow-cyan);
+}
+
+/* Add padding to body to account for fixed phone bar */
+body {
+    padding-top: 60px;
 }
 
 /* ===================================
@@ -698,7 +706,7 @@ button {
     width: var(--video-width);
     height: var(--video-height);
     border-radius: 12px;
-    overflow: hidden;
+    overflow: visible;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
     border: 1px solid rgba(255, 255, 255, 0.08);
     position: relative;
@@ -708,6 +716,8 @@ button {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    border-radius: 12px;
+    overflow: hidden;
 }
 
 .carousel-container {
@@ -733,6 +743,78 @@ button {
 
 .carousel-container img.active {
     opacity: 1;
+}
+
+/* Carousel Navigation Dots */
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 16px;
+    flex-wrap: wrap;
+    max-width: 640px;
+}
+
+.carousel-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.carousel-dot:hover {
+    background: rgba(24, 224, 255, 0.5);
+    border-color: var(--cyan);
+    box-shadow: 0 0 12px rgba(24, 224, 255, 0.6);
+    transform: scale(1.2);
+}
+
+.carousel-dot.active {
+    background: var(--cyan);
+    border-color: var(--cyan);
+    box-shadow: 0 0 16px rgba(24, 224, 255, 0.8), 0 0 24px rgba(24, 224, 255, 0.4);
+    transform: scale(1.3);
+}
+
+/* Video Navigation Dots (Vertical) */
+.video-dots {
+    position: absolute;
+    left: -40px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    z-index: 10;
+}
+
+.video-dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.video-dot:hover {
+    background: rgba(245, 155, 53, 0.5);
+    border-color: var(--orange);
+    box-shadow: 0 0 12px rgba(245, 155, 53, 0.6);
+    transform: scale(1.2);
+}
+
+.video-dot.active {
+    background: var(--orange);
+    border-color: var(--orange);
+    box-shadow: 0 0 16px rgba(245, 155, 53, 0.8), 0 0 24px rgba(245, 155, 53, 0.4);
+    transform: scale(1.3);
 }
 
 /* ===================================
@@ -827,14 +909,21 @@ button {
 }
 
 /* Calculator Grid */
+/* Calculator Grid - Flexible Layout */
 .calculator-grid {
-    display: grid;
-    grid-template-columns: 1fr;
+    display: flex;
     gap: 20px;
     margin-top: 20px;
-    max-width: 700px;
+    max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
+    justify-content: center;
+    transition: all 0.5s ease;
+}
+
+/* When terminal is active, justify to start instead of center */
+.calculator-grid.has-terminal {
+    justify-content: flex-start;
 }
 
 .calc-panel {
@@ -842,6 +931,171 @@ button {
     border-radius: 12px;
     padding: 28px 20px;
     border: 1px solid rgba(255, 255, 255, 0.05);
+    flex: 0 0 auto;
+    width: 580px;
+    max-width: 100%;
+    transition: all 0.5s ease;
+}
+
+/* When terminal is shown, calc-panel becomes flexible width */
+.calculator-grid.has-terminal .calc-panel {
+    flex: 1 1 auto;
+    width: auto;
+}
+
+/* Parsing Terminal Container */
+.parsing-terminal-container {
+    background: rgba(3, 11, 17, 0.6);
+    border-radius: 0;
+    padding: 20px;
+    border: 1px solid rgba(24, 224, 255, 0.2);
+    opacity: 0;
+    transform: translateX(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    min-height: 400px;
+    display: none;
+    flex: 1 1 auto;
+}
+
+.parsing-terminal-container.show {
+    display: block;
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.parsing-terminal-header {
+    font-family: var(--font-ui);
+    font-size: 13px;
+    color: var(--cyan);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.parsing-terminal-header::before {
+    content: '●';
+    color: #00ff88;
+    font-size: 16px;
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+}
+
+.parsing-terminal-content {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 12px;
+    line-height: 1.6;
+    color: #00ffa6;
+    background: #000;
+    padding: 16px;
+    border-radius: 4px;
+    min-height: 320px;
+    overflow-y: auto;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+.terminal-line {
+    margin-bottom: 4px;
+}
+
+.terminal-prompt {
+    color: var(--cyan);
+}
+
+.terminal-success {
+    color: #00ff88;
+}
+
+.terminal-warning {
+    color: var(--orange);
+}
+
+.terminal-data {
+    color: #ffffff;
+}
+
+.terminal-recommendation {
+    color: var(--cyan);
+    font-weight: 700;
+    margin-top: 12px;
+    padding: 12px;
+    background: rgba(24, 224, 255, 0.1);
+    border-left: 3px solid var(--cyan);
+}
+
+/* Recommendation CTA Section */
+.recommendation-cta {
+    margin-top: 24px;
+    padding: 20px;
+    background: rgba(24, 224, 255, 0.05);
+    border-radius: 8px;
+    border: 1px solid rgba(24, 224, 255, 0.2);
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.recommendation-cta.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.recommendation-cta-message {
+    font-family: var(--font-ui);
+    font-size: 16px;
+    color: var(--text-primary);
+    text-align: center;
+    margin-bottom: 16px;
+    font-weight: 600;
+}
+
+.recommendation-cta-buttons {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    align-items: center;
+}
+
+.cta-email, .cta-phone {
+    font-family: var(--font-ui);
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.cta-email {
+    background: var(--cyan);
+    color: #0a0f14;
+}
+
+.cta-email:hover {
+    background: var(--orange);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(245, 155, 53, 0.4);
+}
+
+.cta-phone {
+    background: var(--orange);
+    color: #0a0f14;
+}
+
+.cta-phone:hover {
+    background: var(--cyan);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(24, 224, 255, 0.4);
 }
 
 .calc-panel h3 {
@@ -1869,17 +2123,42 @@ button {
             <!-- Hero: Video + Carousel -->
             <section class="hero-wrapper section">
                 <div class="video-container">
-                    <video autoplay loop muted playsinline>
-                        <source src="assets/stock-video-1.mp4" type="video/mp4">
+                    <!-- Video Navigation Dots (Vertical on left) -->
+                    <div class="video-dots" id="videoDots">
+                        <div class="video-dot active" data-video="0"></div>
+                        <div class="video-dot" data-video="1"></div>
+                        <div class="video-dot" data-video="2"></div>
+                        <div class="video-dot" data-video="3"></div>
+                        <div class="video-dot" data-video="4"></div>
+                        <div class="video-dot" data-video="5"></div>
+                    </div>
+                    
+                    <video autoplay loop muted playsinline id="mainVideo">
+                        <source src="assets/vidcarousel/video-1.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                 </div>
                 
-                <div class="carousel-container" id="imageCarousel">
-                    <img src="assets/hero1.jpg" alt="Solar Installation 1" class="active">
-                    <img src="assets/hero2.jpg" alt="Solar Installation 2">
-                    <img src="assets/hero3.jpg" alt="Solar Installation 3">
-                    <img src="assets/hero4.jpg" alt="Solar Installation 4">
+                <div style="display: flex; flex-direction: column; align-items: center;">
+                    <div class="carousel-container" id="imageCarousel">
+                        <!-- Images will be dynamically loaded from /assets/imgcarousel -->
+                    </div>
+                    
+                    <!-- Carousel Navigation Dots (Horizontal below) -->
+                    <div class="carousel-dots" id="carouselDots">
+                        <div class="carousel-dot active" data-slide="0"></div>
+                        <div class="carousel-dot" data-slide="1"></div>
+                        <div class="carousel-dot" data-slide="2"></div>
+                        <div class="carousel-dot" data-slide="3"></div>
+                        <div class="carousel-dot" data-slide="4"></div>
+                        <div class="carousel-dot" data-slide="5"></div>
+                        <div class="carousel-dot" data-slide="6"></div>
+                        <div class="carousel-dot" data-slide="7"></div>
+                        <div class="carousel-dot" data-slide="8"></div>
+                        <div class="carousel-dot" data-slide="9"></div>
+                        <div class="carousel-dot" data-slide="10"></div>
+                        <div class="carousel-dot" data-slide="11"></div>
+                    </div>
                 </div>
             </section>
             
@@ -1910,7 +2189,6 @@ button {
                         </div>
                     </label>
                 </div>
-                <div class="terminal" id="calcTerminal"></div>
                 
                 <div class="calculator-grid">
                     <!-- Solar System Selection -->
@@ -1967,7 +2245,32 @@ button {
                         </div>
                     </div>
                     
-                    <!-- Results Panel -->
+                    <!-- Parsing Terminal - NEW -->
+                    <div class="parsing-terminal-container" id="parsingTerminal">
+                        <div class="parsing-terminal-header">
+                            ANALYZING ENERGY BILL
+                        </div>
+                        <div class="parsing-terminal-content" id="parsingContent">
+                        </div>
+                        <!-- Recommendation CTA -->
+                        <div class="recommendation-cta" id="recommendationCTA">
+                            <div class="recommendation-cta-message">
+                                💡 Speak with us to find out why we recommend this.
+                            </div>
+                            <div class="recommendation-cta-buttons">
+                                <a href="javascript:void(0)" onclick="openTallyWithData()" class="cta-email">
+                                    📋 Get Your Quote
+                                </a>
+                                <a href="tel:1300000000" class="cta-phone">
+                                    📞 1300 SOLAR
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Results Panel (stays below grid) -->
+                <div class="calculator-grid">
                     <div class="results-panel" id="results">
                         <h3>Your Personalized Solar Quote</h3>
                         <div class="results-grid">
@@ -2490,50 +2793,144 @@ function resetCalculator() {
 function processBill(input) {
     if (!input || !input.files || input.files.length === 0) return;
     
-    const terminal = document.getElementById('calcTerminal');
+    const parsingTerminal = document.getElementById('parsingTerminal');
+    const parsingContent = document.getElementById('parsingContent');
+    const calculatorGrid = parsingTerminal.closest('.calculator-grid');
     const fileName = input.files[0].name;
     
-    terminal.classList.add('show');
-    terminal.textContent = '';
+    // Show terminal with smooth fade and add has-terminal class to grid
+    parsingTerminal.classList.add('show');
+    if (calculatorGrid) {
+        calculatorGrid.classList.add('has-terminal');
+    }
+    parsingContent.textContent = '';
     
-    const messages = [
-        '> Uploading ' + fileName + '...',
-        '> Processing PDF...',
-        '> Extracting customer details...',
-        '> Extracting usage data...',
-        '> Analyzing quarterly consumption...',
-        '> ✓ Complete!\n',
-        '  Customer: John Smith\n  Address: 123 Main St, Wonthaggi VIC\n  NMI: 1234567890\n  Daily usage: 27 kWh\n  Quarterly bill: $520\n  Recommended: 6.6kW system + 10kWh battery'
+    // Simulate PDF extraction with realistic delays
+    const lines = [];
+    let lineIndex = 0;
+    
+    // Mock extracted data (in production, this comes from PDF parser)
+    const mockData = {
+        customerName: 'John Smith',
+        address: '123 Main St, Wonthaggi VIC',
+        nmi: '6407052849',
+        dailyUsage: Math.floor(Math.random() * 20) + 18, // 18-38 kWh/day
+        quarterlyBill: Math.floor(Math.random() * 300) + 450, // $450-$750
+        provider: 'AGL Energy'
+    };
+    
+    // Calculate which system they need based on daily usage
+    let recommendedSystem = '6.6kW';
+    let recommendedBattery = 'none';
+    
+    if (mockData.dailyUsage <= 22) {
+        recommendedSystem = '6.6kW';
+        recommendedBattery = '10kWh';
+    } else if (mockData.dailyUsage <= 32) {
+        recommendedSystem = '10kW';
+        recommendedBattery = '10kWh';
+    } else {
+        recommendedSystem = '13.2kW';
+        recommendedBattery = '15kWh';
+    }
+    
+    // Calculate estimated savings
+    const annualConsumption = mockData.dailyUsage * 365;
+    const currentAnnualCost = mockData.quarterlyBill * 4;
+    const solarOffset = recommendedSystem === '6.6kW' ? 0.70 : recommendedSystem === '10kW' ? 0.80 : 0.85;
+    const estimatedSavings = Math.floor(currentAnnualCost * solarOffset);
+    
+    const typewriterLines = [
+        { text: `> FILE: ${fileName}`, delay: 100 },
+        { text: `> STATUS: Uploading...`, delay: 400 },
+        { text: `> STATUS: Processing PDF stream...`, delay: 600 },
+        { text: `> PARSER: Extracting text layers...`, delay: 500 },
+        { text: `> PARSER: OCR fallback for scanned pages...`, delay: 700 },
+        { text: `> `, delay: 200 },
+        { text: `> EXTRACTING ACCOUNT DATA`, delay: 400 },
+        { text: `  ├─ Account Holder: ${mockData.customerName}`, delay: 300 },
+        { text: `  ├─ Service Address: ${mockData.address}`, delay: 300 },
+        { text: `  ├─ NMI: ${mockData.nmi}`, delay: 300 },
+        { text: `  └─ Provider: ${mockData.provider}`, delay: 400 },
+        { text: `> `, delay: 200 },
+        { text: `> ANALYZING USAGE PATTERNS`, delay: 500 },
+        { text: `  ├─ Daily Usage: ${mockData.dailyUsage} kWh/day`, delay: 400 },
+        { text: `  ├─ Annual Consumption: ${annualConsumption} kWh`, delay: 400 },
+        { text: `  ├─ Quarterly Bill: $${mockData.quarterlyBill}`, delay: 400 },
+        { text: `  └─ Annual Cost: $${currentAnnualCost}`, delay: 500 },
+        { text: `> `, delay: 200 },
+        { text: `> RUNNING SYSTEM SIMULATIONS`, delay: 600 },
+        { text: `  ├─ Testing 6.6kW system... ${mockData.dailyUsage <= 22 ? '✓ OPTIMAL' : '⚠ UNDERSIZED'}`, delay: 500 },
+        { text: `  ├─ Testing 10kW system... ${mockData.dailyUsage > 22 && mockData.dailyUsage <= 32 ? '✓ OPTIMAL' : mockData.dailyUsage <= 22 ? '△ OVERSIZED' : '⚠ UNDERSIZED'}`, delay: 500 },
+        { text: `  └─ Testing 13.2kW system... ${mockData.dailyUsage > 32 ? '✓ OPTIMAL' : '△ OVERSIZED'}`, delay: 500 },
+        { text: `> `, delay: 200 },
+        { text: `> CALCULATING ROI & PAYBACK`, delay: 500 },
+        { text: `  ├─ Solar Offset: ${(solarOffset * 100).toFixed(0)}%`, delay: 300 },
+        { text: `  ├─ Est. Annual Savings: $${estimatedSavings}`, delay: 400 },
+        { text: `  └─ Payback Period: ${recommendedSystem === '6.6kW' ? '3.2' : recommendedSystem === '10kW' ? '4.1' : '4.8'} years`, delay: 500 },
+        { text: `> `, delay: 200 },
+        { text: `> ✓ ANALYSIS COMPLETE`, delay: 400, class: 'terminal-success' },
+        { text: `> `, delay: 100 },
+        { text: `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`, delay: 100 },
+        { text: `  RECOMMENDED SYSTEM`, delay: 200, class: 'terminal-recommendation' },
+        { text: `  ${recommendedSystem} Solar + ${recommendedBattery === 'none' ? 'No Battery' : recommendedBattery + ' Battery'}`, delay: 200, class: 'terminal-recommendation' },
+        { text: `  Est. Savings: $${estimatedSavings}/year`, delay: 200, class: 'terminal-recommendation' },
+        { text: `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`, delay: 100 }
     ];
     
-    let messageIndex = 0;
-    
-    function typeMessage() {
-        if (messageIndex < messages.length) {
-            terminal.textContent += messages[messageIndex] + '\n';
-            messageIndex++;
+    function typeNextLine() {
+        if (lineIndex < typewriterLines.length) {
+            const line = typewriterLines[lineIndex];
+            const lineElement = document.createElement('div');
+            lineElement.className = `terminal-line ${line.class || ''}`;
+            lineElement.textContent = line.text;
+            parsingContent.appendChild(lineElement);
             
-            // Extract customer data when processing completes
-            if (messageIndex === messages.length) {
-                // CURRENT: Mock data for demonstration
-                // PLANNED: Real PDF parsing will extract:
-                // - Customer name (from account holder field)
-                // - Service address (property address)
-                // - NMI (National Meter Identifier - unique 10-11 digit number)
-                // - Daily usage (kWh per day average)
-                // - Quarterly cost (total bill amount)
-                // - Peak/off-peak usage breakdown (if available)
-                // This data will auto-populate the calculator and pre-fill Tally form
-                calculatedData.customerName = 'John Smith';
-                calculatedData.customerAddress = '123 Main St, Wonthaggi VIC';
-                calculatedData.nmi = '1234567890';
+            // Auto-scroll to bottom
+            parsingContent.scrollTop = parsingContent.scrollHeight;
+            
+            lineIndex++;
+            
+            // When complete, auto-select the recommended system and show CTA
+            if (lineIndex === typewriterLines.length) {
+                // Store extracted data
+                calculatedData.customerName = mockData.customerName;
+                calculatedData.customerAddress = mockData.address;
+                calculatedData.nmi = mockData.nmi;
+                
+                // Show recommendation CTA after a short delay
+                setTimeout(() => {
+                    const recommendationCTA = document.getElementById('recommendationCTA');
+                    if (recommendationCTA) {
+                        recommendationCTA.classList.add('show');
+                    }
+                }, 500);
+                
+                // Auto-select recommended system after short delay
+                setTimeout(() => {
+                    // Select solar system
+                    const solarButtons = document.querySelectorAll('#solarButtons .option-btn');
+                    solarButtons.forEach(btn => {
+                        if (btn.dataset.value === recommendedSystem) {
+                            btn.click();
+                        }
+                    });
+                    
+                    // Select battery
+                    const batteryButtons = document.querySelectorAll('#batteryButtons .option-btn');
+                    batteryButtons.forEach(btn => {
+                        if (btn.dataset.value === recommendedBattery) {
+                            btn.click();
+                        }
+                    });
+                }, 1000);
             }
             
-            setTimeout(typeMessage, 600);
+            setTimeout(typeNextLine, line.delay);
         }
     }
     
-    typeMessage();
+    typeNextLine();
 }
 function openTallyWithData() {
     if (!calculatedData.solarSize) {
@@ -2635,22 +3032,111 @@ function selectPackage(kind) {
     }
 }
 
-// Image carousel rotation
+// Image carousel rotation with navigation dots - loads random images from /assets/imgcarousel
 function initializeCarousel() {
     const carousel = document.getElementById('imageCarousel');
+    const dots = document.querySelectorAll('.carousel-dot');
     if (!carousel) return;
 
-    const images = carousel.querySelectorAll('img');
+    const totalDots = 12;
+    const totalImages = 40; // Approximate number of images in folder
     let currentIndex = 0;
+    let selectedImages = [];
 
-    function rotateImages() {
-        images[currentIndex].classList.remove('active');
-        currentIndex = (currentIndex + 1) % images.length;
-        images[currentIndex].classList.add('active');
+    // Generate random image indices (no duplicates)
+    function getRandomImages(total, count) {
+        const indices = Array.from({ length: total }, (_, i) => i + 1);
+        const shuffled = indices.sort(() => Math.random() - 0.5);
+        return shuffled.slice(0, count);
     }
 
-    // Rotate every 4 seconds
+    // Initialize with random images
+    selectedImages = getRandomImages(totalImages, totalDots);
+    
+    // Create image elements
+    selectedImages.forEach((imgNum, index) => {
+        const img = document.createElement('img');
+        img.src = `assets/imgcarousel/img-${imgNum}.jpg`;
+        img.alt = `Solar Installation ${index + 1}`;
+        img.classList.add('carousel-image');
+        if (index === 0) img.classList.add('active');
+        carousel.appendChild(img);
+    });
+
+    const images = carousel.querySelectorAll('img');
+
+    function updateCarousel(index) {
+        // Remove active class from all images and dots
+        images.forEach(img => img.classList.remove('active'));
+        dots.forEach(dot => dot.classList.remove('active'));
+        
+        // Add active class to current image and dot
+        images[index].classList.add('active');
+        if (dots[index]) dots[index].classList.add('active');
+        
+        currentIndex = index;
+    }
+
+    function rotateImages() {
+        const nextIndex = (currentIndex + 1) % images.length;
+        updateCarousel(nextIndex);
+    }
+
+    // Click handlers for dots
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            updateCarousel(index);
+        });
+    });
+
+    // Auto-rotate every 4 seconds
     setInterval(rotateImages, 4000);
+}
+
+// Video navigation dots - loads random videos from /assets/vidcarousel
+function initializeVideoNavigation() {
+    const videoDots = document.querySelectorAll('.video-dot');
+    const videoElement = document.getElementById('mainVideo');
+    
+    const totalVideos = 15; // Approximate number of videos in folder
+    const totalDots = 6;
+    let currentVideoIndex = 0;
+    let selectedVideos = [];
+
+    // Generate random video indices (no duplicates)
+    function getRandomVideos(total, count) {
+        const indices = Array.from({ length: total }, (_, i) => i + 1);
+        const shuffled = indices.sort(() => Math.random() - 0.5);
+        return shuffled.slice(0, count);
+    }
+
+    // Initialize with random videos
+    selectedVideos = getRandomVideos(totalVideos, totalDots);
+
+    // Set the first random video
+    if (selectedVideos.length > 0) {
+        videoElement.querySelector('source').src = `assets/vidcarousel/video-${selectedVideos[0]}.mp4`;
+        videoElement.load();
+    }
+
+    // Click handlers for video dots
+    videoDots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            // Remove active from all dots
+            videoDots.forEach(d => d.classList.remove('active'));
+            // Add active to clicked dot
+            dot.classList.add('active');
+            
+            // Switch video source
+            if (selectedVideos[index]) {
+                videoElement.querySelector('source').src = `assets/vidcarousel/video-${selectedVideos[index]}.mp4`;
+                videoElement.load();
+                videoElement.play();
+            }
+            
+            currentVideoIndex = index;
+        });
+    });
 }
 
 // Slogan highlight animation
@@ -2676,20 +3162,6 @@ function initializeSmoothScroll() {
     });
 }
 
-// Bill upload processor (mock)
-function processBill(input) {
-    if (!input || !input.files || input.files.length === 0) return;
-
-    const uploadResults = document.getElementById('uploadResults');
-    if (uploadResults) {
-        uploadResults.style.display = 'block';
-        setTimeout(() => {
-            document.getElementById('dailyUsage').textContent = '27kWh';
-            document.getElementById('quarterlyAmt').textContent = '$520';
-        }, 900);
-    }
-}
-
 // Initialize everything when DOM is ready
 document.addEventListener('DOMContentLoaded', function() {
     console.log('🌞 Suntech Solar Systems - Initialized');
@@ -2711,6 +3183,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Initialize carousel
     initializeCarousel();
+
+    // Initialize video navigation
+    initializeVideoNavigation();
 
     // Initialize smooth scrolling
     initializeSmoothScroll();
@@ -2743,7 +3218,7 @@ document.addEventListener('keydown', function(e) {
     }
 });
 
-console.log('✅ Suntech Solar Systems v6.2.0 - Bebas Neue Edition');
+console.log('✅ Suntech Solar Systems v6.3.0 - Random Carousel Edition');
 </script>
 </body>
 </html>
