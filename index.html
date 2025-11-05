@@ -629,6 +629,61 @@ body {
     }
 }
 
+/* Electric Strikethrough Effect */
+.electric-strikethrough {
+    position: relative;
+    display: inline-block;
+    opacity: 0.6;
+}
+
+.electric-strikethrough::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 2px;
+    background: linear-gradient(90deg, 
+        var(--cyan) 0%, 
+        var(--orange) 50%, 
+        var(--cyan) 100%
+    );
+    border-radius: 1px;
+    box-shadow: 
+        0 0 8px rgba(24, 224, 255, 0.6),
+        0 0 15px rgba(245, 155, 53, 0.4);
+    animation: electricGlow 1.8s ease-in-out infinite;
+}
+
+/* Coming Soon Badge */
+.coming-soon-badge {
+    display: inline-block;
+    margin-left: 10px;
+    padding: 3px 8px;
+    font-size: 10px;
+    font-weight: 700;
+    font-family: var(--font-ui);
+    letter-spacing: 1px;
+    background: linear-gradient(90deg, 
+        var(--cyan) 0%, 
+        var(--orange) 50%, 
+        var(--cyan) 100%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 
+        0 0 8px rgba(24, 224, 255, 0.6),
+        0 0 15px rgba(245, 155, 53, 0.4);
+    animation: electricGlow 1.8s ease-in-out infinite;
+    border: 1px solid var(--cyan);
+    border-radius: 4px;
+    box-shadow: 
+        0 0 8px rgba(24, 224, 255, 0.4),
+        inset 0 0 8px rgba(24, 224, 255, 0.2);
+}
+
 /* ===================================
    FOMO PROMO BLOCK
    =================================== */
@@ -2070,6 +2125,166 @@ body {
 .mb-4 {
     margin-bottom: 2rem;
 }
+/* ===================================
+   SLIDE-OUT PANEL SYSTEM
+   =================================== */
+
+.slide-panel-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px);
+    z-index: 10000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.slide-panel-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.slide-panel {
+    position: fixed;
+    top: 0;
+    right: -70%;
+    width: 70%;
+    height: 100%;
+    background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+    box-shadow: -10px 0 40px rgba(0, 0, 0, 0.8);
+    z-index: 10001;
+    transition: right 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.slide-panel.active {
+    right: 0;
+}
+
+.slide-panel-header {
+    background: rgba(11, 22, 35, 0.95);
+    padding: 20px 30px;
+    border-bottom: 2px solid var(--cyan);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.slide-panel-title {
+    font-family: var(--font-display);
+    font-size: 32px;
+    color: var(--cyan);
+    letter-spacing: 1.5px;
+}
+
+.slide-panel-close {
+    width: 48px;
+    height: 48px;
+    background: rgba(24, 224, 255, 0.1);
+    border: 2px solid var(--cyan);
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.slide-panel-close:hover {
+    background: var(--cyan);
+    transform: translateX(4px);
+}
+
+.slide-panel-close::before,
+.slide-panel-close::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 3px;
+    background: var(--cyan);
+    transition: all 0.3s ease;
+}
+
+.slide-panel-close:hover::before,
+.slide-panel-close:hover::after {
+    background: #000;
+}
+
+.slide-panel-close::before {
+    transform: rotate(45deg) translateX(-2px);
+}
+
+.slide-panel-close::after {
+    transform: rotate(-45deg) translateX(-2px);
+}
+
+/* Nested arrow style for close button */
+.slide-panel-close-nested {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+}
+
+.slide-panel-close-nested span {
+    width: 0;
+    height: 0;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-left: 10px solid var(--cyan);
+    transition: all 0.3s ease;
+}
+
+.slide-panel-close:hover .slide-panel-close-nested span {
+    border-left-color: #000;
+}
+
+.slide-panel-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 0;
+}
+
+.slide-panel-content iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: transparent;
+}
+
+/* Custom scrollbar for panel */
+.slide-panel-content::-webkit-scrollbar {
+    width: 10px;
+}
+
+.slide-panel-content::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.slide-panel-content::-webkit-scrollbar-thumb {
+    background: var(--cyan);
+    border-radius: 5px;
+}
+
+.slide-panel-content::-webkit-scrollbar-thumb:hover {
+    background: var(--orange);
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .slide-panel {
+        width: 95%;
+        right: -95%;
+    }
+}
+
     </style>
 </head>
 <body>
@@ -2113,6 +2328,13 @@ body {
                     </svg>
                 </a>
             </div>
+            <div class="phone-bar-divider"></div>
+            <a href="mailto:sales@suntechsolarsystems.com.au" style="display: flex; align-items: center; gap: 8px; text-decoration: none;">
+                <span style="font-family: var(--font-display); font-size: 28px; color: var(--orange); letter-spacing: 1.5px; text-shadow: var(--glow-orange);">sales@suntechsolarsystems.com.au</span>
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" fill="#f59b35"/>
+                </svg>
+            </a>
         </div>
     </div>
     
@@ -2583,9 +2805,9 @@ body {
             <section class="rebates-info">
                 <h3>REBATES INFO</h3>
                 <ul style="list-style: none; padding: 0; font-family: var(--font-body); font-size: 14px; line-height: 2;">
-                    <li><a href="veu-rebate.html" style="color: var(--text-muted); text-decoration: none;">VEU Program</a></li>
-                    <li><a href="stc-rebate.html" style="color: var(--text-muted); text-decoration: none;">STCs Federal</a></li>
-                    <li><a href="solar-homes.html" style="color: var(--text-muted); text-decoration: none;">VIC Solar Homes</a></li>
+                    <li><a href="javascript:void(0)" onclick="openSlidePanel('veu-rebate.html', 'VEU Program')" style="color: var(--text-muted); text-decoration: none; cursor: pointer;"><span class="electric-strikethrough">VEU Program</span><span class="coming-soon-badge">COMING SOON</span></a></li>
+                    <li><a href="javascript:void(0)" onclick="openSlidePanel('stc-rebate.html', 'Federal STCs')" style="color: var(--text-muted); text-decoration: none; cursor: pointer;">STCs Federal</a></li>
+                    <li><a href="javascript:void(0)" onclick="openSlidePanel('solar-homes.html', 'VIC Solar Homes')" style="color: var(--text-muted); text-decoration: none; cursor: pointer;">VIC Solar Homes</a></li>
                     <li><a href="#calculator" style="color: var(--text-muted); text-decoration: none;">Battery Rebate $4,400</a></li>
                 </ul>
             </section>
@@ -2628,6 +2850,24 @@ body {
             
         </aside>
         
+    </div>
+    
+    <!-- Slide-Out Panel System -->
+    <div class="slide-panel-overlay" id="slidePanelOverlay" onclick="closeSlidePanel()"></div>
+    <div class="slide-panel" id="slidePanel">
+        <div class="slide-panel-header">
+            <div class="slide-panel-title" id="slidePanelTitle">Loading...</div>
+            <div class="slide-panel-close" onclick="closeSlidePanel()" title="Close Panel">
+                <div class="slide-panel-close-nested">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+        <div class="slide-panel-content" id="slidePanelContent">
+            <iframe id="slidePanelIframe" src="" style="width: 100%; height: 100%; border: none;"></iframe>
+        </div>
     </div>
     
     <!-- Footer -->
@@ -2678,9 +2918,9 @@ body {
                 <div class="footer-column">
                     <h4>Legal</h4>
                     <ul class="footer-links">
-                        <li><a href="terms.html">Terms of Use</a></li>
-                        <li><a href="privacy.html">Privacy Policy</a></li>
-                        <li><a href="ip.html">Intellectual Property</a></li>
+                        <li><a href="javascript:void(0)" onclick="openSlidePanel('terms.html', 'Terms of Use')">Terms of Use</a></li>
+                        <li><a href="javascript:void(0)" onclick="openSlidePanel('privacy.html', 'Privacy Policy')">Privacy Policy</a></li>
+                        <li><a href="javascript:void(0)" onclick="openSlidePanel('ip.html', 'Intellectual Property')">Intellectual Property</a></li>
                     </ul>
                 </div>
             </div>
@@ -2693,9 +2933,6 @@ body {
             </div>
         </div>
     </footer>
-    
-    <!-- External JavaScript -->
-    <script src="main.js"></script>
     
 </body>
 <script>
@@ -3166,18 +3403,22 @@ function initializeCarousel() {
     const images = carousel.querySelectorAll('img');
 
     function updateCarousel(index) {
+        // Safety check
+        if (!images || images.length === 0) return;
+        
         // Remove active class from all images and dots
         images.forEach(img => img.classList.remove('active'));
         dots.forEach(dot => dot.classList.remove('active'));
         
-        // Add active class to current image and dot
-        images[index].classList.add('active');
+        // Add active class to current image and dot (with safety checks)
+        if (images[index]) images[index].classList.add('active');
         if (dots[index]) dots[index].classList.add('active');
         
         currentIndex = index;
     }
 
     function rotateImages() {
+        if (!images || images.length === 0) return;
         const nextIndex = (currentIndex + 1) % images.length;
         updateCarousel(nextIndex);
     }
@@ -3319,6 +3560,58 @@ document.addEventListener('keydown', function(e) {
 });
 
 console.log('✅ Suntech Solar Systems v6.3.0 - Random Carousel Edition');
+
+// ===================================
+// SLIDE-OUT PANEL SYSTEM
+// ===================================
+
+function openSlidePanel(url, title) {
+    const overlay = document.getElementById('slidePanelOverlay');
+    const panel = document.getElementById('slidePanel');
+    const panelTitle = document.getElementById('slidePanelTitle');
+    const iframe = document.getElementById('slidePanelIframe');
+    
+    // Set title and load content
+    panelTitle.textContent = title;
+    iframe.src = url;
+    
+    // Show overlay and panel
+    overlay.classList.add('active');
+    panel.classList.add('active');
+    
+    // Prevent body scroll
+    document.body.style.overflow = 'hidden';
+}
+
+function closeSlidePanel() {
+    const overlay = document.getElementById('slidePanelOverlay');
+    const panel = document.getElementById('slidePanel');
+    const iframe = document.getElementById('slidePanelIframe');
+    
+    // Hide overlay and panel
+    overlay.classList.remove('active');
+    panel.classList.remove('active');
+    
+    // Restore body scroll
+    document.body.style.overflow = '';
+    
+    // Clear iframe after animation
+    setTimeout(() => {
+        iframe.src = '';
+    }, 500);
+}
+
+// Close panel with Escape key
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        closeSlidePanel();
+    }
+});
+
+// Make functions globally available
+window.openSlidePanel = openSlidePanel;
+window.closeSlidePanel = closeSlidePanel;
+
 </script>
 </body>
 </html>
