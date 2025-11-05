@@ -1,0 +1,738 @@
+/* Suntech Solar Systems - Main Stylesheet
+   Clean, modern design for Victorian solar installer
+   Version: 5.0.0 (Cleaned & Optimized)
+*/
+
+/* ==================== CSS Variables ==================== */
+:root {
+  /* Colors */
+  --bg-primary: #07122a;
+  --bg-secondary: #0e1d3a;
+  --card-bg: rgba(10, 20, 30, 0.55);
+  --glass-bg: rgba(255, 255, 255, 0.06);
+  --text-primary: #f5f7fb;
+  --text-muted: #c8d3e0;
+  --accent-color: #00ffff;
+  
+  /* Layout */
+  --border-radius: 14px;
+  --box-shadow: 0 0 28px rgba(0, 0, 0, 0.35);
+  --content-max-width: 960px;
+  
+  /* Typography */
+  --font-heading: 'Bebas Neue', sans-serif;
+  --font-body: 'Montserrat', sans-serif;
+  --font-mono: 'Roboto Mono', monospace;
+}
+
+/* ==================== Base Styles ==================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--text-primary);
+  background: linear-gradient(180deg, var(--bg-primary), var(--bg-secondary));
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+/* ==================== Header ==================== */
+.header {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.logo {
+  width: 308px;
+  max-width: 38vw;
+  height: auto;
+}
+
+/* ==================== Fun Facts Banner ==================== */
+.fun-facts-banner {
+  grid-column: 1 / -1;
+  overflow: hidden;
+  white-space: nowrap;
+  border-top: 1px solid rgba(0, 255, 255, 0.12);
+  border-bottom: 1px solid rgba(0, 255, 255, 0.12);
+  padding: 8px 0;
+  color: var(--accent-color);
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.fun-facts-banner .track {
+  display: inline-block;
+  animation: scroll-banner 48s linear infinite;
+}
+
+.fun-facts-banner span {
+  margin: 0 2.4rem;
+  opacity: 0.9;
+  font-size: 0.95rem;
+}
+
+@keyframes scroll-banner {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+/* ==================== Container Grid ==================== */
+.container {
+  display: grid;
+  grid-template-columns: 240px minmax(0, 1fr) 380px;
+  gap: 24px;
+  align-items: start;
+  justify-content: center;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 24px 32px;
+}
+
+/* ==================== Left Sidebar - Demo Themes ==================== */
+.demo-sidebar {
+  background: var(--card-bg);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--border-radius);
+  padding: 16px;
+  box-shadow: var(--box-shadow);
+  align-self: start;
+  position: sticky;
+  top: 20px;
+}
+
+.demo-sidebar h3 {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  color: var(--accent-color);
+  margin: 0 0 12px;
+  letter-spacing: 0.5px;
+}
+
+.demo-sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.demo-sidebar li {
+  margin: 8px 0;
+}
+
+.demo-sidebar a {
+  display: block;
+  padding: 8px 12px;
+  border-radius: 10px;
+  color: var(--text-primary);
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.95rem;
+}
+
+.demo-sidebar a:hover {
+  background: var(--accent-color);
+  color: #001014;
+  transform: translateX(4px);
+}
+
+/* ==================== Center Content ==================== */
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* ==================== Slogan Strip ==================== */
+.slogan-strip {
+  text-align: center;
+  margin-top: 6px;
+}
+
+.slogan-strip h1 {
+  font-family: var(--font-heading);
+  font-size: 2.6rem;
+  letter-spacing: 0.5px;
+  text-shadow: 0 0 12px rgba(0, 255, 255, 0.28);
+  color: var(--accent-color);
+  margin: 0;
+  line-height: 1.2;
+}
+
+/* ==================== Hero Section ==================== */
+.hero {
+  position: relative;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--box-shadow);
+  margin-bottom: 8px;
+}
+
+.video-wrap {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: var(--border-radius);
+}
+
+.video-wrap video {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 480px;
+  object-fit: cover;
+  filter: brightness(0.9);
+}
+
+.carousel {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: var(--border-radius);
+  margin-top: 12px;
+}
+
+.carousel img {
+  display: none;
+  width: 100%;
+  height: auto;
+  max-height: 500px;
+  object-fit: cover;
+  border-radius: var(--border-radius);
+  transition: opacity 0.5s ease;
+}
+
+.carousel img.active {
+  display: block;
+}
+
+/* ==================== Calculator Section ==================== */
+.calc-savings {
+  background: var(--card-bg);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--border-radius);
+  padding: 20px;
+  box-shadow: var(--box-shadow);
+}
+
+.calc-savings h2 {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  margin: 0 0 12px;
+  color: var(--accent-color);
+  letter-spacing: 0.5px;
+}
+
+.calc-savings .sub {
+  color: var(--text-muted);
+  margin-bottom: 16px;
+  font-size: 0.95rem;
+}
+
+.calc-savings input[type="file"] {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 16px;
+  background: var(--glass-bg);
+  border: 1px solid rgba(0, 255, 255, 0.25);
+  border-radius: 10px;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.calc-savings input[type="file"]:hover {
+  border-color: var(--accent-color);
+  background: rgba(0, 255, 255, 0.08);
+}
+
+.terminal {
+  font-family: var(--font-mono);
+  background: #030b11;
+  border-radius: 12px;
+  padding: 14px;
+  color: #00ffa6;
+  min-height: 90px;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  white-space: pre-wrap;
+}
+
+#calcResults {
+  margin-top: 16px;
+  color: var(--text-muted);
+}
+
+#calcResults p {
+  margin: 8px 0;
+  padding: 8px;
+  background: rgba(0, 255, 255, 0.05);
+  border-radius: 8px;
+  border-left: 3px solid var(--accent-color);
+}
+
+#calcResults strong {
+  color: var(--accent-color);
+}
+
+/* ==================== Team Section ==================== */
+.team {
+  background: var(--card-bg);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--border-radius);
+  padding: 20px;
+  box-shadow: var(--box-shadow);
+}
+
+.team h2 {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  margin: 0 0 20px;
+  color: var(--accent-color);
+  letter-spacing: 0.5px;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.member {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+.member:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent-color);
+}
+
+.member h4 {
+  margin: 10px 0 4px;
+  color: var(--accent-color);
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+}
+
+.member p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.avatar {
+  background: var(--accent-color);
+  color: #001014;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+}
+
+/* ==================== Testimonials Section ==================== */
+.testimonials {
+  background: var(--card-bg);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--border-radius);
+  padding: 20px;
+  box-shadow: var(--box-shadow);
+}
+
+.testimonials h2 {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  margin: 0 0 16px;
+  color: var(--accent-color);
+  letter-spacing: 0.5px;
+}
+
+.testimonials-track {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding-bottom: 8px;
+  -webkit-overflow-scrolling: touch;
+}
+
+.testimonials-track::-webkit-scrollbar {
+  height: 6px;
+}
+
+.testimonials-track::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 3px;
+}
+
+.testimonials-track::-webkit-scrollbar-thumb {
+  background: var(--accent-color);
+  border-radius: 3px;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  border-radius: 12px;
+  padding: 16px 20px;
+  white-space: nowrap;
+  flex: 0 0 auto;
+  box-shadow: var(--box-shadow);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  min-width: 280px;
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: scale(1.02);
+  border-color: var(--accent-color);
+}
+
+/* ==================== Footer ==================== */
+.footer {
+  text-align: center;
+  color: var(--text-muted);
+  border-top: 1px solid rgba(0, 255, 255, 0.12);
+  padding-top: 20px;
+  margin-top: 20px;
+}
+
+.legal {
+  margin-bottom: 12px;
+}
+
+.legal a {
+  color: var(--text-muted);
+  text-decoration: none;
+  margin: 0 12px;
+  transition: color 0.2s ease;
+}
+
+.legal a:hover {
+  color: var(--accent-color);
+}
+
+.footer p {
+  margin: 8px 0;
+  font-size: 0.9rem;
+}
+
+.footer-row {
+  margin-top: 16px;
+  max-width: 420px;
+  opacity: 0.7;
+}
+
+/* ==================== Right Sidebar ==================== */
+.rebates-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-self: start;
+  position: sticky;
+  top: 20px;
+}
+
+.rebates-sidebar section {
+  background: var(--card-bg);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--border-radius);
+  padding: 18px;
+  box-shadow: var(--box-shadow);
+}
+
+.rebates-sidebar h3 {
+  font-family: var(--font-heading);
+  color: var(--accent-color);
+  margin: 0 0 12px;
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+}
+
+/* Rebates Info */
+.rebates-info ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.rebates-info li {
+  margin: 10px 0;
+}
+
+.rebates-info a {
+  color: var(--text-muted);
+  text-decoration: none;
+  display: block;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.rebates-info a:hover {
+  color: #fff;
+  background: rgba(0, 255, 255, 0.1);
+  transform: translateX(4px);
+}
+
+/* FOMO Section */
+.fomo p {
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.btn-primary {
+  background: #00bcd4;
+  color: #001014;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+}
+
+.btn-primary:hover {
+  background: var(--accent-color);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 188, 212, 0.4);
+}
+
+.btn-outline {
+  background: transparent;
+  border: 2px solid #00bcd4;
+  color: #00bcd4;
+  padding: 10px 18px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+}
+
+.btn-outline:hover {
+  background: #00bcd4;
+  color: #001014;
+  transform: translateY(-2px);
+}
+
+/* Smart Quick Quote */
+.smart-qq h3 {
+  font-family: var(--font-heading);
+  margin: 0 0 8px;
+}
+
+.smart-qq p {
+  color: var(--text-muted);
+  margin-bottom: 12px;
+  font-size: 0.95rem;
+}
+
+.qq-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.qq-options button {
+  background: var(--glass-bg);
+  border: 1px solid rgba(0, 255, 255, 0.25);
+  border-radius: 12px;
+  color: var(--text-primary);
+  cursor: pointer;
+  padding: 12px;
+  transition: all 0.2s ease;
+  font-family: var(--font-body);
+  font-weight: 500;
+}
+
+.qq-options button:hover {
+  background: rgba(0, 224, 255, 0.15);
+  border-color: var(--accent-color);
+  transform: translateX(4px);
+}
+
+.qq-output {
+  margin-top: 12px;
+}
+
+.product-img {
+  width: 90%;
+  display: block;
+  margin: 12px auto;
+  border-radius: 12px;
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.25);
+}
+
+.combo-images {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.combo-images .product-img {
+  width: 45%;
+}
+
+.quote-summary {
+  background: rgba(0, 0, 0, 0.45);
+  border-radius: 12px;
+  padding: 14px;
+}
+
+.quote-summary pre {
+  font-family: var(--font-mono);
+  color: #00ffa6;
+  margin: 0;
+  white-space: pre-wrap;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+/* ==================== Responsive Design ==================== */
+@media (max-width: 1200px) {
+  .container {
+    grid-template-columns: 200px minmax(0, 1fr) 320px;
+    gap: 20px;
+    padding: 20px 24px;
+  }
+  
+  .slogan-strip h1 {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 1000px) {
+  .container {
+    grid-template-columns: 1fr;
+    padding: 20px 16px;
+  }
+  
+  .demo-sidebar,
+  .rebates-sidebar {
+    order: -1;
+    position: static;
+  }
+  
+  .demo-sidebar {
+    display: none; /* Hide theme switcher on mobile */
+  }
+  
+  .slogan-strip h1 {
+    font-size: 1.9rem;
+  }
+  
+  .fun-facts-banner span {
+    font-size: 0.85rem;
+    margin: 0 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .logo {
+    width: 220px;
+  }
+  
+  .slogan-strip h1 {
+    font-size: 1.6rem;
+  }
+  
+  .team-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 12px;
+  }
+  
+  .member {
+    padding: 16px;
+  }
+  
+  .avatar {
+    width: 42px;
+    height: 42px;
+    font-size: 1rem;
+  }
+  
+  .testimonials-track {
+    gap: 12px;
+  }
+  
+  .card {
+    min-width: 240px;
+    padding: 14px 16px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .slogan-strip h1 {
+    font-size: 1.4rem;
+  }
+  
+  .fun-facts-banner {
+    font-size: 0.8rem;
+  }
+  
+  .calc-savings h2,
+  .team h2,
+  .testimonials h2 {
+    font-size: 1.5rem;
+  }
+}
+
+/* ==================== Print Styles ==================== */
+@media print {
+  .demo-sidebar,
+  .rebates-sidebar,
+  .fun-facts-banner,
+  .hero video {
+    display: none;
+  }
+  
+  body {
+    background: white;
+    color: black;
+  }
+  
+  .container {
+    grid-template-columns: 1fr;
+  }
+}
