@@ -177,9 +177,9 @@ button {
    =================================== */
 
 .phone-bar {
-    background: rgba(11, 22, 35, 0.8);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    background: transparent;
+    backdrop-filter: none;
+    border-bottom: none;
     padding: 14px 20px;
     text-align: center;
     position: sticky;
@@ -188,11 +188,11 @@ button {
 }
 
 .phone-bar a {
-    font-family: var(--font-ui);
-    font-size: 22px;
-    font-weight: 700;
+    font-family: var(--font-display);
+    font-size: 28px;
+    font-weight: 400;
     color: var(--orange);
-    letter-spacing: 0.5px;
+    letter-spacing: 1.5px;
     text-shadow: var(--glow-orange);
 }
 
@@ -1697,6 +1697,15 @@ button {
     line-height: 1.5;
 }
 
+/* Row Image */
+.row-image {
+    display: block;
+    width: 100%;
+    max-width: 1000px;
+    margin: 40px auto;
+    height: auto;
+}
+
 /* ===================================
    FOOTER
    =================================== */
@@ -2169,6 +2178,9 @@ button {
                         Get Your Free Quote
                     </button>
                 </div>
+                
+                <!-- Row Image -->
+                <img src="assets/row.png" alt="Suntech Solar" class="row-image">
             </section>
             
         </main>
