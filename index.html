@@ -376,42 +376,29 @@ body {
    SLOGAN STRIP
    =================================== */
 
-/* Gear Sidebar - Manufacturer Equipment */
-.gear-sidebar {
-    position: fixed;
-    left: var(--side-offset);
-    width: var(--left-sidebar-width);
-    top: calc(var(--logo-height) + 28px + 340px + 100px); /* 100px below demo-sidebar */
-    padding: 0;
-    z-index: 1800;
-}
-
-.gear-grid {
+/* Gear Strip - Manufacturer Equipment (Below Fun Facts) */
+.gear-strip {
+    margin: 20px auto;
+    width: calc(var(--video-width) + var(--carousel-width) + 22px);
+    max-width: 95%;
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
     gap: 25px;
 }
 
-.gear-item {
-    background: transparent;
-    border: none;
-    padding: 0;
-    transition: all 0.3s ease;
-    overflow: hidden;
-}
-
-.gear-item:hover {
-    transform: translateY(-2px);
-    filter: brightness(1.2);
-}
-
-.gear-item img {
-    width: 100%;
+.gear-strip img {
+    flex: 1;
     height: auto;
     display: block;
-    border-radius: 4px;
     object-fit: contain;
     max-height: 60px;
+    transition: all 0.3s ease;
+}
+
+.gear-strip img:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.2);
 }
 
 .slogan-strip {
@@ -2112,8 +2099,7 @@ body {
 
 @media (max-width: 1680px) {
     .demo-sidebar,
-    .rebates-sidebar,
-    .gear-sidebar {
+    .rebates-sidebar {
         display: none;
     }
 }
@@ -2350,6 +2336,18 @@ body {
         </div>
     </div>
     
+    <!-- Manufacturer Gear Strip -->
+    <div class="gear-strip">
+        <img src="assets/gear-1.png" alt="Manufacturer 1">
+        <img src="assets/gear-2.png" alt="Manufacturer 2">
+        <img src="assets/gear-3.png" alt="Manufacturer 3">
+        <img src="assets/gear-4.png" alt="Manufacturer 4">
+        <img src="assets/gear-5.png" alt="Manufacturer 5">
+        <img src="assets/gear-6.png" alt="Manufacturer 6">
+        <img src="assets/gear-7.png" alt="Manufacturer 7">
+        <img src="assets/gear-8.png" alt="Manufacturer 8">
+    </div>
+    
     <!-- Sticky Phone Bar -->
     <div class="phone-bar">
         <div style="display: flex; align-items: center; justify-content: center; gap: 20px;">
@@ -2394,36 +2392,6 @@ body {
                 <li><a onclick="switchTheme('rural')">Rural & Regional</a></li>
                 <li><a onclick="switchTheme('summer')">Summer Sale</a></li>
             </ul>
-        </aside>
-        
-        <!-- Manufacturer Gear Sidebar -->
-        <aside class="gear-sidebar">
-            <div class="gear-grid">
-                <div class="gear-item">
-                    <img src="assets/gear-1.png" alt="Manufacturer 1">
-                </div>
-                <div class="gear-item">
-                    <img src="assets/gear-2.png" alt="Manufacturer 2">
-                </div>
-                <div class="gear-item">
-                    <img src="assets/gear-3.png" alt="Manufacturer 3">
-                </div>
-                <div class="gear-item">
-                    <img src="assets/gear-4.png" alt="Manufacturer 4">
-                </div>
-                <div class="gear-item">
-                    <img src="assets/gear-5.png" alt="Manufacturer 5">
-                </div>
-                <div class="gear-item">
-                    <img src="assets/gear-6.png" alt="Manufacturer 6">
-                </div>
-                <div class="gear-item">
-                    <img src="assets/gear-7.png" alt="Manufacturer 7">
-                </div>
-                <div class="gear-item">
-                    <img src="assets/gear-8.png" alt="Manufacturer 8">
-                </div>
-            </div>
         </aside>
         
         <!-- CENTER CONTENT -->
