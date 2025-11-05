@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Premium Solar Systems | Suntech - Bass Coast's Trusted Experts - v6.3.0</title>
+    <title>Premium Solar Systems | Suntech - Bass Coast's Trusted Experts - v6.3.1</title>
     <meta name="description" content="Professional solar landing page. Jess, Jackson, Joseph & supervised apprentice team. 300+ Victorian homes. Premium installations.">
     
     <!-- Google Fonts -->
@@ -182,15 +182,9 @@ button {
     border-bottom: 1px solid rgba(24, 224, 255, 0.1);
     padding: 14px 20px;
     text-align: center;
-    position: fixed !important;
-    top: 0 !important;
-    left: 0 !important;
-    right: 0 !important;
+    position: relative;
     width: 100%;
-    z-index: 9999;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    transform: translateZ(0);
-    -webkit-transform: translateZ(0);
 }
 
 .phone-bar a {
@@ -222,11 +216,6 @@ button {
         0 0 8px rgba(24, 224, 255, 0.6),
         0 0 15px rgba(245, 155, 53, 0.4);
     animation: electricPulse 2.5s ease-in-out infinite;
-}
-
-/* Add padding to body to account for fixed phone bar */
-body {
-    padding-top: 90px;
 }
 
 /* ===================================
@@ -313,7 +302,6 @@ body {
 .demo-sidebar,
 .rebates-sidebar {
     position: fixed;
-    top: calc(var(--logo-height) + 28px);
     padding: 18px;
     border-radius: 12px;
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
@@ -329,6 +317,7 @@ body {
 .demo-sidebar {
     left: var(--side-offset);
     width: var(--left-sidebar-width);
+    top: calc(var(--logo-height) + 28px);
 }
 
 .rebates-sidebar {
@@ -2314,6 +2303,33 @@ body {
 </head>
 <body>
     
+    <!-- Sticky Phone Bar -->
+    <div class="phone-bar">
+        <div style="display: flex; align-items: center; justify-content: center; gap: 20px;">
+            <a href="tel:1300786429" style="text-decoration: none;">📞 1300 786 429</a>
+            <div class="phone-bar-divider"></div>
+            <div style="display: flex; gap: 12px; align-items: center;">
+                <a href="https://www.facebook.com/profile.php?id=61575325032792" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" fill="#f59b35"/>
+                    </svg>
+                </a>
+                <a href="https://www.instagram.com/suntechsolarsystems/" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" fill="#f59b35"/>
+                    </svg>
+                </a>
+            </div>
+            <div class="phone-bar-divider"></div>
+            <a href="javascript:void(0)" onclick="openTallyForm()" style="display: flex; align-items: center; gap: 8px; text-decoration: none; cursor: pointer;">
+                <span style="font-family: var(--font-display); font-size: 28px; color: var(--orange); letter-spacing: 1.5px; text-shadow: var(--glow-orange);">sales@suntechsolarsystems.com.au</span>
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" fill="#f59b35"/>
+                </svg>
+            </a>
+        </div>
+    </div>
+    
     <!-- Header with Logo -->
     <header class="header">
         <img src="assets/logo.png" alt="Suntech Solar Systems" class="header-logo">
@@ -2346,33 +2362,6 @@ body {
         <img src="assets/gear-6.png" alt="Manufacturer 6">
         <img src="assets/gear-7.png" alt="Manufacturer 7">
         <img src="assets/gear-8.png" alt="Manufacturer 8">
-    </div>
-    
-    <!-- Sticky Phone Bar -->
-    <div class="phone-bar">
-        <div style="display: flex; align-items: center; justify-content: center; gap: 20px;">
-            <a href="tel:1300786429" style="text-decoration: none;">📞 1300 786 429</a>
-            <div class="phone-bar-divider"></div>
-            <div style="display: flex; gap: 12px; align-items: center;">
-                <a href="https://www.facebook.com/profile.php?id=61575325032792" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" fill="#f59b35"/>
-                    </svg>
-                </a>
-                <a href="https://www.instagram.com/suntechsolarsystems/" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" fill="#f59b35"/>
-                    </svg>
-                </a>
-            </div>
-            <div class="phone-bar-divider"></div>
-            <a href="mailto:sales@suntechsolarsystems.com.au" style="display: flex; align-items: center; gap: 8px; text-decoration: none;">
-                <span style="font-family: var(--font-display); font-size: 28px; color: var(--orange); letter-spacing: 1.5px; text-shadow: var(--glow-orange);">sales@suntechsolarsystems.com.au</span>
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" fill="#f59b35"/>
-                </svg>
-            </a>
-        </div>
     </div>
     
     <!-- 3-Column Container Layout -->
@@ -2916,7 +2905,7 @@ body {
                     <p>Bass Coast's Most Trusted Solar Installation Experts. NETCC-certified professionals delivering premium solar and battery solutions across Victoria.</p>
                     <div class="footer-contact">
                         <p>📞 <a href="tel:+611300786429">1300 786 429</a></p>
-                        <p>📧 <a href="mailto:sales@suntechsolarsystems.com.au">sales@suntechsolarsystems.com.au</a></p>
+                        <p>📧 <a href="javascript:void(0)" onclick="openTallyForm()" style="cursor: pointer;">sales@suntechsolarsystems.com.au</a></p>
                         <div style="display: flex; gap: 16px; margin-top: 16px; justify-content: flex-start;">
                             <a href="https://www.facebook.com/profile.php?id=61575325032792" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.15)'" onmouseout="this.style.transform='scale(1)'">
                                 <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -3398,12 +3387,51 @@ function selectPackage(kind) {
                 <p style="margin-top: 16px; color: var(--cyan); font-family: var(--font-ui);">
                     ${packageInfo}
                 </p>
-                <p style="margin-top: 12px; color: var(--text-muted); font-size: 14px;">
-                    Upload your bill for a personalized quote
+                <p style="margin-top: 12px; color: var(--text-muted); font-size: 13px;">
+                    Ready to get your personalized quote?
                 </p>
+                <button onclick="openTallyQuickQuote()" style="width: 100%; padding: 14px; margin-top: 16px; background: var(--orange); color: #000; border: none; border-radius: 8px; font-family: var(--font-ui); font-size: 15px; font-weight: 700; cursor: pointer; transition: all 0.3s ease; text-transform: uppercase; letter-spacing: 1px;">
+                    Get Price
+                </button>
             </div>
         `;
     }
+}
+
+// Open Tally with Quick Quote data
+function openTallyQuickQuote() {
+    // TODO: Replace with your actual Tally form URL
+    const tallyFormUrl = 'https://tally.so/r/YOUR_FORM_ID';
+    
+    // Map package type to readable format
+    const packageMap = {
+        'panels': 'Solar Panels Only (6.6kW)',
+        'battery': 'Battery Storage Only (10kWh)',
+        'combo': 'Solar Panels + Battery (Complete System)'
+    };
+    
+    // Build URL with query parameters
+    const params = new URLSearchParams({
+        package_type: packageMap[selectedPackage] || 'Not selected',
+        source: 'quick_quote_sidebar'
+    });
+    
+    // Open in new tab
+    window.open(`${tallyFormUrl}?${params.toString()}`, '_blank');
+}
+
+// Open Tally form (general contact form)
+function openTallyForm() {
+    // TODO: Replace with your actual Tally form URL
+    const tallyFormUrl = 'https://tally.so/r/YOUR_FORM_ID';
+    
+    // Build URL with query parameters
+    const params = new URLSearchParams({
+        source: 'email_link'
+    });
+    
+    // Open in new tab
+    window.open(`${tallyFormUrl}?${params.toString()}`, '_blank');
 }
 
 // Image carousel rotation with navigation dots - loads random images from /assets/imgcarousel
@@ -3571,6 +3599,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // Reveal slogan highlights
     setTimeout(revealSloganHighlight, 500);
 
+    // Initialize right sidebar vertical centering
+    initializeRightSidebarScroll();
+
     // Make functions globally available
     window.calculateSavings = calculateSavings;
     window.resetCalculator = resetCalculator;
@@ -3581,6 +3612,33 @@ document.addEventListener('DOMContentLoaded', function() {
     window.selectSolarOption = selectSolarOption;
     window.selectBatteryOption = selectBatteryOption;
 });
+
+// Right sidebar scroll - keeps it vertically centered
+function initializeRightSidebarScroll() {
+    const sidebar = document.querySelector('.rebates-sidebar');
+    if (!sidebar) return;
+
+    function updateSidebarPosition() {
+        const viewportHeight = window.innerHeight;
+        const sidebarHeight = sidebar.offsetHeight;
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        
+        // Calculate centered position
+        const centeredTop = scrollTop + (viewportHeight / 2) - (sidebarHeight / 2);
+        
+        // Apply the position
+        sidebar.style.top = `${centeredTop}px`;
+    }
+
+    // Update on scroll
+    window.addEventListener('scroll', updateSidebarPosition);
+    
+    // Update on resize
+    window.addEventListener('resize', updateSidebarPosition);
+    
+    // Initial positioning
+    updateSidebarPosition();
+}
 
 // Anti-scrape protection (optional)
 document.addEventListener('contextmenu', e => e.preventDefault());
@@ -3596,7 +3654,7 @@ document.addEventListener('keydown', function(e) {
     }
 });
 
-console.log('✅ Suntech Solar Systems v6.3.0 - Random Carousel Edition');
+console.log('✅ Suntech Solar Systems v6.3.1 - Scrollable Right Sidebar Edition');
 
 // ===================================
 // SLIDE-OUT PANEL SYSTEM
