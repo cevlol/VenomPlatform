@@ -31,7 +31,7 @@
     --right-sidebar-width: 440px;
     --side-offset: 18px;
     
-    /* Color Palette - DARK THEME (default) */
+    /* Color Palette */
     --bg-primary: #07101a;
     --bg-secondary: #020712;
     --panel-bg: #0b1623;
@@ -54,190 +54,6 @@
     --glow-cyan: 0 0 12px rgba(24, 224, 255, 0.4);
     --glow-orange: 0 0 12px rgba(245, 155, 53, 0.4);
 }
-
-/* ===================================
-   LIGHT THEME - Soft Cyan Paradise
-   Doubles all 9 themes to 18 total
-   =================================== */
-
-body.light-theme {
-    /* Soft cyan/teal gradient - on-brand colors, NO WHITE */
-    background: linear-gradient(180deg, #d4f1f9 0%, #e8f7fa 50%, #f0fafc 100%) !important;
-    
-    /* Core colors */
-    --bg-primary: #e0f4f7;
-    --bg-secondary: #eef9fb;
-    --panel-bg: rgba(224, 244, 247, 0.9);
-    --text-primary: #0a1929;
-    --text-muted: #2d5a6e;
-    
-    /* Adjusted shadows for light mode */
-    --panel-shadow: 0 8px 24px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
-    --glow-cyan: 0 0 8px rgba(24, 224, 255, 0.3);
-    --glow-orange: 0 0 8px rgba(245, 155, 53, 0.3);
-}
-
-/* Phone bar in light mode */
-body.light-theme .phone-bar {
-    background: rgba(224, 244, 247, 0.95);
-    border-bottom: 1px solid rgba(24, 224, 255, 0.2);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-}
-
-body.light-theme .phone-bar a {
-    color: var(--orange);
-    text-shadow: none;
-}
-
-/* Header in light mode */
-body.light-theme .header {
-    background: transparent;
-}
-
-/* Panels and containers in light mode */
-body.light-theme .summer-flash-banner,
-body.light-theme .collapsible-sidebar,
-body.light-theme .sidebar-tab {
-    background: rgba(224, 244, 247, 0.9);
-    border-color: rgba(24, 224, 255, 0.15);
-    backdrop-filter: blur(20px);
-}
-
-body.light-theme .summer-flash-banner h3,
-body.light-theme .collapsible-sidebar h3,
-body.light-theme .sidebar-tab-text {
-    color: var(--orange);
-}
-
-body.light-theme .summer-flash-banner p,
-body.light-theme .collapsible-sidebar p,
-body.light-theme .dynamic-sidebar a {
-    color: var(--text-primary);
-}
-
-/* Calculator in light mode */
-body.light-theme .calculator-container,
-body.light-theme .calculator-results {
-    background: rgba(224, 244, 247, 0.9);
-    border-color: rgba(24, 224, 255, 0.2);
-}
-
-body.light-theme .calculator-container h2,
-body.light-theme .calculator-results h3 {
-    color: var(--orange);
-}
-
-body.light-theme .calculator-container label,
-body.light-theme .calculator-container p,
-body.light-theme .calculator-results p {
-    color: var(--text-primary);
-}
-
-body.light-theme .calculator-container input,
-body.light-theme .calculator-container select {
-    background: rgba(236, 248, 250, 0.95);
-    border: 2px solid rgba(24, 224, 255, 0.3);
-    color: var(--text-primary);
-}
-
-/* Slogan text in light mode */
-body.light-theme .slogan {
-    color: var(--text-primary);
-}
-
-body.light-theme .slogan .highlight {
-    background: linear-gradient(90deg, var(--cyan), var(--orange));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-/* Fun facts banner in light mode */
-body.light-theme .fun-facts-banner {
-    background: linear-gradient(180deg, rgba(24, 224, 255, 0.08), rgba(224, 244, 247, 0.05));
-    border: 1px solid rgba(24, 224, 255, 0.15);
-}
-
-body.light-theme .fun-fact {
-    color: var(--text-primary);
-}
-
-/* Buttons maintain visibility in light mode */
-body.light-theme .cta-primary,
-body.light-theme .summer-flash-btn-primary {
-    background: var(--orange);
-    color: #000;
-    box-shadow: 0 4px 16px rgba(245, 155, 53, 0.25);
-}
-
-body.light-theme .cta-secondary,
-body.light-theme .summer-flash-btn-secondary {
-    border-color: var(--orange);
-    color: var(--orange);
-    background: rgba(236, 248, 250, 0.8);
-}
-
-/* Diagonal background images - lighten in light mode */
-body.light-theme .diagonal-background-left::before,
-body.light-theme .diagonal-background-right::before {
-    background: 
-        radial-gradient(ellipse at center, transparent 20%, rgba(224, 244, 247, 0.5) 80%),
-        linear-gradient(135deg, transparent 0%, rgba(224, 244, 247, 0.4) 100%);
-}
-
-/* Theme flanking images - subtle overlay in light mode */
-body.light-theme .theme-image-left::after,
-body.light-theme .theme-image-right::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: rgba(224, 244, 247, 0.35);
-    pointer-events: none;
-}
-
-/* Carousel and video containers in light mode */
-body.light-theme .carousel-container,
-body.light-theme .video-container {
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
-}
-
-/* Testimonials in light mode */
-body.light-theme .testimonial-card {
-    background: rgba(224, 244, 247, 0.9);
-    border-color: rgba(24, 224, 255, 0.2);
-}
-
-body.light-theme .testimonial-text {
-    color: var(--text-primary);
-}
-
-body.light-theme .testimonial-author {
-    color: var(--text-muted);
-}
-
-/* Nested bars in light mode */
-body.light-theme .nested-bars-wrapper .sidebar-tab {
-    background: rgba(224, 244, 247, 0.85);
-}
-
-body.light-theme .nested-bars-wrapper .sidebar-tab:hover {
-    background: rgba(224, 244, 247, 0.95);
-}
-
-body.light-theme .sidebar-arrow {
-    color: var(--orange);
-}
-
-/* Gear strip in light mode */
-body.light-theme .gear-strip {
-    background: linear-gradient(180deg, rgba(24, 224, 255, 0.08), rgba(224, 244, 247, 0.04));
-    border: 1px solid rgba(24, 224, 255, 0.1);
-}
-
-/* Logo maintains drop shadow in light mode */
-body.light-theme .header-logo {
-    filter: drop-shadow(0 10px 28px rgba(0, 0, 0, 0.15));
-}
-
 
 /* ===================================
    RESET & BASE STYLES
@@ -755,109 +571,6 @@ body.theme-summer {
     --cyan: #ffa500;    /* Amber - keeps warm palette */
 }
 
-/* ===================================
-   LIGHT MODE VARIANTS - 9 Themes
-   Each demographic theme gets a light color scheme
-   =================================== */
-
-/* 1. TRUST LIGHT - Soft Blue Sky */
-body.theme-trust.light-theme {
-    background: linear-gradient(180deg, 
-        #d4e8f5 0%,     /* Soft sky blue */
-        #e3f0f7 50%,    /* Lighter blue */
-        #f0f7fc 100%    /* Very light blue */
-    ) !important;
-}
-
-/* 2. YOUNG LIGHT - Pastel Purple/Pink */
-body.theme-young.light-theme {
-    background: linear-gradient(180deg, 
-        #f3e5f5 0%,     /* Soft lavender */
-        #f8e9fc 50%,    /* Light purple */
-        #fdf4ff 100%    /* Very light purple */
-    ) !important;
-    --cyan: #d946ef !important;    /* Bright magenta (darker for readability) */
-    --orange: #06b6d4 !important;  /* Cyan (darker for readability) */
-}
-
-/* 3. FAMILY LIGHT - Soft Mint/Green */
-body.theme-family.light-theme {
-    background: linear-gradient(180deg, 
-        #d4f1e8 0%,     /* Soft mint */
-        #e3f7f0 50%,    /* Light mint */
-        #f0fdf9 100%    /* Very light mint */
-    ) !important;
-    --orange: #ff9966 !important;  /* Readable warm peach */
-    --cyan: #4ade80 !important;    /* Readable soft green */
-}
-
-/* 4. MATURE LIGHT - Silver/Grey Sky */
-body.theme-mature.light-theme {
-    background: linear-gradient(180deg, 
-        #dae3eb 0%,     /* Soft grey-blue */
-        #e8eef4 50%,    /* Light grey-blue */
-        #f5f7fa 100%    /* Very light grey */
-    ) !important;
-    --orange: #b8860b !important;  /* Readable gold */
-    --cyan: #64748b !important;    /* Readable slate */
-}
-
-/* 5. BUSINESS LIGHT - Corporate Sky Blue */
-body.theme-business.light-theme {
-    background: linear-gradient(180deg, 
-        #d0e4f5 0%,     /* Professional light blue */
-        #e0eef8 50%,    /* Lighter corporate blue */
-        #f0f6fc 100%    /* Very light blue */
-    ) !important;
-    --cyan: #2563eb !important;    /* Readable corporate blue */
-    --orange: #3b82f6 !important;  /* Readable blue */
-}
-
-/* 6. EV LIGHT - Eco Green Sky */
-body.theme-ev.light-theme {
-    background: linear-gradient(180deg, 
-        #d4f5e8 0%,     /* Soft eco green */
-        #e3f9f0 50%,    /* Light green */
-        #f0fcf7 100%    /* Very light green */
-    ) !important;
-    --cyan: #10b981 !important;    /* Readable emerald */
-    --orange: #22c55e !important;  /* Readable lime */
-}
-
-/* 7. BATTERY LIGHT - Warm Amber */
-body.theme-battery.light-theme {
-    background: linear-gradient(180deg, 
-        #fef3d4 0%,     /* Soft amber */
-        #fef7e3 50%,    /* Light amber */
-        #fffcf0 100%    /* Very light amber */
-    ) !important;
-    --orange: #d97706 !important;  /* Readable orange */
-    --cyan: #eab308 !important;    /* Readable yellow */
-}
-
-/* 8. RURAL LIGHT - Soft Green Fields */
-body.theme-rural.light-theme {
-    background: linear-gradient(180deg, 
-        #e3f3d4 0%,     /* Soft meadow green */
-        #eef7e3 50%,    /* Light grass */
-        #f7fcf0 100%    /* Very light green */
-    ) !important;
-    --cyan: #65a30d !important;    /* Readable grass green */
-    --orange: #a3b80d !important;  /* Readable harvest yellow */
-}
-
-/* 9. SUMMER LIGHT - Soft Peachy Orange */
-body.theme-summer.light-theme {
-    background: linear-gradient(180deg, 
-        #fed7c4 0%,     /* Soft peach */
-        #fee7d8 35%,    /* Light peach */
-        #fff3ea 70%,    /* Lighter peach */
-        #fffcf7 100%    /* Very light cream */
-    ) !important;
-    --orange: #ea580c !important;  /* Readable hot orange */
-    --cyan: #f97316 !important;    /* Readable amber */
-}
-
 /* Smooth theme transitions */
 body {
     transition: background 0.8s ease-in-out;
@@ -952,77 +665,6 @@ button {
     animation: electricPulse 2.5s ease-in-out infinite;
 }
 
-/* Light Theme BETA Button - Scrolling Neon Border */
-.light-theme-beta-btn {
-    position: relative;
-    padding: 10px 20px;
-    background: rgba(24, 224, 255, 0.05);
-    backdrop-filter: blur(10px);
-    border: none;
-    border-radius: 8px;
-    font-family: var(--font-ui);
-    font-size: 13px;
-    font-weight: 700;
-    color: var(--cyan);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    overflow: hidden;
-}
-
-.light-theme-beta-btn::before {
-    content: '';
-    position: absolute;
-    inset: -3px;
-    background: linear-gradient(
-        90deg,
-        #ff00ff 0%,
-        #00ffff 25%,
-        #ff00ff 50%,
-        #00ffff 75%,
-        #ff00ff 100%
-    );
-    border-radius: 8px;
-    background-size: 200% 100%;
-    animation: scrollingNeon 3s linear infinite;
-    z-index: -1;
-}
-
-.light-theme-beta-btn::after {
-    content: '';
-    position: absolute;
-    inset: 2px;
-    background: rgba(7, 16, 26, 0.95);
-    backdrop-filter: blur(10px);
-    border-radius: 6px;
-    z-index: -1;
-}
-
-.light-theme-beta-btn:hover {
-    transform: scale(1.05);
-    color: var(--orange);
-    box-shadow: 0 0 20px rgba(24, 224, 255, 0.6), 0 0 40px rgba(255, 0, 255, 0.4);
-}
-
-/* Light theme active state */
-body.light-theme .light-theme-beta-btn {
-    color: var(--orange);
-}
-
-body.light-theme .light-theme-beta-btn::after {
-    background: rgba(224, 244, 247, 0.95);
-}
-
-@keyframes scrollingNeon {
-    0% {
-        background-position: 0% 0%;
-    }
-    100% {
-        background-position: 200% 0%;
-    }
-}
-
 /* ===================================
    FUN FACTS BANNER
    =================================== */
@@ -1100,196 +742,11 @@ body.light-theme .light-theme-beta-btn::after {
 }
 
 /* ===================================
-   COLLAPSIBLE SIDEBARS WITH VERTICAL TABS
+   SIDEBARS (Fixed Position)
    =================================== */
 
-/* ===================================
-   REBUILT NESTED BARS - HORIZONTAL THEN ROTATE
-   =================================== */
-
-/* Main wrapper - positioned on right, then rotated */
-.nested-bars-wrapper {
-    position: fixed;
-    right: 0px;
-    top: 33.25%; /* Moving back up 0.25% */
-    transform: translateY(-50%) translateX(185px) rotate(90deg); /* Pulled back 15px from edge */
-    transform-origin: center center;
-    z-index: 1900;
-    display: flex;
-    gap: 10px; /* 10px spacing between bars */
-}
-
-/* Individual sidebar containers - now simple horizontal layout */
-.sidebar-container {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-/* Clean tab styling - horizontal layout before rotation */
-.sidebar-tab {
-    background: rgba(24, 224, 255, 0.05);
-    border: 2px solid transparent;
-    background-clip: padding-box;
-    border-radius: 6px;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column; /* Back to normal - arrows positioned via HTML structure */
-    align-items: center;
-    gap: 8px;
-    padding: 12px 8px;
-    transition: all 0.3s ease;
-    backdrop-filter: blur(10px);
-    z-index: 2000;
-    min-width: 120px;
-}
-
-/* Gold/Chrome glow effect */
-.sidebar-tab::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: 6px;
-    padding: 2px;
-    background: linear-gradient(135deg, 
-        #ffd700 0%, 
-        #ffffff 15%,
-        #ffeb3b 30%, 
-        #ffd700 45%,
-        #e6e6e6 60%,
-        #ffffff 75%,
-        #ffd700 90%,
-        #ffeb3b 100%);
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    pointer-events: none;
-    animation: goldChromeGlow 2s linear infinite;
-}
-
-@keyframes goldChromeGlow {
-    0% { 
-        filter: drop-shadow(0 0 12px rgba(255, 215, 0, 1)) 
-                drop-shadow(0 0 24px rgba(255, 255, 255, 0.9)) 
-                drop-shadow(0 0 36px rgba(255, 215, 0, 0.8))
-                drop-shadow(0 0 48px rgba(255, 255, 255, 0.6))
-                brightness(1.4);
-    }
-    50% { 
-        filter: drop-shadow(0 0 20px rgba(255, 255, 255, 1)) 
-                drop-shadow(0 0 40px rgba(255, 215, 0, 0.9)) 
-                drop-shadow(0 0 60px rgba(255, 255, 255, 0.8))
-                drop-shadow(0 0 80px rgba(255, 215, 0, 0.6))
-                brightness(1.8);
-    }
-    100% { 
-        filter: drop-shadow(0 0 12px rgba(255, 215, 0, 1)) 
-                drop-shadow(0 0 24px rgba(255, 255, 255, 0.9)) 
-                drop-shadow(0 0 36px rgba(255, 215, 0, 0.8))
-                drop-shadow(0 0 48px rgba(255, 255, 255, 0.6))
-                brightness(1.4);
-    }
-}
-
-/* Arrow styling - points upward before rotation, left after rotation */
-.sidebar-arrow {
-    width: 16px;
-    height: 16px;
-    color: var(--orange);
-    transition: transform 0.3s ease, color 0.3s ease;
-    flex-shrink: 0;
-}
-
-/* Tab text styling - rotated 180 degrees to read correctly after container rotation */
-.sidebar-tab-text {
-    font-family: var(--font-ui);
-    font-size: 11px;
-    font-weight: 600;
-    color: var(--text-primary);
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-    text-align: center;
-    white-space: nowrap;
-    transform: rotate(180deg); /* Flip text so it reads correctly when container is rotated */
-}
-
-/* Hover and active states */
-.sidebar-tab:hover {
-    background: rgba(24, 224, 255, 0.08);
-    transform: scale(1.02);
-}
-
-.sidebar-tab.active {
-    background: rgba(24, 224, 255, 0.1);
-}
-
-/* Arrow only rotates when tab is active/clicked */
-.sidebar-tab.active .sidebar-arrow {
-    color: var(--cyan);
-    transform: rotate(180deg);
-}
-
-/* Collapsible panels - slide from right */
-.collapsible-sidebar {
-    position: fixed;
-    top: 100px; /* Starting with fixed pixel value to see clear movement */
-    right: -400px;
-    transform: none; /* No transform - grows down from this point */
-    width: 350px;
-    background: rgba(11, 22, 35, 0.95);
-    backdrop-filter: blur(15px);
-    border: 1px solid rgba(24, 224, 255, 0.2);
-    border-radius: 12px;
-    padding: 24px;
-    z-index: 1850; /* Below nested bars but above content */
-    transition: right 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    box-shadow: 
-        -8px 0 32px rgba(0, 0, 0, 0.4),
-        0 0 24px rgba(24, 224, 255, 0.1);
-    max-height: 80vh;
-    overflow-y: auto;
-}
-
-.collapsible-sidebar.open {
-    right: 210px; /* 185px (translateX of bars) + 25px spacing from arrow */
-}
-
-.sidebar-container.right .sidebar-tab {
-    right: 50px; /* Moved 5px closer to edge */
-    top: 0;
-    transform: rotate(-90deg);
-    transform-origin: right center;
-}
-
-.sidebar-tab:hover {
-    background: rgba(24, 224, 255, 0.08);
-}
-
-.sidebar-tab-text {
-    font-family: var(--font-display);
-    font-size: 24px; /* Increased to 24px for better visibility on larger tabs */
-    letter-spacing: 2px;
-    color: var(--text-primary);
-    text-transform: uppercase;
-    white-space: nowrap;
-}
-
-.sidebar-arrow {
-    width: 28px;
-    height: 28px;
-    color: var(--cyan);
-    transition: transform 0.3s ease;
-    flex-shrink: 0;
-    position: absolute;
-    bottom: -25px; /* 5px more spacing from container (was -20px) */
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 1;
-}
-
-/* Collapsible Sidebar Panels */
-.collapsible-sidebar {
+.demo-sidebar,
+.rebates-sidebar {
     position: fixed;
     padding: 18px;
     border-radius: 12px;
@@ -1299,28 +756,23 @@ body.light-theme .light-theme-beta-btn::after {
     box-shadow: var(--panel-shadow);
     font-size: 16px;
     line-height: 1.6;
+    z-index: 1800;
     backdrop-filter: blur(10px);
-    
-    /* Hidden by default */
-    opacity: 0;
-    pointer-events: none;
-    transition: right 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-                opacity 0.4s ease;
 }
 
-/* Open state - visible and interactive */
-.collapsible-sidebar.open {
-    opacity: 1;
-    pointer-events: auto;
+.demo-sidebar {
+    left: var(--side-offset);
+    width: var(--left-sidebar-width);
+    top: calc(var(--logo-height) + 28px);
 }
 
-/* Dynamic sidebar positioning */
-.dynamic-sidebar {
-    width: 350px;
-    /* top position inherited from .collapsible-sidebar */
+.rebates-sidebar {
+    right: var(--side-offset);
+    width: var(--right-sidebar-width);
 }
 
-.dynamic-sidebar h3 {
+.demo-sidebar h3,
+.rebates-sidebar h3 {
     margin: 0 0 12px 0;
     font-family: var(--font-display);
     color: var(--orange);
@@ -1329,16 +781,17 @@ body.light-theme .light-theme-beta-btn::after {
     text-transform: uppercase;
 }
 
-.dynamic-sidebar ul {
+.demo-sidebar ul {
     list-style: none;
     padding: 0;
 }
 
-.dynamic-sidebar li {
+.demo-sidebar li {
     margin-bottom: 4px;
 }
 
-.dynamic-sidebar a {
+.demo-sidebar a,
+.rebates-sidebar a {
     color: var(--text-muted);
     transition: all 0.18s ease;
     display: inline-block;
@@ -1347,19 +800,11 @@ body.light-theme .light-theme-beta-btn::after {
     font-size: 14px;
 }
 
-.dynamic-sidebar a:hover {
+.demo-sidebar a:hover,
+.rebates-sidebar a:hover {
     color: var(--text-primary);
     text-shadow: var(--glow-orange);
     transform: translateX(4px);
-}
-
-/* Arrow rotation when open */
-.sidebar-container.left .sidebar-tab.active .sidebar-arrow {
-    transform: rotate(180deg);
-}
-
-.sidebar-container.right .sidebar-tab.active .sidebar-arrow {
-    transform: rotate(180deg);
 }
 
 /* ===================================
@@ -1391,69 +836,52 @@ body.light-theme .light-theme-beta-btn::after {
     filter: brightness(1.2);
 }
 
-/* Summer Solar Flash Banner - Landscape orientation, left of logo */
+/* Summer Solar Flash Banner - Positioned between Demo Themes and Fun Facts */
 .summer-flash-banner {
-    position: fixed;
-    left: 50%; /* Start from center */
-    top: 217px; /* Moved down another 42px (half of 85px) */
-    transform: translateX(calc(-100% - 905px)); /* Moved left another 85px (half of 170px) */
-    width: 420px; /* Landscape width */
-    background: rgba(24, 224, 255, 0.05);
-    border: 2px solid transparent;
-    background-clip: padding-box;
-    border-radius: 16px;
-    padding: 20px 24px;
-    backdrop-filter: blur(10px);
-    transition: transform 0.3s ease;
-    z-index: 1800;
-}
-
-/* SAME neon glow effect as testimonials */
-.summer-flash-banner::before {
-    content: '';
     position: absolute;
-    inset: 0;
+    left: 380px;
+    top: calc(var(--logo-height) + 110px);
+    width: 360px;
+    background: linear-gradient(135deg, rgba(11, 22, 35, 0.98), rgba(7, 16, 26, 0.98));
     border-radius: 16px;
-    padding: 2px;
-    background: linear-gradient(135deg, 
-        #ff00ff 0%, 
-        #00ffff 25%, 
-        #ff00ff 50%, 
-        #00ffff 75%, 
-        #ff00ff 100%);
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    pointer-events: none;
-    animation: neonGlow 3s linear infinite;
+    padding: 24px;
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.6),
+        0 0 0 1px rgba(245, 155, 53, 0.2);
+    backdrop-filter: blur(10px);
+    z-index: 100;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .summer-flash-banner:hover {
-    transform: translateX(calc(-100% - 905px)); /* Keep position on hover */
-    box-shadow: 0 0 20px rgba(245, 155, 53, 0.4), 0 0 40px rgba(24, 224, 255, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 
+        0 12px 48px rgba(0, 0, 0, 0.8),
+        0 0 0 1px rgba(245, 155, 53, 0.4),
+        0 0 30px rgba(245, 155, 53, 0.2);
 }
 
 .summer-flash-banner h3 {
     font-family: var(--font-display);
-    font-size: 20px;
+    font-size: 22px;
     color: var(--orange);
-    margin: 0 0 10px 0;
+    margin: 0 0 12px 0;
     letter-spacing: 1.5px;
     text-transform: uppercase;
 }
 
 .summer-flash-banner p {
     font-family: var(--font-body);
-    font-size: 13px;
+    font-size: 14px;
     color: var(--text-primary);
-    line-height: 1.5;
-    margin: 0 0 14px 0;
+    line-height: 1.6;
+    margin: 0 0 16px 0;
 }
 
 .summer-flash-buttons {
     display: flex;
-    flex-direction: row; /* Horizontal layout for landscape */
-    gap: 12px;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .summer-flash-btn-primary {
@@ -1464,13 +892,12 @@ body.light-theme .light-theme-beta-btn::after {
     border-radius: 10px;
     font-family: var(--font-ui);
     font-weight: 700;
-    font-size: 13px;
+    font-size: 14px;
     cursor: pointer;
     transition: all 0.3s ease;
     text-align: center;
     text-decoration: none;
     display: block;
-    flex: 1; /* Equal width buttons */
 }
 
 .summer-flash-btn-primary:hover {
@@ -1487,13 +914,12 @@ body.light-theme .light-theme-beta-btn::after {
     border-radius: 10px;
     font-family: var(--font-ui);
     font-weight: 700;
-    font-size: 13px;
+    font-size: 14px;
     cursor: pointer;
     transition: all 0.3s ease;
     text-align: center;
     text-decoration: none;
     display: block;
-    flex: 1; /* Equal width buttons */
 }
 
 .summer-flash-btn-secondary:hover {
@@ -1506,7 +932,7 @@ body.light-theme .light-theme-beta-btn::after {
 .slogan-strip {
     width: 100%;
     max-width: 1200px;
-    margin: 0 auto; /* Centered within wrapper, no top margin */
+    margin: 40px auto 0;
     background: rgba(6, 10, 14, 0.55);
     backdrop-filter: blur(10px);
     border-radius: 12px;
@@ -3423,512 +2849,13 @@ body.light-theme .light-theme-beta-btn::after {
         right: -95%;
     }
 }
-/* ===================================
-   DIAGONAL BACKGROUND IMAGES
-   Add this AFTER the theme gradient styles
-   =================================== */
-
-/* Base diagonal background setup - keep existing classes */
-.diagonal-background-left,
-.diagonal-background-right {
-    background-position: center center;
-    background-size: cover;
-}
-
-/* ===================================
-   TRUST THEME BACKGROUNDS
-   =================================== */
-
-body.theme-trust .diagonal-background-left {
-    background-image: url('../backgrounds/trust-left.webp');
-}
-
-body.theme-trust .diagonal-background-right {
-    background-image: url('../backgrounds/trust-right.webp');
-}
-
-/* JPG fallback for older browsers */
-.no-webp body.theme-trust .diagonal-background-left {
-    background-image: url('../backgrounds/trust-left.jpg');
-}
-
-.no-webp body.theme-trust .diagonal-background-right {
-    background-image: url('../backgrounds/trust-right.jpg');
-}
-
-/* ===================================
-   YOUNG THEME BACKGROUNDS
-   =================================== */
-
-body.theme-young .diagonal-background-left {
-    background-image: url('../backgrounds/young-left.webp');
-}
-
-body.theme-young .diagonal-background-right {
-    background-image: url('../backgrounds/young-right.webp');
-}
-
-.no-webp body.theme-young .diagonal-background-left {
-    background-image: url('../backgrounds/young-left.jpg');
-}
-
-.no-webp body.theme-young .diagonal-background-right {
-    background-image: url('../backgrounds/young-right.jpg');
-}
-
-/* ===================================
-   FAMILY THEME BACKGROUNDS
-   =================================== */
-
-body.theme-family .diagonal-background-left {
-    background-image: url('../backgrounds/family-left.webp');
-}
-
-body.theme-family .diagonal-background-right {
-    background-image: url('../backgrounds/family-right.webp');
-}
-
-.no-webp body.theme-family .diagonal-background-left {
-    background-image: url('../backgrounds/family-left.jpg');
-}
-
-.no-webp body.theme-family .diagonal-background-right {
-    background-image: url('../backgrounds/family-right.jpg');
-}
-
-/* ===================================
-   MATURE THEME BACKGROUNDS
-   =================================== */
-
-body.theme-mature .diagonal-background-left {
-    background-image: url('../backgrounds/mature-left.webp');
-}
-
-body.theme-mature .diagonal-background-right {
-    background-image: url('../backgrounds/mature-right.webp');
-}
-
-.no-webp body.theme-mature .diagonal-background-left {
-    background-image: url('../backgrounds/mature-left.jpg');
-}
-
-.no-webp body.theme-mature .diagonal-background-right {
-    background-image: url('../backgrounds/mature-right.jpg');
-}
-
-/* ===================================
-   BUSINESS THEME BACKGROUNDS
-   =================================== */
-
-body.theme-business .diagonal-background-left {
-    background-image: url('../backgrounds/business-left.webp');
-}
-
-body.theme-business .diagonal-background-right {
-    background-image: url('../backgrounds/business-right.webp');
-}
-
-.no-webp body.theme-business .diagonal-background-left {
-    background-image: url('../backgrounds/business-left.jpg');
-}
-
-.no-webp body.theme-business .diagonal-background-right {
-    background-image: url('../backgrounds/business-right.jpg');
-}
-
-/* ===================================
-   EV THEME BACKGROUNDS
-   =================================== */
-
-body.theme-ev .diagonal-background-left {
-    background-image: url('../backgrounds/EV-LEFT.webp');
-}
-
-body.theme-ev .diagonal-background-right {
-    background-image: url('../backgrounds/EV-right.webp');
-}
-
-.no-webp body.theme-ev .diagonal-background-left {
-    background-image: url('../backgrounds/EV-LEFT.jpg');
-}
-
-.no-webp body.theme-ev .diagonal-background-right {
-    background-image: url('../backgrounds/EV-right.jpg');
-}
-
-/* ===================================
-   BATTERY THEME BACKGROUNDS
-   =================================== */
-
-body.theme-battery .diagonal-background-left {
-    background-image: url('../backgrounds/battery-left.webp');
-}
-
-body.theme-battery .diagonal-background-right {
-    background-image: url('../backgrounds/battery-right.webp');
-}
-
-.no-webp body.theme-battery .diagonal-background-left {
-    background-image: url('../backgrounds/battery-left.jpg');
-}
-
-.no-webp body.theme-battery .diagonal-background-right {
-    background-image: url('../backgrounds/battery-right.jpg');
-}
-
-/* ===================================
-   RURAL THEME BACKGROUNDS
-   =================================== */
-
-body.theme-rural .diagonal-background-left {
-    background-image: url('../backgrounds/rural-left.webp');
-}
-
-body.theme-rural .diagonal-background-right {
-    background-image: url('../backgrounds/rural-right.webp');
-}
-
-.no-webp body.theme-rural .diagonal-background-left {
-    background-image: url('../backgrounds/rural-left.jpg');
-}
-
-.no-webp body.theme-rural .diagonal-background-right {
-    background-image: url('../backgrounds/rural-right.jpg');
-}
-
-/* ===================================
-   SUMMER THEME BACKGROUNDS
-   =================================== */
-
-body.theme-summer .diagonal-background-left {
-    background-image: url('../backgrounds/summer-left.webp');
-}
-
-body.theme-summer .diagonal-background-right {
-    background-image: url('../backgrounds/summer-right.webp');
-}
-
-.no-webp body.theme-summer .diagonal-background-left {
-    background-image: url('../backgrounds/summer-left.jpg');
-}
-
-.no-webp body.theme-summer .diagonal-background-right {
-    background-image: url('../backgrounds/summer-right.jpg');
-}
-
-/* ===================================
-   FLANKING THEME IMAGES (Left & Right of Slogan)
-   Similar style to video/carousel containers
-   =================================== */
-
-/* Wrapper for slogan section and flanking images - enables automatic centering */
-.slogan-wrapper {
-    position: relative;
-    width: 100%;
-    max-width: 1200px;
-    margin: 40px auto 0;
-}
-
-/* Container positioning - flanks the slogan section with proper overlap, automatically centered */
-.theme-image-left,
-.theme-image-right {
-    position: absolute;
-    top: 50%; /* Align to vertical center */
-    transform: translateY(-50%); /* Shift up by half its own height for perfect centering */
-    width: 544px;  /* Reduced by 15% to maintain aspect ratio (640 × 0.85 = 544) */
-    height: 306px; /* Reduced by 15% (360 × 0.85 = 306) */
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    z-index: 0; /* Behind slogan so they slide under it */
-    opacity: 0;
-    transition: opacity 0.8s ease, transform 0.8s ease;
-}
-
-.theme-image-left {
-    left: -475px; /* Only ~70px (13%) overlaps behind slogan */
-}
-
-.theme-image-right {
-    right: -475px; /* Only ~70px (13%) overlaps behind slogan */
-}
-
-.theme-image-left.active,
-.theme-image-right.active {
-    opacity: 0.95;
-}
-
-.theme-image-left img,
-.theme-image-right img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: brightness(1.1) contrast(1.05) saturate(1.1);
-    display: none;
-}
-
-/* Gradient overlay for integration with background */
-.theme-image-left::before,
-.theme-image-right::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse at center, 
-        transparent 30%, 
-        rgba(7, 16, 26, 0.3) 100%
-    );
-    pointer-events: none;
-    z-index: 1;
-}
-
-/* Show correct images based on active theme */
-body.theme-trust .theme-image-left .trust-left { display: block; }
-body.theme-trust .theme-image-right .trust-right { display: block; }
-
-body.theme-young .theme-image-left .young-left { display: block; }
-body.theme-young .theme-image-right .young-right { display: block; }
-
-body.theme-family .theme-image-left .family-left { display: block; }
-body.theme-family .theme-image-right .family-right { display: block; }
-
-body.theme-mature .theme-image-left .mature-left { display: block; }
-body.theme-mature .theme-image-right .mature-right { display: block; }
-
-body.theme-business .theme-image-left .business-left { display: block; }
-body.theme-business .theme-image-right .business-right { display: block; }
-
-body.theme-ev .theme-image-left .ev-left { display: block; }
-body.theme-ev .theme-image-right .ev-right { display: block; }
-
-body.theme-battery .theme-image-left .battery-left { display: block; }
-body.theme-battery .theme-image-right .battery-right { display: block; }
-
-body.theme-rural .theme-image-left .rural-left { display: block; }
-body.theme-rural .theme-image-right .rural-right { display: block; }
-
-body.theme-summer .theme-image-left .summer-left { display: block; }
-body.theme-summer .theme-image-right .summer-right { display: block; }
-
-/* ===================================
-   DYNAMIC FLUID SCALING SYSTEM
-   All elements scale proportionally to viewport
-   =================================== */
-
-/* Fluid root variables - scale with viewport */
-@media screen and (min-width: 1024px) {
-    :root {
-        /* Content scales between 980px and 1600px based on viewport */
-        --content-width: clamp(980px, 85vw, 1600px);
-        
-        /* Video and carousel scale proportionally */
-        --video-width: clamp(500px, 43vw, 820px);
-        --video-height: clamp(281px, 23vw, 440px);
-        --carousel-width: clamp(400px, 34vw, 640px);
-        --carousel-height: clamp(225px, 19vw, 360px);
-        
-        /* Sidebars scale with viewport */
-        --left-sidebar-width: clamp(160px, 12vw, 220px);
-        --right-sidebar-width: clamp(320px, 24vw, 440px);
-        --side-offset: clamp(8px, 1vw, 18px);
-    }
-}
-
-/* Fluid Typography - scales smoothly across all resolutions */
-.slogan-headline {
-    font-size: clamp(36px, 4.5vw, 68px) !important;
-    line-height: 1.1;
-}
-
-.slogan-support {
-    font-size: clamp(15px, 1.2vw, 18px) !important;
-}
-
-.slogan-btn-primary,
-.slogan-btn-secondary {
-    font-size: clamp(14px, 1vw, 16px);
-    padding: clamp(12px, 1vw, 16px) clamp(24px, 2vw, 36px);
-}
-
-/* Dynamic Flanking Images - scale with container */
-@media screen and (min-width: 1024px) {
-    .theme-image-left,
-    .theme-image-right {
-        /* Width scales between 400-544px based on viewport */
-        width: clamp(400px, 28vw, 544px);
-        /* Maintain aspect ratio */
-        height: clamp(225px, 15.8vw, 306px);
-    }
-    
-    .theme-image-left {
-        /* Scales from -380px at 1920px to -475px at 2560px+ */
-        left: clamp(-475px, -20vw, -380px);
-    }
-    
-    .theme-image-right {
-        right: clamp(-475px, -20vw, -380px);
-    }
-}
-
-/* Slogan wrapper scales naturally */
-.slogan-wrapper {
-    position: relative;
-    width: 100%;
-    max-width: clamp(1000px, 90vw, 1200px);
-    margin: clamp(20px, 3vw, 40px) auto 0;
-}
-
-.slogan-strip {
-    padding: clamp(20px, 2.5vw, 32px) clamp(24px, 3vw, 36px);
-}
-
-/* Logo scales with viewport */
-.logo-container {
-    height: clamp(80px, 10vw, 156px);
-}
-
-.logo-container img {
-    height: 100%;
-    width: auto;
-}
-
-/* Contact strip scales */
-.contact-strip {
-    font-size: clamp(13px, 1vw, 16px);
-    padding: clamp(10px, 1vw, 14px) 0;
-}
-
-/* Gear strip adapts dynamically */
-.gear-strip {
-    width: 100%;
-    max-width: calc(var(--video-width) + var(--carousel-width) + 22px);
-    gap: clamp(15px, 2vw, 25px);
-}
-
-.gear-strip img {
-    max-height: clamp(40px, 4vw, 60px);
-}
-
-/* Calculator scales naturally */
-.calculator-container {
-    padding: clamp(24px, 3vw, 40px) clamp(20px, 2.5vw, 36px);
-}
-
-/* Hero wrapper stays flexible */
-.hero-wrapper {
-    gap: clamp(16px, 1.5vw, 22px);
-}
-
-/* Sidebar positioning scales */
-.demo-sidebar,
-.rebates-sidebar,
-.smartqq-sidebar {
-    right: var(--side-offset);
-    width: var(--right-sidebar-width);
-    font-size: clamp(13px, 1vw, 16px);
-}
-
-/* Tablet and below: Switch to responsive single-column */
-@media screen and (max-width: 1023px) {
-    :root {
-        --content-width: 100%;
-    }
-    
-    /* Hide flanking images on smaller screens */
-    .theme-image-left,
-    .theme-image-right {
-        display: none;
-    }
-    
-    /* Hide sidebar tabs on mobile */
-    .sidebar-tab {
-        display: none;
-    }
-    
-    /* Sidebars become stacked blocks and always visible on mobile */
-    .sidebar-container {
-        position: relative;
-        width: 100%;
-        left: 0 !important;
-        right: 0 !important;
-        top: auto !important;
-        margin: 20px 0;
-    }
-    
-    .demo-sidebar,
-    .rebates-sidebar,
-    .smartqq-sidebar {
-        position: relative;
-        width: calc(100% - 24px);
-        max-width: 600px;
-        margin: 20px auto;
-        left: 0 !important;
-        right: 0 !important;
-        top: auto !important;
-        transform: scaleY(1) !important;
-        opacity: 1 !important;
-        pointer-events: auto !important;
-    }
-    
-    /* Hero stacks vertically */
-    .hero-wrapper {
-        flex-direction: column;
-    }
-    
-    .video-container,
-    .carousel-container {
-        width: 100%;
-        max-width: 640px;
-        margin: 0 auto;
-    }
-    
-    /* Full-width buttons */
-    .slogan-ctas {
-        flex-direction: column;
-        width: 100%;
-    }
-    
-    .slogan-btn-primary,
-    .slogan-btn-secondary {
-        width: 100%;
-    }
-    
-    /* Calculator goes full-width */
-    .calculator-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    /* Gear strip wraps */
-    .gear-strip {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-}
-
-/* ===================================
-   WEBP DETECTION SCRIPT
-   Add this to your HTML <head> section
-   =================================== */
 
     </style>
-    
-    <!-- WebP Detection Script -->
-    <script>
-    // Detect WebP support and add class to html element
-    (function() {
-        var webP = new Image();
-        webP.onload = webP.onerror = function() {
-            if (webP.height != 2) {
-                document.documentElement.classList.add('no-webp');
-            }
-        };
-        webP.src = 'data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoCAAIALmk0mk0iIiIiIgBoSygABc6WWgAA/veff/0PP8bA//LwYAAA';
-    })();
-    </script>
 </head>
 <body>
     
-    <!-- Diagonal Background - DISABLED (Using flanking images instead) 
+    <!-- Diagonal Background (Starts After Gear Strip) -->
+    <!-- Diagonal Background - Hidden to show solid gradient
     <div class="diagonal-background-wrapper">
         <div class="diagonal-background-container">
             <div class="diagonal-background-left bg-1-left active"></div>
@@ -3951,36 +2878,28 @@ body.theme-summer .theme-image-right .summer-right { display: block; }
     
     <!-- Sticky Phone Bar -->
     <div class="phone-bar">
-        <div style="display: flex; align-items: center; justify-content: center; max-width: 1800px; margin: 0 auto; padding: 0 40px; position: relative;">
-            <!-- Center: ALL Contact Methods -->
-            <div style="display: flex; align-items: center; gap: 20px;">
-                <a href="tel:1300786429" style="text-decoration: none;">📞 1300 786 429</a>
-                <div class="phone-bar-divider"></div>
-                <div style="display: flex; gap: 12px; align-items: center;">
-                    <a href="https://www.facebook.com/profile.php?id=61575325032792" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'">
-                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" fill="#f59b35"/>
-                        </svg>
-                    </a>
-                    <a href="https://www.instagram.com/suntechsolarsystems/" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'">
-                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" fill="#f59b35"/>
-                        </svg>
-                    </a>
-                </div>
-                <div class="phone-bar-divider"></div>
-                <a href="javascript:void(0)" onclick="openTallyForm()" style="display: flex; align-items: center; gap: 8px; text-decoration: none; cursor: pointer;">
-                    <span style="font-family: var(--font-display); font-size: 28px; color: var(--orange); letter-spacing: 1.5px; text-shadow: var(--glow-orange);">sales@suntechsolarsystems.com.au</span>
+        <div style="display: flex; align-items: center; justify-content: center; gap: 20px;">
+            <a href="tel:1300786429" style="text-decoration: none;">📞 1300 786 429</a>
+            <div class="phone-bar-divider"></div>
+            <div style="display: flex; gap: 12px; align-items: center;">
+                <a href="https://www.facebook.com/profile.php?id=61575325032792" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'">
                     <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" fill="#f59b35"/>
+                        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" fill="#f59b35"/>
+                    </svg>
+                </a>
+                <a href="https://www.instagram.com/suntechsolarsystems/" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" fill="#f59b35"/>
                     </svg>
                 </a>
             </div>
-            
-            <!-- Right: Light Theme BETA Button - Absolutely positioned so it doesn't fuck with layout -->
-            <button class="light-theme-beta-btn" onclick="toggleLightTheme()" style="position: absolute; right: 40px; top: 50%; transform: translateY(-50%);">
-                ☀️ Light Theme BETA
-            </button>
+            <div class="phone-bar-divider"></div>
+            <a href="javascript:void(0)" onclick="openTallyForm()" style="display: flex; align-items: center; gap: 8px; text-decoration: none; cursor: pointer;">
+                <span style="font-family: var(--font-display); font-size: 28px; color: var(--orange); letter-spacing: 1.5px; text-shadow: var(--glow-orange);">sales@suntechsolarsystems.com.au</span>
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" fill="#f59b35"/>
+                </svg>
+            </a>
         </div>
     </div>
     
@@ -4006,7 +2925,7 @@ body.theme-summer .theme-image-right .summer-right { display: block; }
         </div>
     </div>
     
-    <!-- Summer Solar Flash Banner - Top Left -->
+    <!-- Summer Solar Flash Banner - Positioned between Demo Themes and Fun Facts -->
     <div class="summer-flash-banner">
         <h3>🔥 SUMMER SOLAR FLASH</h3>
         <p>Exclusive summer packages with priority installs and fast ROI. Ends soon - secure your slot.</p>
@@ -4031,148 +2950,24 @@ body.theme-summer .theme-image-right .summer-right { display: block; }
     <!-- 3-Column Container Layout -->
     <div class="container">
         
-        <!-- REBUILT NESTED BARS - Clean horizontal layout then rotated -->
-        <div class="nested-bars-wrapper">
-        
-        <!-- Rebates Bar -->
-        <div class="sidebar-container">
-            <div class="sidebar-tab" onclick="toggleSidebar('rebates')">
-                <svg class="sidebar-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M6 9l6 6 6-6"/>
-                </svg>
-                <span class="sidebar-tab-text">REBATES</span>
-            </div>
-        </div>
-        
-        <!-- Smart Quick Quote Bar -->
-        <div class="sidebar-container">
-            <div class="sidebar-tab" onclick="toggleSidebar('smartqq')">
-                <svg class="sidebar-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M6 9l6 6 6-6"/>
-                </svg>
-                <span class="sidebar-tab-text">SMART QUICK QUOTE</span>
-            </div>
-        </div>
-        
-        <!-- Demo Themes Bar -->
-        <div class="sidebar-container">
-            <div class="sidebar-tab" onclick="toggleSidebar('demo')">
-                <svg class="sidebar-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M6 9l6 6 6-6"/>
-                </svg>
-                <span class="sidebar-tab-text">DEMO THEMES</span>
-            </div>
-        </div>
-        
-        </div>
-        <!-- End nested-bars-wrapper -->
-        
-        <!-- DYNAMIC SIDEBAR - Single container that changes content -->
-        <aside class="dynamic-sidebar collapsible-sidebar" id="dynamicSidebar">
-            <div id="sidebarContent"></div>
+        <!-- LEFT SIDEBAR - Demo Themes -->
+        <aside class="demo-sidebar">
+            <h3>DEMO THEMES</h3>
+            <ul>
+                <li><a onclick="switchTheme('trust')">Default</a></li>
+                <li><a onclick="switchTheme('young')">Young</a></li>
+                <li><a onclick="switchTheme('family')">Family</a></li>
+                <li><a onclick="switchTheme('mature')">Mature</a></li>
+                <li><a onclick="switchTheme('business')">Business</a></li>
+                <li><a onclick="switchTheme('ev')">EV Owners</a></li>
+                <li><a onclick="switchTheme('battery')">Battery Upgrade</a></li>
+                <li><a onclick="switchTheme('rural')">Rural & Regional</a></li>
+                <li><a onclick="switchTheme('summer')">Summer Sale</a></li>
+            </ul>
         </aside>
         
         <!-- CENTER CONTENT -->
         <main class="content">
-            
-            <!-- Slogan Wrapper for automatic centering -->
-            <div class="slogan-wrapper">
-                <!-- Flanking Theme Images -->
-                <div class="theme-image-left active">
-                <!-- Trust theme images -->
-                <picture>
-                    <source srcset="assets/backgrounds/trust-left.webp" type="image/webp">
-                    <img src="assets/backgrounds/trust-left.jpg" alt="Trust theme left" class="trust-left">
-                </picture>
-                <!-- Young theme images -->
-                <picture>
-                    <source srcset="assets/backgrounds/young-left.webp" type="image/webp">
-                    <img src="assets/backgrounds/young-left.jpg" alt="Young theme left" class="young-left">
-                </picture>
-                <!-- Family theme images -->
-                <picture>
-                    <source srcset="assets/backgrounds/family-left.webp" type="image/webp">
-                    <img src="assets/backgrounds/family-left.jpg" alt="Family theme left" class="family-left">
-                </picture>
-                <!-- Mature theme images -->
-                <picture>
-                    <source srcset="assets/backgrounds/mature-left.webp" type="image/webp">
-                    <img src="assets/backgrounds/mature-left.jpg" alt="Mature theme left" class="mature-left">
-                </picture>
-                <!-- Business theme images -->
-                <picture>
-                    <source srcset="assets/backgrounds/business-left.webp" type="image/webp">
-                    <img src="assets/backgrounds/business-left.jpg" alt="Business theme left" class="business-left">
-                </picture>
-                <!-- EV theme images -->
-                <picture>
-                    <source srcset="assets/backgrounds/EV-LEFT.webp" type="image/webp">
-                    <img src="assets/backgrounds/EV-LEFT.jpg" alt="EV theme left" class="ev-left">
-                </picture>
-                <!-- Battery theme images -->
-                <picture>
-                    <source srcset="assets/backgrounds/battery-left.webp" type="image/webp">
-                    <img src="assets/backgrounds/battery-left.jpg" alt="Battery theme left" class="battery-left">
-                </picture>
-                <!-- Rural theme images -->
-                <picture>
-                    <source srcset="assets/backgrounds/rural-left.webp" type="image/webp">
-                    <img src="assets/backgrounds/rural-left.jpg" alt="Rural theme left" class="rural-left">
-                </picture>
-                <!-- Summer theme images -->
-                <picture>
-                    <source srcset="assets/backgrounds/summer-left.webp" type="image/webp">
-                    <img src="assets/backgrounds/summer-left.jpg" alt="Summer theme left" class="summer-left">
-                </picture>
-            </div>
-            
-            <div class="theme-image-right active">
-                <!-- Trust theme images -->
-                <picture>
-                    <source srcset="assets/backgrounds/trust-right.webp" type="image/webp">
-                    <img src="assets/backgrounds/trust-right.jpg" alt="Trust theme right" class="trust-right">
-                </picture>
-                <!-- Young theme images -->
-                <picture>
-                    <source srcset="assets/backgrounds/young-right.webp" type="image/webp">
-                    <img src="assets/backgrounds/young-right.jpg" alt="Young theme right" class="young-right">
-                </picture>
-                <!-- Family theme images -->
-                <picture>
-                    <source srcset="assets/backgrounds/family-right.webp" type="image/webp">
-                    <img src="assets/backgrounds/family-right.jpg" alt="Family theme right" class="family-right">
-                </picture>
-                <!-- Mature theme images -->
-                <picture>
-                    <source srcset="assets/backgrounds/mature-right.webp" type="image/webp">
-                    <img src="assets/backgrounds/mature-right.jpg" alt="Mature theme right" class="mature-right">
-                </picture>
-                <!-- Business theme images -->
-                <picture>
-                    <source srcset="assets/backgrounds/business-right.webp" type="image/webp">
-                    <img src="assets/backgrounds/business-right.jpg" alt="Business theme right" class="business-right">
-                </picture>
-                <!-- EV theme images -->
-                <picture>
-                    <source srcset="assets/backgrounds/EV-right.webp" type="image/webp">
-                    <img src="assets/backgrounds/EV-right.jpg" alt="EV theme right" class="ev-right">
-                </picture>
-                <!-- Battery theme images -->
-                <picture>
-                    <source srcset="assets/backgrounds/battery-right.webp" type="image/webp">
-                    <img src="assets/backgrounds/battery-right.jpg" alt="Battery theme right" class="battery-right">
-                </picture>
-                <!-- Rural theme images -->
-                <picture>
-                    <source srcset="assets/backgrounds/rural-right.webp" type="image/webp">
-                    <img src="assets/backgrounds/rural-right.jpg" alt="Rural theme right" class="rural-right">
-                </picture>
-                <!-- Summer theme images -->
-                <picture>
-                    <source srcset="assets/backgrounds/summer-right.webp" type="image/webp">
-                    <img src="assets/backgrounds/summer-right.jpg" alt="Summer theme right" class="summer-right">
-                </picture>
-            </div>
             
             <!-- Slogan Strip -->
             <section class="slogan-strip" id="sloganContainer">
@@ -4190,7 +2985,6 @@ body.theme-summer .theme-image-right .summer-right { display: block; }
                     our graphic designer had a meltdown on this corner... but hey, at least your energy bills won't
                 </div>
             </section>
-            </div><!-- End slogan-wrapper -->
             
             <!-- Hero: Video + Carousel -->
             <section class="hero-wrapper section">
@@ -4614,8 +3408,39 @@ body.theme-summer .theme-image-right .summer-right { display: block; }
             
         </main>
         
-
-        </div>
+        <!-- RIGHT SIDEBAR - Rebates, FOMO, Smart QQ -->
+        <aside class="rebates-sidebar">
+            
+            <section class="rebates-info">
+                <h3>REBATES INFO</h3>
+                <ul style="list-style: none; padding: 0; font-family: var(--font-body); font-size: 14px; line-height: 2;">
+                    <li><a href="javascript:void(0)" onclick="openSlidePanel('veu-rebate.html', 'VEU Program')" style="color: var(--text-muted); text-decoration: none; cursor: pointer;"><span class="electric-strikethrough">VEU Program</span><span class="coming-soon-badge">COMING SOON</span></a></li>
+                    <li><a href="javascript:void(0)" onclick="openSlidePanel('stc-rebate.html', 'Federal STCs')" style="color: var(--text-muted); text-decoration: none; cursor: pointer;">STCs Federal</a></li>
+                    <li><a href="javascript:void(0)" onclick="openSlidePanel('solar-homes.html', 'VIC Solar Homes')" style="color: var(--text-muted); text-decoration: none; cursor: pointer;">VIC Solar Homes</a></li>
+                    <li><a href="#calculator" style="color: var(--text-muted); text-decoration: none;">Battery Rebate $4,400</a></li>
+                </ul>
+            </section>
+            
+            <hr style="margin: 24px 0; border: none; border-top: 1px solid rgba(255, 255, 255, 0.1);">
+            
+            <section class="smart-qq">
+                <h3 style="font-family: var(--font-display); font-size: 18px; color: var(--cyan); margin-bottom: 12px; letter-spacing: 1px;">SMART QUICK QUOTE</h3>
+                <p style="font-family: var(--font-body); font-size: 14px; color: var(--text-muted); margin-bottom: 12px;">
+                    Choose your system:
+                </p>
+                <div class="qq-options">
+                    <button onclick="selectPackage('panels')">New Panels (6.6kW)</button>
+                    <button onclick="selectPackage('battery')">Battery Only (10kWh)</button>
+                    <button onclick="selectPackage('combo')">Panels + Battery</button>
+                </div>
+                <div id="qqOutput" class="qq-output">
+                    <p style="font-family: var(--font-ui); font-size: 13px; color: var(--text-muted); text-align: center;">
+                        Select a package above
+                    </p>
+                </div>
+            </section>
+            
+        </aside>
         
     </div>
     
@@ -5532,141 +4357,9 @@ document.addEventListener('keydown', function(e) {
     }
 });
 
-// ===================================
-// COLLAPSIBLE SIDEBAR TOGGLE SYSTEM
-// ===================================
-
-let currentSidebarType = null;
-
-// Content templates for each sidebar type
-const sidebarContent = {
-    'rebates': `
-        <section class="rebates-info">
-            <h3>REBATES INFO</h3>
-            <ul style="list-style: none; padding: 0; font-family: var(--font-body); font-size: 14px; line-height: 2;">
-                <li><a href="javascript:void(0)" onclick="openSlidePanel('veu-rebate.html', 'VEU Program')" style="color: var(--text-muted); text-decoration: none; cursor: pointer;"><span class="electric-strikethrough">VEU Program</span><span class="coming-soon-badge">COMING SOON</span></a></li>
-                <li><a href="javascript:void(0)" onclick="openSlidePanel('stc-rebate.html', 'Federal STCs')" style="color: var(--text-muted); text-decoration: none; cursor: pointer;">STCs Federal</a></li>
-                <li><a href="javascript:void(0)" onclick="openSlidePanel('solar-homes.html', 'VIC Solar Homes')" style="color: var(--text-muted); text-decoration: none; cursor: pointer;">VIC Solar Homes</a></li>
-                <li><a href="#calculator" style="color: var(--text-muted); text-decoration: none;">Battery Rebate $4,400</a></li>
-            </ul>
-        </section>
-    `,
-    'smartqq': `
-        <section class="smart-qq">
-            <h3 style="font-family: var(--font-display); font-size: 18px; color: var(--cyan); margin-bottom: 12px; letter-spacing: 1px;">SMART QUICK QUOTE</h3>
-            <p style="font-family: var(--font-body); font-size: 14px; color: var(--text-muted); margin-bottom: 12px;">
-                Choose your system:
-            </p>
-            <div class="qq-options">
-                <button onclick="selectPackage('panels')">New Panels (6.6kW)</button>
-                <button onclick="selectPackage('battery')">Battery Only (10kWh)</button>
-                <button onclick="selectPackage('combo')">Panels + Battery</button>
-            </div>
-            <div id="qqOutput" class="qq-output">
-                <p style="font-family: var(--font-ui); font-size: 13px; color: var(--text-muted); text-align: center;">
-                    Select a package above
-                </p>
-            </div>
-        </section>
-    `,
-    'demo': `
-        <h3>DEMO THEMES</h3>
-        <ul>
-            <li><a onclick="switchTheme('trust')">Default</a></li>
-            <li><a onclick="switchTheme('young')">Young</a></li>
-            <li><a onclick="switchTheme('family')">Family</a></li>
-            <li><a onclick="switchTheme('mature')">Mature</a></li>
-            <li><a onclick="switchTheme('business')">Business</a></li>
-            <li><a onclick="switchTheme('ev')">EV Owners</a></li>
-            <li><a onclick="switchTheme('battery')">Battery Upgrade</a></li>
-            <li><a onclick="switchTheme('rural')">Rural & Regional</a></li>
-            <li><a onclick="switchTheme('summer')">Summer Sale</a></li>
-        </ul>
-    `
-};
-
-function toggleSidebar(sidebarType) {
-    const sidebar = document.getElementById('dynamicSidebar');
-    const contentContainer = document.getElementById('sidebarContent');
-    const allTabs = document.querySelectorAll('.sidebar-tab');
-    const clickedTab = event.currentTarget;
-    
-    if (!sidebar || !contentContainer) return;
-    
-    // If clicking the same tab that's already open, close it
-    if (currentSidebarType === sidebarType && sidebar.classList.contains('open')) {
-        sidebar.classList.remove('open');
-        allTabs.forEach(tab => tab.classList.remove('active'));
-        currentSidebarType = null;
-    } else {
-        // Load new content and open sidebar
-        contentContainer.innerHTML = sidebarContent[sidebarType];
-        sidebar.classList.add('open');
-        
-        // Update active states
-        allTabs.forEach(tab => tab.classList.remove('active'));
-        clickedTab.classList.add('active');
-        
-        currentSidebarType = sidebarType;
-    }
-}
-
 // Make functions globally available
 window.openSlidePanel = openSlidePanel;
 window.closeSlidePanel = closeSlidePanel;
-window.toggleSidebar = toggleSidebar;
-
-// ===================================
-// LIGHT THEME TOGGLE FOR A/B TESTING
-// 18 Total Themes: 9 Demographics × 2 Color Modes
-// ===================================
-
-function toggleLightTheme() {
-    document.body.classList.toggle('light-theme');
-    
-    // Save preference to localStorage
-    const isLightTheme = document.body.classList.contains('light-theme');
-    try {
-        localStorage.setItem('lightTheme', isLightTheme ? 'true' : 'false');
-    } catch (e) {
-        console.log('Could not save theme preference');
-    }
-    
-    // Update button text
-    const btn = document.querySelector('.light-theme-beta-btn');
-    if (btn) {
-        btn.innerHTML = isLightTheme ? '🌙 Dark Theme' : '☀️ Light Theme BETA';
-    }
-    
-    // Get current demographic theme
-    const currentTheme = document.body.className.match(/theme-(\w+)/);
-    const themeName = currentTheme ? currentTheme[1] : 'trust';
-    
-    console.log(`✨ THEME SYSTEM ACTIVATED ✨`);
-    console.log(`📊 Demographic: ${themeName.toUpperCase()}`);
-    console.log(`🎨 Color Mode: ${isLightTheme ? 'LIGHT' : 'DARK'}`);
-    console.log(`🔢 Total Combinations: 18 (9 themes × 2 modes)`);
-    console.log(`💡 Current: ${themeName}-${isLightTheme ? 'light' : 'dark'}`);
-}
-
-// Load saved theme preference on page load
-document.addEventListener('DOMContentLoaded', function() {
-    try {
-        const savedTheme = localStorage.getItem('lightTheme');
-        if (savedTheme === 'true') {
-            document.body.classList.add('light-theme');
-            const btn = document.querySelector('.light-theme-beta-btn');
-            if (btn) {
-                btn.innerHTML = '🌙 Dark Theme';
-            }
-            console.log('💾 Restored user preference: LIGHT mode');
-        }
-    } catch (e) {
-        console.log('Could not load theme preference');
-    }
-});
-
-window.toggleLightTheme = toggleLightTheme;
 
 </script>
 </body>
